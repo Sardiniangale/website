@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page</title>
+    <title>Projects</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -21,16 +21,12 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
         }
-        img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
-        .nav {
-            margin-top: 20px;
-        }
-        .nav a {
-            display: block;
+        .project {
             padding: 15px;
             margin: 10px;
             background: linear-gradient(45deg, #ff8c00, #ff2e63);
@@ -38,28 +34,23 @@
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
+            display: block;
             transition: 0.3s ease;
         }
-        .nav a:hover {
+        .project:hover {
             background: linear-gradient(45deg, #ff2e63, #ff8c00);
             transform: scale(1.05);
-        }
-        h1 {
-            font-size: 2.5em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to the main page :)</h1>
-        <img src="pexels-photo-1040414.jpeg" alt="Featured Image">
-        <div class="nav">
-            <a href="https://kiwifisics.online" target="_blank">EDU Page</a>
-            <a href="projects.html">Projects</a>
-            <a href="contact.html">Contact</a>
-        </div>
+        <h1>Personal projects :)</h1>
+        <a href="notes.html" class="project">Writing all my notes in Latex on a website - In Progress</a>
+        <a href="vect.html" class="project">Vector Calculator - Completed</a>
+        <a href="kern.html" class="project">Kernal with a rollback functions - Planned</a>
+	<a href="drone.html" class="project">Fixed wing drone - Planned</a>
+        <a href="index.html" class="project" style="background: #444;">Back to Main Page</a>
     </div>
 </body>
 </html>
