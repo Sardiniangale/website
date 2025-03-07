@@ -1,0 +1,264 @@
+%% LyX 2.4.3 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[american]{article}
+\usepackage[LGR,T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage{esint}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\DeclareRobustCommand{\greektext}{%
+  \fontencoding{LGR}\selectfont\def\encodingdefault{LGR}}
+\DeclareRobustCommand{\textgreek}[1]{\leavevmode{\greektext #1}}
+
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{Analisi 1}
+\date{05/03/2025}
+\author{Giacomo}
+\maketitle
+
+\part*{Pre-Derivatives}
+
+\section*{Theorems, functions and axioms}
+
+``Calvin: You know, I don’t think math is a science, I think it’s
+a religion.
+
+Hobbes: A religion?
+
+Calvin: Yeah. All these equations are like miracles. You take two
+numbers and when you add them, they magically become one NEW number!
+No one can say how it happens. You either believe it or you don’t.
+{[}Pointing at his math book{]} This whole book is full of things
+that have to be accepted on faith! It’s a religion!''
+
+\section*{Imaginary numbers}
+
+\section*{Sums and Sequences}
+
+\section*{Series}
+
+\part*{Post-Derivatives}
+
+\section*{Derivatives}
+
+\textquotedbl It's dangerous to go alone! Take this.\textquotedbl{}
+
+--- The Legend of Zelda
+
+\section*{Integrals}
+
+\textquotedbl I calculate the odds of this succeeding... never tell
+me the odds!\textquotedbl{}
+
+--- Han
+
+\paragraph*{Reiman Integral}
+
+\subsubsection*{Fundamental theorem of calculus}
+
+\subsubsection*{Methods for integration}
+
+Substitution. if $u=f(x)$, then $du=g'(x)dx$
+
+\begin{equation}
+\int f(g(x))g'(x)dx=\int f(u)du
+\end{equation}
+ Integration by parts
+
+\begin{equation}
+\int udv=uv-\int vdu
+\end{equation}
+ Lebiz rule for differentiation. If f(t) is continuous and g(x) is
+differentiable
+\[
+f(x)=\int_{a}^{g(x)}f(t)dt
+\]
+
+If this is true, then:
+
+\begin{equation}
+F(x)'=f\left(g(x)\right)\cdot g'(x)
+\end{equation}
+
+If both the limits are dependent on x:
+
+\[
+I(x)=\int_{g_{1}(x)}^{g_{2}(x)}f(t)dt
+\]
+
+then:
+
+\begin{equation}
+I'(x)=f\left(g_{2}(x)\right)g_{2}'(x)-f\left(g_{1}(x)\right)g_{1}'(x)
+\end{equation}
+ Limit under a derviative 
+
+\section*{Differential Equations}
+
+\textquotedbl Would you tell me, please, which way I ought to go
+from here?\textquotedbl{}
+
+\textquotedbl That depends a good deal on where you want to get to,\textquotedbl{}
+said the Cat.
+
+\subsubsection*{ODEs and PDEs}
+
+Ordinary Differential Equations (ODEs) are a differential equation
+which has a single variable. ODEs have a general form:
+
+\begin{equation}
+F\left(x,y,\frac{dy}{dx},\frac{d^{2}y}{dx^{2}},...,\frac{d^{n}y}{dx^{n}}\right)=0
+\end{equation}
+
+where 
+
+- x independent
+
+- y dependent
+
+Partial Differential Equations (PDEs) are a Differential equation
+which has multiple independent variables. Instead of using the standard
+d, they use partial derivatives (\ensuremath{\partial}) to show the
+change with respect for multiple variables. The general form is:
+
+\begin{equation}
+F\left(x,y,u,\frac{\partial u}{\partial x},\frac{\partial u}{\partial y},\frac{\partial^{2}u}{\partial x^{2}},....\right)=0
+\end{equation}
+
+where
+
+- x,y independent
+
+- u(x,y) dependent
+
+Fundamentally image a ODE as a means to track a single car, while
+PDE track all the traffic in the city.
+
+\subsubsection*{Types of ODEs}
+
+ODEs are usually classified by 2 primary things. their order, aka
+the degree of their derivative, and by whether they are linear or
+non-linear. 
+
+First order ODEs are pretty self explanatory, they involve only the
+1st derivative. Here is a basic first order ODE:
+
+\begin{equation}
+\frac{dy}{dx}+y=x
+\end{equation}
+
+Second order ODEs involve UP to the 2nd derivative. Here is a example:
+
+\begin{equation}
+\frac{d^{2}y}{dx^{2}}+2\frac{dy}{dx}+y=0
+\end{equation}
+
+Higher order ODEs involve everything 3rd derivative or higher. It
+is unlikely to ever appear in a 1st year analisis exam, but you never
+know. 
+
+Liniar and Non-liniear ODEs. An ODE is linear if the dependent variable
+and the derivatives are in a linear form. Basically: they are not
+multiplied together. Anything else is considered non-liniear. A linear
+ODE can be written in the form: 
+
+\begin{equation}
+a_{n}(x)\frac{d^{n}y}{dx^{n}}+a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+...+a_{1}(x)\frac{dy}{dx}+a_{0}(x)y=f(x)
+\end{equation}
+
+- a(x) is a function of x
+
+Here are some basic examples. We will go in much more detail when
+solving ODEs.
+
+$\frac{dy}{dx}+3y=x$, and $\frac{d^{2}y}{dx^{2}}+x\frac{dy}{dx}+y=sinx$
+
+(NON-LINIAR) To be added
+
+\subsubsection*{The weird classifications of ODEs}
+
+A Homogeneous ODE, is a differential equation where L is a linear
+differential operator.
+
+\[
+L[y]=0
+\]
+ A Non-Homogeneous ODE, is a differential equation where f(x) \ensuremath{\neq}
+0
+
+\[
+L[y]=f(x)
+\]
+ A Autonomous ODE, is a differential equation where the independent
+variable (usually x or t) does not appear in the equation. 
+
+\[
+\frac{d^{n}y}{dx^{n}}=F\left(y,y',...,y^{(n-1)}\right)
+\]
+A Non-Autonomous ODE, is a differential equation if the independent
+variable appears eq (1).
+
+{*}You can be multiple classifications at once, use your head.
+
+\subsubsection*{Dealing and solving ODEs }
+
+A separable ODE can be written as 
+
+\[
+\frac{dy}{dx}=f(x)g(y)
+\]
+
+\[
+\frac{dy}{g(y)}=f(x)dx
+\]
+ 
+\[
+\int\frac{dy}{g(y)}=\int f(x)dx
+\]
+ Integrating Method
+
+\[
+\frac{dy}{dx}+P(x)y=Q(x)
+\]
+ 
+\[
+\mu(x)=e^{\int P(x)dx}
+\]
+
+\[
+\frac{d}{dx}(\mu(x)y)=\mu(x)Q(x)
+\]
+
+\[
+y=\frac{1}{\mu(x)}\int\mu(x)Q(x)dx+C
+\]
+ Quick note on integrating factor.
+
+A integrating factor is the method used to solve derivative equation
+above. The \textgreek{μ}(x) also called the integrating factor, works
+for any, first-order linear differential equations. A function is
+derived by multiplying the equation with \textgreek{μ}(x), which makes
+the left-hand side a derivative of \textgreek{μ}(x)y
+
+\paragraph*{Second Order Equations}
+
+Homogeneous Equations with Constant Coefficients
+\[
+N0t
+\]
+ Nonhomogeneous Equations: Method of Undetermined Coefficients
+\[
+Finished
+\]
+
+
+\subsection*{Special theorems and Problems}
+
+\subsubsection*{Cauchy's Problem}
+\end{document}
