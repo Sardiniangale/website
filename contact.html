@@ -4,19 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
-<link rel="icon" type="image/x-icon" href="icon.ico">
+    <link rel="icon" type="image/x-icon" href="icon.ico">
     <style>
-      body {
+        body {
             font-family: 'Arial', sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
-            color: #f8f9fa;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
             background: url('v8ikuxdfo92z.png') no-repeat center center fixed;
             background-size: cover;
             color: #f8f9fa;
@@ -29,6 +26,7 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             overflow: hidden;
+            position: relative; /* For absolute positioning of back button */
         }
         .image-section {
             flex: 1;
@@ -59,20 +57,32 @@
         .contact-info a:hover {
             color: #ff2e63;
         }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: #ff8c00;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .back-button:hover {
+            background: #ff2e63;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <a href="index.html" class="back-button">Go back</a>
         <div class="image-section"></div>
         <div class="contact-section">
             <h1>Contact Me</h1>
             <div class="contact-info">
-                <p><strong>Email:</strong> <a href="info@sardiniangale.org">info@sardiniangale.org</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@sardiniangale.org">info@sardiniangale.org</a></p>
                 <p><strong>Location:</strong> Pisa, Italy</p>
             </div>
-</div>
-        <a href="index.html" class="back-button">Go back</a>
-    </div>
         </div>
     </div>
 </body>

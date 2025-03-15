@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
-<link rel="icon" type="image/x-icon" href="icon.ico">
+    <link rel="icon" type="image/x-icon" href="icon.ico">
     <style>
-       body {
+        body {
             font-family: 'Arial', sans-serif;
             text-align: center;
             margin: 0;
@@ -38,21 +38,122 @@
             font-weight: bold;
             display: block;
             transition: 0.3s ease;
+            cursor: pointer;
         }
         .project:hover {
             background: linear-gradient(45deg, #ff2e63, #ff8c00);
             transform: scale(1.05);
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+        .modal-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: left;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .modal-content.active {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        .status {
+            color: #ff8c00;
+            font-weight: bold;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Personal projects :)</h1>
-        <a href="notes.html" class="project">Writing all my notes in Latex on a website - In Progress</a>
-        <a href="vect.html" class="project">Vector Calculator - Completed</a>
-        <a href="kern.html" class="project">Kernal with a rollback functions - Planned</a>
-	<a href="drone.html" class="project">Fixed wing drone - Planned</a>
+        <div class="project" onclick="showModal(event, 'Latex Notes', 'Creating a basic website with all my notes written in LaTeX because my handwriting is dodo.', 'In Progress')">
+            Writing all my notes in Latex on a website
+        </div>
+        <div class="project" onclick="showModal(event, 'Vector Calculator', 'A python based vector calculator. Supports basic vector operations and coordinate transformations. I may wrewrite it in C++ for better optimization becuase its very unoptimized right now', 'Completed')">
+            Vector Calculator
+        </div>
+        <div class="project" onclick="showModal(event, 'Kernel Development', 'Low-level kernel development project with rollback functionality for system recovery and version control at the kernel level. It is still in the very early stages of planning', 'Planned')">
+            Kernel with rollback functions 
+             </div>
+        <div class="project" onclick="showModal(event, 'Fixed Wing Drone', 'This project has been abandoned/canceled to to insufficient funds and about 2 trillion regulations .', 'Canceled ')">
+            Fixed wing drone
+        </div>
         <a href="index.html" class="project" style="background: #444;">Back to Main Page</a>
     </div>
+
+    <!-- Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content" id="modalContent">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div class="status" id="modalStatus"></div>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        function showModal(event, title, description, status) {
+            const button = event.target;
+            const rect = button.getBoundingClientRect();
+            
+            // Calculate button center position
+            const buttonCenterX = rect.left + rect.width/2;
+            const buttonCenterY = rect.top + rect.height/2;
+
+            // Set transform origin to button's center
+            const modalContent = document.getElementById('modalContent');
+            modalContent.style.transformOrigin = `${buttonCenterX}px ${buttonCenterY}px`;
+
+            // Set modal content
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('modalStatus').textContent = `Status: ${status}`;
+
+            // Show modal with animation
+            document.getElementById('projectModal').style.display = 'block';
+            setTimeout(() => {
+                modalContent.classList.add('active');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modalContent = document.getElementById('modalContent');
+            modalContent.classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('projectModal').style.display = 'none';
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
