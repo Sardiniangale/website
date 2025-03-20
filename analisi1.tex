@@ -2,12 +2,17 @@
 %% Do not edit unless you really know what you are doing.
 \documentclass[american]{article}
 \usepackage[LGR,T1]{fontenc}
-\usepackage[utf8]{luainputenc}
-\usepackage{esint}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
 
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+
+\newcommand*\LyXbar{\rule[0.585ex]{1.2em}{0.25pt}}
 \DeclareRobustCommand{\greektext}{%
   \fontencoding{LGR}\selectfont\def\encodingdefault{LGR}}
 \DeclareRobustCommand{\textgreek}[1]{\leavevmode{\greektext #1}}
@@ -18,7 +23,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Analisi 1}
-\date{05/03/2025}
+\date{March 20, 2025}
 \author{Giacomo}
 \maketitle
 
@@ -37,7 +42,50 @@ No one can say how it happens. You either believe it or you don’t.
 {[}Pointing at his math book{]} This whole book is full of things
 that have to be accepted on faith! It’s a religion!''
 
-\section*{Imaginary numbers}
+\section*{Complex numbers}
+
+A complex number is defined, by $x,y\in\mathbb{R}$ and i as the imaginary
+unit.
+
+\begin{equation}
+z=x+iy
+\end{equation}
+ Imagine $\mathbb{R}$ covering the whole x axis, and $\mathbb{C}$
+covering the whole y axis, that's the complex plane.
+
+\subsubsection*{Operations}
+
+Addition
+
+\begin{equation}
+z_{1}+z_{2}=(x_{1}+x_{2})+i(y_{1}+y_{2})
+\end{equation}
+ Subtraction
+
+\begin{equation}
+z_{1}-z_{2}=(x_{1}-x_{2})+i(y_{1}-y_{2})
+\end{equation}
+ Multiplication
+
+\begin{equation}
+z_{1}z_{2}=(x_{1}+iy_{1})(x_{2}+iy_{2})=(x_{1}x_{2}-y_{1}y_{2})+i(x_{1}y_{2}+x_{2}y_{1})
+\end{equation}
+ Complex Conjugate
+
+\begin{equation}
+\bar{z}=x-iy
+\end{equation}
+ Modulus
+
+\begin{equation}
+|z|=\sqrt{x^{2}+y^{2}}
+\end{equation}
+ Inverse
+
+\begin{equation}
+z^{-1}=\frac{\bar{z}}{|z|^{2}}=\frac{x-iy}{x^{2}+y^{2}}
+\end{equation}
+
 
 \section*{Sums and Sequences}
 
@@ -47,35 +95,64 @@ that have to be accepted on faith! It’s a religion!''
 
 \section*{Derivatives}
 
-\textquotedbl It's dangerous to go alone! Take this.\textquotedbl{}
-
---- The Legend of Zelda
-
 \section*{Integrals}
 
-\textquotedbl I calculate the odds of this succeeding... never tell
-me the odds!\textquotedbl{}
+“If you're gonna shoot an elephant Mr. Schneider, you better be prepared
+to finish the job.”
 
---- Han
+\LyXbar{} Gary Larson, The Far Side 
 
-\paragraph*{Reiman Integral}
+\subsubsection*{Riemann Integral}
+
+A Riemann integral is the the limit $f:[a,b]\rightarrow\mathbb{R}$
+of all the Riemann sums between the points a and b. Defined as:
+
+\[
+\int_{a}^{b}f(x)dx=lim_{||P||\rightarrow0}\sum_{i=1}^{n}f(c_{i})\Delta x_{i}
+\]
+ Where:
+
+n is the sub-intervals
+
+$\Delta x_{i}$is the width of the i sub-interval
+
+$c_{i}$is a sample point
+
+{*}this exact definition will likely never be used in 
+
+\paragraph*{Properties,}
+
+\begin{gather*}
+    \text{Linearity:} \quad \int_a^b \left( \alpha f(x) + \beta g(x) \right) dx = \alpha \int_a^b f(x) \, dx + \beta \int_a^b g(x) \, dx \\
+    \text{Additivity:} \quad \int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx \quad \text{for } c \in (a, b) \\
+    \text{Monotonicity:} \quad f(x) \leq g(x) \ \forall x \in [a, b] \implies \int_a^b f(x) \, dx \leq \int_a^b g(x) \, dx \\
+    \text{Bounds:} \quad m(b - a) \leq \int_a^b f(x) \, dx \leq M(b - a) \quad \text{where } m = \inf_{[a,b]} f,\ M = \sup_{[a,b]} f \\
+    \text{Integrability:} \quad f \text{ is Riemann integrable } \iff f \text{ bounded } \land \ f \text{ continuous a.e. on } [a, b] \\
+    \text{Fundamental Theorem:} \quad F' = f \implies \int_a^b f(x) \, dx = F(b) - F(a)
+\end{gather*}
 
 \subsubsection*{Fundamental theorem of calculus}
 
 \subsubsection*{Methods for integration}
 
-Substitution. if $u=f(x)$, then $du=g'(x)dx$
+\paragraph{Substitution,}
+
+if $u=f(x)$, then $du=g'(x)dx$
 
 \begin{equation}
 \int f(g(x))g'(x)dx=\int f(u)du
 \end{equation}
- Integration by parts
 
+
+\paragraph{Integration by parts}
+
+\paragraph{
 \begin{equation}
-\int udv=uv-\int vdu
+\protect\int udv=uv-\protect\int vdu
 \end{equation}
- Lebiz rule for differentiation. If f(t) is continuous and g(x) is
-differentiable
+Lebiz rule for differentiation.}
+
+If f(t) is continuous and g(x) is differentiable
 \[
 f(x)=\int_{a}^{g(x)}f(t)dt
 \]
@@ -97,7 +174,9 @@ then:
 \begin{equation}
 I'(x)=f\left(g_{2}(x)\right)g_{2}'(x)-f\left(g_{1}(x)\right)g_{1}'(x)
 \end{equation}
- Limit under a derviative 
+
+
+\paragraph{Limit under a derviative}
 
 \section*{Differential Equations}
 
@@ -146,27 +225,34 @@ ODEs are usually classified by 2 primary things. their order, aka
 the degree of their derivative, and by whether they are linear or
 non-linear. 
 
-First order ODEs are pretty self explanatory, they involve only the
-1st derivative. Here is a basic first order ODE:
+\paragraph*{First order ODEs}
 
+are pretty self explanatory, they involve only the 1st derivative.
+Here is a basic first order ODE:
+
+\paragraph*{
 \begin{equation}
 \frac{dy}{dx}+y=x
 \end{equation}
+Second order ODEs}
 
-Second order ODEs involve UP to the 2nd derivative. Here is a example:
+involve UP to the 2nd derivative. Here is a example:
 
+\paragraph*{
 \begin{equation}
 \frac{d^{2}y}{dx^{2}}+2\frac{dy}{dx}+y=0
 \end{equation}
+Higher order ODEs}
 
-Higher order ODEs involve everything 3rd derivative or higher. It
-is unlikely to ever appear in a 1st year analisis exam, but you never
-know. 
+involve everything 3rd derivative or higher. It is unlikely to ever
+appear in a 1st year analisis exam, but you never know. 
 
-Liniar and Non-liniear ODEs. An ODE is linear if the dependent variable
-and the derivatives are in a linear form. Basically: they are not
-multiplied together. Anything else is considered non-liniear. A linear
-ODE can be written in the form: 
+\paragraph*{Liniar and Non-liniear ODEs.}
+
+An ODE is linear if the dependent variable and the derivatives are
+in a linear form. Basically: they are not multiplied together. Anything
+else is considered non-liniear. A linear ODE can be written in the
+form:
 
 \begin{equation}
 a_{n}(x)\frac{d^{n}y}{dx^{n}}+a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+...+a_{1}(x)\frac{dy}{dx}+a_{0}(x)y=f(x)
@@ -179,84 +265,241 @@ solving ODEs.
 
 $\frac{dy}{dx}+3y=x$, and $\frac{d^{2}y}{dx^{2}}+x\frac{dy}{dx}+y=sinx$
 
-(NON-LINIAR) To be added
+\[
+Ineedtolearnbetterformating:)
+\]
+ A non-linear ODE is any ordinary differential equation that cannot
+be written in the linear form shown earlier. This is because the dependent
+variable or its derivatives are not linear. I will cover this more
+later on in the chapter.
 
 \subsubsection*{The weird classifications of ODEs}
 
-A Homogeneous ODE, is a differential equation where L is a linear
-differential operator.
+\paragraph{A Homogeneous ODE,}
 
+is a differential equation where L is a linear differential operator.
+
+\paragraph{
 \[
 L[y]=0
 \]
- A Non-Homogeneous ODE, is a differential equation where f(x) \ensuremath{\neq}
-0
+ A Non-Homogeneous ODE,}
 
+is a differential equation where f(x) \ensuremath{\neq} 0
+
+\paragraph{
 \[
 L[y]=f(x)
 \]
- A Autonomous ODE, is a differential equation where the independent
-variable (usually x or t) does not appear in the equation. 
+ A Autonomous ODE,}
 
+is a differential equation where the independent variable (usually
+x or t) does not appear in the equation.
+
+\paragraph*{
 \[
 \frac{d^{n}y}{dx^{n}}=F\left(y,y',...,y^{(n-1)}\right)
 \]
-A Non-Autonomous ODE, is a differential equation if the independent
-variable appears eq (1).
+A Non-Autonomous ODE,}
 
-{*}You can be multiple classifications at once, use your head.
+is a differential equation if the independent variable appears eq
+(1).
 
-\subsubsection*{Dealing and solving ODEs }
+{*}You can use multiple types at once, just use common sense to make
+sure its right
 
-A separable ODE can be written as 
+\subsection*{Dealing with ODEs}
 
+\paragraph*{Separable ODE,}
+
+can be written as 
 \[
 \frac{dy}{dx}=f(x)g(y)
 \]
-
+ Divide both sides by g(y), and multiply both sides by dx
 \[
 \frac{dy}{g(y)}=f(x)dx
 \]
- 
+ Integrate both sides, make sure to keep the constant on the RHS
 \[
 \int\frac{dy}{g(y)}=\int f(x)dx
 \]
- Integrating Method
 
+
+\paragraph*{Integrating Method.}
+
+Format the equation to fit the following before using the method
 \[
 \frac{dy}{dx}+P(x)y=Q(x)
 \]
- 
+ Find the function $\mu(x)$ that will help simplify the problem.
+(Symplify as much as possible here it will help a lot later on)
 \[
 \mu(x)=e^{\int P(x)dx}
 \]
-
+Multiply every term by the function $\mu(x)$ and using the product
+rule calculate the derivative of the LHS
 \[
 \frac{d}{dx}(\mu(x)y)=\mu(x)Q(x)
 \]
-
+ Integrate both sides, remember the constant!
 \[
 y=\frac{1}{\mu(x)}\int\mu(x)Q(x)dx+C
 \]
- Quick note on integrating factor.
 
-A integrating factor is the method used to solve derivative equation
-above. The \textgreek{μ}(x) also called the integrating factor, works
-for any, first-order linear differential equations. A function is
-derived by multiplying the equation with \textgreek{μ}(x), which makes
-the left-hand side a derivative of \textgreek{μ}(x)y
+Quick note on integrating factor. A integrating factor is the method
+used to solve derivative equation above. The \textgreek{μ}(x) also
+called the integrating factor, works for any, first-order linear differential
+equations. A function is derived by multiplying the equation with
+\textgreek{μ}(x), which makes the left-hand side a derivative of \textgreek{μ}(x)y.
 
-\paragraph*{Second Order Equations}
+\paragraph*{Exact Method}
 
-Homogeneous Equations with Constant Coefficients
+If a DE has a exact form (aka that there is a =0 and both terms are
+split by a + ) the form:
+
 \[
-N0t
+M(x,y)+N(x,y)\frac{dy}{dx}=0
 \]
- Nonhomogeneous Equations: Method of Undetermined Coefficients
+ OR it satisfies Clairaut’s Theorem, below: (both technically mean
+the same thing) -btw Clairaut’s Theorem is most definitely not in
+the syllabus 
+
+\[
+\frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}
+\]
+Lets make a function that we will call $\Psi$ such that, $\varPsi_{x}=M(x,y)$
+and $\Psi_{y}=N(x,y)$
+
+Therefore we can write this now as
+
+\[
+\Psi_{x}+\Psi_{y}\frac{dy}{dx}=0
+\]
+we can start to find this function $\Psi$. So we will start to integrate
+M with respect to x. (h(y) is a function of y)
+
+\[
+\Psi(x,y)=\int Mdx+h(y)
+\]
+ We can now differentiate $\Psi$ with respect to y
+
+\[
+\frac{\partial\Psi}{\partial y}=\frac{\partial}{\partial y}\left(\int Mdx\right)+h'(y)=N
+\]
+ Solve the integral for h(y)
+
+\subsubsection*{Initial Value Problem}
+
+Generally, IVPs are a DE and a \uline{initial condition} or condition's
+which when used in unison they can be used to solve a function, that
+will also fit the DE. The steps are pretty straight forward. 
+
+1. Solve the DE
+
+\[
+y(x)=\int f(x)dx+C
+\]
+
+2. Use the initial condition, lets say that $y(x_{0})=y_{0}$
+
+\[
+y_{0}=\int f(x_{0})dx+C
+\]
+
+Where C is:
+
+\[
+C=y_{0}-V
+\]
+ {*}V is the value of the integral at $x_{0}$, therefore if we replace
+C, the final answer is
+
+\paragraph*{
+\[
+y(x)=\protect\int f(x)dx+(y_{0}-V)
+\]
+ }
+
+\paragraph{Interval of validity for Linear DE.}
+
+The interval of validity for a Linear DE is largest around $x_{0}$where
+$p(x)$ and $q(x)$ are continuous. Make sure to exclude discontinuities.
+
+\paragraph{Interval of validity for Non-Linear DE,}
+
+Solutions may be exponential to infinity or become undefined despite
+$f(x,y)$ being smooth. Therefore check all the points where the solution
+becomes undefined. Extend the interval on both sides of $x_{0}$ till
+it is no longer possible.
+
+\subsubsection*{Interpreting answers}
+
+(this whole section is a bit useless, I may remove it if I don't find
+any use for it son)
+
+\paragraph*{Explicit Solution,}
+
+is when the dependent variable is isolated and in terms of the independent
+variable. e.g
+
+\[
+y=x^{2}+C
+\]
+
+(soluzione esplicita)
+
+\paragraph*{Implicit Solution,}
+
+is when the dependent variable is not explicitly isolated from the
+independent. e.g
+
+\[
+x^{2}+y^{2}=C
+\]
+
+(soluzione implicita)
+
+\paragraph{General Solution,}
+
+is the solution containing all the possible solutions for the differential
+equation, ie it keeps the constants, its the trivial form. (soluzione
+generale)
+
+\paragraph*{Particular Solution,}
+
+is the solution which is a specific solution by locking the constants
+by using the initial conditions, ie the C has a fixed value. (soluzione
+particolare)
+
+\paragraph*{Equilibrium Solution,}
+
+is a solution which is constant because the dependent variable does
+not change and therefore the derivative is zero. (soluzione di equilibrio)
+
+\paragraph*{Parametric Solution,}
+
+is a solution represented using a parameter like (t,u,z..) instead
+of using x and y. eg.
+
+\[
+y(t)=\sqrt{t^{2}+C}
+\]
+
+(soluzione parametrica)
+
+\subsubsection*{Second Order Equations-- needs a lot more work}
+
+Homogeneous Equations with constant coefficients have the general
+form:
+\[
+y''+ay'+by=0
+\]
+ Non-homogeneous Equations: Method of Undetermined Coefficients
 \[
 Finished
 \]
-
+ 
 
 \subsection*{Special theorems and Problems}
 
