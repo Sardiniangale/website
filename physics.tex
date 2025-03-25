@@ -1,0 +1,211 @@
+%% LyX 2.4.3 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[american]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{cancel}
+\usepackage{esint}
+\usepackage{babel}
+\begin{document}
+\title{Physics}
+\date{March 25, 2025}
+\author{Giacomo}
+\maketitle
+
+\part*{Early Kinematics}
+
+\part*{SDR and Galilean relativity }
+
+\part*{Late Kinematics}
+
+\part*{Special Relativity}
+
+\part*{Thermodynamics}
+
+\textquotedbl It’s no use going back to yesterday, because I was
+a different person then.\textquotedbl{}
+
+--- Alice, Alice in Wonderland
+
+\subsection*{The zeroth law of thermodynamics}
+
+\subsubsection*{Macrostates and Microstates}
+
+A Macrostate is a macroscopic description of a system using the 4
+main thermodynamic variables pressure (p), temperature (T), volume
+(V), and number of particles (N). These variables are averages e.g
+the pressure of a gas is the average force per unit area exerted by
+particles, temperature reflects the average kinetic energy of particles.
+A Microstate is a complete, detailed description of every particle
+in the system, including their positions and momenta. MICROSTATES
+WILL NOT BE COVERED.
+
+\subsubsection*{The zeroth law}
+
+\paragraph*{``If A, B and C are different thermodynamical systems and A is in
+thermodynamical equilibrium with B, and B is in thermodynamical equilibrium
+with, then A is in the themodynamical equilibrium with C''}
+
+\subsubsection*{The first law}
+
+\paragraph*{``The internal energy of an isolated system is conserved under any
+thermodynamical change''}
+
+\subsubsection*{The second law}
+
+\paragraph*{Under any thermodynamical change:}
+
+\[
+\Delta U=Q+W
+\]
+ And in differential form using inexact derivatives
+
+\[
+dU=\mkern3mu\mathchar'26\mkern-12mu dQ+\mkern3mu\mathchar'26\mkern-12mu dW
+\]
+
+-This will be explained further on.
+
+\subsubsection*{Work}
+
+Work is energy being transferred between one system. Due to this it
+cannot be tied to a thermodynamical process, and therefore is a function
+of path. A system doesn't store work, therefore it cant be measured
+in the exact differential equation at the start or end of a reaction.
+This is why it is represented in a inexact differential written as
+đX, which allows us to show work transforming over time. 
+
+Work can be defined as:
+
+\begin{equation}
+dW=\vec{F}\times\vec{d}h
+\end{equation}
+ For the first law of thermodynamics, W > 0 if work is done on the
+system, such as compression and W < 0 work done by the system, usually
+expansion.
+
+\paragraph{Pressure and Work. }
+
+If work is done by the system us negative F, if instead its work done
+on the system the F is positive.
+
+\[
+dW=\pm Fdh
+\]
+Force in terms of pressure is determined by:
+
+\[
+F=p_{surr}\times A
+\]
+ Where A is the relevant surface area
+
+To represent the change in volume 
+
+\[
+dV=A\times dh\Longrightarrow dh=\frac{dV}{A}
+\]
+ Now when we substitute F and dh
+
+\[
+dW=\pm(p_{surr}\times A)\left(\frac{dV}{A}\right)
+\]
+
+\[
+dW=-p_{surr}dV
+\]
+ Therefore the total work is the integral of dW:
+
+\[
+W=\int_{V_{i}}^{V_{f}}\pm p_{surr}dV
+\]
+
+
+\subsubsection*{Heat}
+
+Heat is calculated in a much easier manner. Using the second law of
+thermodynamics:
+
+\[
+\Delta U=Q+W
+\]
+ Solve for Q
+
+\[
+Q=\Delta U-W
+\]
+ Keep in mind that this is only valid for closed systems.
+
+\paragraph{Heat capacity at a constant volume ($C_{V}$).}
+
+For context the internal energy for ideal gas is:
+
+\[
+U=\frac{3}{2}nRT
+\]
+ I will explain this better later, but for reference n is number of
+moles and R is the gas constant.
+
+Lets take the first law, where đW is 0 because the volume is constant.
+
+\[
+dU=\mkern3mu\mathchar'26\mkern-12mu dQ+\cancelto{0}{\mkern3mu\mathchar'26\mkern-12mu dW}
+\]
+
+\[
+C_{V}=\left(\frac{\partial Q}{\partial T}\right)_{V}=\left(\frac{\partial U}{\partial T}\right)_{V}
+\]
+
+\[
+C_{V}=\frac{\partial}{\partial T}\left(\frac{3}{2}nRT\right)_{V}
+\]
+ 
+\[
+C_{V}=\frac{3}{2}nR
+\]
+
+
+\paragraph*{Heat capacity at a constant pressure ($C_{P}$).}
+
+For this problem work is done because gas can expand. Since $\mkern3mu\mathchar'26\mkern-12mu dW=pdV$
+
+\[
+dU=\mkern3mu\mathchar'26\mkern-12mu dQ+\cancelto{pdV}{\mkern3mu\mathchar'26\mkern-12mu dW}
+\]
+
+\[
+C_{p}=\left(\frac{\partial Q}{\partial T}\right)_{p}=\left(\frac{\partial U}{\partial T}\right)_{p}+p\left(\frac{\partial V}{\partial T}\right)_{p}
+\]
+ Because we are working with a ideal gas, U is dependent on only T
+so we can simplify it $C_{V}$.
+
+THIS SECTION NEEDS WORK, MISSING A LOT OF CRITICAL STEPS
+
+\[
+V=\frac{nRT}{p}
+\]
+
+\[
+\left(\frac{\partial V}{\partial T}\right)_{p}=\frac{nR}{p}
+\]
+
+\[
+C_{P}=C_{V}+p\left(\frac{nR}{p}\right)
+\]
+
+\[
+C_{p}=C_{V}+nR
+\]
+
+\[
+C_{p}=\frac{3}{2}nR+nR
+\]
+
+\[
+C_{p}=\frac{5}{2}nR
+\]
+
+
+\subsubsection*{Internal Energy}
+
+\subsubsection*{Thermodynamic processes}
+\end{document}
