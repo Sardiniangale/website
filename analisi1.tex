@@ -23,7 +23,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Analisi 1}
-\date{March 27, 2025}
+\date{March 30, 2025}
 \author{Giacomo}
 \maketitle
 
@@ -433,6 +433,8 @@ M with respect to x. (h(y) is a function of y)
 \]
  Solve the integral for h(y)
 
+\subsection*{Types of Problems}
+
 \subsubsection*{Initial Value Problem}
 
 Generally, IVPs are a DE and a \uline{initial condition} or condition's
@@ -465,7 +467,45 @@ y(x)=\protect\int f(x)dx+(y_{0}-V)
 \]
 }
 
-\subsection*{}
+\paragraph*{Proving existence and uniqueness}
+
+\subparagraph*{Theorem Definition:}
+
+If f(x,y) and the partial derivative $\frac{\partial f}{\partial y}$
+are continuous in:
+
+\[
+D=\left\{ (x,y)||x-x_{0}|\leq a,|y-y_{0}|\leq b\right\} 
+\]
+around the point $(x_{0},y_{0})$ therefore, there exits a interval
+between x and $x_{0}$where there is at least one solution of y(x).
+And it proves that this solution is unique on the interval.
+
+\subparagraph*{Steps:}
+
+Write the ODE in standard form, aka:
+
+\[
+\frac{dy}{dx}=f(x,y)
+\]
+
+use intuition to check that the function f is continuous between the
+points you want. Then if there are any points where the function is
+non continuous, then be sure to mark it such that it is clear, using
+$\leq\geq><$. This is the first rule.
+
+Now, do a partial derivative of y such that:
+
+\[
+\frac{\partial f}{\partial y}=f(x,y)
+\]
+
+Remember to treat x as a constant in this case!!!
+
+If the result is continuous in D between x and $x_{0}$ then this
+proves that there is at least a solution. 
+
+\subsection*{Interpreting answers}
 
 \paragraph{Interval of validity for Linear DE.}
 
