@@ -23,7 +23,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Analisi 1}
-\date{April 02, 2025}
+\date{April 04, 2025}
 \author{Giacomo}
 \maketitle
 
@@ -640,7 +640,150 @@ y(t)=\sqrt{t^{2}+C}
 
 (soluzione parametrica)
 
-\subsubsection*{Second Order Equations-- needs a lot more work}
+\subsubsection*{Second Order Equations-- temporary latex code which isnt my own
+for the exam}
+
+
+
+\subsubsection*{Solving Second-Order Differential Equations}
+A second-order differential equation has the general form:
+\[
+F(y'', y', y, x) = 0
+\]
+Below are methods for solving linear and nonlinear cases.
+
+%-------------------------------------------------
+\paragraph{1. Linear Homogeneous Equations with Constant Coefficients}
+\textbf{General form:}
+\[
+a y'' + b y' + c y = 0 \quad (a \neq 0)
+\]
+\textbf{Solution procedure:}
+\begin{enumerate}
+    \item Solve the \textbf{characteristic equation}:
+    \[
+    a r^2 + b r + c = 0
+    \]
+    
+    \item \textbf{Case analysis for roots \( r_1, r_2 \):}
+    \begin{itemize}
+        \item \textbf{Distinct real roots:}  
+        If \( r_1 \neq r_2 \),
+        \[
+        y(x) = C_1 e^{r_1 x} + C_2 e^{r_2 x}
+        \]
+        
+        \item \textbf{Repeated real root:}  
+        If \( r_1 = r_2 = r \),
+        \[
+        y(x) = (C_1 + C_2 x)e^{r x}
+        \]
+        
+        \item \textbf{Complex conjugate roots:}  
+        If \( r = \alpha \pm i\beta \),
+        \[
+        y(x) = e^{\alpha x}\left[C_1 \cos(\beta x) + C_2 \sin(\beta x)\right]
+        \]
+    \end{itemize}
+\end{enumerate}
+
+%-------------------------------------------------
+\paragraph{2. Linear Nonhomogeneous Equations}
+\textbf{General form:}
+\[
+y'' + p(x)y' + q(x)y = g(x)
+\]
+\textbf{Method 1: Undetermined Coefficients}
+\begin{enumerate}
+    \item Find the complementary solution \( y_c \) (solve the homogeneous equation).
+    \item Assume a particular solution \( y_p \) based on \( g(x) \) (e.g., \( g(x) = e^{kx} \Rightarrow y_p = Ae^{kx} \)).
+    \item If \( g(x) \) matches part of \( y_c \), multiply \( y_p \) by \( x \) (or \( x^n \) for repeated roots).
+    \item Substitute \( y_p \) into the DE and solve for coefficients.
+    \item General solution: \( y = y_c + y_p \).
+\end{enumerate}
+
+\textbf{Method 2: Variation of Parameters}
+\begin{enumerate}
+    \item Find \( y_c = C_1 y_1 + C_2 y_2 \).
+    \item Compute the Wronskian: 
+    \[
+    W = y_1 y_2' - y_1' y_2
+    \]
+    \item Particular solution:
+    \[
+    y_p = -y_1 \int \frac{y_2 g(x)}{W} \, dx + y_2 \int \frac{y_1 g(x)}{W} \, dx
+    \]
+    \item General solution: \( y = y_c + y_p \).
+\end{enumerate}
+
+%-------------------------------------------------
+\paragraph{3. Cauchy-Euler Equations}
+\textbf{General form:}
+\[
+x^2 y'' + b x y' + c y = 0
+\]
+\textbf{Solution steps:}
+\begin{enumerate}
+    \item Assume \( y = x^r \). Substitute to get:
+    \[
+    r^2 + (b - 1)r + c = 0
+    \]
+    \item Solve for \( r \). The solution mirrors constant-coefficient cases:
+    \begin{itemize}
+        \item Real distinct roots: \( y = C_1 x^{r_1} + C_2 x^{r_2} \)
+        \item Repeated root: \( y = x^{r}(C_1 + C_2 \ln x) \)
+        \item Complex roots \( r = \alpha \pm i\beta \):  
+        \( y = x^{\alpha}\left[C_1 \cos(\beta \ln x) + C_2 \sin(\beta \ln x)\right] \)
+    \end{itemize}
+\end{enumerate}
+
+%-------------------------------------------------
+\paragraph{4. Reduction of Order}
+\textbf{When one solution \( y_1 \) is known:}
+\begin{enumerate}
+    \item Let \( y_2 = v(x) y_1 \).
+    \item Substitute \( y_2 \) into the DE and solve for \( v(x) \).
+    \item The second solution is \( y_2 = y_1 \int \frac{e^{-\int p(x) \, dx}}{y_1^2} \, dx \).
+\end{enumerate}
+
+\textbf{Special cases:}
+\begin{itemize}
+    \item \textbf{Equation missing \( y \):} Let \( p = y' \), reducing to \( p' = f(x, p) \).
+    \item \textbf{Equation missing \( x \):} Let \( p = y' \), then \( y'' = p \frac{dp}{dy} \), reducing to \( p \frac{dp}{dy} = f(y, p) \).
+\end{itemize}
+
+%-------------------------------------------------
+\paragraph{5. Series Solutions Near Ordinary Points}
+For \( P(x)y'' + Q(x)y' + R(x)y = 0 \) with ordinary point at \( x_0 \):
+\begin{enumerate}
+    \item Assume \( y = \sum_{n=0}^\infty a_n (x - x_0)^n \).
+    \item Substitute into DE and equate coefficients of like powers.
+    \item Derive a recurrence relation for \( a_n \).
+\end{enumerate}
+
+%-------------------------------------------------
+\paragraph{6. Laplace Transform for Initial Value Problems}
+\textbf{Procedure:}
+\begin{enumerate}
+    \item Take Laplace transform of the DE:
+    \[
+    \mathcal{L}\{y''\} + a\mathcal{L}\{y'\} + b\mathcal{L}\{y\} = \mathcal{L}\{g(x)\}
+    \]
+    \item Use:
+    \[
+    \mathcal{L}\{y'\} = sY(s) - y(0), \quad \mathcal{L}\{y''\} = s^2Y(s) - sy(0) - y'(0)
+    \]
+    \item Solve for \( Y(s) \), then compute \( y(x) = \mathcal{L}^{-1}\{Y(s)\} \).
+\end{enumerate}
+
+%-------------------------------------------------
+\paragraph*{Nonlinear Second-Order DEs}
+No universal method exists. Common approaches:
+\begin{itemize}
+    \item Substitutions to reduce order (e.g., \( p = y' \))
+    \item Exact equations (identify integrable combinations)
+    \item Numerical methods (e.g., Runge-Kutta)
+\end{itemize}
 
 Homogeneous Equations with constant coefficients have the general
 form:
@@ -653,9 +796,355 @@ Finished
 \]
 
 
-\subsubsection*{Systems of Differential Equations}
+\subsection*{Nth order Differential Equation}
+
+\subsubsection{Solving \( n \)-th Order Differential Equations}  
+\paragraph{Linear Homogeneous Equations with Constant Coefficients}  
+Consider the equation:  
+\[  
+a_n y^{(n)} + a_{n-1} y^{(n-1)} + \cdots + a_1 y' + a_0 y = 0  
+\]  
+
+\textbf{Solution Steps:}
+\begin{enumerate}
+    \item \textbf{Form characteristic equation}:
+    \[
+    a_n r^n + a_{n-1} r^{n-1} + \cdots + a_1 r + a_0 = 0
+    \]
+    
+    \item \textbf{Find roots} \( r_1, r_2, \ldots, r_n \)
+    
+    \item \textbf{Construct general solution}:
+    \begin{itemize}
+        \item \textit{Distinct real roots}:
+        \[
+        y_h = \sum_{i=1}^n C_i e^{r_i x}
+        \]
+        
+        \item \textit{Repeated real root \( r \) with multiplicity \( k \)}:
+        \[
+        e^{r x}\left(C_1 + C_2 x + \cdots + C_k x^{k-1}\right)
+        \]
+        
+        \item \textit{Complex conjugate pairs \( \alpha \pm \beta i \)}:
+        \[
+        e^{\alpha x}\left[C_1 \cos(\beta x) + C_2 \sin(\beta x)\right]
+        \]
+        For repeated pairs (multiplicity \( m \)):
+        \[
+        x^{m-1}e^{\alpha x}\left[C_1 \cos(\beta x) + C_2 \sin(\beta x)\right]
+        \]
+    \end{itemize}
+\end{enumerate}
+
+\paragraph{Linear Nonhomogeneous Equations}  
+For equations:
+\[
+a_n y^{(n)} + \cdots + a_1 y' + a_0 y = g(x)
+\]
+\textbf{General Solution}: 
+\[
+y = y_h + y_p
+\]
+where \( y_h \) = homogeneous solution, \( y_p \) = particular solution.
+
+\subparagraph{Method of Undetermined Coefficients}  
+Use when \( g(x) \) is polynomial, exponential, sine, cosine, or combinations:
+
+\begin{enumerate}
+    \item Assume \( y_p \) with same form as \( g(x) \)
+    \item If any term matches \( y_h \), multiply by \( x^s \) (\( s \) = smallest integer eliminating duplication)
+    \item Substitute \( y_p \) into DE and solve for coefficients
+\end{enumerate}
+
+\subparagraph{Variation of Parameters}  
+General method for arbitrary \( g(x) \):
+
+\begin{enumerate}
+    \item Find fundamental set \( \{y_1, \ldots, y_n\} \) from \( y_h \)
+    \item Compute Wronskian:
+    \[
+    W(y_1, \ldots, y_n) = \begin{vmatrix}
+    y_1 & y_2 & \cdots & y_n \\
+    y_1' & y_2' & \cdots & y_n' \\
+    \vdots & \vdots & \ddots & \vdots \\
+    y_1^{(n-1)} & y_2^{(n-1)} & \cdots & y_n^{(n-1)}
+    \end{vmatrix}
+    \]
+    
+    \item Find \( u_i' = \frac{W_i}{W} \) where \( W_i \) = Wronskian with \( i \)-th column replaced by \( \begin{bmatrix} 0 \\ \vdots \\ g(x) \end{bmatrix} \)
+    
+    \item Integrate to get \( u_i \), then:
+    \[
+    y_p = \sum_{i=1}^n u_i y_i
+    \]
+\end{enumerate}
+
+\paragraph{Variable Coefficient Equations}  
+For \( y^{(n)} + P_{n-1}(x)y^{(n-1)} + \cdots + P_0(x)y = Q(x) \):
+
+\subparagraph{Reduction of Order}  
+If solution \( y_1 \) is known, let:
+\[
+y = y_1 \int v(x) dx
+\]
+Substitute to reduce equation order by 1.
+
+\subparagraph{Cauchy-Euler Equations}  
+Form: \( x^n y^{(n)} + a_{n-1} x^{n-1} y^{(n-1)} + \cdots + a_0 y = 0 \)
+
+\begin{enumerate}
+    \item Assume solution \( y = x^m \)
+    \item Substitute to get characteristic equation:
+    \[
+    m(m-1)\cdots(m-n+1) + \sum_{k=0}^{n-1} a_k m(m-1)\cdots(m-k+1) = 0
+    \]
+    \item Handle roots as with constant coefficient equations
+\end{enumerate}
+
+\paragraph{Nonlinear Equations}  
+\subparagraph{Order Reduction Techniques}
+\begin{itemize}
+    \item \textit{Missing \( y \)}: Let \( v = y' \), reduces order by 1
+    \item \textit{Missing \( x \)}: Let \( v = y' \), then \( y'' = v \frac{dv}{dy} \), reduces to 1st order in \( v \)
+\end{itemize}
+
+\subparagraph{Exact Equations}  
+If equation can be written as:
+\[
+\frac{d}{dx}\left[\text{Lower order expression}\right] = 0
+\]
+Integrate successively to solve.
+
+\subparagraph{Integrating Factors}  
+Find \( \mu(x) \) or \( \mu(y) \) such that:
+\[
+\mu(x)M(x,y)dx + \mu(x)N(x,y)dy = 0
+\]
+becomes exact.
+
+\subparagraph{Special Forms}  
+\begin{itemize}
+    \item \textit{Bernoulli}: \( y' + P(x)y = Q(x)y^n \), use \( z = y^{1-n} \)
+    \item \textit{Riccati}: \( y' = P(x)y^2 + Q(x)y + R(x) \), use \( y = y_1 + \frac{1}{v} \) if particular solution \( y_1 \) known
+\end{itemize}
+
+\subsection*{Systems of Differential Equations}
+
+\subsubsection*{Solving Systems of Differential Equations}
+\paragraph*{Linear Systems with Constant Coefficients}
+For the system $\mathbf{x}' = A\mathbf{x}$ where $A$ is an $n \times n$ constant matrix:
+
+\textbf{Solution Method:}
+\begin{enumerate}
+    \item \textbf{Find eigenvalues} $\lambda$ by solving:
+    \[
+    \det(A - \lambda I) = 0
+    \]
+    
+    \item \textbf{Find eigenvectors} $\xi$ for each eigenvalue by solving:
+    \[
+    (A - \lambda I)\xi = 0
+    \]
+    
+    \item \textbf{Construct general solution}:
+    \begin{itemize}
+        \item \textit{Real distinct eigenvalues}:
+        \[
+        \mathbf{x}(t) = \sum_{i=1}^n C_i e^{\lambda_i t} \xi_i
+        \]
+        
+        \item \textit{Complex eigenvalues} $\alpha \pm \beta i$:
+        \[
+        \mathbf{x}(t) = C_1 e^{\alpha t}[\mathbf{a}\cos(\beta t) - \mathbf{b}\sin(\beta t)] + C_2 e^{\alpha t}[\mathbf{a}\sin(\beta t) + \mathbf{b}\cos(\beta t)]
+        \]
+        where $\mathbf{a} + i\mathbf{b}$ is the complex eigenvector
+        
+        \item \textit{Repeated eigenvalues}:
+        \begin{itemize}
+            \item If geometric multiplicity = algebraic multiplicity: proceed as distinct eigenvalues
+            \item If deficient eigenvectors: use generalized eigenvectors
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\paragraph*{Nonhomogeneous Systems}
+For $\mathbf{x}' = A\mathbf{x} + \mathbf{g}(t)$:
+
+\textbf{General Solution}:
+\[
+\mathbf{x}(t) = \mathbf{x}_h(t) + \mathbf{x}_p(t)
+\]
+
+\subparagraph*{Variation of Parameters}
+\begin{enumerate}
+    \item Find fundamental matrix $\Phi(t)$ from homogeneous solutions
+    \item Compute particular solution:
+    \[
+    \mathbf{x}_p(t) = \Phi(t) \int \Phi^{-1}(t)\mathbf{g}(t) dt
+    \]
+\end{enumerate}
+
+\subparagraph*{Method of Undetermined Coefficients}
+Use when $\mathbf{g}(t)$ contains polynomials, exponentials, or trigonometric functions:
+\begin{enumerate}
+    \item Assume $\mathbf{x}_p$ with same form as $\mathbf{g}(t)$
+    \item Adjust for resonance if any term matches homogeneous solution
+    \item Substitute and solve for coefficients
+\end{enumerate}
+
+\paragraph*{Matrix Exponential Method}
+For $\mathbf{x}' = A\mathbf{x}$:
+\[
+\mathbf{x}(t) = e^{At}\mathbf{x}_0
+\]
+where $e^{At}$ can be computed via:
+\begin{itemize}
+    \item Diagonalization: $A = PDP^{-1} \Rightarrow e^{At} = Pe^{Dt}P^{-1}$
+    \item Jordan form for defective matrices
+    \item Taylor series expansion for simple cases
+\end{itemize}
+
+\paragraph*{Nonlinear Systems}
+\subparagraph*{Linearization Near Critical Points}
+\begin{enumerate}
+    \item Find equilibrium points $\mathbf{x}_0$ where $\mathbf{f}(\mathbf{x}_0) = 0$
+    \item Compute Jacobian matrix:
+    \[
+    J = \begin{bmatrix}
+    \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
+    \vdots & \ddots & \vdots \\
+    \frac{\partial f_n}{\partial x_1} & \cdots & \frac{\partial f_n}{\partial x_n}
+    \end{bmatrix}_{\mathbf{x}_0}
+    \]
+    \item Analyze eigenvalues of $J$ to determine stability
+\end{enumerate}
+
+\subparagraph*{Phase Plane Analysis (2D Systems)}
+\begin{itemize}
+    \item Classify critical points: node, spiral, saddle, center
+    \item Use nullclines and direction fields
+    \item Lyapunov functions for stability (when applicable)
+\end{itemize}
+
+\paragraph*{Conversion to First-Order Systems}
+Any $n$-th order DE can be converted to a system:
+\begin{enumerate}
+    \item Let $x_1 = y$, $x_2 = y'$, ..., $x_n = y^{(n-1)}$
+    \item Create system:
+    \[
+    \begin{cases}
+        x_1' = x_2 \\
+        x_2' = x_3 \\
+        \vdots \\
+        x_n' = F(t,x_1,\ldots,x_n)
+    \end{cases}
+    \]
+\end{enumerate}
+
+\paragraph*{Important Special Cases}
+\subparagraph*{Coupled Oscillators}
+\[
+\begin{cases}
+    m_1 x_1'' = -k_1 x_1 + k_2(x_2 - x_1) \\
+    m_2 x_2'' = -k_2(x_2 - x_1)
+\end{cases}
+\]
+Solve by diagonalizing the coefficient matrix
+
+\subparagraph*{Competing Species Model}
+\[
+\begin{cases}
+    x' = x(a - by) \\
+    y' = y(c - dx)
+\end{cases}
+\]
+Analyze using linearization and phase plane methods
 
 \subsection*{Special theorems and Problems}
+
+\subsubsection*{Picard--Lindelöf theorem}
+
+\subsubsection*{Picard–Lindelöf Theorem (Existence \& Uniqueness)}
+\paragraph*{Theorem Statement}  
+Consider the initial value problem (IVP):
+\[
+\begin{cases}
+    y'(t) = f(t, y(t)) \\
+    y(t_0) = y_0
+\end{cases}
+\]
+where \( f: D \subset \mathbb{R} \times \mathbb{R}^n \to \mathbb{R}^n \). If:
+
+\begin{itemize}
+    \item \( f \) is \textbf{continuous} in \( t \) on rectangle \( R = [t_0 - a, t_0 + a] \times \overline{B}(y_0, b) \)
+    \item \( f \) is \textbf{Lipschitz continuous} in \( y \): 
+    \[
+    \exists L > 0 \text{ s.t. } \|f(t,y_1) - f(t,y_2)\| \leq L\|y_1 - y_2\|,\; \forall (t,y_1),(t,y_2) \in R
+    \]
+\end{itemize}
+
+Then \( \exists \tau > 0 \) such that the IVP has a \textbf{unique solution} \( y(t) \) on \( [t_0 - \tau, t_0 + \tau] \).
+
+\paragraph*{Proof Outline (Method of Successive Approximations)}  
+\begin{enumerate}
+    \item Reformulate IVP as integral equation:
+    \[
+    y(t) = y_0 + \int_{t_0}^t f(s, y(s)) ds
+    \]
+    
+    \item Define Picard iterations:
+    \[
+    y_{n+1}(t) = y_0 + \int_{t_0}^t f(s, y_n(s)) ds
+    \]
+    Starting with \( y_0(t) \equiv y_0 \)
+    
+    \item Show \( \{y_n\} \) converges uniformly to solution \( y \):
+    \begin{itemize}
+        \item Use Lipschitz condition to prove \( \|y_{n+1} - y_n\| \leq \frac{M}{L} \frac{(L|t-t_0|)^{n+1}}{(n+1)!} \)
+        \item Apply Banach fixed-point theorem in complete metric space
+    \end{itemize}
+\end{enumerate}
+
+\paragraph*{Implementation Steps}  
+To apply the theorem:
+\begin{enumerate}
+    \item Verify continuity of \( f(t,y) \) in \( t \)
+    \item Check Lipschitz condition in \( y \):
+    \begin{itemize}
+        \item If \( \frac{\partial f}{\partial y} \) exists and bounded \( \Rightarrow \) Lipschitz
+        \item For scalar case: \( |f(t,y_1) - f(t,y_2)| \leq L|y_1 - y_2| \)
+    \end{itemize}
+    
+    \item Determine existence interval \( \tau = \min\left(a, \frac{b}{M}\right) \) where:
+    \[
+    M = \max_{(t,y)\in R} \|f(t,y)\|
+    \]
+\end{enumerate}
+
+\paragraph*{Example Application}  
+For IVP \( y' = y,\; y(0) = 1 \):
+\begin{itemize}
+    \item Picard iterations:
+    \begin{align*}
+        y_0(t) &= 1 \\
+        y_1(t) &= 1 + \int_0^t y_0(s) ds = 1 + t \\
+        y_2(t) &= 1 + \int_0^t (1+s) ds = 1 + t + \frac{t^2}{2} \\
+        &\vdots \\
+        y_n(t) &= \sum_{k=0}^n \frac{t^k}{k!} \to e^t
+    \end{align*}
+\end{itemize}
+
+\paragraph*{Important Notes}  
+\begin{itemize}
+    \item \textbf{Local vs Global}: Theorem guarantees local solution - need additional conditions for global existence
+    \item \textbf{Sharpness}: \( \tau \) estimate often conservative
+    \item \textbf{Failure Cases}:
+    \begin{itemize}
+        \item \( f \) not Lipschitz \( \Rightarrow \) possible non-uniqueness (e.g., \( y' = \sqrt{|y|} \))
+        \item Discontinuous \( f \) \( \Rightarrow \) solutions may not exist
+    \end{itemize}
+\end{itemize}
 
 \subsubsection*{Cauchy's Problem}
 
