@@ -1,0 +1,127 @@
+%% LyX 2.4.3 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[american]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{babel}
+\begin{document}
+\title{Linear Algebra}
+\date{April 08, 2025}
+\author{Giacomo}
+\maketitle
+
+\part*{Pre-Det}
+
+\section*{Spaces (Spazi Vettoriali)}
+
+\textquotedbl I have not failed. I've just found 10,000 ways that
+won't work.\textquotedbl{}
+
+\subsection*{Basic Definitions}
+
+\paragraph*{Subsets (Sottoinsiemi):}
+
+This is a set where all the elements are contained within another
+set. For linear algebra it could be a collection of vectors within
+a vector space e.g $\mathbb{R}^{3}$
+
+\[
+S=\left\{ \left(x,y,0\right)|x,y\in\mathbb{R}\right\} 
+\]
+
+
+\paragraph*{Proper Subsets (Sottoinsiemi Propri):}
+
+This is a subset that is always smaller than the original set. The
+exact definition is: 
+
+\begin{equation}
+A\subsetneq B
+\end{equation}
+if:
+
+1. Containment: ``Every element of A is also a element of B''
+
+\begin{equation}
+\forall x(x\in A\Longmapsto x\in B)
+\end{equation}
+
+2. Not equal: ``There exists at least one element in B that is not
+A''
+
+\begin{equation}
+\exists y(y\in B\land y\notin A)
+\end{equation}
+
+
+\paragraph*{Supersets (Soprainsiemi):}
+
+This is the opposite of a subset. If $A\subset B$, then B is a superset
+of A
+
+\subsection*{Linear Independence}
+
+Let V be a vector space over a field F. $S\subseteq V$ is linearly
+independent if the following conditions are true:
+
+For a collection of vectors $\left\{ v_{1},v_{2},...,v_{n}\right\} \subseteq S$
+and scalars $\left\{ a_{1},a_{2},...,a_{n}\right\} \in F$
+
+\begin{equation}
+a_{1}v_{1}+a_{2}v_{2}+...+a_{n}v_{n}=0
+\end{equation}
+
+i.e every single variant of a up to n has to equal zero. If it does
+not, it is linearly dependent
+
+\subsection*{Dimensions of a space}
+
+The dimension (dimensione) of a vector space (spazio vettoriale) is
+the number of vectors in any basis (base) for that space. A basis
+(base) is a set of vectors that are linearly independent (linearmente
+indipendenti) and span (generano) the entire space.
+
+\subsection*{Sum of subspace (Somma di sottospazi)}
+
+Let U and V be subspaces (sottospazi) of a vector space (spazio vettoriale)
+V over a field $\mathbb{F}$. The sum (somma) can be defined as:
+
+\begin{equation}
+U+V=\left\{ u+v|u\in U,v\in V\right\} 
+\end{equation}
+
+
+\subsection*{Direct Sum (Somma diretta)}
+
+U+V is called a direct sum, if the intersection of U and V is trivial
+???- (Further desc required) then:
+
+\[
+U\cap V=\left\{ 0\right\} 
+\]
+ The direct sum can be denoted as $U\oplus V:$--to be expanded upon
+
+\[
+z=u+v
+\]
+
+For subspaces \( U_1, U_2, \ldots, U_n \subseteq V \), the sum \( U_1 + U_2 + \cdots + U_n \) is a \textit{direct sum} (somma diretta) if for each \( i \),
+\[
+U_i \cap \left( \sum_{j=1,\; j \neq i}^n U_j \right) = \{ 0 \}.
+\]
+The direct sum is denoted \( U_1 \oplus U_2 \oplus \cdots \oplus U_n \), and every \( z \in U_1 \oplus U_2 \oplus \cdots \oplus U_n \) has a unique representation:
+\[
+z = u_1 + u_2 + \cdots + u_n \quad \text{with } u_i \in U_i\ \forall i.
+\]
+
+\paragraph{Formal Uniqueness Condition:}
+For \( U \oplus V \),
+\[
+\forall z \in U \oplus V,\ \exists!\, (u, v) \in U \times V \text{ such that } z = u + v.
+\]
+Here, \( \exists! \) denotes ``there exists exactly one.''
+
+\part*{Post-Det}
+\end{document}
