@@ -1,16 +1,21 @@
 %% LyX 2.4.3 created this file.  For more info, see https://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[american]{article}
+\renewcommand{\familydefault}{\sfdefault}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{luainputenc}
 \usepackage{cancel}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
 \usepackage{esint}
 \usepackage{babel}
 \begin{document}
-\title{Physics}
-\date{March 25, 2025}
+\title{Physics 1}
+\date{April 09, 2025}
 \author{Giacomo}
+
 \maketitle
+\includegraphics[scale=0.5]{/home/guc/Pictures/Cover}\newpage{}
 
 \part*{Early Kinematics}
 
@@ -27,7 +32,7 @@ a different person then.\textquotedbl{}
 
 --- Alice, Alice in Wonderland
 
-\subsection*{The zeroth law of thermodynamics}
+\subsection*{The Laws of Thermodynamics}
 
 \subsubsection*{Macrostates and Microstates}
 
@@ -66,6 +71,53 @@ dU=\mkern3mu\mathchar'26\mkern-12mu dQ+\mkern3mu\mathchar'26\mkern-12mu dW
 
 -This will be explained further on.
 
+\subsection*{Working in a perfect gas}
+
+\subsubsection*{Fundamental Gas Laws}
+
+Pressure, Volume, Temperature, moles: 
+
+\paragraph{Boyle's Law:}
+
+\begin{equation}
+P_{1}V_{1}=P_{2}V_{2}
+\end{equation}
+
+If T is a constant
+
+\paragraph*{Charles's Law:}
+
+\begin{equation}
+\frac{V_{1}}{T_{1}}=\frac{V_{2}}{T_{2}}
+\end{equation}
+
+If P is constant
+
+\paragraph*{Lussac's Law:}
+
+\begin{equation}
+\frac{P_{1}}{T_{1}}=\frac{P_{2}}{T_{2}}
+\end{equation}
+
+If V is a constant
+
+\paragraph*{Avogadro's Law:}
+
+\begin{equation}
+\frac{V_{1}}{n_{1}}=\frac{V_{2}}{n_{2}}
+\end{equation}
+
+If P and T are constant
+
+\subsubsection*{Ideal Gas Law}
+
+Using the fundamental gas laws, you can derive the following equation:
+
+\begin{equation}
+PV=nRT
+\end{equation}
+
+
 \subsubsection*{Work}
 
 Work is energy being transferred between one system. Due to this it
@@ -73,7 +125,7 @@ cannot be tied to a thermodynamical process, and therefore is a function
 of path. A system doesn't store work, therefore it cant be measured
 in the exact differential equation at the start or end of a reaction.
 This is why it is represented in a inexact differential written as
-đX, which allows us to show work transforming over time. 
+\textrm{đX, which allows us to show work transforming over time. }
 
 Work can be defined as:
 
@@ -145,7 +197,8 @@ U=\frac{3}{2}nRT
  I will explain this better later, but for reference n is number of
 moles and R is the gas constant.
 
-Lets take the first law, where đW is 0 because the volume is constant.
+Lets take the first law, where \textrm{đW is 0 because the volume
+is constant.}
 
 \[
 dU=\mkern3mu\mathchar'26\mkern-12mu dQ+\cancelto{0}{\mkern3mu\mathchar'26\mkern-12mu dW}
@@ -208,4 +261,97 @@ C_{p}=\frac{5}{2}nR
 \subsubsection*{Internal Energy}
 
 \subsubsection*{Thermodynamic processes}
+
+\subsection*{The Definition of Efficiency}
+
+The efficiency represented by $\eta$ of a heat engine is the ratio
+of the work output to the heat absorbed from the hot reservoir Q
+
+\begin{equation}
+\eta=\frac{\sum W}{Q_{H}}
+\end{equation}
+
+By using the first law of thermodynamics we can change the Work with
+
+\begin{equation}
+\eta=\frac{Q_{H}-Q_{C}}{Q_{H}}\Longmapsto1-\frac{Q_{C}}{Q_{H}}
+\end{equation}
+
+
+\subsection*{The Carnot cycle}
+
+This thermodynamic cycle is based on the theoretical piston with zero
+friction.
+
+\paragraph*{The Cycle:}
+
+There are 4 steps:
+
+1. Isothermal expantion. The gas absorbs heat from a hot reservoir
+at temperature $T_{H}$, expanding slowly to keep T constant. 
+
+\[
+Q_{H}=W_{1\rightarrow2}=nRT_{H}ln\left(\frac{V_{2}}{V_{1}}\right)
+\]
+
+2. Adibatic Expansion. The gas continues expanding, but the system
+is insulated. The temperature decreases from $T_{H}$ to $T_{C}$
+
+3. Isothermal Compression. The gas is compressed at constant $T_{C}$,
+releasing heat $Q_{C}$to the cold reservoir.
+
+4. Adiabatic Compression. The gas is compressed further without heat
+exchange (Q=0), raising its temperature back to $T_{H}$.
+
+\subparagraph{THIS IS A DIAGRAM OF THE CARNOT CYCLE FOR REFERENCE:}
+
+\includegraphics[scale=0.6]{/home/guc/Pictures/Carnot_cycle}
+
+
+\paragraph*{The Carnot engine:}
+
+It is a theoretical engine which takes maximum advantage of the Carnot
+cycle.
+
+The primary principle is that, heat is transferred from a hot to a
+cold reservoir, doing work in the process. It is also fully reversible,
+but I will talk more on that later.----explain
+
+\paragraph{Carnot and Efficiency:}
+
+Efficiency is measured using $\eta$, where I will explain this more
+later.
+
+However for Carnot's engine its efficiency is given by
+
+\[
+\eta=1-\frac{T_{C}}{T_{H}}
+\]
+ Where T is the absolute temperature. To reach 100\% efficiency the
+coldest temperature must be 0K which is physically impossible to reach.
+
+--------------
+
+Isothermal Expansion
+
+\[
+Q_{H}=nRT_{H}ln\left(\frac{V_{2}}{V_{1}}\right)
+\]
+
+Isothermal Compression
+
+\[
+Q_{C}=nRT_{C}ln\left(\frac{V_{3}}{V_{4}}\right)
+\]
+
+Using the fact that $TV^{\gamma-1}=C$
+
+\[
+\frac{V_{2}}{V_{3}}=\frac{V_{1}}{V_{4}}\Longrightarrow\frac{V_{2}}{V_{1}}=\frac{V_{3}}{V_{4}}
+\]
+
+\[
+\eta=1-\frac{T_{C}}{T_{H}}
+\]
+
 \end{document}
