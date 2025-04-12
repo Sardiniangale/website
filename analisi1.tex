@@ -1,10 +1,12 @@
 %% LyX 2.4.3 created this file.  For more info, see https://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[american]{article}
+\renewcommand{\familydefault}{\sfdefault}
 \usepackage[LGR,T1]{fontenc}
 \usepackage[utf8]{luainputenc}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{graphicx}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
 
@@ -22,10 +24,14 @@
 
 \usepackage{babel}
 \begin{document}
-\title{Analisi 1}
-\date{April 04, 2025}
+\title{Mathematical Analysis 1}
+\date{April 12, 2025}
 \author{Giacomo}
+
 \maketitle
+\includegraphics[scale=0.5]{/home/guc/Pictures/Cover}
+
+\newpage{}
 
 \part*{Pre-Derivatives}
 
@@ -41,6 +47,236 @@ numbers and when you add them, they magically become one NEW number!
 No one can say how it happens. You either believe it or you don’t.
 {[}Pointing at his math book{]} This whole book is full of things
 that have to be accepted on faith! It’s a religion!''
+
+\subsection*{Logic}
+
+\subsubsection*{Propositional Logic}
+
+A proposition is a statement. Statements in math are either true or
+false, if you combined multiple propositions there are multiple outcomes
+depending on the validity of each proposition in the statement. I
+call them compound statements (but I dont think its the actual name).
+
+\paragraph*{Negation (Negazione):}
+
+Represented by a $\lnot$. Inverts the value of a statement, e.g (Bob
+went to the store), the opposite can be represented as $\lnot$(Bob
+went to the store).
+
+\paragraph*{Disjunction (Disgiunzione):}
+
+Represented by a $\vee$. Statement is true if at least one of the
+propositions is also true.
+
+\paragraph*{Conjunction (Congiunzione):}
+
+Represented by a $\wedge.$ Statement is true only if both propositions
+are also true.
+
+\paragraph*{Implication (Implicazione):}
+
+Represented by a $\rightarrow$. Its formally defined as : $\neg P\vee Q$.
+
+\paragraph*{Biconditional (Bicondizionale):}
+
+Represented by a $\leftrightarrow$. Statement is true if both of
+the propositions share the same value.
+
+\subsubsection*{Predicate Logic}
+
+\paragraph*{Universal:}
+
+It is represented by $\forall$. ``For every ...''
+
+\paragraph*{Existence:}
+
+It is represented by $\exists$. ``There exists ...''
+
+\subsubsection*{Axioms DEF:--- NOT SURE WHAT TO DO WITH THIS}
+
+\paragraph*{Axioms:}
+
+Self Evident Truths (Obvious)
+
+\paragraph*{Definitions:}
+
+New terms
+
+\subsection*{Group Theory (Theoria degli insiemi)}
+
+\subsubsection*{Definition of a Group}
+
+A group is a set, that has the following requirements:
+
+\paragraph*{Closure:}
+
+For all $a,b\in G,a*b\in G$
+
+\paragraph*{Associativity:}
+
+$a,b,c\in G,(a*b)*c=a*(c*b)$
+
+\paragraph*{Identity:}
+
+Lets say e exists $e\in G$ such that $e*a=a*e=a$ for all $a\in G$ 
+
+\paragraph*{Inverse:}
+
+If there exists a a, such that $a\in G$ therefore there exists a
+inverses
+
+\subsection*{Functions}
+
+A \textbf{function} (\textit{funzione}) is a very common conecept in math that formalizes the relationship between two sets by assigning each element of the first set to exactly one element of the second set. Formally, a function \( f: A \to B \) consists of:
+\begin{itemize}
+    \item A \textbf{domain} (\textit{dominio}) \( A \), the set of all possible inputs.
+    \item A \textbf{codomain} (\textit{codominio}) \( B \), the set into which all outputs are mapped.
+    \item A rule or correspondence that links each element \( x \in A \) to a unique element \( f(x) \in B \).
+\end{itemize}
+
+\paragraph*{Formal Definition}
+A function \( f \) is a subset of the Cartesian product \( A \times B \) such that for every \( x \in A \), there exists exactly one \( y \in B \) where \( (x, y) \in f \). This is denoted as \( y = f(x) \).
+
+\paragraph*{Key Properties}
+\begin{enumerate}
+    \item \textbf{Injectivity} (\textit{iniettiva}): A function is injective if distinct inputs map to distinct outputs:
+    \[
+        \forall x_1, x_2 \in A, \quad f(x_1) = f(x_2) \implies x_1 = x_2.
+    \]
+    \item \textbf{Surjectivity} (\textit{suriettiva}): A function is surjective if every element in \( B \) is an output for some input:
+    \[
+        \forall y \in B, \quad \exists x \in A \text{ such that } y = f(x).
+    \]
+    \item \textbf{Bijectivity} (\textit{biiettiva}): A function is bijective if it is both injective and surjective, establishing a one-to-one correspondence between \( A \) and \( B \).
+\end{enumerate}
+
+\subsection*{Natural Numbers}
+
+
+
+The \textbf{natural numbers} (\textit{numeri naturali}) are the standard version of numbers in maths, used for counting and ordering. Formally, the set of natural numbers \( \mathbb{N} \) is defined as:
+\[
+\mathbb{N} = \{1, 2, 3, \ldots\} \quad \text{(sometimes including } 0 \text{ depending on context)}.
+\]
+They are characterized by their discrete, non-negative integer values and form the foundation for number theory and arithmetic.
+
+\paragraph*{Formal Definition (Peano Axioms)}
+The properties of natural numbers are axiomatically defined by the \textbf{Peano axioms} (\textit{assiomi di Peano}):
+\begin{enumerate}
+    \item \( 1 \) (or \( 0 \)) is a natural number.
+    \item Every natural number \( n \) has a unique successor \( S(n) \), which is also a natural number.
+    \item \( 1 \) (or \( 0 \)) is not the successor of any natural number.
+    \item Distinct natural numbers have distinct successors: \( S(m) = S(n) \implies m = n \).
+    \item \textbf{Induction}: If a property holds for \( 1 \) (or \( 0 \)) and holds for \( S(n) \) whenever it holds for \( n \), then it holds for all natural numbers.
+\end{enumerate}
+
+\paragraph*{Key Properties}
+\begin{itemize}
+    \item \textbf{Closure under addition and multiplication}: For all \( a, b \in \mathbb{N} \), \( a + b \in \mathbb{N} \) and \( a \cdot b \in \mathbb{N} \).
+    \item \textbf{Non-closure under subtraction and division}: Subtraction \( a - b \) or division \( a / b \) may not result in a natural number.
+    \item \textbf{Well-ordering principle} (\textit{principio del buon ordinamento}): Every non-empty subset of \( \mathbb{N} \) has a least element.
+    \item \textbf{Infinite cardinality}: \( \mathbb{N} \) is countably infinite.
+\end{itemize}
+
+\paragraph*{Number Theory}
+Natural numbers are central to number theory, which studies:
+\begin{enumerate}
+    \item \textbf{Prime numbers} (\textit{numeri primi}): Natural numbers \( > 1 \) with no divisors other than \( 1 \) and themselves:
+    \[
+        \mathbb{P} = \{2, 3, 5, 7, 11, \ldots\}.
+    \]
+    \item \textbf{Divisibility}: A number \( a \) divides \( b \) (\( a \mid b \)) if \( \exists k \in \mathbb{N} \) such that \( b = a \cdot k \).
+    \item \textbf{Mathematical induction} (\textit{induzione matematica}): A proof technique leveraging the Peano axioms.
+    \item \textbf{Modular arithmetic} (\textit{aritmetica modulare}): Operations on residues modulo \( n \), e.g., \( 7 \equiv 2 \mod 5 \).
+\end{enumerate}
+
+
+\subsection*{Whole Numbers}
+
+\textbf{Whole Numbers} (\textit{numeri interi non negativi}) are an extension of the natural numbers that include zero, forming the set \( \mathbb{W} = \{0, 1, 2, 3, \ldots\} \). They are used for counting discrete objects and represent non-negative integers without fractions or decimals. 
+
+\paragraph*{\textbf{Formal Definition}}  
+The set \( \mathbb{W} \) satisfies the \textbf{Peano axioms} (\textit{assiomi di Peano}) with zero as the base element:
+\begin{itemize}
+    \item \( 0 \) is a whole number.
+    \item Every whole number \( n \) has a unique successor \( S(n) \in \mathbb{W} \).
+    \item \( 0 \) is not the successor of any whole number.
+    \item Distinct numbers have distinct successors: \( S(a) = S(b) \implies a = b \).
+    \item \textbf{Induction}: If a property holds for \( 0 \) and for \( S(n) \) whenever it holds for \( n \), it holds for all \( \mathbb{W} \).
+\end{itemize}
+
+\paragraph*{\textbf{Key Properties}}  
+\begin{itemize}
+    \item \textbf{Closure under addition and multiplication}: For \( a, b \in \mathbb{W} \), \( a + b \in \mathbb{W} \) and \( a \cdot b \in \mathbb{W} \).
+    \item \textbf{Non-closure under subtraction}: \( a - b \in \mathbb{W} \) only if \( a \geq b \).
+    \item \textbf{Additive identity}: \( 0 + a = a \) for all \( a \in \mathbb{W} \).
+    \item \textbf{Well-ordering principle} (\textit{principio del buon ordinamento}): Every non-empty subset of \( \mathbb{W} \) has a least element.
+\end{itemize}
+
+\paragraph*{\textbf{Representation}}  
+Whole numbers are represented in numeral systems such as:
+\begin{itemize}
+    \item \textbf{Decimal}: \( 0, 1, 2, \ldots \)
+    \item \textbf{Binary}: \( 0_2 = 0_{10}, 1_2 = 1_{10}, 10_2 = 2_{10} \)
+    \item \textbf{Unary}: \( 0 \) (often represented as an absence of marks), \( | = 1, || = 2 \).
+\end{itemize}
+
+\paragraph*{\textbf{Differences from Natural Numbers}}  
+Unlike natural numbers (\textit{numeri naturali}), which sometimes exclude zero, whole numbers explicitly include \( 0 \). This makes \( \mathbb{W} \) the set \( \mathbb{N} \cup \{0\} \) in contexts where natural numbers start at \( 1 \).
+
+
+\subsection*{Trigonometric Functions}
+
+\textbf{Trigonometric Functions} (\textit{funzioni trigonometriche}) are periodic functions that relate angles in a right triangle or on the unit circle to ratios of side lengths. The primary trigonometric functions are sine (\(\sin\)), cosine (\(\cos\)), tangent (\(\tan\)), and their reciprocals: cosecant (\(\csc\)), secant (\(\sec\)), and cotangent (\(\cot\)).
+
+\paragraph*{\textbf{Formal Definition (Unit Circle)}}  
+For an angle \(\theta\) measured counterclockwise from the positive \(x\)-axis on the unit circle (\(x^2 + y^2 = 1\)):
+\[
+\sin\theta = y, \quad \cos\theta = x, \quad \tan\theta = \frac{y}{x} \quad (x \neq 0).
+\]
+The reciprocals are defined as:
+\[
+\csc\theta = \frac{1}{\sin\theta}, \quad \sec\theta = \frac{1}{\cos\theta}, \quad \cot\theta = \frac{x}{y} \quad (y \neq 0).
+\]
+
+\paragraph*{\textbf{Key Properties}}  
+\begin{itemize}
+    \item \textbf{Periodicity} (\textit{periodicità}): \(\sin\theta\) and \(\cos\theta\) have period \(2\pi\); \(\tan\theta\) and \(\cot\theta\) have period \(\pi\).
+    \item \textbf{Range}: 
+    \[
+    \sin\theta, \cos\theta \in [-1, 1]; \quad \tan\theta \in \mathbb{R} \text{ (excluding asymptotes)}.
+    \]
+    \item \textbf{Parity}: \(\sin\theta\) and \(\tan\theta\) are odd functions; \(\cos\theta\) is even:
+    \[
+    \sin(-\theta) = -\sin\theta, \quad \cos(-\theta) = \cos\theta.
+    \]
+    \item \textbf{Pythagorean Identity} (\textit{identità pitagorica}):
+    \[
+    \sin^2\theta + \cos^2\theta = 1.
+    \]
+\end{itemize}
+
+\paragraph*{\textbf{Representation}}  
+Trigonometric functions can be expressed as:
+\begin{itemize}
+    \item \textbf{Geometric}: Ratios of triangle sides or coordinates on the unit circle.
+    \item \textbf{Series expansions}:
+    \[
+    \sin x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}, \quad \cos x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!}.
+    \]
+    \item \textbf{Exponential (Euler's formula)}:
+    \[
+    e^{i\theta} = \cos\theta + i\sin\theta.
+    \]
+\end{itemize}
+
+\paragraph*{\textbf{Differences from Other Functions}}  
+Unlike polynomial or exponential functions, trigonometric functions:
+\begin{itemize}
+    \item Are periodic and bounded (except \(\tan\theta\) and \(\cot\theta\)).
+    \item Model oscillatory behavior (e.g., waves, circular motion).
+    \item Require angular input (radians or degrees) rather than purely scalar quantities.
+\end{itemize}
 
 \subsection*{Exponent and Logarithms}
 
@@ -156,6 +392,8 @@ z^{-1}=\frac{\bar{z}}{|z|^{2}}=\frac{x-iy}{x^{2}+y^{2}}
 \section*{Sums and Sequences}
 
 \section*{Series}
+
+\newpage{}
 
 \part*{Post-Derivatives}
 
