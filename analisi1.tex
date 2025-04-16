@@ -19,13 +19,16 @@
   \fontencoding{LGR}\selectfont\def\encodingdefault{LGR}}
 \DeclareRobustCommand{\textgreek}[1]{\leavevmode{\greektext #1}}
 
+%% A simple dot to overcome graphicx limitations
+\newcommand{\lyxdot}{.}
+
 
 \makeatother
 
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{April 12, 2025}
+\date{April 16, 2025}
 \author{Giacomo}
 
 \maketitle
@@ -92,15 +95,24 @@ It is represented by $\forall$. ``For every ...''
 
 It is represented by $\exists$. ``There exists ...''
 
-\subsubsection*{Axioms DEF:--- NOT SURE WHAT TO DO WITH THIS}
+\subsubsection*{Axioms DEF}
 
-\paragraph*{Axioms:}
+\paragraph*{Axioms (Assiomi):}
 
-Self Evident Truths (Obvious)
+An axiom is a postulate, more commonly known as assumption. It is
+a statement that is held as always true in regards to the problem
+or proof needed to solve. There are different types of axioms which
+are briefly stated below:
 
-\paragraph*{Definitions:}
+\subparagraph*{Logical Axioms:}
 
-New terms
+A universal truth in all of Mathematics applicable in both the Physics
+Notes and the Linear Algebra Notes.
+
+\subparagraph*{Non Logical Axioms:}
+
+Domain specific assumptions, such as Axioms only applicable in $\mathbb{R}$(Gross
+oversimplification)
 
 \subsection*{Group Theory (Theoria degli insiemi)}
 
@@ -124,6 +136,43 @@ Lets say e exists $e\in G$ such that $e*a=a*e=a$ for all $a\in G$
 
 If there exists a a, such that $a\in G$ therefore there exists a
 inverses
+
+\subsection*{Proofs (Dimostrazione)}
+
+In Math, there every theorem and formula needs to be able to be proven
+in a proof. There are multiple types of proofs which are used to show
+that a theorem and or formula is valid.
+
+\paragraph*{Direct Proof (Dimostrazione Diretta).}
+
+Using known definitions, axioms and theorems, this proves continuity.
+This is the most common type of proof
+
+\paragraph{Proof by Contradiction (Dimostrazione per Assurdo).}
+
+Assume that a statement is false and connect it to a logical contradiction.
+
+\paragraph*{Induction (Induzione).}
+
+Once you prove a general case, you can show that if the statement
+holds for a specific n1, therefore it holds for all n.
+
+\paragraph{Proof of Contrapositive (Dimostrazione per Contrapposizione).}
+
+--- I dont understand work on later
+
+\paragraph*{Constructive Proof (Dimostrazione Costruttiva).}
+
+Make a identity with the exact desired property.
+
+\paragraph*{non\_Constructive Proof (Dimostrazione non Costruttiva).}
+
+``Show existence without providing an explicit example.'' --? 
+
+\paragraph*{Counter example proof (Dimostrazione per Controesempio)}
+
+Show that a universal statement is false by showing a example where
+it is not valid.
 
 \subsection*{Functions}
 
@@ -225,6 +274,14 @@ Whole numbers are represented in numeral systems such as:
 Unlike natural numbers (\textit{numeri naturali}), which sometimes exclude zero, whole numbers explicitly include \( 0 \). This makes \( \mathbb{W} \) the set \( \mathbb{N} \cup \{0\} \) in contexts where natural numbers start at \( 1 \).
 
 
+\paragraph*{Below,}
+
+is a image of all the relevant groups of numbers and how they are
+related. Not all of them have been stated in this point in the notes,
+but they are all relevant for analysis 1
+
+\includegraphics[scale=0.2]{/home/guc/Pictures/NumberSetinC\lyxdot svg}
+
 \subsection*{Trigonometric Functions}
 
 \textbf{Trigonometric Functions} (\textit{funzioni trigonometriche}) are periodic functions that relate angles in a right triangle or on the unit circle to ratios of side lengths. The primary trigonometric functions are sine (\(\sin\)), cosine (\(\cos\)), tangent (\(\tan\)), and their reciprocals: cosecant (\(\csc\)), secant (\(\sec\)), and cotangent (\(\cot\)).
@@ -263,6 +320,10 @@ Unlike polynomial or exponential functions, trigonometric functions:
     \item Model oscillatory behavior (e.g., waves, circular motion).
     \item Require angular input (radians or degrees) rather than purely scalar quantities.
 \end{itemize}
+
+\paragraph*{Unit Circle For Reference:}
+
+\includegraphics[scale=0.1]{/home/guc/Downloads/2048px-Unit_circle_angles\lyxdot svg}
 
 \subsection*{Exponent and Logarithms}
 
@@ -332,8 +393,13 @@ Key solving techniques:
 
 \section*{Complex numbers}
 
-A complex number is defined, by $x,y\in\mathbb{R}$ and i as the imaginary
-unit.
+The largest domain covered in these notes: $\mathbb{C}$. Complex
+numbers are an extension of real numbers, defined by the imaginary
+number i With this strange property where $i^{2}=-1$. They are used
+to resolve polynomial equations unsolvable in real numbers, as per
+the fundamental theorem of algebra - I might add this. Below is a
+complex number with iy as the imaginary component and x as the real
+component.
 
 \begin{equation}
 z=x+iy
@@ -374,8 +440,14 @@ z_{1}z_{2}=(x_{1}+iy_{1})(x_{2}+iy_{2})=(x_{1}x_{2}-y_{1}y_{2})+i(x_{1}y_{2}+x_{
 z^{-1}=\frac{\bar{z}}{|z|^{2}}=\frac{x-iy}{x^{2}+y^{2}}
 \end{equation}
 
+A image of the $\mathbb{C}$ plane for reference, showing the inverse
+modulus as well:
+
+\includegraphics[scale=0.2]{/home/guc/Pictures/Complex_conjugate_picture\lyxdot svg}
 
 \section*{Sums and Sequences}
+
+\textquotedbl La situazione è grave ma non è seria.\textquotedbl{}
 
 \subsection*{Limits}
 
