@@ -325,81 +325,15 @@ Unlike polynomial or exponential functions, trigonometric functions:
 
 \includegraphics[scale=0.1]{/home/guc/Downloads/2048px-Unit_circle_angles\lyxdot svg}
 
-\subsection*{Exponent and Logarithms}
-
-I dont really know what to do with this section. I might add actual
-explanations, but for not Ill just keep properties
-
-\subsubsection*{Exponential Properties}
-For $a > 0$, $b > 0$, and $x,y \in \mathbb{R}$:
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-\setlength\itemsep{-0.5em}
-\setlength\parsep{-0.5em}
-    \item $a^x a^y = a^{x+y}$
-    \item $\frac{a^x}{a^y} = a^{x-y}$
-    \item $(a^x)^y = a^{xy}$
-    \item $a^0 = 1$
-    \item $a^{-x} = \frac{1}{a^x}$
-    \item $(ab)^x = a^x b^x$
-    \item $\left(\frac{a}{b}\right)^x = \frac{a^x}{b^x}$
-\end{itemize}
-
-\subsubsection*{Def of Logarithms}
-For $a > 0$ ($a \neq 1$), $b > 0$:
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-    \item $\log_a b = x \iff a^x = b$
-    \item $\log_a 1 = 0$
-    \item $\log_a a = 1$
-    \item $a^{\log_a b} = b$
-\end{itemize}
-
-\subsubsection*{Logarithm Properties}
-For $a > 0$ ($a \neq 1$), $x,y > 0$, $k \in \mathbb{R}$:
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-    \item $\log_a(xy) = \log_a x + \log_a y$
-    \item $\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y$
-    \item $\log_a(x^k) = k\log_a x$
-    \item $\log_a a^x = x$
-\end{itemize}
-
-\subsubsection*{Change of Base}
-For $a,b > 0$ ($a,b \neq 1$), $c > 0$:
-\[
-\log_a c = \frac{\log_b c}{\log_b a}
-\]
-Special case: $\log_a b = \frac{1}{\log_b a}$
-
-\subsubsection*{Natural Exponential and Logarithm}
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-    \item $e^x = \exp(x)$
-    \item $\ln x = \log_e x$
-    \item $e^{\ln x} = x$ for $x > 0$
-    \item $\ln(e^x) = x$ for $x \in \mathbb{R}$
-\end{itemize}
-
-\subsubsection*{Exponential-Logarithmic Equations}
-Key solving techniques:
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-    \item If $a^x = a^y$ then $x = y$
-    \item If $\log_a x = \log_a y$ then $x = y$
-    \item To solve $a^{f(x)} = b$: take logarithms of both sides
-    \item To solve $\log_a f(x) = b$: rewrite as $f(x) = a^b$
-\end{itemize}
-
 \section*{Complex numbers}
 
 The largest domain covered in these notes: $\mathbb{C}$. Complex
 numbers are an extension of real numbers, defined by the imaginary
 number i With this strange property where $i^{2}=-1$. They are used
-to resolve polynomial equations unsolvable in real numbers, as per
-the fundamental theorem of algebra - I might add this. Below is a
-complex number with iy as the imaginary component and x as the real
-component.
+to resolve polynomial equations unsolvable in real numbers, as shown
+in the fundamental theorem of algebra (Might need a section on this).
+Below is a complex number with iy as the imaginary component and x
+as the real component.
 
 \begin{equation}
 z=x+iy
@@ -473,13 +407,54 @@ for all integers, the distance between and L is less than \textgreek{ε}.''
 
 \subsection*{Successions}
 
-Successions, also known as a sequence is a collection of elements
-where each ... NEEDS MORE DEFINITION, but im tired and I have no want
-to finish this today 
+\paragraph{Definition:}
 
-\subsection*{Limited Successions}
+A sequence/sucession is simply a list of $\mathbb{N}$ while following
+a set of rules defined by a function. The function then maps each
+$\mathbb{N}$ to a corresponding $\mathbb{R}$ following the rules
+defined by the function. 
 
-\subsection*{Monotone Succession}
+\paragraph*{Representation:}
+
+It is often shown as a random letter (this case a) $a_{n}$ with n
+representing the number of the term.
+
+\subparagraph*{The first term, }
+
+$a_{1}$ is called the initial term (termine iniziale)
+
+\subparagraph*{The terms after the first,}
+
+$a_{1+n}$ is called the recursive formula (formula ricorsiva)
+
+\paragraph*{Types:}
+
+There are 2 specific categories which will be covered in more detail.
+1. Whether its bounded (limitata) or unbounded (illimitata). 2. Whether
+its convergent (convergente), divergent (divergente) or oscillatory
+(oscillante).
+
+\subsection*{Bounded Successions (Successioni Limitate)}
+
+\paragraph*{Definition:}
+
+A bounded sequence (successione limitata), is a sequence $a_{n}$
+that exists within a range such that if $b\in\mathbb{R}$, b is greater
+than $a_{n}$, and there exists $c\in\mathbb{R}$ that is less than
+$a_{n}$, it is a bounded sequence. A bounded sequence is may suggest
+convergences and can be proven by using the Bolzano-Weierstrass Theorem
+
+\paragraph*{Superiorly limited:}
+
+If a sequence in $\mathbb{R}$ diverges to $-\infty$ then it is bounded
+above (superiormente limitata)
+
+\paragraph*{Inferiorly limited}
+
+If a series in $\mathbb{R}$ diverges to $+\infty$ then it is bounded
+below (inferiormente limitata)
+
+\subsection*{Monotone Succession }
 
 \subsection*{Neperos Constant}
 
@@ -487,11 +462,77 @@ to finish this today
 
 \subsection*{Exact Successions}
 
+\subsection*{Bolzano Vistras Theorem}
+
 \subsection*{Theorem of Zero}
 
 \subsection*{Trigonometric Functions and $\pi$}
 
 \subsection*{E and Euler}
+
+Below are some old section from a scrapped chapter. Will probably
+be useful here \textasciicircum{}
+
+\subsubsection*{Exponential Properties}
+For $a > 0$, $b > 0$, and $x,y \in \mathbb{R}$:
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+\setlength\itemsep{-0.5em}
+\setlength\parsep{-0.5em}
+    \item $a^x a^y = a^{x+y}$
+    \item $\frac{a^x}{a^y} = a^{x-y}$
+    \item $(a^x)^y = a^{xy}$
+    \item $a^0 = 1$
+    \item $a^{-x} = \frac{1}{a^x}$
+    \item $(ab)^x = a^x b^x$
+    \item $\left(\frac{a}{b}\right)^x = \frac{a^x}{b^x}$
+\end{itemize}
+
+\subsubsection*{Def of Logarithms}
+For $a > 0$ ($a \neq 1$), $b > 0$:
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+    \item $\log_a b = x \iff a^x = b$
+    \item $\log_a 1 = 0$
+    \item $\log_a a = 1$
+    \item $a^{\log_a b} = b$
+\end{itemize}
+
+\subsubsection*{Logarithm Properties}
+For $a > 0$ ($a \neq 1$), $x,y > 0$, $k \in \mathbb{R}$:
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+    \item $\log_a(xy) = \log_a x + \log_a y$
+    \item $\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y$
+    \item $\log_a(x^k) = k\log_a x$
+    \item $\log_a a^x = x$
+\end{itemize}
+
+\subsubsection*{Change of Base}
+For $a,b > 0$ ($a,b \neq 1$), $c > 0$:
+\[
+\log_a c = \frac{\log_b c}{\log_b a}
+\]
+Special case: $\log_a b = \frac{1}{\log_b a}$
+
+\subsubsection*{Natural Exponential and Logarithm}
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+    \item $e^x = \exp(x)$
+    \item $\ln x = \log_e x$
+    \item $e^{\ln x} = x$ for $x > 0$
+    \item $\ln(e^x) = x$ for $x \in \mathbb{R}$
+\end{itemize}
+
+\subsubsection*{Exponential-Logarithmic Equations}
+Key solving techniques:
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+    \item If $a^x = a^y$ then $x = y$
+    \item If $\log_a x = \log_a y$ then $x = y$
+    \item To solve $a^{f(x)} = b$: take logarithms of both sides
+    \item To solve $\log_a f(x) = b$: rewrite as $f(x) = a^b$
+\end{itemize}
 
 \subsection*{Complex Polynomials}
 
