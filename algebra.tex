@@ -1,16 +1,23 @@
 %% LyX 2.4.3 created this file.  For more info, see https://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[american]{article}
+\renewcommand{\familydefault}{\sfdefault}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{luainputenc}
 \usepackage{amssymb}
+\usepackage{cancel}
 \usepackage{stmaryrd}
+\usepackage{graphicx}
 \usepackage{babel}
 \begin{document}
-\title{Linear Algebra}
-\date{April 08, 2025}
+\title{Linear Algebra \& Geometry}
+\date{April 10, 2025}
 \author{Giacomo}
+
 \maketitle
+\includegraphics[scale=0.5]{/home/guc/Pictures/Cover}
+
+\newpage{}
 
 \part*{Pre-Det}
 
@@ -20,6 +27,46 @@
 won't work.\textquotedbl{}
 
 \subsection*{Basic Definitions}
+
+\paragraph{Vectors (Vettori):}
+
+Vectors are mathematical tools which can be visualized as arrows.
+They hold tow primary operations, scaling and addition. 
+
+\subparagraph{Scaling:}
+
+Scaling involves multiplying a scalar quantity $\lambda$ which doesn't
+have a direction with the vectors. This either amplifies or reduces
+the vector without changing the ``line its on''
+
+\[
+\lambda\in\mathbb{R},v=\left(\begin{array}{c}
+v_{1}\\
+v_{2}
+\end{array}\right)\in R^{2}:\lambda\cdot v=\left(\begin{array}{c}
+\lambda v_{1}\\
+\lambda v_{2}
+\end{array}\right)
+\]
+
+
+\subparagraph*{Addition:}
+
+Addition involves adding two vectors to make a new vector
+
+\[
+v=\left(\begin{array}{c}
+v_{1}\\
+v_{2}
+\end{array}\right),w=\left(\begin{array}{c}
+w_{1}\\
+w_{2}
+\end{array}\right)\in R^{2}:v+w=\left(\begin{array}{c}
+v_{1}+w_{1}\\
+v_{2}+w_{2}
+\end{array}\right)
+\]
+
 
 \paragraph*{Subsets (Sottoinsiemi):}
 
@@ -107,21 +154,83 @@ U\cap V=\left\{ 0\right\}
 z=u+v
 \]
 
-For subspaces \( U_1, U_2, \ldots, U_n \subseteq V \), the sum \( U_1 + U_2 + \cdots + U_n \) is a \textit{direct sum} (somma diretta) if for each \( i \),
+
+\section*{Inner Products}
+
+\subsection*{Definition:}
+
+\subparagraph{For $\mathbb{R}$}
+
+For a vectors $v=(v_{1}....v_{n})$ and $w=(w_{1}....w_{n})$ it is
+
+\begin{equation}
+<v,w>=v\cdot w=\sum_{i=1}^{n}v_{i}w_{i}
+\end{equation}
+
+
+\subparagraph*{For $\mathbb{C}$}
+
+For a complex vectors $v=(v_{1}....v_{n})$ and $w=(w_{1}....w_{n})$
+it is
+
+\begin{equation}
+<v,w>=\sum_{i=1}^{n}v_{i}\overline{w}_{i}
+\end{equation}
+
+
+\subsection*{Specifics in $\mathbb{R}$}
+
+\subsubsection*{Proof:}
+
+Lets take a vector u and a vector v and say that they are orthogonal.
+Because of the orthogonality there is some $\lambda$ which allows
+the transformation. 
+
 \[
-U_i \cap \left( \sum_{j=1,\; j \neq i}^n U_j \right) = \{ 0 \}.
-\]
-The direct sum is denoted \( U_1 \oplus U_2 \oplus \cdots \oplus U_n \), and every \( z \in U_1 \oplus U_2 \oplus \cdots \oplus U_n \) has a unique representation:
-\[
-z = u_1 + u_2 + \cdots + u_n \quad \text{with } u_i \in U_i\ \forall i.
+\left(\begin{array}{c}
+v_{1}\\
+v_{2}
+\end{array}\right)=\lambda\left(\begin{array}{c}
+-u_{2}\\
+u_{1}
+\end{array}\right)
 \]
 
-\paragraph{Formal Uniqueness Condition:}
-For \( U \oplus V \),
+(Below the $\leftrightarroweq$ is being used as a substitute for
+and). 
+
 \[
-\forall z \in U \oplus V,\ \exists!\, (u, v) \in U \times V \text{ such that } z = u + v.
+u_{1}\cdot v_{1}=-\cancelto{v_{2}}{u_{1}\lambda}u_{2}\leftrightarroweq u_{2}\cdot v_{2}=\cancelto{-v_{1}}{u_{2}\lambda}u_{1}
 \]
-Here, \( \exists! \) denotes ``there exists exactly one.''
+
+Since v2 and -v1 equal to those terms above they cancel out the unknown
+$\lambda$
+
+\[
+u_{1}\cdot v_{1}=-v_{2}\cdot u_{2}\leftrightarroweq u_{2}\cdot v_{2}=-v_{1}u_{1}
+\]
+
+Since both sides are now the same formula, we can move them from one
+side to the other removing the negative equaling =0
+
+\[
+u_{1}v_{1}+u_{2}v_{2}=0
+\]
+
+\[
+u_{1}v_{1}\Rightarrow<u,v>
+\]
+
+
+\subsubsection*{Length:}
+
+\subsubsection*{Angle Between Vectors:}
+
+\subsubsection*{Projection:}
+
+\subsubsection*{Orthogonality:}
+
+\section*{Matrixes}
 
 \part*{Post-Det}
 \end{document}

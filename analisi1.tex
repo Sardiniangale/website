@@ -4,6 +4,8 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[LGR,T1]{fontenc}
 \usepackage[utf8]{luainputenc}
+\usepackage{color}
+\usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -28,7 +30,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analisis 1}
-\date{21 April 2025}
+\date{22 April 2025}
 \author{Giacomo}
 
 \maketitle
@@ -95,7 +97,7 @@ It is represented by $\forall$. ``For every ...''
 
 It is represented by $\exists$. ``There exists ...''
 
-\subsubsection*{Axioms DEF}
+\subsubsection*{Axioms}
 
 \paragraph*{Axioms (Assiomi):}
 
@@ -321,7 +323,7 @@ Unlike polynomial or exponential functions, trigonometric functions:
 
 \includegraphics[scale=0.1]{/home/guc/Downloads/2048px-Unit_circle_angles\lyxdot svg}
 
-\section*{Complex Numbers Introduction}
+\subsection*{Complex Numbers introduction}
 
 The largest domain covered in these notes: $\mathbb{C}$. Complex
 numbers are an extension of real numbers, defined by the imaginary
@@ -375,6 +377,9 @@ modulus as well:
 
 \includegraphics[scale=0.2]{/home/guc/Pictures/Complex_conjugate_picture\lyxdot svg}
 
+\subsection*{Group Theory}
+
+
 \section*{Sums and Sequences}
 
 \textquotedbl La situazione è grave ma non è seria.\textquotedbl{}
@@ -401,7 +406,7 @@ Where $\left\{ a_{n}\right\} $is the sequence.
 ``For every positive number, there exists a natural number such that,
 for all integers, the distance between and L is less than \textgreek{ε}.''
 
-\subsection*{Successions}
+\subsection*{Sequence}
 
 \paragraph{Definition:}
 
@@ -432,27 +437,196 @@ its convergent (convergente), divergent (divergente) or oscillatory
 
 \subsection*{Bounded Successions (Successioni Limitate)}
 
+\textcolor{red}{(The interval info in this subsection is subject to
+get its own dedicated subsection)}
+
 \paragraph*{Definition:}
 
 A bounded sequence (successione limitata), is a sequence $a_{n}$
 that exists within a range such that if $b\in\mathbb{R}$, b is greater
 than $a_{n}$, and there exists $c\in\mathbb{R}$ that is less than
 $a_{n}$, it is a bounded sequence. A bounded sequence is may suggest
-convergences and can be proven by using the Bolzano-Weierstrass Theorem
+convergences and can be proven by using the Bolzano-Weierstrass Theorem.
 
-\paragraph*{Superiorly limited:}
+\paragraph*{Intervals:}
 
-If a sequence in $\mathbb{R}$ diverges to $-\infty$ then it is bounded
-above (superiormente limitata)
+\subparagraph*{Open Interval}
 
-\paragraph*{Inferiorly limited}
+\[
+(a,b)\coloneqq\left\{ x\in\mathbb{R}|a<x<b\right\} 
+\]
 
-If a series in $\mathbb{R}$ diverges to $+\infty$ then it is bounded
-below (inferiormente limitata)
+A open interval includes all $\mathbb{R}$ numbers between a and b,
+excluding the endpoints. Represented by a () and <
 
-\subsection*{Monotone Succession }
+\subparagraph*{Closed Interval }
 
-\subsection*{Neperos Constant}
+\[
+[a,b]\coloneqq\left\{ x\in\mathbb{R}|a\leq x\leq b\right\} 
+\]
+
+A closed interval includes all $\mathbb{R}$ numbers between a and
+b, including the endpoints. Represented by a {[}{]} and $\leq$. 
+
+\subparagraph*{Empty Interval}
+
+Denoted as $\emptyset$, it contains no numbers.
+
+\subparagraph*{Degenerate Interval}
+
+A single point, $[a,a]=\left\{ a\right\} $. By technicality it is
+always closed.
+
+\subparagraph*{Half Intervals}
+
+It is possible to have intervals which are open at one end and closed
+at the other, and vice versa. e.g
+
+\[
+(a,b]\coloneqq\left\{ x\in\mathbb{R}|a<x\leq b\right\} 
+\]
+
+
+\subparagraph*{Infinite Intervals}
+
+There are also intervals which are infinite on one side and open or
+closed on the other. e.g
+
+\[
+(a,+\infty)\coloneqq\left\{ x\in\mathbb{R}|a<x\right\} 
+\]
+
+The infinite can be negative as well on the other side. (Not sure
+if the infinite has to be in a open interval, because I have not seen
+any which are not in a open interval)
+
+\paragraph*{Types of bounds: }
+
+\subparagraph*{Upper bound:}
+
+If a upper bound exists we call it bounded from above.
+
+\subparagraph*{Lower bound:}
+
+If a lower bound exists we call it bounded from below.
+
+If both upper and lower bound exist the set is bounded.
+
+\subparagraph*{Bound properties:}
+
+There can be multiple upper and lower bound (As clearly shown in the
+diagram below). 
+
+(THE UNDERLINE TEXT BELOW IS TO BE REMOVED due to no longer being
+needed.)
+
+\paragraph*{\textrm{\uline{Superiorly Limited:}}}
+
+\textrm{\uline{If A Sequence In \mbox{$\mathbb{R}$} Diverges To \mbox{$-\infty$}
+Then It Is Bounded Above (Superiormente Limitata)}}
+
+\paragraph*{\textrm{\uline{Inferiorly Limited}}}
+
+\textrm{\uline{If A Series In \mbox{$\mathbb{R}$} Diverges To \mbox{$+\infty$}
+Then It Is Bounded Below (Inferiormente Limitata)}}
+
+\paragraph*{Supremum and Infimum}
+
+The supremum and infimum can only exist for a interval with at least
+one open point. Its the smallest possible upper bound (If its a supremum)
+or the largest possible lower bound (If its a infimum). It can NEVER
+reach the interval. The Supermum can be written as $supM$ and the
+Infium can be written as $infM$
+
+\paragraph*{Minimum and Maximum}
+
+For a Minimum or a Maximum you must have at least one closed interval
+point. (as shown in the diagram below). The minimum or maximum is
+the point a or b that hold the interval. 
+
+\paragraph*{Diagram of open and closed sequences:}
+
+\includegraphics[scale=0.4]{/home/guc/Pictures/boundedsequences}
+
+\subsection*{Monotone Sequences }
+
+\paragraph*{Definition:}
+
+A sequence that is monotone is either non-decreasing or non-increasing.
+Therefore, by extention a constant sequence is simultaneously non-decreasing
+and non-increasing. Therefore it is monotone. The strictly increasing/decreasing
+are simply subsets.
+
+\paragraph*{Growth of Sequences:}
+
+\subparagraph*{Non-decreasing sequence (successioni crescenti):}
+
+Is a sequence that increases if each term is greater than or equal
+to the previous term.
+
+\subparagraph*{Non-increasing sequences (successioni decrescenti):}
+
+Is a sequence that it decreases if each term is less than or equal
+to the previous term.
+
+\subparagraph*{Strictly increasing sequences (successioni strettamente crescenti):}
+
+Is a sequence that strictly increasing if each term is strictly greater
+than the previous term.
+
+\subparagraph*{Strictly decreasing sequences (successioni strettamente decrescenti):}
+
+Is a sequence that strictly decreasing if each term is strictly less
+than the previous term.
+
+\subsection*{Convergent Sequences}
+
+
+\subsection*{Cauchy Sequences}
+
+\subsection*{Napier's Constant (Costante di Nepero)}
+
+This may also be known as e or exponential or exp. It has 3 separate
+definitions: Limit, Series, and integral. However I will only do the
+explanation for limit definition here. The integral explanation will
+be done in the integral chapter.
+
+\paragraph*{Limit Definition:}
+
+\begin{equation}
+e=lim_{n\rightarrow\infty}\left(1+\frac{1}{n}\right)^{n}
+\end{equation}
+
+
+\paragraph*{Analisis Properties (still figuring out what to do with this section):}
+
+$e^{x}$ is continuous in $\mathbb{R}$ and it is also infinitely
+differentiable.
+
+....
+
+\subparagraph*{Base of the Natural Logarithm} 
+\( e \) is the base of the natural logarithm, denoted as \( \ln(x) \).
+
+\subparagraph*{Approximate Value} 
+\( e \approx 2.71828 \).
+
+\subparagraph*{Irrational Number} 
+\( e \) cannot be expressed as a ratio of two integers.
+
+\subparagraph*{Transcendental Number} 
+\( e \) is not a root of any non-zero polynomial with rational coefficients.
+
+\subparagraph*{Limit Definition} 
+\[
+e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n
+\]
+
+\subparagraph*{Euler's Identity} 
+\[
+e^{i\pi} + 1 = 0
+\]
+Connecting \( e \), imaginary numbers, and \( \pi \)
 
 \subsection*{Handling Infinity}
 
@@ -467,7 +641,7 @@ below (inferiormente limitata)
 \subsection*{E and Euler}
 
 Below are some old section from a scrapped chapter. Will probably
-be useful here \textasciicircum{}
+be useful here 
 
 \subsubsection*{Exponential Properties}
 For $a > 0$, $b > 0$, and $x,y \in \mathbb{R}$:
