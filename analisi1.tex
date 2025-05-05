@@ -4,7 +4,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[LGR,T1]{fontenc}
 \usepackage[utf8]{luainputenc}
-\usepackage{color}
+\usepackage{xcolor}
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -25,12 +25,24 @@
 \newcommand{\lyxdot}{.}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxcode}
+	{\par\begin{list}{}{
+		\setlength{\rightmargin}{\leftmargin}
+		\setlength{\listparindent}{0pt}% needed for AMS classes
+		\raggedright
+		\setlength{\itemsep}{0pt}
+		\setlength{\parsep}{0pt}
+		\normalfont\ttfamily}%
+	 \item[]}
+	{\end{list}}
+
 \makeatother
 
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analisis 1}
-\date{23 April 2025}
+\date{30 April 2025}
 \author{Giacomo}
 
 \maketitle
@@ -325,7 +337,7 @@ Unlike polynomial or exponential functions, trigonometric functions:
 
 \paragraph*{Unit Circle For Reference:}
 
-\includegraphics[scale=0.1]{/home/guc/Downloads/2048px-Unit_circle_angles\lyxdot svg}
+\includegraphics[scale=0.5]{pasted1}
 
 \subsection*{Complex Numbers introduction}
 
@@ -381,7 +393,7 @@ modulus as well:
 
 \includegraphics[scale=0.2]{/home/guc/Pictures/Complex_conjugate_picture\lyxdot svg}
 
-\subsection*{Group Theory}
+\subsection*{Polar Coordinates}
 
 
 \section*{Sums and Sequences}
@@ -440,9 +452,6 @@ its convergent (convergente), divergent (divergente) or oscillatory
 (oscillante).
 
 \subsection*{Bounded Successions (Successioni Limitate)}
-
-\textcolor{red}{(The interval info in this subsection is subject to
-get its own dedicated subsection)}
 
 \paragraph*{Definition:}
 
@@ -521,19 +530,6 @@ If both upper and lower bound exist the set is bounded.
 There can be multiple upper and lower bound (As clearly shown in the
 diagram below). 
 
-(THE UNDERLINE TEXT BELOW IS TO BE REMOVED due to no longer being
-needed.)
-
-\paragraph*{\textrm{\uline{Superiorly Limited:}}}
-
-\textrm{\uline{If A Sequence In \mbox{$\mathbb{R}$} Diverges To \mbox{$-\infty$}
-Then It Is Bounded Above (Superiormente Limitata)}}
-
-\paragraph*{\textrm{\uline{Inferiorly Limited}}}
-
-\textrm{\uline{If A Series In \mbox{$\mathbb{R}$} Diverges To \mbox{$+\infty$}
-Then It Is Bounded Below (Inferiormente Limitata)}}
-
 \paragraph*{Supremum and Infimum}
 
 The supremum and infimum can only exist for a interval with at least
@@ -566,22 +562,38 @@ are simply subsets.
 \subparagraph*{Non-decreasing sequence (successioni crescenti):}
 
 Is a sequence that increases if each term is greater than or equal
-to the previous term.
+to the previous term:
+\[
+\forall n\in\mathbb{N},a_{n+1}\geq a_{n}
+\]
+
 
 \subparagraph*{Non-increasing sequences (successioni decrescenti):}
 
 Is a sequence that it decreases if each term is less than or equal
 to the previous term.
+\[
+\forall n\in\mathbb{N},a_{n+1}\leq a_{n}
+\]
+
 
 \subparagraph*{Strictly increasing sequences (successioni strettamente crescenti):}
 
 Is a sequence that strictly increasing if each term is strictly greater
 than the previous term.
+\[
+\forall n\in\mathbb{N},a_{n+1}>a_{n}
+\]
+
 
 \subparagraph*{Strictly decreasing sequences (successioni strettamente decrescenti):}
 
 Is a sequence that strictly decreasing if each term is strictly less
 than the previous term.
+\[
+\forall n\in\mathbb{N},a_{n+1}<a_{n}
+\]
+
 
 \subsection*{Convergent Sequences}
 
@@ -601,14 +613,6 @@ A proof of the monotonicity of Euler's number is classed as (200.15.07.08)
 \begin{equation}
 e=lim_{n\rightarrow\infty}\left(1+\frac{1}{n}\right)^{n}
 \end{equation}
-
-
-\paragraph*{Analisis Properties (still figuring out what to do with this section):}
-
-$e^{x}$ is continuous in $\mathbb{R}$ and it is also infinitely
-differentiable.
-
-....
 
 \subparagraph*{Base of the Natural Logarithm} 
 \( e \) is the base of the natural logarithm, denoted as \( \ln(x) \).
@@ -633,17 +637,157 @@ e^{i\pi} + 1 = 0
 \]
 Connecting \( e \), imaginary numbers, and \( \pi \)
 
-\subsection*{Handling Infinity}
+\subsubsection*{Complex Exponential (l'esponenziale Complesso)}
+
+The complex exponential function denoted as $e^{z}$ or exp(z). The
+vast majority of definitions of complex exponential are the exact
+same as the regular exponential function. Including the proof of their
+equivalence. There are several ways to define a complex exponential
+function, and I will list them below.
+
+\subparagraph*{Power series expansion}
+
+\paragraph*{
+\[
+e^{z}=\sum_{k=0}^{\infty}\frac{z^{k}}{k!}
+\]
+}
+
+\subparagraph*{Limit Definition}
+
+\[
+e^{z}=lim_{n\rightarrow\infty}\left(1+\frac{z}{n}\right)^{n}
+\]
+
+
+\subparagraph*{Additive Property (Kinda definition)}
+
+\[
+e^{w+z}=e^{w}e^{z}
+\]
+
+
+\subparagraph*{Complex log}
+\begin{lyxcode}
+\[
+log(e^{z})=\left\{ z+2\pi ik|k\in\mathbb{Z}\right\} 
+\]
+\end{lyxcode}
+
+\paragraph*{Key Properties}
+
+\subparagraph*{Non zero}
+
+$\frac{1}{e^{z}}=e^{-z}$ and e\textasciicircum z does not equal
+zero for all C
+
+\subparagraph*{Periodic
+\[
+e^{z+2\pi}=e^{z}
+\]
+}
+
+\subparagraph*{Identita di Euler}
+
+For $e^{i\theta}=cos\theta+i*sin\theta$
+
+\[
+e^{i\pi}=-1
+\]
+
+
+\subparagraph*{Conjugate}
+
+$\overline{e^{z}}=e^{\overline{z}}$
+
+\subparagraph*{Modulus}
+
+$|e^{z}|=e^{\mathfrak{\mathbb{R}}(z)}$
+
+\subsection*{\textcolor{brown}{Handling Infinity}}
+
+\subsubsection*{\textcolor{brown}{Limit Superior}}
+
+\textcolor{brown}{For a sequence $(a_{n})$, the limit superior which
+is written as }
+
+\textcolor{brown}{
+\[
+limsup_{n\rightarrow\infty}a_{n}
+\]
+ is the supremum of all the accumulation points (cluster points) of
+the sequence. For example if a sequence diverges to infinity its only
+accumulation point is infinity therefore }
+
+\textcolor{brown}{
+\[
+limsup_{n\rightarrow\infty}a_{n}=\infty
+\]
+ The main diffrence between the supremum is that the supremum }
+
+\textcolor{brown}{Lets say we have a sequence $(a_{n})$ which is
+given by $a_{n}=n$, the limit superior of $(a_{n})$ is the largest
+accumulation value of $(a_{n})$. Whether it is improper or proper
+accumulation value. It is represented as:}
+
+\textcolor{brown}{
+\[
+a=limsup_{n\rightarrow\infty}a_{n}
+\]
+}
+
+\textcolor{brown}{The difference between the limit superior and superior
+is that the limit superior is ALWAYS smaller than the }
+
+\paragraph*{\textcolor{brown}{Limit Inferior }}
+
+\textcolor{brown}{The limit inferior of $(a_{n})$ is the smallest
+improper accumulation value of $(a_{n})$, and its represented by
+the notation}
+
+\textcolor{brown}{
+\[
+a=liminf_{n\rightarrow\infty}a_{n}
+\]
+}
+
+\paragraph*{\textcolor{brown}{Accumulation Values and Divergence}}
+
+\textcolor{brown}{A value $a\in\mathbb{R}\cup\left\{ +\infty,-\infty\right\} $
+is called a accumulation value of $a_{n}$, if there exists a sub
+sequence $a_{n_{k}}$ of $a_{n}$ such that the limit $k\rightarrow\infty|a_{n_{k}}=a$}
+
+\textcolor{brown}{For improper cases:}
+
+\textcolor{brown}{+$\infty$ is a accumilation value if the sequences
+is unbounded above, meaning for every M$\in$R infinit}
+
+\paragraph*{\textcolor{brown}{Improper accumulation values}}
+
+\textcolor{brown}{Any sequence that has no accumulation values has
+at least one improper accumulation value}
 
 \subsection*{Exact Successions}
 
 \subsection*{Bolzano Vistras Theorem}
 
+\paragraph*{Formal Definition:}
+
+1. In $\mathbb{R}$ every bounded sequence of real numbers contains
+a convergent subsequence
+
+2. In $\mathbb{R}^{n}$ ever bounded sequence has a convergent subsequence
+
+\paragraph*{Proof:}
+
+The proof can be found at 200.20.05.10
+
 \subsection*{Theorem of Zero}
 
 \subsection*{Trigonometric Functions and $\pi$}
 
-\subsection*{E and Euler}
+
+\subsection*{Exponential Properties}
 
 Below are some old section from a scrapped chapter. Will probably
 be useful here 
