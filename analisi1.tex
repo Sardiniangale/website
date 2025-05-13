@@ -4,7 +4,7 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[LGR,T1]{fontenc}
 \usepackage[utf8]{luainputenc}
-\usepackage{xcolor}
+\usepackage{color}
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -42,7 +42,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analisis 1}
-\date{5 May 2025}
+\date{12 May 2025}
 \author{Giacomo}
 
 \maketitle
@@ -653,9 +653,150 @@ than the previous term.
 \]
 
 
-\subsection*{Convergent Sequences}
+\subsection*{Convergent and Divergent Sequences}
 
-\subsection*{Cauchy Sequences}
+\subsubsection*{Convergent}
+
+A sequence is convergent if it approaches a finite limit (L) as the
+n approaches infinity. Formally this can be defined:
+
+A sequence $\left\{ a_{n}\right\} $ converges to L if 
+
+\[
+\forall\varepsilon>0,\exists N\in\mathbb{N}|\forall n\geq N,|a_{n}-L|<\varepsilon
+\]
+
+
+\paragraph*{Accumulation Points Link}
+
+A convergent sequence has exactly one accumulation point which is
+its limit. This is different from the divergent sequence that will
+have multiple accumulation values or many improper ones.
+
+\paragraph*{Limit sup and inf}
+
+For convergent sequences:
+
+\[
+lim_{n\rightarrow\infty}supa_{n}=lim_{n\rightarrow\infty}infa_{n}=L
+\]
+
+
+\paragraph*{Note on Bounded Sequences:}
+
+\uline{While boundedness is a requirement for a sequence to be convergent
+it is not the only requirement.}
+
+\paragraph*{Monotone Convergence Theorem:}
+
+Every bounded monotonic sequence converges
+
+\paragraph*{Limit properties for convergence:}
+
+If b is a sequence that converges to M and a is a sequence that converges
+to L then
+\[
+lim_{n\rightarrow\infty}(a_{n}\pm b_{n})=L\pm M
+\]
+\[
+lim_{n\rightarrow\infty}(a_{n}\times b_{n})=L\times M
+\]
+\[
+lim_{n\rightarrow\infty}\frac{a_{n}}{b_{n}}=\frac{L}{M}(M\neq0)
+\]
+
+
+\subsubsection*{Divergent}
+
+A sequence is divergent if it does not converge to any limit L. There
+are two primary times of divergence, divergence to infinity(may also
+be refered to improper divergence) or oscillatory divergence. The
+formal definitions for divergence to infinity is listed below:
+
+\[
+\forall M\in\mathbb{R},\exists N\in\mathbb{N}
+\]
+
+Such that $\forall n\geq N,a_{n}>M$, and if it diverging to negative
+infinity it is $\forall n\geq N,a_{n}<M$
+
+And for Oscillations:
+
+\subparagraph*{Bounded Oscillations:}
+
+Terms change between bounds with the lim sum not equalling the lim
+inf
+
+\subparagraph*{Unbounded oscillation:}
+
+Terms grow wile changing and slowly diverging in absolute value but
+don't have a directional convergence.
+
+\paragraph*{Unbounded}
+
+While it is not guaranteed that every bounded sequence is convergent,
+it is guaranteed that every unbounded sequence is divergent by definition.
+However not all divergent sequences are unbounded. 
+
+\paragraph*{Sub sequences}
+
+If a sub sequence of a sequence diverges to infinity then the also
+sequence will diverge.
+
+If two sub sequences converge to different limits, the original sequence
+diverges.
+
+\paragraph*{Limit properties}
+
+If $lim_{n\rightarrow\infty}a_{n}=+\infty$ and the sequence b is
+bounded below then
+
+\[
+lim_{n\rightarrow\infty}(a_{n}+b_{n})=+\infty
+\]
+If $lim_{n\rightarrow\infty}a_{n}=+\infty$ and $lim_{n\rightarrow\infty}b_{n}=c>0$
+then
+
+\[
+lim_{n\rightarrow\infty}(a_{n}\times b_{n})=+\infty
+\]
+
+
+\subsection*{Cauchy Sequence}
+
+A Cauchy sequence is a sequence whose terms become arbitrarily close
+to one another as the sequence progresses, regardless of whether the
+sequence converges to a specific limit.
+
+\paragraph{Formal Definition}
+
+Every sequence with this definition is a Cauchy Sequence
+
+\[
+\forall\epsilon>0,\exists N\in\mathbb{N}\Rightarrow\forall m,n\geq N,|a_{m}-a_{n}|<\epsilon
+\]
+
+
+\paragraph*{Properties}
+
+\subparagraph{Convergence}
+
+In R every Cauchy sequence by definition must be convergent, due to
+the completeness property. 
+
+\subparagraph*{Boundedness}
+
+Every Cauchy Sequence is bounded.
+
+\subparagraph*{Subsequence}
+
+If a Cauchy sequence has a convergent subsequence, the entire sequence
+converges to the same limit. 
+
+\subparagraph*{Notes on convergence}
+
+All convergent sequences are Cauchy, not all Cauchy sequences are
+convergent IN INCOMPLETE SPACES
 
 \subsection*{Napier's Constant (Costante di Nepero)}
 
@@ -762,14 +903,14 @@ $\overline{e^{z}}=e^{\overline{z}}$
 
 $|e^{z}|=e^{\mathfrak{\mathbb{R}}(z)}$
 
-\subsection*{\textcolor{brown}{Handling Infinity}}
+\subsection*{\textcolor{black}{Handling Infinity}}
 
-\subsubsection*{\textcolor{brown}{Limit Superior}}
+\subsubsection*{\textcolor{black}{Limit Superior}}
 
-\textcolor{brown}{For a sequence $(a_{n})$, the limit superior which
+\textcolor{black}{For a sequence $(a_{n})$, the limit superior which
 is written as }
 
-\textcolor{brown}{
+\textcolor{black}{
 \[
 limsup_{n\rightarrow\infty}a_{n}
 \]
@@ -777,55 +918,53 @@ limsup_{n\rightarrow\infty}a_{n}
 the sequence. For example if a sequence diverges to infinity its only
 accumulation point is infinity therefore }
 
-\textcolor{brown}{
+\textcolor{black}{
 \[
 limsup_{n\rightarrow\infty}a_{n}=\infty
 \]
  The main diffrence between the supremum is that the supremum }
 
-\textcolor{brown}{Lets say we have a sequence $(a_{n})$ which is
+\textcolor{black}{Lets say we have a sequence $(a_{n})$ which is
 given by $a_{n}=n$, the limit superior of $(a_{n})$ is the largest
 accumulation value of $(a_{n})$. Whether it is improper or proper
 accumulation value. It is represented as:}
 
-\textcolor{brown}{
+\textcolor{black}{
 \[
 a=limsup_{n\rightarrow\infty}a_{n}
 \]
 }
 
-\textcolor{brown}{The difference between the limit superior and superior
+\textcolor{black}{The difference between the limit superior and superior
 is that the limit superior is ALWAYS smaller than the }
 
-\paragraph*{\textcolor{brown}{Limit Inferior }}
+\paragraph*{\textcolor{black}{Limit Inferior }}
 
-\textcolor{brown}{The limit inferior of $(a_{n})$ is the smallest
+\textcolor{black}{The limit inferior of $(a_{n})$ is the smallest
 improper accumulation value of $(a_{n})$, and its represented by
 the notation}
 
-\textcolor{brown}{
+\textcolor{black}{
 \[
 a=liminf_{n\rightarrow\infty}a_{n}
 \]
 }
 
-\paragraph*{\textcolor{brown}{Accumulation Values and Divergence}}
+\paragraph*{\textcolor{black}{Accumulation Values and Divergence}}
 
-\textcolor{brown}{A value $a\in\mathbb{R}\cup\left\{ +\infty,-\infty\right\} $
+\textcolor{black}{A value $a\in\mathbb{R}\cup\left\{ +\infty,-\infty\right\} $
 is called a accumulation value of $a_{n}$, if there exists a sub
 sequence $a_{n_{k}}$ of $a_{n}$ such that the limit $k\rightarrow\infty|a_{n_{k}}=a$}
 
-\textcolor{brown}{For improper cases:}
+\textcolor{black}{For improper cases:}
 
-\textcolor{brown}{+$\infty$ is a accumilation value if the sequences
+\textcolor{black}{+$\infty$ is a accumilation value if the sequences
 is unbounded above, meaning for every M$\in$R infinit}
 
-\paragraph*{\textcolor{brown}{Improper accumulation values}}
+\paragraph*{\textcolor{black}{Improper accumulation values}}
 
-\textcolor{brown}{Any sequence that has no accumulation values has
+\textcolor{black}{Any sequence that has no accumulation values has
 at least one improper accumulation value}
-
-\subsection*{Exact Successions}
 
 \subsection*{Bolzano Vistras Theorem}
 
@@ -913,7 +1052,43 @@ Key solving techniques:
 
 \subsection*{Complex Polynomials}
 
+\subsubsection*{Weierstrass Factorization Theorem}
+
+\subsubsection*{Fundamental Theorem of Algebra}
+
 \section*{Series}
+
+\subsection*{Series (Serie)}
+
+A series is the sum of the all the terms in a sequence. Formally,
+if a is a sequence and we want the infinite sum of the series:
+
+\[
+\sum_{n=1}^{\infty}a_{n}=a_{1}+a_{2}+a_{3}+...
+\]
+
+
+\subsubsection*{Partial Sum (Somma Parziale)}
+
+A series does not have to necessarily have to be the sum of infinite
+terms. A partial sum, allows just the sum of the k terms:
+
+\[
+S_{k}=\sum_{n=1}^{k}a_{n}
+\]
+
+This series converges to S if lim$_{k\rightarrow\infty}S_{k}=S$ otherwise,
+as mentioned in previous sections it diverges.
+
+\subsection*{Types of Series}
+
+\subsubsection*{Geometric (Serie Geometrica)}
+
+It is a series with the standard form $\sum_{n=0}^{\infty}ar^{n}$
+where r is the common ratio, when it converges, it converges to $\frac{a}{1-r}$
+only if the modulus of r is less than 1
+
+\subsubsection*{Telescoping (Serie Telescopica)}
 
 \subsection*{Binomial Theorem}
 
