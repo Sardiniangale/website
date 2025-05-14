@@ -42,7 +42,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analisis 1}
-\date{12 May 2025}
+\date{13 May 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1085,10 +1085,128 @@ as mentioned in previous sections it diverges.
 \subsubsection*{Geometric (Serie Geometrica)}
 
 It is a series with the standard form $\sum_{n=0}^{\infty}ar^{n}$
-where r is the common ratio, when it converges, it converges to $\frac{a}{1-r}$
-only if the modulus of r is less than 1
+where r is the common ratio. There are 3 primary types of geometric
+series:
+
+\subparagraph*{Convergence}
+
+Theorem:
+
+if $\sum_{n=0}^{\infty}ar^{n}$ converges then $|r|<1$ and
+\[
+\sum_{n=0}^{\infty}ar^{n}=\frac{a}{1-r}
+\]
+
+
+\subparagraph*{Divergence}
+
+The series is divergent if $|r|\geq1,$ and the terms do not approach
+zero
+
+\subparagraph*{Partial sum}
+
+For a finite number k, the partial sum $S_{k}=a\frac{1-r^{k+1}}{1-r}$
+valid only if r doesn't =1
 
 \subsubsection*{Telescoping (Serie Telescopica)}
+
+A telescopic series is a series where a lot of the terms cancel out
+when written in partial sums
+\[
+\sum_{n=1}^{\infty}(b_{n}-b_{n+1})
+\]
+
+whose partial sum will telescope to
+\[
+S_{k}=\sum_{n=1}^{k}(b_{n}-b_{n+1})=b_{1}-b_{k+1}
+\]
+
+When handling a limit to L
+\[
+\sum_{n=1}^{\infty}(b_{n}-b_{n+1})=b_{1}-L
+\]
+
+
+\subsubsection*{Harmonic Series (Serie armonica)}
+
+A harmonic series is a series that diverges despite its terms tending
+to zero, it is represented as:
+
+\[
+\sum_{n=1}^{\infty}\frac{1}{n}
+\]
+
+A small proof is listed below:
+
+\[
+1+\frac{1}{2}+\left(\frac{1}{3}+\frac{1}{4}\right)+\left(\frac{1}{5}+...+\frac{1}{8}\right)+...\geq1+\frac{1}{2}+2\left(\frac{1}{4}\right)+4\left(\frac{1}{8}\right)+...=\sum_{k=0}^{\infty}\frac{1}{2}=\infty
+\]
+
+This shows that $a_{n}\rightarrow0$ is necessary for convergence,
+but not sufficient to prove it.
+
+\subsection*{Important info from Book which I haven't made a section for yet :)}
+
+\subsubsection*{Series with positive terms (Serie a termini positivi)}
+
+\subsubsection*{Associativity of series (Associatività della somma di serie)}
+
+\subsubsection*{Positional representation of R (Rappresentazione posizionale dei
+numeri reali)}
+
+\subsubsection*{Series with varying signs (Serie a segno variabile)}
+
+\subsubsection*{Summation by parts (Somma per parti)}
+
+\subsubsection*{Summation over arbitrary sets (Somma su insiemi arbitrari)}
+
+\subsubsection*{Infinite Products (Prodotti infiniti)}
+
+\subsubsection*{Exponential Series (Serie esponenziale)}
+
+\subsection*{Cauchy Criterion}
+
+A series a converges if and and only if for every epsilon that is
+grater than zero there exists a N such that for all $m>n\geq N$
+
+\subsubsection*{
+\[
+|\sum_{k=n+1}^{m}a_{k}|<\epsilon
+\]
+}
+
+\subsubsection*{Absolute and Conditional Convergence}
+
+\subsection*{Handling Convergence in Problems}
+
+\subsubsection*{Comparison (Criterio del confronto)}
+
+Compare with a known convergent/divergent series.
+
+Use for positive term series or when bounding between two known series.
+
+\subsubsection*{Ratio (Criterio del rapporto)}
+
+Compute .
+
+If , converges absolutely; if , diverges; if , inconclusive.
+
+\subsubsection*{Root (Criterio della radice)}
+
+Compute .
+
+If , converges absolutely; if , diverges; if , inconclusive.
+
+\subsubsection*{Integrals (Criterio del integrale)}
+
+For positive, monotone decreasing with , compare with .
+
+\subsubsection*{Alternating Series (Leibniz)}
+
+For alternating with decreasing and , the series converges (convergenza
+condizionale).
+
+-Might be useless
 
 \subsection*{Binomial Theorem}
 
