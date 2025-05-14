@@ -42,7 +42,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analisis 1}
-\date{13 May 2025}
+\date{14 May 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1181,25 +1181,68 @@ grater than zero there exists a N such that for all $m>n\geq N$
 
 \subsubsection*{Comparison (Criterio del confronto)}
 
-Compare with a known convergent/divergent series.
+To find convergence using comparison, there are two primary methods
+used. Direct comparison test and the Limit comparison test. 
 
-Use for positive term series or when bounding between two known series.
+\subparagraph*{Direct Comparison Test}
+
+For two series $\sum a_{n}$ and $\sum b_{n}$ with $0\leq a_{n}\leq b_{n}$
+for all $n\geq N$
+
+If $\sum b_{n}$ converges then $\sum a_{n}$ will converge
+
+If $\sum a_{n}$ diverges then $\sum b_{n}$ will diverge
+
+\subparagraph*{Limit Comparison Test}
+
+For two series $\sum a_{n}$ and $\sum b_{n}$ with $a_{n}>0,b_{n}>0$
+\[
+L=lim_{n\rightarrow\infty}\frac{a_{n}}{b_{n}}
+\]
+
+If L>0 $\sum a_{n}$ and $\sum b_{n}$ share the same convergence
+type
+
+If L=0 and $\sum b_{n}$ converges then $\sum a_{n}$ also converges
+
+If L=$\infty$ and $\sum b_{n}$ diverges, then $\sum a_{n}$ also
+diverges
 
 \subsubsection*{Ratio (Criterio del rapporto)}
 
-Compute .
+A series $\sum a_{n}$, calculate the limit
+\[
+L=lim_{n\rightarrow\infty}|\frac{a_{n+1}}{a_{n}}|
+\]
 
-If , converges absolutely; if , diverges; if , inconclusive.
+If L < 1 the series converges
+
+If L > 1 the series diverges
+
+if L = 1 this test doesn't give enough info do determine a result
 
 \subsubsection*{Root (Criterio della radice)}
 
-Compute .
+A series $\sum a_{n}$, calculate the limit
+\[
+L=lim_{n\rightarrow\infty}\sqrt[n]{|a_{n}|}
+\]
 
-If , converges absolutely; if , diverges; if , inconclusive.
+If L < 1 the series converges
 
-\subsubsection*{Integrals (Criterio del integrale)}
+If L > 1 the series diverges
 
-For positive, monotone decreasing with , compare with .
+if L = 1 this test doesn't give enough info do determine a result
+
+\subsubsection*{Integral (Criterio del integrale)}
+
+A series $\sum_{n=N}^{\infty}a_{n}$ with continuous, positive and
+decreasing terms, $a_{n}=f(n)$ for $n\geq N$
+
+If the integral $\int_{N}^{\infty}f(x)dx$ converges, then the series
+$\sum a_{n}$ converges
+
+If the integral diverges then $\sum a_{n}$ diverges
 
 \subsubsection*{Alternating Series (Leibniz)}
 
