@@ -4,14 +4,25 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{luainputenc}
+\usepackage{amstext}
 \usepackage{amssymb}
 \usepackage{cancel}
 \usepackage{stmaryrd}
 \usepackage{graphicx}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+
+\makeatother
+
 \usepackage{babel}
 \begin{document}
 \title{Linear Algebra \& Geometry}
-\date{April 10, 2025}
+\date{May 22, 2025}
 \author{Giacomo}
 
 \maketitle
@@ -78,6 +89,10 @@ a vector space e.g $\mathbb{R}^{3}$
 S=\left\{ \left(x,y,0\right)|x,y\in\mathbb{R}\right\} 
 \]
 
+
+\subparagraph*{Basic proof}
+
+See 2.210 in proof book
 
 \paragraph*{Proper Subsets (Sottoinsiemi Propri):}
 
@@ -222,15 +237,130 @@ u_{1}v_{1}\Rightarrow<u,v>
 \]
 
 
-\subsubsection*{Length:}
+\subsubsection*{Length: (Needs some work)}
+
+However the euclidean length of a vector v is from the inner product
+of v itself:
+
+\[
+\Vert v\Vert=\sqrt{<v,v>}=\sqrt{v_{1}^{2}+v_{2}^{2}+...+v_{n}^{2}}
+\]
+
 
 \subsubsection*{Angle Between Vectors:}
+
+By using the inner product and the euclidean length the angle between
+the two vectors is able to be calculated:
+
+\[
+<v,w>=\Vert v\Vert\Vert w\Vert cos\theta
+\]
+
+If we rearrange for cos$\theta$
+
+\[
+cos\theta=\frac{<v,w>}{\Vert v\Vert\Vert w\Vert}
+\]
+
+Then to compute the angle use the inverse of cos which is arccos
+
+\begin{equation}
+\theta=arccos\left(\frac{<v,w>}{\Vert v\Vert\Vert w\Vert}\right)
+\end{equation}
+
+
+\subparagraph{Small Proof Example:}
+
+Lets make v=(3,0) and w= (0,3). This is because the vectors are perpendicular.
+
+The inner product:
+
+\[
+<v,w>=(3)(0)+(0)(3)=0
+\]
+
+\textasciicircum{} Currently lines up with normal properties
+
+The norms (Euclidean length) are both 3.
+
+Solving for theta
+
+\[
+\theta=arccos(\frac{0}{3\cdot3})=90\lyxmathsym{\textdegree}
+\]
+
+$\boxempty$
 
 \subsubsection*{Projection:}
 
 \subsubsection*{Orthogonality:}
 
-\section*{Matrixes}
+\section*{Matrix (Matrice)}
+
+A matrix is one of the most important parts of linear algebra. Generally
+it is used as a means to store a array of elements which can be anything
+from numbers to functions. These are stored in rows (righe) and columns
+(colonne). Its shortened version is generally represented by a capitalized
+letter such as A:
+
+\[
+A=\left[\begin{array}{cccc}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{array}\right]
+\]
+
+
+\paragraph*{Common terms:}
+
+(Will be covered in more detail later)
+
+1. Element (elementi), the individual points such as $a_{ij}$
+
+2. Square matrix (matrice quadrata), a symmetrical matrix where m=n
+
+3. Rectangular matrix (matrice rettangolare), a matrix where m is
+not equal to n
+
+4. Transpose (trasposta), denoted as $A^{T}$, is simply swapping
+the rows and collums
+
+5. Diagonal (diagonale), the set of elemets where i=j. Self explanatory
+
+\subsubsection*{Basic operations}
+
+\subparagraph*{Addition/Subtraction}
+
+\[
+(A\pm B)_{ij}=a_{ij}\pm b_{ij}
+\]
+
+
+\subparagraph*{Scalar Multiplication}
+
+\[
+(cA)_{ij}=c\cdot a_{ij}
+\]
+
+
+\subparagraph*{Matrix Multiplication}
+
+\[
+c_{ik}=\sum_{j=1}^{p}a_{ij}b_{jk}
+\]
+
+
+\subsubsection*{Specific Matrixes}
+
+\subparagraph*{Identity Matrix (matrice identità)}
+
+\subparagraph*{Zero Matrix (matrice nulla)}
+
+\subparagraph*{Diagonal Matrix (matrice diagonale)}
+
+\subparagraph*{Symmetric Matrix (matrice simmetrica)}
 
 \part*{Post-Det}
 \end{document}

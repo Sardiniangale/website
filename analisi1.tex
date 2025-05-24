@@ -8,6 +8,7 @@
 \usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{cancel}
 \usepackage{graphicx}
 \PassOptionsToPackage{normalem}{ulem}
 \usepackage{ulem}
@@ -42,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analisis 1}
-\date{14 May 2025}
+\date{22 May 2025}
 \author{Giacomo}
 
 \maketitle
@@ -449,7 +450,9 @@ Range: $r\in\mathbb{R}$
 
 -
 
-\includegraphics[scale=0.3]{pasted3}\includegraphics[scale=0.3]{pasted4}
+\includegraphics[scale=0.3]{pasted3}
+
+\includegraphics[scale=0.3]{pasted4}
 
 \includegraphics[scale=0.3]{pasted2}
 
@@ -1088,7 +1091,33 @@ It is a series with the standard form $\sum_{n=0}^{\infty}ar^{n}$
 where r is the common ratio. There are 3 primary types of geometric
 series:
 
-\subparagraph*{Convergence}
+\subparagraph*{Partial sum (Finite geometric series)}
+
+For a finite number k, the partial sum 
+\[
+S_{k}=\sum_{n=0}^{n-1}ar^{n}=a+ar+ar^{2}+...+ar^{n-1}
+\]
+
+Formula
+\[
+S_{k}=a\times\frac{1-r^{n}}{1-r}
+\]
+
+valid only if $r\cancel{=}1$. If r=1 then
+
+\[
+S_{n}=a\times n
+\]
+
+There is also a alternate notation for the partial sum formula that
+is pretty commonly used.
+
+\[
+S_{n+1}=\sum_{k=0}^{n}ar^{k}=\frac{a(1-r^{n+1})}{1-r}
+\]
+
+
+\subparagraph*{Infinite geometric series}
 
 Theorem:
 
@@ -1103,27 +1132,22 @@ if $\sum_{n=0}^{\infty}ar^{n}$ converges then $|r|<1$ and
 The series is divergent if $|r|\geq1,$ and the terms do not approach
 zero
 
-\subparagraph*{Partial sum}
-
-For a finite number k, the partial sum $S_{k}=a\frac{1-r^{k+1}}{1-r}$
-valid only if r doesn't =1
-
 \subsubsection*{Telescoping (Serie Telescopica)}
 
 A telescopic series is a series where a lot of the terms cancel out
 when written in partial sums
 \[
-\sum_{n=1}^{\infty}(b_{n}-b_{n+1})
+\sum_{n=1}^{\infty}(a_{n}-a_{n+1})
 \]
 
 whose partial sum will telescope to
 \[
-S_{k}=\sum_{n=1}^{k}(b_{n}-b_{n+1})=b_{1}-b_{k+1}
+S_{k}=\sum_{n=1}^{k}(a_{n}-a_{n+1})=a_{1}-a_{k+1}
 \]
 
 When handling a limit to L
 \[
-\sum_{n=1}^{\infty}(b_{n}-b_{n+1})=b_{1}-L
+\sum_{n=1}^{\infty}(a_{n}-a_{n+1})=a_{1}-L
 \]
 
 
@@ -1145,11 +1169,14 @@ A small proof is listed below:
 This shows that $a_{n}\rightarrow0$ is necessary for convergence,
 but not sufficient to prove it.
 
-\subsection*{Important info from Book which I haven't made a section for yet :)}
-
-\subsubsection*{Series with positive terms (Serie a termini positivi)}
+\subsection*{Important info from Book which I haven't made a section for yet :)
+-- THIS FOR TODAY}
 
 \subsubsection*{Associativity of series (Associatività della somma di serie)}
+
+The associativity of series, or the property that grouping terms in
+different ways does not affect the sum, holds for convergent series
+but not necessarily for divergent ones. 
 
 \subsubsection*{Positional representation of R (Rappresentazione posizionale dei
 numeri reali)}
@@ -1164,18 +1191,40 @@ numeri reali)}
 
 \subsubsection*{Exponential Series (Serie esponenziale)}
 
-\subsection*{Cauchy Criterion}
+\subsection*{\sout{Cauchy Criterion}}
 
-A series a converges if and and only if for every epsilon that is
-grater than zero there exists a N such that for all $m>n\geq N$
+\sout{A series a converges if and and only if for every epsilon that
+is grater than zero there exists a N such that for all \mbox{$m>n\geq N$}}
 
-\subsubsection*{
+\subsubsection*{\\
+\sout{\parbox{\linewidth}{
 \[
 |\sum_{k=n+1}^{m}a_{k}|<\epsilon
 \]
-}
+}\\
+}}
 
-\subsubsection*{Absolute and Conditional Convergence}
+\subsubsection*{\sout{Absolute and Conditional Convergence}}
+
+\subsubsection*{\sout{Using Cauchy criterion in problems}}
+
+\paragraph*{\sout{For a Sequence}}
+
+\sout{There are 4 main steps:}
+
+\sout{1. Assign a epsilon that is grater than zero}
+
+\sout{2. Find a integer N such that for all m, n > N, the inequality
+\mbox{$|a_{m}-a_{n}|<\epsilon$} holds.}
+
+\paragraph*{\sout{For a Series}}
+
+\sout{The steps are very similar to a sequence}
+
+\sout{1. Assign a epsilon that is grater than zero}
+
+\sout{2. Find a integer N such that for all m>n>N, the inequality
+\mbox{$|\sum_{k=n+1}^{m}a_{k}|<\epsilon$}}
 
 \subsection*{Handling Convergence in Problems}
 
@@ -1255,6 +1304,27 @@ condizionale).
 
 The proof for binomial theorem which are in the book are classed as:
 (300.10.03.02) \& (300.10.03.02) 
+
+\subsection*{L'Hôpital's rule}
+
+Is a theorem, which is primarily used to check limits by comparing
+the derivatives of the limits. 
+
+\paragraph*{Definition}
+
+f and g are functions which are differentiable on a open interval.
+Assuming that,
+
+$lim_{x\rightarrow a}f(x)=lim_{x\rightarrow a}g(x)=0$, $g'(x)\neq0$
+and $lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}$
+
+Then:
+
+\[
+lim_{x\rightarrow a}\frac{f(x)}{g(x)}=lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}
+\]
+
+--Could do with some more info
 
 \newpage{}
 
