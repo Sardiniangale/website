@@ -42,8 +42,8 @@
 
 \usepackage{babel}
 \begin{document}
-\title{Mathematical Analisis 1}
-\date{22 May 2025}
+\title{Mathematical Analysis 1}
+\date{25 May 2025}
 \author{Giacomo}
 
 \maketitle
@@ -340,6 +340,75 @@ Unlike polynomial or exponential functions, trigonometric functions:
 
 \includegraphics[scale=0.3]{pasted1}
 
+\paragraph*{\textbf{Fundamental Identities (\textit{identità fondamentali})}}
+\begin{itemize}
+    \item \textbf{Reciprocal Relations}:
+    \[
+    \tan\theta = \frac{\sin\theta}{\cos\theta}, \quad \cot\theta = \frac{\cos\theta}{\sin\theta}, \quad \sec\theta = \frac{1}{\cos\theta}, \quad \csc\theta = \frac{1}{\sin\theta}.
+    \]
+    \item \textbf{Extended Pythagorean Identities}:
+    \[
+    1 + \tan^2\theta = \sec^2\theta, \quad 1 + \cot^2\theta = \csc^2\theta.
+    \]
+    \item \textbf{Co-Function Identities} (\textit{identità complementari}):
+    \[
+    \sin\left(\frac{\pi}{2} - \theta\right) = \cos\theta, \quad \cos\left(\frac{\pi}{2} - \theta\right) = \sin\theta, \quad \tan\left(\frac{\pi}{2} - \theta\right) = \cot\theta.
+    \]
+\end{itemize}
+
+\paragraph*{\textbf{Angle Addition \& Subtraction}}  
+For any angles \(\alpha\) and \(\beta\):
+\begin{itemize}
+    \item \(\sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta\)
+    \item \(\cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta\)
+    \item \(\tan(\alpha \pm \beta) = \frac{\tan\alpha \pm \tan\beta}{1 \mp \tan\alpha\tan\beta}\)
+\end{itemize}
+
+\paragraph*{\textbf{Multiple-Angle \& Half-Angle Identities}}  
+\begin{itemize}
+    \item \textbf{Double-Angle}:
+    \[
+    \sin(2\theta) = 2\sin\theta\cos\theta, \quad \cos(2\theta) = \cos^2\theta - \sin^2\theta = 2\cos^2\theta - 1 = 1 - 2\sin^2\theta.
+    \]
+    \item \textbf{Triple-Angle}:
+    \[
+    \sin(3\theta) = 3\sin\theta - 4\sin^3\theta, \quad \cos(3\theta) = 4\cos^3\theta - 3\cos\theta.
+    \]
+    \item \textbf{Half-Angle} (sign depends on quadrant):
+    \[
+    \sin\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 - \cos\theta}{2}}, \quad \cos\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 + \cos\theta}{2}}.
+    \]
+\end{itemize}
+
+\paragraph*{\textbf{Product-to-Sum \& Sum-to-Product}}  
+\begin{itemize}
+    \item \textbf{Product-to-Sum}:
+    \[
+    \sin\alpha\sin\beta = \frac{1}{2}[\cos(\alpha - \beta) - \cos(\alpha + \beta)], \quad \cos\alpha\cos\beta = \frac{1}{2}[\cos(\alpha - \beta) + \cos(\alpha + \beta)].
+    \]
+    \item \textbf{Sum-to-Product}:
+    \[
+    \sin\alpha \pm \sin\beta = 2\sin\left(\frac{\alpha \pm \beta}{2}\right)\cos\left(\frac{\alpha \mp \beta}{2}\right), \quad \cos\alpha + \cos\beta = 2\cos\left(\frac{\alpha + \beta}{2}\right)\cos\left(\frac{\alpha - \beta}{2}\right).
+    \]
+\end{itemize}
+
+\paragraph*{\textbf{Triangle Relations (Laws)}}  
+For any triangle with sides \(a, b, c\) opposite angles \(A, B, C\):
+\begin{itemize}
+    \item \textbf{Law of Sines}:
+    \[
+    \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} = 2R \quad (R = \text{circumradius}).
+    \]
+    \item \textbf{Law of Cosines}:
+    \[
+    c^2 = a^2 + b^2 - 2ab\cos C.
+    \]
+    \item \textbf{Law of Tangents}:
+    \[
+    \frac{a - b}{a + b} = \frac{\tan\left(\frac{A - B}{2}\right)}{\tan\left(\frac{A + B}{2}\right)}.
+    \]
+\end{itemize}
+
 \subsection*{Complex Numbers introduction}
 
 The largest domain covered in these notes: $\mathbb{C}$. Complex
@@ -476,7 +545,7 @@ Where $\left\{ a_{n}\right\} $is the sequence.
 \paragraph*{Formal Definition.}
 
 \begin{equation*}
-    \lim_{n \to \infty} a_n = L \quad \iff \quad 
+    \lim_{n \to \infty} a_n = L \quad \iff \quad
     \forall \varepsilon > 0,\; \exists N \in \mathbb{N},\; \forall n \geq N,\; |a_n - L| < \varepsilon
 \end{equation*}
 
@@ -807,8 +876,6 @@ This may also be known as e or exponential or exp. It has 3 separate
 definitions: Limit, Series, and integral. However I will only do the
 explanation for limit definition here. The integral explanation will
 be done in the integral chapter.
-
-A proof of the monotonicity of Euler's number is classed as (200.15.07.08)
 
 \paragraph*{Limit Definition:}
 
@@ -1364,6 +1431,74 @@ f'(x)=lim_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}
 \frac{d}{dx}f(g(x))=f'(g(x))g'(x)
 \end{equation}
 
+\subsection*{Additional Differentiation Rules}
+
+\subsubsection*{Basic Rules}
+\begin{itemize}
+    \item Constant Rule: $\frac{d}{dx}[c] = 0$
+    \item Power Rule: $\frac{d}{dx}[x^n] = nx^{n-1}$
+    \item Constant Multiple: $\frac{d}{dx}[cf(x)] = c f'(x)$
+    \item Sum/Difference: $\frac{d}{dx}[f(x) \pm g(x)] = f'(x) \pm g'(x)$
+\end{itemize}
+
+\subsubsection*{Higher-Order Derivatives}
+Second derivative: $f''(x)$ or $\frac{d^2y}{dx^2}$. Recursive formula:
+\[
+f^{(n)}(x) = \frac{d}{dx}\left[f^{(n-1)}(x)\right]
+\]
+
+\subsubsection*{Exponential/Logarithmic Derivatives}
+\begin{itemize}
+    \item $\frac{d}{dx}[e^x] = e^x$
+    \item $\frac{d}{dx}[a^x] = a^x \ln a$
+    \item $\frac{d}{dx}[\ln x] = \frac{1}{x}$
+    \item $\frac{d}{dx}[\log_a x] = \frac{1}{x \ln a}$
+\end{itemize}
+
+\subsubsection*{Trigonometric Derivatives}
+\begin{itemize}
+    \item $\frac{d}{dx}[\sin x] = \cos x$
+    \item $\frac{d}{dx}[\cos x] = -\sin x$
+    \item $\frac{d}{dx}[\tan x] = \sec^2 x$
+    \item $\frac{d}{dx}[\cot x] = -\csc^2 x$
+    \item $\frac{d}{dx}[\sec x] = \sec x \tan x$
+    \item $\frac{d}{dx}[\csc x] = -\csc x \cot x$
+\end{itemize}
+
+\subsubsection*{Inverse Trig Derivatives}
+\begin{itemize}
+    \item $\frac{d}{dx}[\sin^{-1} x] = \frac{1}{\sqrt{1 - x^2}}$
+    \item $\frac{d}{dx}[\cos^{-1} x] = -\frac{1}{\sqrt{1 - x^2}}$
+    \item $\frac{d}{dx}[\tan^{-1} x] = \frac{1}{1 + x^2}$
+    \item $\frac{d}{dx}[\cot^{-1} x] = -\frac{1}{1 + x^2}$
+    \item $\frac{d}{dx}[\sec^{-1} x] = \frac{1}{|x|\sqrt{x^2 - 1}}$
+    \item $\frac{d}{dx}[\csc^{-1} x] = -\frac{1}{|x|\sqrt{x^2 - 1}}$
+\end{itemize}
+
+\subsubsection*{Implicit Differentiation}
+Example for $x^2 + y^2 = 1$:
+\[
+2x + 2y \frac{dy}{dx} = 0 \Rightarrow \frac{dy}{dx} = -\frac{x}{y}
+\]
+
+\subsubsection*{Parametric Derivatives}
+For $x = x(t)$, $y = y(t)$:
+\[
+\frac{dy}{dx} = \frac{dy/dt}{dx/dt}, \quad \frac{d^2y}{dx^2} = \frac{d/dt(dy/dx)}{dx/dt}
+\]
+
+\subsubsection*{Hyperbolic Derivatives}
+\begin{itemize}
+    \item $\frac{d}{dx}[\sinh x] = \cosh x$
+    \item $\frac{d}{dx}[\cosh x] = \sinh x$
+    \item $\frac{d}{dx}[\tanh x] = \text{sech}^2 x$
+\end{itemize}
+
+\subsubsection*{Inverse Function Derivative}
+If $f$ and $g$ are inverses:
+\[
+g'(x) = \frac{1}{f'(g(x))}
+\]
 
 \section*{Integrals}
 
@@ -1455,8 +1590,6 @@ I'(x)=f\left(g_{2}(x)\right)g_{2}'(x)-f\left(g_{1}(x)\right)g_{1}'(x)
 \end{equation}
 
 
-\paragraph{Limit under a derviative}
-
 \section*{Differential Equations}
 
 \textquotedbl Would you tell me, please, which way I ought to go
@@ -1524,7 +1657,7 @@ involve UP to the 2nd derivative. Here is a example:
 Higher order ODEs}
 
 involve everything 3rd derivative or higher. It is unlikely to ever
-appear in a 1st year analisis exam, but you never know. 
+appear in a 1st year analysis exam, but you never know. 
 
 \paragraph*{Liniar and Non-liniear ODEs.}
 
