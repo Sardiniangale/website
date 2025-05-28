@@ -43,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{25 May 2025}
+\date{26 May 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1147,8 +1147,14 @@ terms. A partial sum, allows just the sum of the k terms:
 S_{k}=\sum_{n=1}^{k}a_{n}
 \]
 
+If $\sum a_{n}$ converges, then the lim
+
 This series converges to S if lim$_{k\rightarrow\infty}S_{k}=S$ otherwise,
 as mentioned in previous sections it diverges.
+
+\subsubsection*{Necessary Condition for Convergence (Divergence Test)}
+If \(\sum a_n\) converges, then \(\lim_{n \to \infty} a_n = 0\). \\
+Equivalently, if \(\lim_{n \to \infty} a_n \neq 0\) (or the limit does not exist), the series diverges.
 
 \subsection*{Types of Series}
 
@@ -1217,6 +1223,8 @@ When handling a limit to L
 \sum_{n=1}^{\infty}(a_{n}-a_{n+1})=a_{1}-L
 \]
 
+\textbf{Note:} This requires \(\lim_{n \to \infty} a_n = L\). \\
+\textbf{Example:} \(\sum_{n=1}^{\infty} \frac{1}{n(n+1)} = \sum_{n=1}^{\infty} \left( \frac{1}{n} - \frac{1}{n+1} \right)\) converges to 1.
 
 \subsubsection*{Harmonic Series (Serie armonica)}
 
@@ -1236,6 +1244,16 @@ A small proof is listed below:
 This shows that $a_{n}\rightarrow0$ is necessary for convergence,
 but not sufficient to prove it.
 
+\paragraph*{P series}
+
+Harmonic series are a type of p series. P series is often used in
+comparison to check if series converge or not. It is represented as
+
+\[
+\sum_{n=1}^{\infty}\frac{1}{n^{p}}
+\]
+ where it is said that if \(p \leq 1\) the series diverges, and if \(p > 1\) the series \textbf{converges}.
+
 \subsection*{Important info from Book which I haven't made a section for yet :)
 -- THIS FOR TODAY}
 
@@ -1245,18 +1263,9 @@ The associativity of series, or the property that grouping terms in
 different ways does not affect the sum, holds for convergent series
 but not necessarily for divergent ones. 
 
-\subsubsection*{Positional representation of R (Rappresentazione posizionale dei
-numeri reali)}
-
 \subsubsection*{Series with varying signs (Serie a segno variabile)}
 
 \subsubsection*{Summation by parts (Somma per parti)}
-
-\subsubsection*{Summation over arbitrary sets (Somma su insiemi arbitrari)}
-
-\subsubsection*{Infinite Products (Prodotti infiniti)}
-
-\subsubsection*{Exponential Series (Serie esponenziale)}
 
 \subsection*{\sout{Cauchy Criterion}}
 
@@ -1358,19 +1367,18 @@ decreasing terms, $a_{n}=f(n)$ for $n\geq N$
 If the integral $\int_{N}^{\infty}f(x)dx$ converges, then the series
 $\sum a_{n}$ converges
 
-If the integral diverges then $\sum a_{n}$ diverges
+If the integral diverges then $\sum a_{n}$ diverge
 
-\subsubsection*{Alternating Series (Leibniz)}
+\subsection*{Cauchy Condensation Test (it is another way to say the same thing as above, I may remove this)}
+If \(a_n \geq 0\) and \(a_n\) is decreasing, then \(\sum_{n=1}^{\infty} a_n\) converges iff \(\sum_{k=1}^{\infty} 2^k a_{2^k}\) converges.
 
-For alternating with decreasing and , the series converges (convergenza
-condizionale).
-
--Might be useless
-
-\subsection*{Binomial Theorem}
-
-The proof for binomial theorem which are in the book are classed as:
-(300.10.03.02) \& (300.10.03.02) 
+\subsubsection*{\subsubsection*{Alternating Series Test (Leibniz)}
+An alternating series \(\sum (-1)^n b_n\) or \(\sum (-1)^{n+1} b_n\) converges if:
+\begin{enumerate}
+    \item \(b_n \geq 0\) and \textbf{monotonically decreasing}: \(b_{n+1} \leq b_n\)
+    \item \(\lim_{n \to \infty} b_n = 0\)
+\end{enumerate}
+This implies \textbf{conditional convergence} (converges but not absolutely).}
 
 \subsection*{L'Hôpital's rule}
 
@@ -1391,7 +1399,67 @@ Then:
 lim_{x\rightarrow a}\frac{f(x)}{g(x)}=lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}
 \]
 
---Could do with some more info
+
+\subsubsection*{THIS WILL GO HERE BECAUSE I DONT KNOW WHERE ELSE TO PUT IT}
+
+\paragraph*{\textbf{Domain Analysis (Analisi del Dominio)}}
+\begin{itemize}
+    \item Determine where $f(x)$ is defined
+    \item Identify interval boundaries and discontinuities
+\end{itemize}
+
+\paragraph*{\textbf{Closed Interval Check (Intervalli Chiusi)}}
+\begin{itemize}
+    \item For $[a,b]$, apply Extreme Value Theorem (Teorema dei Valori Estremi):
+    \[
+    \exists\ x_{\text{max}},x_{\text{min}} \in [a,b] \quad \text{where}\quad f(x_{\text{max}}) \geq f(x) \geq f(x_{\text{min}})
+    \]
+\end{itemize}
+
+\paragraph*{\textbf{First Derivative (Derivata Prima)}}
+\begin{itemize}
+    \item Compute $f'(x)$
+    \item Find critical points (punti critici):
+    \[
+    \begin{cases}
+    f'(x) = 0 \quad \text{(stationary points)}\\
+    f'(x)\ \text{undefined} \quad \text{(cusps/corners)}
+    \end{cases}
+    \]
+\end{itemize}
+
+\paragraph*{\textbf{Classification (Classificazione)}}
+\paragraph*{\textbf{Second Derivative Test (Test della Derivata Seconda)}}
+\begin{itemize}
+    \item Compute $f''(x)$
+    \[
+    \begin{cases}
+    f''(x_0) > 0 \Rightarrow \text{local min (minimo locale)}\\
+    f''(x_0) < 0 \Rightarrow \text{local max (massimo locale)}\\
+    f''(x_0) = 0 \Rightarrow \text{inconclusive}
+    \end{cases}
+    \]
+\end{itemize}
+
+\paragraph*{\textbf{First Derivative Test (Test della Derivata Prima)}}
+\begin{itemize}
+    \item Analyze sign changes:
+    \[
+    \begin{array}{ll}
+    + \to - & \Rightarrow \text{local max} \\
+    - \to + & \Rightarrow \text{local min} \\
+    \text{No change} & \Rightarrow \text{not extremum}
+    \end{array}
+    \]
+\end{itemize}
+
+\paragraph*{\textbf{Endpoint Evaluation (Valutazione agli Estremi)}}
+\begin{itemize}
+    \item For closed intervals:
+    \[
+    \text{Compare}\quad f(a),\ f(b),\ f(x_{\text{crit}})
+    \]
+\end{itemize}
 
 \newpage{}
 
@@ -1500,6 +1568,85 @@ If $f$ and $g$ are inverses:
 g'(x) = \frac{1}{f'(g(x))}
 \]
 
+\paragraph*{\textbf{Taylor Series (Serie di Taylor)}}
+The Taylor series of a smooth function \( f: \mathbb{R} \to \mathbb{R} \) expanded about \( a \in \mathbb{R} \) is:
+\[
+T_f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x - a)^n,
+\]
+where \( f^{(n)}(a) \) is the \( n \)-th derivative of \( f \) at \( a \).
+
+\paragraph*{\textbf{Taylor's Theorem (Teorema di Taylor)}}
+For \( N \geq 0 \), the function decomposes as:
+\[
+f(x) = \sum_{n=0}^{N} \frac{f^{(n)}(a)}{n!} (x - a)^n + R_N(x),
+\]
+with the Lagrange remainder:
+\[
+R_N(x) = \frac{f^{(N+1)}(c)}{(N+1)!} (x - a)^{N+1} \quad \text{for some } c \in (a, x).
+\]
+
+\paragraph*{\textbf{Analyticity (Analiticità)}}
+\begin{itemize}
+    \item The series converges to \( f(x) \) near \( a \) if \( \lim_{N \to \infty} R_N(x) = 0 \). 
+    \item The \textbf{radius of convergence} \( R \) satisfies:
+    \[
+    \frac{1}{R} = \limsup_{n \to \infty} \left| \frac{f^{(n)}(a)}{n!} \right|^{1/n}.
+    \]
+    \item Smoothness \(\not\!\!\!\implies\) analyticity: The series may diverge or converge to a different function.
+\end{itemize}
+
+\paragraph*{\textbf{Multi-Variable Case (Caso Multivariato)}}
+For \( f: \mathbb{R}^k \to \mathbb{R} \), the series generalizes using multi-indices \( \alpha = (\alpha_1, \ldots, \alpha_k) \):
+\[
+T_f(\mathbf{x}) = \sum_{|\alpha| \geq 0} \frac{\partial^{|\alpha|} f(a)}{\alpha!} (\mathbf{x} - \mathbf{a})^\alpha,
+\]
+with \( \alpha! = \alpha_1! \cdots \alpha_k! \) and \( \partial^{|\alpha|} = \frac{\partial^{|\alpha|}}{\partial x_1^{\alpha_1} \cdots \partial x_k^{\alpha_k}} \).
+
+\paragraph*{\textbf{Key Distinctions (Differenze Fondamentali)}}
+\begin{itemize}
+    \item \textbf{Analytic \( \iff \)} Taylor series converges to \( f \) locally.
+    \item \textbf{Uniqueness:} Analytic functions have unique power series representations.
+    \item \textbf{Global vs. Local:} Analyticity extends local derivative data to a neighborhood.
+\end{itemize}
+
+\paragraph*{\textbf{General Taylor Series Application (Applicazione Generale della Serie di Taylor)}}  
+Consider a smooth function \( f: \mathbb{R} \to \mathbb{R} \) and a point \( a \in \mathbb{R} \).  
+
+\paragraph*{\textbf{Expansion Process (Processo di Sviluppo)}}  
+\begin{itemize}  
+    \item Compute derivatives \( f^{(n)}(a) \) for \( n \geq 0 \).  
+    \item Construct the Taylor series:  
+    \[  
+    T_f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2}(x - a)^2 + \cdots = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n.  
+    \]  
+\end{itemize}  
+
+\paragraph*{\textbf{Approximation and Error (Approssimazione ed Errore)}}  
+For a fixed \( N \), the \( N \)-th Taylor polynomial approximates \( f \):  
+\[  
+P_N(x) = \sum_{n=0}^{N} \frac{f^{(n)}(a)}{n!}(x - a)^n,  
+\]  
+with error bounded by the Lagrange remainder:  
+\[  
+|R_N(x)| \leq \frac{\max_{c \in [a, x]} |f^{(N+1)}(c)|}{(N+1)!} |x - a|^{N+1}.  
+\]  
+
+\paragraph*{\textbf{Convergence Analysis (Analisi della Convergenza)}}  
+\begin{itemize}  
+    \item Calculate the radius of convergence \( R \) using:  
+    \[  
+    \frac{1}{R} = \limsup_{n \to \infty} \left| \frac{f^{(n)}(a)}{n!} \right|^{1/n}.  
+    \]  
+    \item If \( \lim_{N \to \infty} R_N(x) = 0 \) for \( |x - a| < R \), then \( T_f(x) = f(x) \) in this interval.  
+\end{itemize}  
+
+\paragraph*{\textbf{Interpretation (Interpretazione)}}  
+This constructs a polynomial sequence \( \{P_N(x)\} \) that:  
+\begin{itemize}  
+    \item Matches \( f \)’s derivatives at \( a \) up to order \( N \).  
+    \item Converges to \( f(x) \) locally if \( f \) is analytic at \( a \).  
+\end{itemize}  
+
 \section*{Integrals}
 
 “If you're gonna shoot an elephant Mr. Schneider, you better be prepared
@@ -1564,7 +1711,7 @@ if $u=f(x)$, then $du=g'(x)dx$
 
 \paragraph{Chain Rule}
 
-\paragraph{Lebiz rule for differentiation.}
+\paragraph{Leibniz rule for differentiation.}
 
 If f(t) is continuous and g(x) is differentiable
 \[
