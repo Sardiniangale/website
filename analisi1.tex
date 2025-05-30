@@ -43,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{26 May 2025}
+\date{30 May 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1254,9 +1254,6 @@ comparison to check if series converge or not. It is represented as
 \]
  where it is said that if \(p \leq 1\) the series diverges, and if \(p > 1\) the series \textbf{converges}.
 
-\subsection*{Important info from Book which I haven't made a section for yet :)
--- THIS FOR TODAY}
-
 \subsubsection*{Associativity of series (Associatività della somma di serie)}
 
 The associativity of series, or the property that grouping terms in
@@ -1471,11 +1468,38 @@ lim_{x\rightarrow a}\frac{f(x)}{g(x)}=lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}
 Is Really a Large Matter---’Tis the Difference Between the Lightning
 Bug and the Lightning'' - Mark Twain
 
-\subsubsection*{
-\begin{equation}
-f'(x)=lim_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}
-\end{equation}
-}
+\subsection*{Derivatives (Derivate)}
+
+\subsubsection*{Fundamental Concept}
+The derivative of a function \(f\) at a point \(a\) is the instantaneous rate of change of the function with respect to its input. Geometrically, it represents the slope of the tangent line to the graph of \(f\) at the point \((a, f(a))\), providing the best linear approximation of the function near \(a\).
+
+\subsubsection*{Notation (Notazione)}
+Two primary notations exist for derivatives:
+\begin{itemize}
+    \item Leibniz notation: \(\frac{df}{dx}\) or \(\frac{dy}{dx}\)
+    \item Prime notation: \(f'(x)\)
+\end{itemize}
+Higher-order derivatives (derivate di ordine superiore) extend this notation with additional differentials or prime marks, representing repeated differentiation.
+
+\subsubsection*{Limit Definition (Definizione di Limite)}
+A function \(f: \mathbb{R} \to \mathbb{R}\) is differentiable (derivabile) at \(a \in \mathbb{R}\) if either of the following equivalent limits exists:
+\[
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
+\]
+This definition requires \(f\) to be defined on an open interval containing \(a\). In real analysis, differentiability signifies that \(f\) admits a linear approximation at \(a\):  
+\[
+f(x) = f(a) + f'(a)(x - a) + r(x)
+\]
+where the remainder term \(r(x)\) satisfies \(\lim_{x \to a} \frac{r(x)}{|x - a|} = 0\). The \(\varepsilon\)-\(\delta\) formalization states:
+\[
+\forall \varepsilon > 0,\  \exists \delta > 0\ :\ 0 < |x - a| < \delta \implies \left| \frac{f(x) - f(a)}{x - a} - f'(a) \right| < \varepsilon
+\]
+
+\subsubsection*{Geometric Interpretation (Interpretazione Geometrica)}
+The derivative \(f'(a)\) is the limit of slopes of secant lines through points \((a, f(a))\) and \((x, f(x))\) as \(x \to a\). When this limit exists, it defines the slope of the unique tangent line (retta tangente) to \(f\) at \(a\).
+
+\subsubsection*{Continuity and Differentiability}
+Differentiability implies continuity (continuità): \(f\) differentiable at \(a\) \(\implies\) \(f\) continuous at \(a\). The converse does not hold, as demonstrated by functions with discontinuities in their rate of change, such as those containing corners (punti angolosi) or vertical tangents (tangenti verticali). In real analysis, this is formalized through the linear approximation condition: A function fails to be differentiable at points where the remainder \(r(x)\) does not vanish faster than \(|x-a|\).
 
 \subsubsection*{Methods for Differentiation}
 
@@ -1498,6 +1522,12 @@ f'(x)=lim_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}
 \begin{equation}
 \frac{d}{dx}f(g(x))=f'(g(x))g'(x)
 \end{equation}
+
+\subsection*{Higher-Order Derivatives}
+The $n$-th derivative is defined recursively:
+\[
+f^{(n)}(x) = \frac{d}{dx}\left[f^{(n-1)}(x)\right]
+\]
 
 \subsection*{Additional Differentiation Rules}
 
@@ -1646,6 +1676,52 @@ This constructs a polynomial sequence \( \{P_N(x)\} \) that:
     \item Matches \( f \)’s derivatives at \( a \) up to order \( N \).  
     \item Converges to \( f(x) \) locally if \( f \) is analytic at \( a \).  
 \end{itemize}  
+
+\subsection*{Partial Derivatives (Derivate Parziali)}
+
+\subsubsection*{Fundamental Concept}
+The partial derivative extends the concept of differentiation to functions of several variables. It measures the instantaneous rate of change of the function with respect to one variable while holding all other variables constant. For a function \(f: \mathbb{R}^n \to \mathbb{R}\), the partial derivative at a point \(\mathbf{a} = (a_1, \dots, a_n)\) with respect to the \(i\)-th variable provides the slope of the tangent line to the graph in the direction of the \(i\)-th coordinate axis.
+
+\subsubsection*{Notation (Notazione)}
+Common notations for partial derivatives include:
+\begin{itemize}
+    \item Leibniz notation: \(\frac{\partial f}{\partial x_i}\)
+    \item Subscript notation: \(f_{x_i}\) or \(\partial_{x_i} f\)
+    \item Operator notation: \(D_i f\)
+\end{itemize}
+For functions \(z = f(x,y)\), we write \(\frac{\partial z}{\partial x}\) or \(f_x\) for the partial with respect to \(x\).
+
+\subsubsection*{Limit Definition (Definizione di Limite)}
+The partial derivative of \(f\) with respect to \(x_i\) at \(\mathbf{a}\) is defined as:
+\[
+\frac{\partial f}{\partial x_i}(\mathbf{a}) = \lim_{h \to 0} \frac{f(a_1, \dots, a_i + h, \dots, a_n) - f(a_1, \dots, a_n)}{h}
+\]
+provided this limit exists. This definition requires \(f\) to be defined in an open neighborhood of \(\mathbf{a}\). In terms of real analysis, this represents the ordinary derivative of the single-variable function:
+\[
+g(x_i) = f(a_1, \dots, a_{i-1}, x_i, a_{i+1}, \dots, a_n)
+\]
+evaluated at \(x_i = a_i\).
+
+\subsubsection*{Geometric Interpretation (Interpretazione Geometrica)}
+Geometrically, \(\frac{\partial f}{\partial x_i}(\mathbf{a})\) represents the slope of the tangent line to the curve formed by intersecting the graph of \(f\) with the plane where all variables except \(x_i\) are held constant at their values in \(\mathbf{a}\). For functions of two variables, \(\frac{\partial f}{\partial x}(a,b)\) and \(\frac{\partial f}{\partial y}(a,b)\) give the slopes of the tangent lines in the \(x\)- and \(y\)-directions, respectively, at the point \((a,b, f(a,b))\).
+
+\subsubsection*{Higher-Order Partial Derivatives (Derivate Parziali di Ordine Superiore)}
+Partial derivatives can be iterated to obtain higher-order derivatives. The second-order partial derivative with respect to \(x_i\) and \(x_j\) is denoted:
+\[
+\frac{\partial^2 f}{\partial x_j \partial x_i} = \frac{\partial}{\partial x_j} \left( \frac{\partial f}{\partial x_i} \right)
+\]
+Under continuity conditions (Clairaut's theorem), the order of differentiation is interchangeable:
+\[
+\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}
+\]
+for all \(i,j\) when both derivatives exist and are continuous in an open neighborhood.
+
+\subsubsection*{Differentiability for Multivariable Functions (Derivabilità per Funzioni a Più Variabili)}
+The existence of partial derivatives does not guarantee differentiability. A function \(f: \mathbb{R}^n \to \mathbb{R}\) is differentiable at \(\mathbf{a}\) if there exists a linear transformation \(L: \mathbb{R}^n \to \mathbb{R}\) such that:
+\[
+\lim_{\mathbf{h} \to \mathbf{0}} \frac{f(\mathbf{a} + \mathbf{h}) - f(\mathbf{a}) - L(\mathbf{h})}{\|\mathbf{h}\|} = 0
+\]
+where \(L\) is the total derivative (differenziale totale). The linear map \(L\) is represented by the gradient \(\nabla f(\mathbf{a}) = \left( \frac{\partial f}{\partial x_1}(\mathbf{a}), \dots, \frac{\partial f}{\partial x_n}(\mathbf{a}) \right)\) when \(f\) is differentiable. Sufficient conditions for differentiability include the continuity of all partial derivatives in a neighborhood of \(\mathbf{a}\).
 
 \section*{Integrals}
 
