@@ -43,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{30 May 2025}
+\date{6 June 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1036,18 +1036,50 @@ is unbounded above, meaning for every M$\in$R infinit}
 \textcolor{black}{Any sequence that has no accumulation values has
 at least one improper accumulation value}
 
-\subsection*{Bolzano Vistras Theorem}
+\subsection*{Bolzano-Weierstrass Theorem (Teorema di Bolzano-Weierstrass)}
 
-\paragraph*{Formal Definition:}
+% WEIERSTRASS THEOREMS
+\begin{itemize}
+    \item \textbf{Statement:} If $f$ is continuous on a closed interval $[a,b]$, then:
+    \[
+    \exists\, m, M \in \mathbb{R} \quad \text{such that} \quad f(m) = \inf_{x \in [a,b]} f(x) \quad \text{and} \quad f(M) = \sup_{x \in [a,b]} f(x)
+    \]
+    \item \textbf{Key requirements:}
+    \begin{itemize}
+        \item Closed interval ($[a,b]$ must include endpoints)
+        \item Continuity of $f$ on $[a,b]$
+    \end{itemize}
+    \item \textbf{Consequence:} Continuous functions attain global extrema on compact sets.
+\end{itemize}
 
-1. In $\mathbb{R}$ every bounded sequence of real numbers contains
-a convergent subsequence
+\paragraph*{\textbf{Bolzano-Weierstrass Theorem (Teorema di Bolzano-Weierstrass)}}
+\begin{itemize}
+    \item \textbf{Statement:} Every bounded sequence has a convergent subsequence. Formally:
+    \[
+    \left( \forall n \in \mathbb{N},\ |a_n| \leq K \right) \implies \exists\, \{a_{n_k}\} \subseteq \{a_n\},\  \lim_{k \to \infty} a_{n_k} = L
+    \]
+    \item \textbf{Key requirements:}
+    \begin{itemize}
+        \item Bounded sequence ($\exists K > 0 : |a_n| \leq K\ \forall n$)
+    \end{itemize}
+    \item \textbf{Consequence:} Applies in $\mathbb{R}^n$ (via nested intervals/heine-borel)
+\end{itemize}
 
-2. In $\mathbb{R}^{n}$ ever bounded sequence has a convergent subsequence
+\paragraph*{}
 
-\paragraph*{Proof:}
+\subsection*{Things that are needed for the orale, but arent present in the book}
 
-The proof can be found at 200.20.05.10
+- Sandwich theorem
+
+-sereis monona and limitited (Converges)
+
+-converges, (is limited)
+
+-diverges, (is illimeted)
+
+Ratio Test (Criterio del Rapporto)
+
+Root Test (Criterio della Radice)
 
 \subsection*{Theorem of Zero}
 
@@ -1121,8 +1153,6 @@ Key solving techniques:
 \end{itemize}
 
 \subsection*{Complex Polynomials}
-
-\subsubsection*{Weierstrass Factorization Theorem}
 
 \subsubsection*{Fundamental Theorem of Algebra}
 
@@ -1262,7 +1292,202 @@ but not necessarily for divergent ones.
 
 \subsubsection*{Series with varying signs (Serie a segno variabile)}
 
-\subsubsection*{Summation by parts (Somma per parti)}
+% POWER SERIES
+\paragraph*{\textbf{Power Series (Serie di potenze)}}
+\begin{itemize}
+    \item \textbf{Definition:} A series of the form:
+    \[
+    \sum_{n=0}^{\infty} c_n (x - a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + \cdots
+    \]
+    where $c_n$ are coefficients, $a$ is the center, and $x$ is the variable.
+    
+    \item \textbf{Radius of Convergence (R):} Determined by:
+    \[
+    R = \frac{1}{L} \quad \text{where} \quad L = \limsup_{n \to \infty} \sqrt[n]{|c_n|}
+    \]
+    (Cauchy-Hadamard formula) or when it exists:
+    \[
+    R = \lim_{n \to \infty} \left| \frac{c_n}{c_{n+1}} \right|
+    \]
+    
+    \item \textbf{Interval of Convergence:} The set $x \in (a - R, a + R)$ where:
+    \begin{itemize}
+        \item Converges absolutely for $|x - a| < R$
+        \item May converge or diverge at endpoints $x = a \pm R$
+        \item Diverges for $|x - a| > R$
+    \end{itemize}
+    
+    \item \textbf{Properties:}
+    \begin{itemize}
+        \item \textbf{Continuity:} Continuous on $(a - R, a + R)$
+        \item \textbf{Differentiation:} Can differentiate term-by-term:
+        \[
+        f'(x) = \sum_{n=1}^{\infty} n c_n (x - a)^{n-1}
+        \]
+        with same radius $R$
+        \item \textbf{Integration:} Can integrate term-by-term:
+        \[
+        \int f(x)  dx = C + \sum_{n=0}^{\infty} \frac{c_n}{n+1} (x - a)^{n+1}
+        \]
+        with same radius $R$
+    \end{itemize}
+    
+    \item \textbf{Examples:}
+    \begin{itemize}
+        \item Exponential: $\displaystyle e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} \quad (R = \infty)$
+        \item Geometric: $\displaystyle \frac{1}{1-x} = \sum_{n=0}^{\infty} x^n \quad (R = 1)$
+        \item Arctangent: $\displaystyle \arctan x = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{2n+1} \quad (R = 1)$
+    \end{itemize}
+    
+    \item \textbf{Important Theorem:} If $\sum c_n (x-a)^n = 0$ for all $x$ in some interval, then $c_n = 0$ for all $n$.
+\end{itemize}
+
+% LINEARITY OF SERIES SUM
+\paragraph*{\textbf{Linearity of Series Sum (Teorema linearità somma)}}
+\begin{itemize}
+    \item \textbf{Statement:} Given two convergent series $\sum_{n=1}^{\infty} a_n = A$ and $\sum_{n=1}^{\infty} b_n = B$, and constants $\alpha, \beta \in \mathbb{R}$, then:
+    \[
+    \sum_{n=1}^{\infty} (\alpha a_n + \beta b_n) = \alpha A + \beta B
+    \]
+    
+    \item \textbf{Proof Outline:}
+    \begin{itemize}
+        \item Let $s_N = \sum_{n=1}^{N} a_n \to A$ and $t_N = \sum_{n=1}^{N} b_n \to B$
+        \item The partial sum of the combined series:
+        \[
+        \sigma_N = \sum_{n=1}^{N} (\alpha a_n + \beta b_n) = \alpha s_N + \beta t_N
+        \]
+        \item By limit laws:
+        \[
+        \lim_{N \to \infty} \sigma_N = \alpha \lim_{N \to \infty} s_N + \beta \lim_{N \to \infty} t_N = \alpha A + \beta B
+        \]
+    \end{itemize}
+    
+    \item \textbf{Key Requirements:}
+    \begin{itemize}
+        \item Both series must converge individually
+        \item Linearity fails for divergent series (counterexample: $a_n = (-1)^n$, $b_n = (-1)^{n+1}$)
+    \end{itemize}
+    
+    \item \textbf{Extension:} For finitely many convergent series $\sum a_n^{(k)} = S_k$ and constants $c_k$:
+    \[
+    \sum_{n=1}^{\infty} \left( \sum_{k=1}^{m} c_k a_n^{(k)} \right) = \sum_{k=1}^{m} c_k S_k
+    \]
+    
+    \item \textbf{Warning:} Does \emph{not} apply to conditionally convergent series rearrangements (Riemann series theorem).
+\end{itemize}
+
+\paragraph*{\textbf{Cesàro Summability (Convergenza alla Cesàro)}}
+\begin{itemize}
+    \item \textbf{Definition:} A sequence $(a_n)$ is Cesàro summable to limit $L$ if the arithmetic mean of its first $n$ partial sums converges to $L$:
+    \[
+    \lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^n s_k = L
+    \]
+    where $s_k = a_1 + a_2 + \cdots + a_k$ are the partial sums.
+    
+    \item \textbf{Equivalent Form:} For the sequence $(a_n)$ itself:
+    \[
+    \lim_{n \to \infty} \frac{1}{n} \sum_{k=1}^n a_k = L
+    \]
+    \item \textbf{Key Properties:}
+    \begin{itemize}
+        \item \textbf{Regularity:} If $\lim_{n \to \infty} a_n = L$ exists, then $(a_n)$ is Cesàro summable to $L$
+        \item \textbf{Strictly Weaker:} Cesàro summability doesn't imply convergence (e.g., $a_n = (-1)^n$)
+        \item \textbf{Linearity:} If $a_n \to_{\text{C}} A$ and $b_n \to_{\text{C}} B$, then:
+        \[
+        \alpha a_n + \beta b_n \to_{\text{C}} \alpha A + \beta B
+        \]
+    \end{itemize}
+    
+    \item \textbf{Example (Divergent Sequence):} Consider $a_n = (-1)^{n+1}$:
+    \[
+    \text{Sequence: } 1, -1, 1, -1, 1, -1, \dots
+    \]
+    \[
+    \text{Partial sums: } s_n = \begin{cases} 
+    1 & n \text{ odd} \\
+    0 & n \text{ even}
+    \end{cases}
+    \]
+    \[
+    \text{Cesàro mean: } \sigma_n = \frac{1}{n} \sum_{k=1}^n s_k \to \frac{1}{2}
+    \]
+    Thus $(a_n)$ is Cesàro summable to $1/2$ despite divergence.
+\end{itemize}
+
+% WEIERSTRASS M-TEST FOR SERIES
+\paragraph*{\textbf{Weierstrass M-Test (Criterio M di Weierstrass)}}
+\begin{itemize}
+    \item \textbf{Statement:} Let $\{f_n\}$ be a sequence of functions on $E \subseteq \mathbb{R}$. If $\exists \{M_n\} \subset \mathbb{R}$ such that:
+    \[
+    \text{(i) } |f_n(x)| \leq M_n \quad \forall x \in E,  \quad \forall n \in \mathbb{N}
+    \]
+    \[
+    \text{(ii) } \sum_{n=1}^{\infty} M_n < \infty
+    \]
+    Then $\sum_{n=1}^{\infty} f_n$ converges uniformly on $E$.
+    
+    \item \textbf{Key requirements:}
+    \begin{itemize}
+        \item Dominating series $\sum M_n$ must converge (absolutely)
+        \item $M_n$ independent of $x \in E$
+        \item $M_n \geq 0$ (non-negative majorants)
+    \end{itemize}
+    
+    \item \textbf{Consequences:}
+    \begin{itemize}
+        \item Preserves continuity: If $f_n \in \mathcal{C}(E)$, then $\sum f_n \in \mathcal{C}(E)$
+        \item Term-by-term integration:
+        \[
+        \int_a^b \sum_{n=1}^{\infty} f_n(x)  dx = \sum_{n=1}^{\infty} \int_a^b f_n(x)  dx
+        \]
+        \item Term-by-term differentiation (requires additional convergence of $\sum f_n'$)
+    \end{itemize}
+\end{itemize}
+
+\paragraph*{\textbf{Special Case: Weierstrass Factorization}}
+\begin{itemize}
+    \item \textbf{Statement:} Every entire function $f$ can be represented as:
+    \[
+    f(z) = z^m e^{g(z)} \prod_{n=1}^{\infty} E_p\left(\frac{z}{a_n}\right)
+    \]
+    where $a_n$ are non-zero zeros, $m$ is zero multiplicity at origin, $g$ entire, and $E_p$ are elementary factors.
+\end{itemize}
+
+% LINEARITY OF SERIES SUM
+\paragraph*{\textbf{Linearity of Series Sum (Teorema linearità somma)}}
+\begin{itemize}
+    \item \textbf{Statement:} Given two convergent series $\sum_{n=1}^{\infty} a_n = A$ and $\sum_{n=1}^{\infty} b_n = B$, and constants $\alpha, \beta \in \mathbb{R}$, then:
+    \[
+    \sum_{n=1}^{\infty} (\alpha a_n + \beta b_n) = \alpha A + \beta B
+    \]
+    
+    \item \textbf{Proof Outline:}
+    \begin{itemize}
+        \item Let $s_N = \sum_{n=1}^{N} a_n \to A$ and $t_N = \sum_{n=1}^{N} b_n \to B$
+        \item The partial sum of the combined series:
+        \[
+        \sigma_N = \sum_{n=1}^{N} (\alpha a_n + \beta b_n) = \alpha s_N + \beta t_N
+        \]
+        \item By limit laws:
+        \[
+        \lim_{N \to \infty} \sigma_N = \alpha \lim_{N \to \infty} s_N + \beta \lim_{N \to \infty} t_N = \alpha A + \beta B
+        \]
+    \end{itemize}
+    
+    \item \textbf{Key Requirements:}
+    \begin{itemize}
+        \item Both series must converge individually
+        \item Linearity fails for divergent series (counterexample: $a_n = (-1)^n$, $b_n = (-1)^{n+1}$)
+    \end{itemize}
+    
+    \item \textbf{Extension:} For finitely many convergent series $\sum a_n^{(k)} = S_k$ and constants $c_k$:
+    \[
+    \sum_{n=1}^{\infty} \left( \sum_{k=1}^{m} c_k a_n^{(k)} \right) = \sum_{k=1}^{m} c_k S_k
+    \]
+    
+    \item \textbf{Warning:} Does \emph{not} apply to conditionally convergent series rearrangements (Riemann series theorem).
+\end{itemize}
 
 \subsection*{\sout{Cauchy Criterion}}
 
@@ -1722,6 +1947,69 @@ The existence of partial derivatives does not guarantee differentiability. A fun
 \lim_{\mathbf{h} \to \mathbf{0}} \frac{f(\mathbf{a} + \mathbf{h}) - f(\mathbf{a}) - L(\mathbf{h})}{\|\mathbf{h}\|} = 0
 \]
 where \(L\) is the total derivative (differenziale totale). The linear map \(L\) is represented by the gradient \(\nabla f(\mathbf{a}) = \left( \frac{\partial f}{\partial x_1}(\mathbf{a}), \dots, \frac{\partial f}{\partial x_n}(\mathbf{a}) \right)\) when \(f\) is differentiable. Sufficient conditions for differentiability include the continuity of all partial derivatives in a neighborhood of \(\mathbf{a}\).
+
+\section*{Functions (Additional)}
+
+\paragraph*{\textbf{Sign Function (Funzione Segno)}}
+The sign function, denoted \(\operatorname{sign}(x)\) or \(\operatorname{sgn}(x)\), 
+returns the sign of a real number. It is defined as:
+\[
+\operatorname{sign}(x) = 
+\begin{cases} 
+-1 & \text{if } x < 0 \\
+\phantom{-}0 & \text{if } x = 0 \\
+\phantom{-}1 & \text{if } x > 0 
+\end{cases}
+\]
+
+\paragraph*{\textbf{Key Properties (Proprietà Fondamentali)}}
+\begin{itemize}
+    \item \textbf{Zero equivalence}: 
+        \(\operatorname{sign}(x) = 0 \quad \Longleftrightarrow \quad x = 0\)
+    \item \textbf{Odd symmetry}: 
+        \(\operatorname{sign}(-x) = -\operatorname{sign}(x)\)
+    \item \textbf{Multiplicative identity}: 
+        \(x = |x| \cdot \operatorname{sign}(x) \quad \forall x \in \mathbb{R}\)
+    \item \textbf{Absolute value relationship}: 
+        \(|x| = x \cdot \operatorname{sign}(x) \quad \text{for } x \neq 0\)
+\end{itemize}
+
+\paragraph*{\textbf{Algebraic Identities (Identità Algebriche)}}
+\begin{itemize}
+    \item \textbf{Product rule}: 
+        \(\operatorname{sign}(x \cdot y) = \operatorname{sign}(x) \cdot \operatorname{sign}(y)\)
+    \item \textbf{Quotient rule}: 
+        \(\operatorname{sign}\left(\frac{x}{y}\right) = \frac{\operatorname{sign}(x)}{\operatorname{sign}(y)} \quad (y \neq 0)\)
+    \item \textbf{Square equivalence}: 
+        \(\left[\operatorname{sign}(x)\right]^2 = 
+        \begin{cases} 
+        1 & x \neq 0 \\
+        0 & x = 0 
+        \end{cases}\)
+\end{itemize}
+
+\paragraph*{\textbf{Calculus Properties (Proprietà di Calcolo)}}
+\begin{itemize}
+    \item \textbf{Derivative}: The derivative exists in the distributional sense:
+        \[
+        \frac{d}{dx}\operatorname{sign}(x) = 2\delta(x)
+        \]
+        where \(\delta(x)\) is the Dirac delta function.
+    \item \textbf{Integral representation}: 
+        \[
+        \operatorname{sign}(x) = \lim_{a \to 0^+} \frac{2}{\pi} \int_0^\infty \frac{\sin(xt)}{t} e^{-at}  dt
+        \]
+    \item \textbf{Step function connection}: 
+        \(\operatorname{sign}(x) = 2H(x) - 1\) where \(H(x)\) is the Heaviside step function.
+\end{itemize}
+
+\paragraph*{\textbf{Special Values (Valori Speciali)}}
+\begin{itemize}
+    \item \(\operatorname{sign}(0) = 0\)
+    \item \(\lim_{x \to \infty} \operatorname{sign}(x) = 1\)
+    \item \(\lim_{x \to -\infty} \operatorname{sign}(x) = -1\)
+    \item \(\operatorname{sign}(x) \cdot \operatorname{sign}(x) = 1 \quad (x \neq 0)\)
+\end{itemize}
 
 \section*{Integrals}
 
