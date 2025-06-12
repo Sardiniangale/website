@@ -43,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{6 June 2025}
+\date{10 June 2025}
 \author{Giacomo}
 
 \maketitle
@@ -297,6 +297,72 @@ but they are all relevant for analysis 1
 
 \includegraphics[scale=0.2]{/home/guc/Pictures/NumberSetinC\lyxdot svg}
 
+\subsection*{Exponential Properties}
+
+\subsubsection*{Exponential Functions}
+For $a > 0$ and $x \in \mathbb{R}$, the \emph{exponential function} with base $a$ is defined as the function $f(x) = a^x$. This represents continuous growth (when $a > 1$) or decay (when $0 < a < 1$) processes. The fundamental identity $a^x = e^{x \ln a}$ relates all exponentials to the natural base $e \approx 2.71828$, where $\exp(x) = e^x$ is the unique solution to $y' = y$ with $y(0)=1$. Exponentials map additive changes to multiplicative scaling: $a^{x+y} = a^x \cdot a^y$.
+
+\subsubsection*{Exponential Properties}
+For $a > 0$, $b > 0$, and $x,y \in \mathbb{R}$:
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+\setlength\itemsep{-0.5em}
+\setlength\parsep{-0.5em}
+    \item $a^x a^y = a^{x+y}$
+    \item $\frac{a^x}{a^y} = a^{x-y}$
+    \item $(a^x)^y = a^{xy}$
+    \item $a^0 = 1$
+    \item $a^{-x} = \frac{1}{a^x}$
+    \item $(ab)^x = a^x b^x$
+    \item $\left(\frac{a}{b}\right)^x = \frac{a^x}{b^x}$
+\end{itemize}
+
+\subsubsection*{Def of Logarithms}
+For $a > 0$ ($a \neq 1$), $b > 0$:
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+    \item $\log_a b = x \iff a^x = b$
+    \item $\log_a 1 = 0$
+    \item $\log_a a = 1$
+    \item $a^{\log_a b} = b$
+\end{itemize}
+
+\subsubsection*{Logarithm Properties}
+For $a > 0$ ($a \neq 1$), $x,y > 0$, $k \in \mathbb{R}$:
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+    \item $\log_a(xy) = \log_a x + \log_a y$
+    \item $\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y$
+    \item $\log_a(x^k) = k\log_a x$
+    \item $\log_a a^x = x$
+\end{itemize}
+
+\subsubsection*{Change of Base}
+For $a,b > 0$ ($a,b \neq 1$), $c > 0$:
+\[
+\log_a c = \frac{\log_b c}{\log_b a}
+\]
+Special case: $\log_a b = \frac{1}{\log_b a}$
+
+\subsubsection*{Natural Exponential and Logarithm}
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+    \item $e^x = \exp(x)$
+    \item $\ln x = \log_e x$
+    \item $e^{\ln x} = x$ for $x > 0$
+    \item $\ln(e^x) = x$ for $x \in \mathbb{R}$
+\end{itemize}
+
+\subsubsection*{Exponential-Logarithmic Equations}
+Key solving techniques:
+\begin{itemize}
+\renewcommand{\labelitemi}{}
+    \item If $a^x = a^y$ then $x = y$
+    \item If $\log_a x = \log_a y$ then $x = y$
+    \item To solve $a^{f(x)} = b$: take logarithms of both sides
+    \item To solve $\log_a f(x) = b$: rewrite as $f(x) = a^b$
+\end{itemize}
+
 \subsection*{Trigonometric Functions}
 
 \textbf{Trigonometric Functions} (\textit{funzioni trigonometriche}) are periodic functions that relate angles in a right triangle or on the unit circle to ratios of side lengths. The primary trigonometric functions are sine (\(\sin\)), cosine (\(\cos\)), tangent (\(\tan\)), and their reciprocals: cosecant (\(\csc\)), secant (\(\sec\)), and cotangent (\(\cot\)).
@@ -525,6 +591,7 @@ Range: $r\in\mathbb{R}$
 
 \includegraphics[scale=0.3]{pasted2}
 
+\pagebreak{}
 
 \section*{Sums and Sequences}
 
@@ -1038,125 +1105,35 @@ at least one improper accumulation value}
 
 \subsection*{Bolzano-Weierstrass Theorem (Teorema di Bolzano-Weierstrass)}
 
-% WEIERSTRASS THEOREMS
+% BOLZANO-WEIERSTRASS THEOREM
 \begin{itemize}
-    \item \textbf{Statement:} If $f$ is continuous on a closed interval $[a,b]$, then:
+    \item \textbf{Statement (Teorema di Bolzano-Weierstrass):} Every bounded sequence has a convergent subsequence. Formally:
     \[
-    \exists\, m, M \in \mathbb{R} \quad \text{such that} \quad f(m) = \inf_{x \in [a,b]} f(x) \quad \text{and} \quad f(M) = \sup_{x \in [a,b]} f(x)
+    \left( \exists K > 0 \text{ such that } \forall n \in \mathbb{N},\, |a_n| \leq K \right) \implies \exists\, \{a_{n_k}\} \subseteq \{a_n\} \text{ and } \exists L \in \mathbb{R} \text{ such that } \lim_{k \to \infty} a_{n_k} = L
     \]
+    
     \item \textbf{Key requirements:}
     \begin{itemize}
-        \item Closed interval ($[a,b]$ must include endpoints)
-        \item Continuity of $f$ on $[a,b]$
+        \item Bounded sequence ($\exists K > 0 : \forall n \in \mathbb{N},\, |a_n| \leq K$)
     \end{itemize}
-    \item \textbf{Consequence:} Continuous functions attain global extrema on compact sets.
+    
+    \item \textbf{Consequence:} Applies in $\mathbb{R}^n$ (via metodo degli intervalli incapsulati or Heine-Borel)
 \end{itemize}
-
-\paragraph*{\textbf{Bolzano-Weierstrass Theorem (Teorema di Bolzano-Weierstrass)}}
-\begin{itemize}
-    \item \textbf{Statement:} Every bounded sequence has a convergent subsequence. Formally:
-    \[
-    \left( \forall n \in \mathbb{N},\ |a_n| \leq K \right) \implies \exists\, \{a_{n_k}\} \subseteq \{a_n\},\  \lim_{k \to \infty} a_{n_k} = L
-    \]
-    \item \textbf{Key requirements:}
-    \begin{itemize}
-        \item Bounded sequence ($\exists K > 0 : |a_n| \leq K\ \forall n$)
-    \end{itemize}
-    \item \textbf{Consequence:} Applies in $\mathbb{R}^n$ (via nested intervals/heine-borel)
-\end{itemize}
-
-\paragraph*{}
-
-\subsection*{Things that are needed for the orale, but arent present in the book}
-
-- Sandwich theorem
-
--sereis monona and limitited (Converges)
-
--converges, (is limited)
-
--diverges, (is illimeted)
-
-Ratio Test (Criterio del Rapporto)
-
-Root Test (Criterio della Radice)
 
 \subsection*{Theorem of Zero}
 
 \subsection*{Trigonometric Functions and $\pi$}
 
-
-\subsection*{Exponential Properties}
-
-Below are some old section from a scrapped chapter. Will probably
-be useful here 
-
-\subsubsection*{Exponential Properties}
-For $a > 0$, $b > 0$, and $x,y \in \mathbb{R}$:
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-\setlength\itemsep{-0.5em}
-\setlength\parsep{-0.5em}
-    \item $a^x a^y = a^{x+y}$
-    \item $\frac{a^x}{a^y} = a^{x-y}$
-    \item $(a^x)^y = a^{xy}$
-    \item $a^0 = 1$
-    \item $a^{-x} = \frac{1}{a^x}$
-    \item $(ab)^x = a^x b^x$
-    \item $\left(\frac{a}{b}\right)^x = \frac{a^x}{b^x}$
-\end{itemize}
-
-\subsubsection*{Def of Logarithms}
-For $a > 0$ ($a \neq 1$), $b > 0$:
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-    \item $\log_a b = x \iff a^x = b$
-    \item $\log_a 1 = 0$
-    \item $\log_a a = 1$
-    \item $a^{\log_a b} = b$
-\end{itemize}
-
-\subsubsection*{Logarithm Properties}
-For $a > 0$ ($a \neq 1$), $x,y > 0$, $k \in \mathbb{R}$:
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-    \item $\log_a(xy) = \log_a x + \log_a y$
-    \item $\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y$
-    \item $\log_a(x^k) = k\log_a x$
-    \item $\log_a a^x = x$
-\end{itemize}
-
-\subsubsection*{Change of Base}
-For $a,b > 0$ ($a,b \neq 1$), $c > 0$:
-\[
-\log_a c = \frac{\log_b c}{\log_b a}
-\]
-Special case: $\log_a b = \frac{1}{\log_b a}$
-
-\subsubsection*{Natural Exponential and Logarithm}
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-    \item $e^x = \exp(x)$
-    \item $\ln x = \log_e x$
-    \item $e^{\ln x} = x$ for $x > 0$
-    \item $\ln(e^x) = x$ for $x \in \mathbb{R}$
-\end{itemize}
-
-\subsubsection*{Exponential-Logarithmic Equations}
-Key solving techniques:
-\begin{itemize}
-\renewcommand{\labelitemi}{}
-    \item If $a^x = a^y$ then $x = y$
-    \item If $\log_a x = \log_a y$ then $x = y$
-    \item To solve $a^{f(x)} = b$: take logarithms of both sides
-    \item To solve $\log_a f(x) = b$: rewrite as $f(x) = a^b$
-\end{itemize}
-
 \subsection*{Complex Polynomials}
 
 \subsubsection*{Fundamental Theorem of Algebra}
 
+\pagebreak{}
+
 \section*{Series}
+
+`'Its better to ask for forgiveness than to ask for permission'\/'
+- Wise person
 
 \subsection*{Series (Serie)}
 
@@ -1902,51 +1879,7 @@ This constructs a polynomial sequence \( \{P_N(x)\} \) that:
     \item Converges to \( f(x) \) locally if \( f \) is analytic at \( a \).  
 \end{itemize}  
 
-\subsection*{Partial Derivatives (Derivate Parziali)}
-
-\subsubsection*{Fundamental Concept}
-The partial derivative extends the concept of differentiation to functions of several variables. It measures the instantaneous rate of change of the function with respect to one variable while holding all other variables constant. For a function \(f: \mathbb{R}^n \to \mathbb{R}\), the partial derivative at a point \(\mathbf{a} = (a_1, \dots, a_n)\) with respect to the \(i\)-th variable provides the slope of the tangent line to the graph in the direction of the \(i\)-th coordinate axis.
-
-\subsubsection*{Notation (Notazione)}
-Common notations for partial derivatives include:
-\begin{itemize}
-    \item Leibniz notation: \(\frac{\partial f}{\partial x_i}\)
-    \item Subscript notation: \(f_{x_i}\) or \(\partial_{x_i} f\)
-    \item Operator notation: \(D_i f\)
-\end{itemize}
-For functions \(z = f(x,y)\), we write \(\frac{\partial z}{\partial x}\) or \(f_x\) for the partial with respect to \(x\).
-
-\subsubsection*{Limit Definition (Definizione di Limite)}
-The partial derivative of \(f\) with respect to \(x_i\) at \(\mathbf{a}\) is defined as:
-\[
-\frac{\partial f}{\partial x_i}(\mathbf{a}) = \lim_{h \to 0} \frac{f(a_1, \dots, a_i + h, \dots, a_n) - f(a_1, \dots, a_n)}{h}
-\]
-provided this limit exists. This definition requires \(f\) to be defined in an open neighborhood of \(\mathbf{a}\). In terms of real analysis, this represents the ordinary derivative of the single-variable function:
-\[
-g(x_i) = f(a_1, \dots, a_{i-1}, x_i, a_{i+1}, \dots, a_n)
-\]
-evaluated at \(x_i = a_i\).
-
-\subsubsection*{Geometric Interpretation (Interpretazione Geometrica)}
-Geometrically, \(\frac{\partial f}{\partial x_i}(\mathbf{a})\) represents the slope of the tangent line to the curve formed by intersecting the graph of \(f\) with the plane where all variables except \(x_i\) are held constant at their values in \(\mathbf{a}\). For functions of two variables, \(\frac{\partial f}{\partial x}(a,b)\) and \(\frac{\partial f}{\partial y}(a,b)\) give the slopes of the tangent lines in the \(x\)- and \(y\)-directions, respectively, at the point \((a,b, f(a,b))\).
-
-\subsubsection*{Higher-Order Partial Derivatives (Derivate Parziali di Ordine Superiore)}
-Partial derivatives can be iterated to obtain higher-order derivatives. The second-order partial derivative with respect to \(x_i\) and \(x_j\) is denoted:
-\[
-\frac{\partial^2 f}{\partial x_j \partial x_i} = \frac{\partial}{\partial x_j} \left( \frac{\partial f}{\partial x_i} \right)
-\]
-Under continuity conditions (Clairaut's theorem), the order of differentiation is interchangeable:
-\[
-\frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}
-\]
-for all \(i,j\) when both derivatives exist and are continuous in an open neighborhood.
-
-\subsubsection*{Differentiability for Multivariable Functions (Derivabilità per Funzioni a Più Variabili)}
-The existence of partial derivatives does not guarantee differentiability. A function \(f: \mathbb{R}^n \to \mathbb{R}\) is differentiable at \(\mathbf{a}\) if there exists a linear transformation \(L: \mathbb{R}^n \to \mathbb{R}\) such that:
-\[
-\lim_{\mathbf{h} \to \mathbf{0}} \frac{f(\mathbf{a} + \mathbf{h}) - f(\mathbf{a}) - L(\mathbf{h})}{\|\mathbf{h}\|} = 0
-\]
-where \(L\) is the total derivative (differenziale totale). The linear map \(L\) is represented by the gradient \(\nabla f(\mathbf{a}) = \left( \frac{\partial f}{\partial x_1}(\mathbf{a}), \dots, \frac{\partial f}{\partial x_n}(\mathbf{a}) \right)\) when \(f\) is differentiable. Sufficient conditions for differentiability include the continuity of all partial derivatives in a neighborhood of \(\mathbf{a}\).
+\pagebreak{}
 
 \section*{Functions (Additional)}
 
@@ -2011,6 +1944,8 @@ returns the sign of a real number. It is defined as:
     \item \(\operatorname{sign}(x) \cdot \operatorname{sign}(x) = 1 \quad (x \neq 0)\)
 \end{itemize}
 
+\pagebreak{}
+
 \section*{Integrals}
 
 “If you're gonna shoot an elephant Mr. Schneider, you better be prepared
@@ -2067,14 +2002,6 @@ if $u=f(x)$, then $du=g'(x)dx$
 \end{equation}
 
 
-\paragraph{Product rule}
-
-\begin{equation}
-\end{equation}
-
-
-\paragraph{Chain Rule}
-
 \paragraph{Leibniz rule for differentiation.}
 
 If f(t) is continuous and g(x) is differentiable
@@ -2099,6 +2026,94 @@ then:
 \begin{equation}
 I'(x)=f\left(g_{2}(x)\right)g_{2}'(x)-f\left(g_{1}(x)\right)g_{1}'(x)
 \end{equation}
+
+\subsubsection*{Improper Integral Convergence Criteria}
+For $\int_a^\infty f(x)  dx$ or $\int_a^b f(x)  dx$ with singularity at $b$:
+\begin{center}
+\begin{tabular}{p{0.3\textwidth}p{0.65\textwidth}}
+\textbf{Type} & \textbf{Condition} \\
+\hline
+$\int_1^\infty x^{-p}  dx$ & Converges iff $p > 1$ \\
+$\int_0^1 x^{-p}  dx$ & Converges iff $p < 1$ \\
+$\int_a^b |x-c|^{-p}  dx$ & Converges iff $p < 1$ \\
+Oscillatory $\int_1^\infty g(x)  dx$ & Converges if $\int_1^\infty |g(x)|  dx < \infty$ (absolute conv.) \\
+& or by Dirichlet test (bounded antiderivative, monotone $\to 0$)
+\end{tabular}
+\end{center}
+
+\subsubsection*{Limit Comparison Test Framework}
+Given $f(x) \sim g(x)$ as $x \to c$ (singularity or $\infty$):
+\begin{enumerate}
+\item Compute $L = \lim_{x \to c} \frac{f(x)}{g(x)}$
+\item If $0 < L < \infty$, then $\int f$ and $\int g$ converge/diverge together
+\item For $L=0$: $\int g < \infty \Rightarrow \int f < \infty$
+\item For $L=\infty$: $\int g = \infty \Rightarrow \int f = \infty$
+\end{enumerate}
+
+\subsubsection*{Singularity Analysis Toolkit}
+Near singular point $c$:
+\begin{align*}
+|\sin x| &\sim |x - k\pi| \quad \text{near } x = k\pi \\
+|\ln x| &\sim |x - 1| \quad \text{near } x = 1 \\
+\sqrt{x^2 + a} - x &\sim \frac{a}{2x} \quad \text{as } x \to \infty \\
+e^x - 1 - x &\sim \frac{x^2}{2} \quad \text{near } x = 0
+\end{align*}
+
+\subsubsection*{Parameter-Dependent Integrals Strategy}
+For $\int_a^b h(x,\alpha,\beta)  dx$ with $\alpha,\beta > 0$:
+\begin{center}
+\begin{tabular}{p{0.4\textwidth}p{0.55\textwidth}}
+\textbf{Problem Type} & \textbf{Solution Approach} \\
+\hline
+$\int_0^1 x^{-\alpha}|\ln x|^\beta  dx$ & 1. Near 0: compare to $x^{-\alpha + \epsilon}$ \\
+& 2. Near 1: compare to $|x-1|^\beta$ \\
+& \fbox{Converges iff $\alpha < 1$} \\
+\hline
+$\int_0^\infty \frac{dx}{x^\alpha |\sin x|^\beta}$ & 1. Near $k\pi$: $|\sin x|^{-\beta} \sim |x-k\pi|^{-\beta}$ \\
+& 2. At $\infty$: periodic singularities $\Rightarrow$ sum test \\
+& \fbox{Finite interval: $\beta < 1$} \\
+& \fbox{Infinite interval: $\beta < 1$ and $\alpha > 1$}
+\end{tabular}
+\end{center}
+
+\subsubsection*{Advanced Convergence Techniques}
+\begin{enumerate}
+\item \textbf{Integration by Parts:} For $\int f'g$, requires $\lim_{x \to c} f(x)g(x)$ exists and $\int f g' < \infty$
+\item \textbf{Series Comparison:} For $\int_1^\infty$, decompose into $\sum \int_{n}^{n+1}$ and compare to series
+\item \textbf{Exponential Domination:} $x^p e^{-ax} \to 0$ for all $p$ when $a > 0$
+\end{enumerate}
+
+\subsubsection*{Parameter Limit Computations}
+For $F(a) = \int_0^\infty g(x,a)  dx$:
+\begin{enumerate}
+\item Justify limit-interchange via Dominated Convergence or uniform bounds
+\item For $F_a(x) = \int_0^{x^a} h(t)  dt$:
+\begin{align*}
+\lim_{x \to 0^+} F_a(x) &= \begin{cases} 
+0 & a > 0 \\
+\int_0^\infty h(t)  dt & a < 0 
+\end{cases} \\
+F_a'(0) &= \begin{cases} 
+0 & a > 1 \\
+\text{DNE} & a \leq 1 
+\end{cases}
+\end{align*}
+\end{enumerate}
+
+\subsubsection*{Theoretical Result Template}
+Given $f \in C^1((0,1])$ with $\int_0^1 \sqrt{x} |f'(x)|  dx < \infty$:
+\begin{enumerate}
+\item $\sqrt{\epsilon} f(\epsilon) \to 0$ as $\epsilon \to 0^+$ by:
+\[
+\left| \sqrt{\epsilon} f(\epsilon) \right| \leq \sqrt{\epsilon} |f(1)| + \int_\epsilon^1 \sqrt{t} |f'(t)| \frac{\sqrt{\epsilon}}{\sqrt{t}}  dt
+\]
+\item $\int_0^1 \frac{f(x)}{\sqrt{x}}  dx < \infty$ via integration by parts:
+\[
+\int_\epsilon^1 \frac{f(x)}{\sqrt{x}}  dx = \left[2\sqrt{x}f(x)\right]_\epsilon^1 - 2\int_\epsilon^1 \sqrt{x} f'(x)  dx
+\]
+\end{enumerate}
+
+\pagebreak{}
 
 
 \section*{Differential Equations}
@@ -2961,12 +2976,181 @@ For IVP \( y' = y,\; y(0) = 1 \):
     \end{itemize}
 \end{itemize}
 
-\subsubsection*{Cauchy's Problem}
+\subsection*{The Question Playbook}
 
-Here we have a nth order ODE
+% Series Convergence
+\subsubsection*{Series Convergence}
+\textbf{Key Techniques:}
+\begin{itemize}
+    \item \textit{Asymptotic Analysis:} For $a_n$ as $n \to \infty$, use Taylor expansions or logarithms. \\
+    Example: $\log(n^\alpha + n^2) - \log(n^2) \sim n^{\alpha-2}$ if $\alpha < 2$.
+    \item \textit{Alternating Series (Leibniz):} Verify $|a_n| \searrow 0$.
+    \item \textit{Comparison Test:} Bound by $p$-series ($\sum n^{-p}$ converges iff $p>1$) or geometric series.
+    \item \textit{Ratio/Root Test:} Preferred for factorials or exponentials.
+    \item \textit{Weierstrass M-test (Uniform Convergence):} Find $M_k$ such that $|f_k(x)| \leq M_k$ and $\sum M_k < \infty$. \\
+    Non-uniform example: If $\sup_x |f_k(x)| \not\to 0$, uniform convergence fails.
+\end{itemize}
 
-\[
-y^{(n)}(t)=f\left(t,y,y',....,y^{(n-1)}\right)
-\]
- The Cauchy problem also known as the 
+\textbf{Steps:}
+\begin{enumerate}
+    \item Identify dominant term in $a_n$.
+    \item Apply convergence test based on asymptotic behavior.
+    \item For functional series (e.g., $\sum (-1)^k f_k(x)$):
+    \begin{enumerate}
+        \item Find pointwise convergence set (e.g., exclude $x=0$ if terms $\not\to 0$).
+        \item Check uniform convergence:
+        \begin{itemize}
+            \item On $\mathbb{R}$: Often fails near points where $f_k \not\to 0$.
+            \item On $[a,\infty)$: Use $M_k = \sup_{x \geq a} |f_k(x)|$.
+        \end{itemize}
+    \end{enumerate}
+\end{enumerate}
+
+% Maxima/Minima of Functions
+\subsubsection*{Maxima/Minima of Functions}
+\textbf{Key Techniques:}
+\begin{itemize}
+    \item \textit{Critical Points:} Solve $f'(x) = 0$.
+    \item \textit{Second Derivative Test:} $f''(x_0) > 0$ (local min), $f''(x_0) < 0$ (local max).
+    \item \textit{Boundary/Behavior at Infinity:} Evaluate $\lim_{x \to \pm\infty} f(x)$.
+\end{itemize}
+
+\textbf{Steps:}
+\begin{enumerate}
+    \item Compute $f'$ and solve $f'(x) = 0$.
+    \item Evaluate $f$ at critical points and boundary points.
+    \item Classify using $f''$ or sign analysis of $f'$. \\
+    Example: $f_k(x) = \frac{1 - x}{1 + kx^2}$ $\to$ solve $f_k'(x) = 0$ for critical points.
+\end{enumerate}
+
+% Improper Integrals
+\subsubsection*{Improper Integrals}
+\textbf{Key Techniques:}
+\begin{itemize}
+    \item \textit{Convergence Tests:}
+    \begin{itemize}
+        \item \textit{Comparison:} $|f(x)| \leq g(x)$ and $\int g < \infty$.
+        \item $p$\textit{-test:} $\int_a^\infty x^{-p}  dx$ converges iff $p > 1$.
+    \end{itemize}
+    \item \textit{Behavior at Singularities:} Near $x = 0$ or $x = \infty$, use asymptotic expansions.
+    \item \textit{Absolute vs. Conditional Convergence:} $|\int f| \leq \int |f|$.
+\end{itemize}
+
+\textbf{Steps:}
+\begin{enumerate}
+    \item Split integral at singularities.
+    \item For each interval, find asymptotic equivalence (e.g., $x \to 0^+$: $|\sin x| \sim |x - k\pi|$).
+    \item Apply comparison or $p$-test. \\
+    Example: $\int_0^{e^2} \frac{dx}{2x - e \ln x}$ $\to$ analyze $x \to 0^+$ and $x \to e^2$.
+\end{enumerate}
+
+% ODEs
+\subsubsection*{Ordinary Differential Equations (ODEs)}
+\textbf{Key Techniques:}
+\begin{itemize}
+    \item \textit{Separable Equations:} $u' = g(x)h(u) \implies \int \frac{du}{h(u)} = \int g(x)  dx$.
+    \item \textit{Linear Equations:} $u' + p(x)u = q(x)$ $\to$ integrating factor $e^{\int p}$.
+    \item \textit{Maximal Interval:} Solution exists until blowup or if Lipschitz.
+\end{itemize}
+
+\textbf{Steps for Cauchy Problems:}
+\begin{enumerate}
+    \item Solve ODE explicitly (if separable/linear).
+    \item Apply initial condition.
+    \item Identify blowup points (e.g., $u' = u^2 - 2u + 2$ $\to$ $u = 1 + \tan(x - 7)$ blows up at $x = 7 \pm \pi/2$).
+\end{enumerate}
+
+\textbf{Steps for Boundary Value Problems (BVP):}
+\begin{enumerate}
+    \item Solve characteristic equation (e.g., $r^2 + 2r + c = 0$).
+    \item Apply boundary conditions; solution unique iff homogeneous solution trivial.
+\end{enumerate}
+
+% Sequences Defined by Recurrence
+\subsubsection*{Sequences Defined by Recurrence}
+\textbf{Key Techniques:}
+\begin{itemize}
+    \item \textit{Monotone + Bounded $\implies$ Convergent:} Show $a_{n+1} \leq a_n$ and bounded below.
+    \item \textit{Fixed Points:} Solve $L = f(L)$; if $|f'(L)| < 1$, stable.
+    \item \textit{Asymptotic Behavior:} For $\sum a_n x^n$, radius $R = 1/\limsup |a_n|^{1/n}$.
+\end{itemize}
+
+\textbf{Steps:}
+\begin{enumerate}
+    \item Compute initial terms.
+    \item Verify monotonicity/boundedness.
+    \item If convergent, solve $L = f(L)$. \\
+    Example: $a_{n+1} = \sin a_n$, $a_0 = 2024$ $\to$ $a_n \searrow 0$.
+\end{enumerate}
+
+% Integral Computation and Estimation
+\subsubsection*{Integral Computation and Estimation}
+\textbf{Key Techniques:}
+\begin{itemize}
+    \item \textit{Substitution:} Simplify exponents (e.g., $t = \alpha x^2$).
+    \item \textit{Integration by Parts:} $\int u  dv = uv - \int v  du$.
+    \item \textit{Gamma Function:} $\int_0^\infty x^n e^{-\alpha x^2}  dx$ $\to$ use $t = \alpha x^2$.
+\end{itemize}
+
+\textbf{Steps:}
+\begin{enumerate}
+    \item Identify substitution to match standard forms.
+    \item For $[0, \infty)$, exploit convergence of $\Gamma(z)$. \\
+    Example: $\int_0^\infty x^{2n+1} e^{-\alpha x^2}  dx = \frac{n!}{2\alpha^{n+1}}$.
+\end{enumerate}
+
+% Lipschitz Functions and ODE Solutions
+\subsubsection*{Lipschitz Functions and ODE Solutions}
+\textbf{Key Techniques:}
+\begin{itemize}
+    \item \textit{Lipschitz Proof:} Show $|f'(y)|$ bounded.
+    \item \textit{Separable ODEs:} Direct integration.
+\end{itemize}
+
+\textbf{Steps for Cauchy Problems:}
+\begin{enumerate}
+    \item Verify Lipschitz condition (for uniqueness).
+    \item Solve ODE (e.g., $u' = |u| + 1$ $\to$ separate variables).
+    \item Apply initial condition.
+\end{enumerate}
+
+% Area and Region Calculations
+\subsubsection*{Area and Region Calculations}
+\textbf{Key Techniques:}
+\begin{itemize}
+    \item \textit{Integration:} Area $= \iint_E dx  dy$.
+    \item \textit{Iterated Integrals:} Fix $y$, integrate in $x$ (or vice versa).
+\end{itemize}
+
+\textbf{Steps:}
+\begin{enumerate}
+    \item Sketch region and find intersection points.
+    \item Express bounds (e.g., $E: 0 \leq y \leq \arctan x$, $x \leq \cos y$ $\implies x \in [\tan y, \cos y]$ for $y \in [0, y_0]$).
+    \item Compute $\int (\text{upper} - \text{lower})  dy$.
+\end{enumerate}
+
+% Inequalities and Function Analysis
+\subsubsection*{Inequalities and Function Analysis}
+\textbf{Key Techniques:}
+\begin{itemize}
+    \item \textit{Taylor Expansions:} Prove $e^{4x^2} > 1 + 8x^2$ via series.
+    \item \textit{Derivative Sign:} Show $g'(x) > 0$ for $g(x) \geq 0$.
+\end{itemize}
+
+\textbf{Steps:}
+\begin{enumerate}
+    \item Define auxiliary function $h(x) = f(x) - g(x)$.
+    \item Compute $h'(x)$ and analyze extrema.
+\end{enumerate}
+
+% Summary Flowchart
+\subsubsection*{Summary Flowchart for Problem-Solving}
+\begin{enumerate}
+    \item Classify problem type: Series, ODE, Integral, Sequence, Optimization, etc.
+    \item Select technique based on classification (reference table above).
+    \item Execute steps methodically.
+    \item Verify conditions (e.g., continuity for integration by parts).
+\end{enumerate}
+
+\subsubsection*{Fin :)}
 \end{document}
