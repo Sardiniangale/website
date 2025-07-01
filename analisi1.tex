@@ -43,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{10 June 2025}
+\date{25 June 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1579,131 +1579,98 @@ An alternating series \(\sum (-1)^n b_n\) or \(\sum (-1)^{n+1} b_n\) converges i
 \end{enumerate}
 This implies \textbf{conditional convergence} (converges but not absolutely).}
 
-\subsection*{L'Hôpital's rule}
-
-Is a theorem, which is primarily used to check limits by comparing
-the derivatives of the limits. 
-
-\paragraph*{Definition}
-
-f and g are functions which are differentiable on a open interval.
-Assuming that,
-
-$lim_{x\rightarrow a}f(x)=lim_{x\rightarrow a}g(x)=0$, $g'(x)\neq0$
-and $lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}$
-
-Then:
-
-\[
-lim_{x\rightarrow a}\frac{f(x)}{g(x)}=lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}
-\]
-
-
-\subsubsection*{THIS WILL GO HERE BECAUSE I DONT KNOW WHERE ELSE TO PUT IT}
-
-\paragraph*{\textbf{Domain Analysis (Analisi del Dominio)}}
-\begin{itemize}
-    \item Determine where $f(x)$ is defined
-    \item Identify interval boundaries and discontinuities
-\end{itemize}
-
-\paragraph*{\textbf{Closed Interval Check (Intervalli Chiusi)}}
-\begin{itemize}
-    \item For $[a,b]$, apply Extreme Value Theorem (Teorema dei Valori Estremi):
-    \[
-    \exists\ x_{\text{max}},x_{\text{min}} \in [a,b] \quad \text{where}\quad f(x_{\text{max}}) \geq f(x) \geq f(x_{\text{min}})
-    \]
-\end{itemize}
-
-\paragraph*{\textbf{First Derivative (Derivata Prima)}}
-\begin{itemize}
-    \item Compute $f'(x)$
-    \item Find critical points (punti critici):
-    \[
-    \begin{cases}
-    f'(x) = 0 \quad \text{(stationary points)}\\
-    f'(x)\ \text{undefined} \quad \text{(cusps/corners)}
-    \end{cases}
-    \]
-\end{itemize}
-
-\paragraph*{\textbf{Classification (Classificazione)}}
-\paragraph*{\textbf{Second Derivative Test (Test della Derivata Seconda)}}
-\begin{itemize}
-    \item Compute $f''(x)$
-    \[
-    \begin{cases}
-    f''(x_0) > 0 \Rightarrow \text{local min (minimo locale)}\\
-    f''(x_0) < 0 \Rightarrow \text{local max (massimo locale)}\\
-    f''(x_0) = 0 \Rightarrow \text{inconclusive}
-    \end{cases}
-    \]
-\end{itemize}
-
-\paragraph*{\textbf{First Derivative Test (Test della Derivata Prima)}}
-\begin{itemize}
-    \item Analyze sign changes:
-    \[
-    \begin{array}{ll}
-    + \to - & \Rightarrow \text{local max} \\
-    - \to + & \Rightarrow \text{local min} \\
-    \text{No change} & \Rightarrow \text{not extremum}
-    \end{array}
-    \]
-\end{itemize}
-
-\paragraph*{\textbf{Endpoint Evaluation (Valutazione agli Estremi)}}
-\begin{itemize}
-    \item For closed intervals:
-    \[
-    \text{Compare}\quad f(a),\ f(b),\ f(x_{\text{crit}})
-    \]
-\end{itemize}
-
 \newpage{}
 
 \part*{Post-Derivatives}
 
-\section*{Derivatives}
+\section*{Differential Quotient/Derivative }
 
 ``The Difference Between the Almost Right Word and the Right Word
 Is Really a Large Matter---’Tis the Difference Between the Lightning
 Bug and the Lightning'' - Mark Twain
 
-\subsection*{Derivatives (Derivate)}
+\subsection*{Fundamental Formula for derivatives}
 
-\subsubsection*{Fundamental Concept}
-The derivative of a function \(f\) at a point \(a\) is the instantaneous rate of change of the function with respect to its input. Geometrically, it represents the slope of the tangent line to the graph of \(f\) at the point \((a, f(a))\), providing the best linear approximation of the function near \(a\).
+The fundamental goal of a derivative is to measure a functions behaviour
+at a single point. For a function to be differentiable, it must be
+continuous \& ....
 
-\subsubsection*{Notation (Notazione)}
-Two primary notations exist for derivatives:
-\begin{itemize}
-    \item Leibniz notation: \(\frac{df}{dx}\) or \(\frac{dy}{dx}\)
-    \item Prime notation: \(f'(x)\)
-\end{itemize}
-Higher-order derivatives (derivate di ordine superiore) extend this notation with additional differentials or prime marks, representing repeated differentiation.
+\paragraph*{Secant (Retta Secante)}
 
-\subsubsection*{Limit Definition (Definizione di Limite)}
-A function \(f: \mathbb{R} \to \mathbb{R}\) is differentiable (derivabile) at \(a \in \mathbb{R}\) if either of the following equivalent limits exists:
+Take a function $f:\mathbb{R\rightarrow\mathbb{R}}$, and pick two
+points on its graph, called x and x1. The direct line that connects
+x and x1 is called the secant. It is calculated like so:
+
 \[
-f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
-\]
-This definition requires \(f\) to be defined on an open interval containing \(a\). In real analysis, differentiability signifies that \(f\) admits a linear approximation at \(a\):  
-\[
-f(x) = f(a) + f'(a)(x - a) + r(x)
-\]
-where the remainder term \(r(x)\) satisfies \(\lim_{x \to a} \frac{r(x)}{|x - a|} = 0\). The \(\varepsilon\)-\(\delta\) formalization states:
-\[
-\forall \varepsilon > 0,\  \exists \delta > 0\ :\ 0 < |x - a| < \delta \implies \left| \frac{f(x) - f(a)}{x - a} - f'(a) \right| < \varepsilon
+\frac{f(x)-f(x_{1})}{x-x_{1}}
 \]
 
-\subsubsection*{Geometric Interpretation (Interpretazione Geometrica)}
-The derivative \(f'(a)\) is the limit of slopes of secant lines through points \((a, f(a))\) and \((x, f(x))\) as \(x \to a\). When this limit exists, it defines the slope of the unique tangent line (retta tangente) to \(f\) at \(a\).
+Consider that the denominator is the horizontal difference, and the
+nominator is the vertical difference. The secant is useful for describing
+how a function changes over two set distances, but it cannot be used
+to show more precise info regarding the graph. 
 
-\subsubsection*{Continuity and Differentiability}
-Differentiability implies continuity (continuità): \(f\) differentiable at \(a\) \(\implies\) \(f\) continuous at \(a\). The converse does not hold, as demonstrated by functions with discontinuities in their rate of change, such as those containing corners (punti angolosi) or vertical tangents (tangenti verticali). In real analysis, this is formalized through the linear approximation condition: A function fails to be differentiable at points where the remainder \(r(x)\) does not vanish faster than \(|x-a|\).
+\paragraph*{Tangent (Retta Tangente)}
 
-\subsubsection*{Methods for Differentiation}
+The tangent is almost identical in concept to the secant, with one
+key difference. The tangent applies a limit from $x\rightarrow x_{1}$.
+So as x moves closer to x1, eventually using a limit they show the
+functions behaviour at a single point. More formally its calculated
+like so:
+
+\[
+lim_{x\rightarrow x_{1}}\frac{f(x)-f(x_{1})}{x-x_{1}}
+\]
+
+If this limit does not exist then the function is `'non differentiable'\/',
+if instead the limit does exists it defines the slope of the tangent
+at the point x. 
+
+\paragraph*{Formal Definition}
+
+The differential quotient is more formally represented as:
+
+\[
+f'(x)=lim_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}
+\]
+
+Where h:
+
+\[
+h=x-x_{1}
+\]
+
+which means:
+
+\[
+f'(x)=lim_{x\rightarrow x_{1}}\frac{f(x)-f(x_{1})}{x-x_{1}}
+\]
+
+
+\subsubsection*{Differentiablility implies continuity (Property)}
+
+\[
+f(x)=f(x_{1})+f'(x_{1})(x-x_{1})+(x-x_{1})r(x)
+\]
+
+where r(x) -> 0 since x -> x1, taking the limits:
+
+\[
+lim_{x\rightarrow x_{1}}f(x)=f(x_{1})+0+0=f(x_{1})
+\]
+
+$\therefore$f is continuous at x1
+
+WARNING; THE REVERSE IS NOT TRUE, not all functions that are continuous
+are differentiable.
+
+\subsection*{Methods for Differentiation}
+
+\paragraph*{Sum Rule
+\begin{equation}
+\frac{d}{dx}\left(f+g\right)=f'\left(x\right)+g'\left(x\right)
+\end{equation}
+}
 
 \paragraph*{Product rule}
 
@@ -1724,6 +1691,103 @@ Differentiability implies continuity (continuità): \(f\) differentiable at \(a\
 \begin{equation}
 \frac{d}{dx}f(g(x))=f'(g(x))g'(x)
 \end{equation}
+
+
+\subsection*{Inverse derivatives}
+
+\subsection*{Local Extreme and Rolle’s Theorem}
+
+If a function $f\in\mathbb{R}$ has a closed set on it from above
+and below. You can now identify 4 distinct features of this function,
+the local maximum and local minimum, and the global maximum and global
+minimum. The local minimum and local maximum are two distinct points
+withing this closed set, they are the maximum or minimum point on
+the y axis with a tangent equal to 0. The global maximum and global
+minimum can be defined as the lowest or largest points on the entire
+function with a tangent equal to zero.\marginpar{Double check this definition it is likely to be wrong}
+
+In practice they
+
+\subsubsection*{Rolle's Theorem}
+
+Rolle's theorem states that, `'If any differentiable function crosses
+the same point on the y axis more than once, there must always be
+at least point where the tangent is zero, this point is often known
+as a stationary point or as $\hat{x}$. More formally it is defined
+as:
+
+$f:\left[a,b\right]\rightarrow\mathbb{R}$is differentiable and f(a)=f(b),
+then there exists $\hat{x}\in(a,b)$ with $f'(x)=0$
+
+\subparagraph*{Absolute value exception}
+
+\subsection*{Mean Value Theorem}
+
+The mean value theorem involves two points on the same function f.
+The mean value theorem states, that by taking the secant of those
+two points (a,b) you can calculate what the tangent of a point on
+the same function and in between a and b. See image below as reference.
+
+\includegraphics[scale=0.5]{/home/guc/Downloads/Mittelwertsatz3}\footnote{By Who2010 - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=51081991}
+
+\paragraph*{Uses:}
+
+Assume that $f:\left[a,b\right]\rightarrow\mathbb{R}$be differentiable
+
+\subparagraph*{Strictly Monotonically Increasing}
+
+If $f'\left(x\right)>0$ for all $x\in[a,b]$ : then $\hat{x}\in(x_{1},x_{2})$
+with $f'(\hat{x})=\frac{f(x_{2})-f(x_{1})}{x_{2}-x_{1}}$
+
+Rewritten then 
+\[
+f(x_{2})-f(x_{1})=\underset{>0}{\underbrace{f'(\hat{x})}}\cdot\underset{>0}{\underbrace{(x_{2}-x_{1})}}>0
+\]
+
+This shows it is strictly monotonically increasing
+
+\subparagraph*{Strictly Monotonically Decreasing}
+
+If $f'\left(x\right)<0$ for all $x\in[a,b]$
+
+\marginpar{Follow similar steps as above to show <0}
+
+This shows it is strictly monotonically decreasing.
+
+\subparagraph*{Monotonically Increasing}
+
+If $f'\left(x\right)\geq0$ for all $x\in[a,b]$
+
+\marginpar{Follow similar steps as above to show >= 0}
+
+This shows monotonically increasing
+
+\subparagraph*{Monotonically Decreasing}
+
+If $f'\left(x\right)\leq0$ for all $x\in[a,b]$
+
+\marginpar{Follow similar steps as above to show =< 0}
+
+This shows monotonically decreasing
+
+\subsection*{L'Hôpital's rule}
+
+Is a theorem, which is primarily used to check limits by comparing
+the derivatives of the limits. 
+
+\paragraph*{Definition}
+
+f and g are functions which are differentiable on a open interval.
+Assuming that,
+
+$lim_{x\rightarrow a}f(x)=lim_{x\rightarrow a}g(x)=0$, $g'(x)\neq0$
+and $lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}$
+
+Then:
+
+\[
+lim_{x\rightarrow a}\frac{f(x)}{g(x)}=lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}
+\]
 
 \subsection*{Higher-Order Derivatives}
 The $n$-th derivative is defined recursively:
