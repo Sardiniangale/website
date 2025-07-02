@@ -43,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{25 June 2025}
+\date{1 July 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1697,16 +1697,15 @@ are differentiable.
 
 \subsection*{Local Extreme and Rolle’s Theorem}
 
-If a function $f\in\mathbb{R}$ has a closed set on it from above
-and below. You can now identify 4 distinct features of this function,
-the local maximum and local minimum, and the global maximum and global
-minimum. The local minimum and local maximum are two distinct points
-withing this closed set, they are the maximum or minimum point on
-the y axis with a tangent equal to 0. The global maximum and global
-minimum can be defined as the lowest or largest points on the entire
-function with a tangent equal to zero.\marginpar{Double check this definition it is likely to be wrong}
-
-In practice they
+If a function $f:[a,b]\in\mathbb{R}$ is defined on a closed interval
+{[}a,b{]}, we can identify four distinct features: local maximum,
+local minimum, global maximum, and global minimum. The local minimum
+and local maximum are points within {[}a,b{]} where the function reaches
+its lowest or highest value in a small neighborhood around them. They
+can be found at tangent = 0, the derivative is undefined, at endpoints
+like a,b. The global maximum and global minimum are the absolute highest
+and lowest points on the entire interval {[}a,b{]}. These always exist
+for continuous functions on closed intervals. 
 
 \subsubsection*{Rolle's Theorem}
 
@@ -1716,10 +1715,11 @@ at least point where the tangent is zero, this point is often known
 as a stationary point or as $\hat{x}$. More formally it is defined
 as:
 
-$f:\left[a,b\right]\rightarrow\mathbb{R}$is differentiable and f(a)=f(b),
-then there exists $\hat{x}\in(a,b)$ with $f'(x)=0$
+$f:\left[a,b\right]\rightarrow\mathbb{R}$is continuous and differentiable
+on (a,b) and f(a)=f(b), then there exists $\hat{x}\in(a,b)$ with
+$f'(x)=0$
 
-\subparagraph*{Absolute value exception}
+\subparagraph*{Rolle’s Theorem fails for non-differentiable functions}
 
 \subsection*{Mean Value Theorem}
 
@@ -1732,7 +1732,7 @@ the same function and in between a and b. See image below as reference.
 
 \paragraph*{Uses:}
 
-Assume that $f:\left[a,b\right]\rightarrow\mathbb{R}$be differentiable
+Assume that $f:\left[a,b\right]\rightarrow\mathbb{R}$ be differentiable
 
 \subparagraph*{Strictly Monotonically Increasing}
 
@@ -1770,6 +1770,39 @@ If $f'\left(x\right)\leq0$ for all $x\in[a,b]$
 
 This shows monotonically decreasing
 
+\paragraph*{Auxiliary Function for proof}
+
+\[
+h(x)=f(x)-\left[f(a)+\underset{slope}{\underbrace{\frac{f(b)-f(a)}{b-a}}}(x-a)\right]
+\]
+
+f(a): anchors the secant line to a
+
+(x-a): represents horizontal displacement 
+
+\subsubsection*{Extended Mean Value Theorem}
+
+There are two functions $f,g:[a,b]\rightarrow\mathbb{R}$ which need
+to be differentiable and $g'(x)\neq0$ for all $x\in(a,b)$. Then
+there exists $\hat{x}\in(a,b)$ 
+
+Giving the following formula:
+
+\[
+\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\hat{x})}{g'(\hat{x})}
+\]
+
+
+\paragraph*{EMVT auxiliary function}
+
+\[
+h(x)=f(x)-\left[f(a)+\underset{Slope(k)}{\underbrace{\frac{f(b)-f(a)}{g(b)-g(a)}}}(g(x)-g(a))\right]
+\]
+
+f(a): anchors the secant line
+
+(g(x)-g(a)): replaces (x-a) with displacement measured by g
+
 \subsection*{L'Hôpital's rule}
 
 Is a theorem, which is primarily used to check limits by comparing
@@ -1795,21 +1828,82 @@ The $n$-th derivative is defined recursively:
 f^{(n)}(x) = \frac{d}{dx}\left[f^{(n-1)}(x)\right]
 \]
 
-\subsection*{Additional Differentiation Rules}
+Other notations include
 
-\subsubsection*{Basic Rules}
-\begin{itemize}
-    \item Constant Rule: $\frac{d}{dx}[c] = 0$
-    \item Power Rule: $\frac{d}{dx}[x^n] = nx^{n-1}$
-    \item Constant Multiple: $\frac{d}{dx}[cf(x)] = c f'(x)$
-    \item Sum/Difference: $\frac{d}{dx}[f(x) \pm g(x)] = f'(x) \pm g'(x)$
-\end{itemize}
-
-\subsubsection*{Higher-Order Derivatives}
-Second derivative: $f''(x)$ or $\frac{d^2y}{dx^2}$. Recursive formula:
 \[
-f^{(n)}(x) = \frac{d}{dx}\left[f^{(n-1)}(x)\right]
+f^{n}=\frac{d^{n}f}{dx^{n}}=\frac{d^{n}}{dx^{n}}f
 \]
+
+
+\paragraph*{Min max test}
+
+Assuming that $f'(x_{0})=0$ and that $f''(x_{0})$ exists then
+
+\subparagraph*{Local Minimum}
+
+$f''(x_{0})>0$ Local min at x0 
+
+\subparagraph*{Local Maximum}
+
+$f''(x_{0})<0$ Local max at x0
+
+\marginpar{If $f''(x_{0})=0$ the test fails. Note: Any derivative higher than
+2 is valid as well.}
+
+\subsection*{Taylor's Theorem (Teorema di Taylor)}
+Taylor's theorem provides a polynomial approximation for a function $f$ near an expansion point (punto di espansione) $x_0$. For a function $f$ that is $(n+1)$-times differentiable on an interval $I$, and a point $x_0 \in I$, the approximation at $x = x_0 + h$ (with $x_0 + h \in I$) is:
+\[
+f(x_0 + h) = \underbrace{\sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} h^k}_{T_n(h)} + \underbrace{R_n(h)}_{\text{remainder (resto)}}
+\]
+Here, $T_n(h)$ is the \textbf{$n$-th order Taylor polynomial (polinomio di Taylor)}. The remainder term $R_n(h)$ satisfies:
+\[
+R_n(h) = \frac{f^{(n+1)}(c)}{(n+1)!} h^{n+1}
+\]
+where $c$ is a point strictly between $x_0$ and $x_0 + h$. Equivalently, using $x = x_0 + h$:
+\[
+f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x - x_0)^k + R_n(x), \quad R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!} (x - x_0)^{n+1}
+\]
+
+\subsection*{Key Properties}
+\begin{enumerate}
+    \item The Taylor polynomial $T_n(h)$ is the unique polynomial of degree $\leq n$ that matches $f$ and its first $n$ derivatives at $x_0$:
+    \[
+    T_n^{(k)}(0) = f^{(k)}(x_0) \quad \text{for} \quad k = 0, 1, \dots, n.
+    \]
+    
+    \item The remainder $R_n(h)$ decays faster than $h^n$ as $h \to 0$:
+    \[
+    \lim_{h \to 0} \frac{R_n(h)}{h^n} = 0.
+    \]
+    
+    \item For error estimation, if $\left|f^{(n+1)}(z)\right| \leq M$ for all $z$ between $x_0$ and $x$, then:
+    \[
+    |R_n(x)| \leq \frac{M}{(n+1)!} |x - x_0|^{n+1}.
+    \]
+\end{enumerate}
+
+\subsection*{Application Procedure}
+To approximate $f(x)$ near $x_0$:
+\begin{enumerate}
+    \item \textbf{Compute derivatives (calcolare derivate)}: Calculate $f^{(k)}(x_0)$ for $k = 0, 1, \dots, n$.
+    
+    \item \textbf{Construct $T_n$}: Form the polynomial:
+    \[
+    T_n(x) = f(x_0) + f'(x_0)(x - x_0) + \frac{f''(x_0)}{2!}(x - x_0)^2 + \cdots + \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n.
+    \]
+    
+    \item \textbf{Bound the remainder}: Find $M$ such that $\left|f^{(n+1)}(z)\right| \leq M$ for $z$ between $x_0$ and $x$, then:
+    \[
+    |f(x) - T_n(x)| \leq \frac{M}{(n+1)!}|x - x_0|^{n+1}.
+    \]
+\end{enumerate}
+
+\subsection*{Landau Symbol (Simbolo di Landau)}
+When the exact remainder is unnecessary, write:
+\[
+f(x_0 + h) = T_n(h) + \mathcal{O}(h^{n+1}) \quad \text{as} \quad h \to 0,
+\]
+where $\mathcal{O}(h^{n+1})$ denotes a term satisfying $|\mathcal{O}(h^{n+1})| \leq K|h|^{n+1}$ for some constant $K$ near $h = 0$.
 
 \subsubsection*{Exponential/Logarithmic Derivatives}
 \begin{itemize}
@@ -1863,85 +1957,6 @@ If $f$ and $g$ are inverses:
 \[
 g'(x) = \frac{1}{f'(g(x))}
 \]
-
-\paragraph*{\textbf{Taylor Series (Serie di Taylor)}}
-The Taylor series of a smooth function \( f: \mathbb{R} \to \mathbb{R} \) expanded about \( a \in \mathbb{R} \) is:
-\[
-T_f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!} (x - a)^n,
-\]
-where \( f^{(n)}(a) \) is the \( n \)-th derivative of \( f \) at \( a \).
-
-\paragraph*{\textbf{Taylor's Theorem (Teorema di Taylor)}}
-For \( N \geq 0 \), the function decomposes as:
-\[
-f(x) = \sum_{n=0}^{N} \frac{f^{(n)}(a)}{n!} (x - a)^n + R_N(x),
-\]
-with the Lagrange remainder:
-\[
-R_N(x) = \frac{f^{(N+1)}(c)}{(N+1)!} (x - a)^{N+1} \quad \text{for some } c \in (a, x).
-\]
-
-\paragraph*{\textbf{Analyticity (Analiticità)}}
-\begin{itemize}
-    \item The series converges to \( f(x) \) near \( a \) if \( \lim_{N \to \infty} R_N(x) = 0 \). 
-    \item The \textbf{radius of convergence} \( R \) satisfies:
-    \[
-    \frac{1}{R} = \limsup_{n \to \infty} \left| \frac{f^{(n)}(a)}{n!} \right|^{1/n}.
-    \]
-    \item Smoothness \(\not\!\!\!\implies\) analyticity: The series may diverge or converge to a different function.
-\end{itemize}
-
-\paragraph*{\textbf{Multi-Variable Case (Caso Multivariato)}}
-For \( f: \mathbb{R}^k \to \mathbb{R} \), the series generalizes using multi-indices \( \alpha = (\alpha_1, \ldots, \alpha_k) \):
-\[
-T_f(\mathbf{x}) = \sum_{|\alpha| \geq 0} \frac{\partial^{|\alpha|} f(a)}{\alpha!} (\mathbf{x} - \mathbf{a})^\alpha,
-\]
-with \( \alpha! = \alpha_1! \cdots \alpha_k! \) and \( \partial^{|\alpha|} = \frac{\partial^{|\alpha|}}{\partial x_1^{\alpha_1} \cdots \partial x_k^{\alpha_k}} \).
-
-\paragraph*{\textbf{Key Distinctions (Differenze Fondamentali)}}
-\begin{itemize}
-    \item \textbf{Analytic \( \iff \)} Taylor series converges to \( f \) locally.
-    \item \textbf{Uniqueness:} Analytic functions have unique power series representations.
-    \item \textbf{Global vs. Local:} Analyticity extends local derivative data to a neighborhood.
-\end{itemize}
-
-\paragraph*{\textbf{General Taylor Series Application (Applicazione Generale della Serie di Taylor)}}  
-Consider a smooth function \( f: \mathbb{R} \to \mathbb{R} \) and a point \( a \in \mathbb{R} \).  
-
-\paragraph*{\textbf{Expansion Process (Processo di Sviluppo)}}  
-\begin{itemize}  
-    \item Compute derivatives \( f^{(n)}(a) \) for \( n \geq 0 \).  
-    \item Construct the Taylor series:  
-    \[  
-    T_f(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2}(x - a)^2 + \cdots = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n.  
-    \]  
-\end{itemize}  
-
-\paragraph*{\textbf{Approximation and Error (Approssimazione ed Errore)}}  
-For a fixed \( N \), the \( N \)-th Taylor polynomial approximates \( f \):  
-\[  
-P_N(x) = \sum_{n=0}^{N} \frac{f^{(n)}(a)}{n!}(x - a)^n,  
-\]  
-with error bounded by the Lagrange remainder:  
-\[  
-|R_N(x)| \leq \frac{\max_{c \in [a, x]} |f^{(N+1)}(c)|}{(N+1)!} |x - a|^{N+1}.  
-\]  
-
-\paragraph*{\textbf{Convergence Analysis (Analisi della Convergenza)}}  
-\begin{itemize}  
-    \item Calculate the radius of convergence \( R \) using:  
-    \[  
-    \frac{1}{R} = \limsup_{n \to \infty} \left| \frac{f^{(n)}(a)}{n!} \right|^{1/n}.  
-    \]  
-    \item If \( \lim_{N \to \infty} R_N(x) = 0 \) for \( |x - a| < R \), then \( T_f(x) = f(x) \) in this interval.  
-\end{itemize}  
-
-\paragraph*{\textbf{Interpretation (Interpretazione)}}  
-This constructs a polynomial sequence \( \{P_N(x)\} \) that:  
-\begin{itemize}  
-    \item Matches \( f \)’s derivatives at \( a \) up to order \( N \).  
-    \item Converges to \( f(x) \) locally if \( f \) is analytic at \( a \).  
-\end{itemize}  
 
 \pagebreak{}
 
