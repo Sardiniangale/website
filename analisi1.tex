@@ -2032,25 +2032,60 @@ to finish the job.”
 
 \LyXbar{} Gary Larson, The Far Side 
 
-\subsubsection*{Riemann Integral}
 
-A Riemann integral is the the limit $f:[a,b]\rightarrow\mathbb{R}$
-of all the Riemann sums between the points a and b. Defined as:
 
+\subsection*{The Riemann Integral (Integrale di Riemann)}
+
+The Riemann integral represents the orientated area (area orientata) between a function's graph and the x-axis. This is calculated by creating a partition (partizione) of the interval \[[a, b]\], which is a finite set of points \(P = \{x_0, x_1, \dots, x_n\}\) where \(a = x_0 < x_1 < \dots < x_n = b\).
+
+We begin with step functions (funzioni a gradino). A function \(\phi\) is a step function if it is constant on the open subintervals created by a partition. The integral of \(\phi\) is the sum of the areas of the rectangles on these subintervals. This definition is well-defined (ben definita), as it is independent of the chosen partition.
 \[
-\int_{a}^{b}f(x)dx=lim_{||P||\rightarrow0}\sum_{i=1}^{n}f(c_{i})\Delta x_{i}
+\int_a^b \phi(x) \,dx := \sum_{j=1}^{n} c_j \cdot (x_j - x_{j-1})
 \]
- Where:
 
-n is the sub-intervals
+\subsubsection*{General Riemann Integral}
 
-$\Delta x_{i}$is the width of the i sub-interval
+For a general bounded function \(f\), the integral is defined by approximating it with step functions from above and below. We consider the set of integrals of all step functions \(\phi \le f\) and the set of integrals of all step functions \(\psi \ge f\). The supremum of the former is the lower integral, and the infimum of the latter is the upper integral.
 
-$c_{i}$is a sample point
+A bounded function \(f\) is called Riemann integrable (integrabile secondo Riemann) if its lower and upper integrals coincide. This common value is the Riemann integral of \(f\).
 
-{*}this exact definition will likely never be used in 
+\subsubsection*{Properties of the Riemann Integral}
 
-\paragraph*{Properties,}
+The space of Riemann integrable functions on \[[a, b]\] is denoted by \(R([a, b])\). The integral is a linear and monotonic map on this space, inheriting these properties from the integral of step functions.
+
+For an intermediate point \(c \in [a, b]\), the integral can be split:
+\[
+\int_a^b f(x) \,dx = \int_a^c f(x) \,dx + \int_c^b f(x) \,dx
+\]
+By convention, for \(a > b\), we define:
+\[
+\int_a^b f(x) \,dx = - \int_b^a f(x) \,dx
+\]
+Important classes of functions, such as continuous and monotonic functions on \[a, b\], are always Riemann integrable.
+
+\subsubsection*{The Fundamental Theorem of Calculus (Teorema fondamentale del calcolo integrale)}
+
+This theorem connects integration and differentiation. A function \(F\) is an antiderivative (primitiva) of \(f\) on an interval \(I\) if \(F' = f\). Antiderivatives are unique only up to an additive constant; if \(F\) is an antiderivative, so is \(F+C\) for any constant \(C\).
+
+\textbf{First Fundamental Theorem of Calculus}: For a continuous function \(f\) on \(I\) and a point \(a \in I\), the function \(F(x) = \int_a^x f(t) \,dt\) is an antiderivative of \(f\).
+
+\textbf{Second Fundamental Theorem of Calculus}: If \(f\) is continuous on \(I\) and \(F\) is any antiderivative of \(f\), then for any \(a, b \in I\):
+\[
+\int_a^b f(x) \,dx = F(b) - F(a)
+\]
+
+\subsubsection*{Mean Value Theorem for Integration (Teorema della media integrale)}
+
+This theorem is crucial for proving the Fundamental Theorem. For a continuous function \(f\) on \[a, b\], there exists a point \(x_{hat} \in [a, b]\) such that:
+\[
+\int_a^b f(x) \,dx = f(x_{hat}) \cdot (b-a)
+\]
+This means the area under the curve is equal to the area of a rectangle with height \(f(x_{hat})\) and width \((b-a)\).
+
+
+\subsubsection*{BUFFER ZONE FROM OLD NOTES}
+
+\newpage s
 
 \begin{gather*}
     \text{Linearity:} \quad \int_a^b \left( \alpha f(x) + \beta g(x) \right) dx = \alpha \int_a^b f(x) \, dx + \beta \int_a^b g(x) \, dx \\
