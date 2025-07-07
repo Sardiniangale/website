@@ -43,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{1 July 2025}
+\date{5 July 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1822,7 +1822,7 @@ Then:
 lim_{x\rightarrow a}\frac{f(x)}{g(x)}=lim_{x\rightarrow a}\frac{f'(x)}{g'(x)}
 \]
 
-\subsection*{Higher-Order Derivatives}
+\subsubsection*{Higher-Order Derivatives}
 The $n$-th derivative is defined recursively:
 \[
 f^{(n)}(x) = \frac{d}{dx}\left[f^{(n-1)}(x)\right]
@@ -1850,60 +1850,62 @@ $f''(x_{0})<0$ Local max at x0
 \marginpar{If $f''(x_{0})=0$ the test fails. Note: Any derivative higher than
 2 is valid as well.}
 
-\subsection*{Taylor's Theorem (Teorema di Taylor)}
-Taylor's theorem provides a polynomial approximation for a function $f$ near an expansion point (punto di espansione) $x_0$. For a function $f$ that is $(n+1)$-times differentiable on an interval $I$, and a point $x_0 \in I$, the approximation at $x = x_0 + h$ (with $x_0 + h \in I$) is:
-\[
-f(x_0 + h) = \underbrace{\sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} h^k}_{T_n(h)} + \underbrace{R_n(h)}_{\text{remainder (resto)}}
-\]
-Here, $T_n(h)$ is the \textbf{$n$-th order Taylor polynomial (polinomio di Taylor)}. The remainder term $R_n(h)$ satisfies:
-\[
-R_n(h) = \frac{f^{(n+1)}(c)}{(n+1)!} h^{n+1}
-\]
-where $c$ is a point strictly between $x_0$ and $x_0 + h$. Equivalently, using $x = x_0 + h$:
-\[
-f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x - x_0)^k + R_n(x), \quad R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!} (x - x_0)^{n+1}
-\]
+ \subsection*{Taylor's Theorem (Teorema di Taylor)}
+  Taylor's theorem provides a way to approximate a function $f$ with a polynomial
+  near a point $x_0$, called the expansion point (punto di espansione). For a
+  function that is differentiable $(n+1)$ times on an interval $I$, its value at $x
+  = x_0 + h$ can be written as:
+  \[
+  f(x_0 + h) = \underbrace{\sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} h^k}_{T_n(h)} +
+  \underbrace{R_n(h)}_{\text{remainder (resto)}}
+  \]
+  $T_n(h)$ is the $n$-th order Taylor polynomial (polinomio di Taylor), our
+  approximation of the function. The term $R_n(h)$ is the remainder, which is the
+  error of the approximation, given by:
+  \[
+  R_n(h) = \frac{f^{(n+1)}(c)}{(n+1)!} h^{n+1}
+  \]
+  where $c$ is a point between $x_0$ and $x_0 + h$. The theorem can also be
+  expressed in terms of $x$:
+  \[
+  f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x - x_0)^k + R_n(x), \quad
+  \text{with } R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!} (x - x_0)^{n+1}
+  \]
 
-\subsection*{Key Properties}
-\begin{enumerate}
-    \item The Taylor polynomial $T_n(h)$ is the unique polynomial of degree $\leq n$ that matches $f$ and its first $n$ derivatives at $x_0$:
-    \[
-    T_n^{(k)}(0) = f^{(k)}(x_0) \quad \text{for} \quad k = 0, 1, \dots, n.
-    \]
-    
-    \item The remainder $R_n(h)$ decays faster than $h^n$ as $h \to 0$:
-    \[
-    \lim_{h \to 0} \frac{R_n(h)}{h^n} = 0.
-    \]
-    
-    \item For error estimation, if $\left|f^{(n+1)}(z)\right| \leq M$ for all $z$ between $x_0$ and $x$, then:
-    \[
-    |R_n(x)| \leq \frac{M}{(n+1)!} |x - x_0|^{n+1}.
-    \]
-\end{enumerate}
 
-\subsection*{Application Procedure}
-To approximate $f(x)$ near $x_0$:
-\begin{enumerate}
-    \item \textbf{Compute derivatives (calcolare derivate)}: Calculate $f^{(k)}(x_0)$ for $k = 0, 1, \dots, n$.
-    
-    \item \textbf{Construct $T_n$}: Form the polynomial:
-    \[
-    T_n(x) = f(x_0) + f'(x_0)(x - x_0) + \frac{f''(x_0)}{2!}(x - x_0)^2 + \cdots + \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n.
-    \]
-    
-    \item \textbf{Bound the remainder}: Find $M$ such that $\left|f^{(n+1)}(z)\right| \leq M$ for $z$ between $x_0$ and $x$, then:
-    \[
-    |f(x) - T_n(x)| \leq \frac{M}{(n+1)!}|x - x_0|^{n+1}.
-    \]
-\end{enumerate}
+  \subsection*{Key Properties}
+  The Taylor polynomial $T_n(h)$ is the unique polynomial of its degree that matches
+  the function's value and its first $n$ derivatives at $x_0$. This is expressed as
+  $T_n^{(k)}(0) = f^{(k)}(x_0)$ for $k = 0, 1, \dots, n$.
 
-\subsection*{Landau Symbol (Simbolo di Landau)}
-When the exact remainder is unnecessary, write:
-\[
-f(x_0 + h) = T_n(h) + \mathcal{O}(h^{n+1}) \quad \text{as} \quad h \to 0,
-\]
-where $\mathcal{O}(h^{n+1})$ denotes a term satisfying $|\mathcal{O}(h^{n+1})| \leq K|h|^{n+1}$ for some constant $K$ near $h = 0$.
+
+  The remainder $R_n(h)$ becomes very small as $h$ approaches $0$, ensuring the
+  approximation grows more accurate the closer we are to $x_0$. Specifically, the
+  error decreases faster than $h^n$.
+
+
+  To estimate the error, we can set a bound. If the absolute value of the $(n+1)$-th
+  derivative, $\left|f^{(n+1)}(z)\right|$, is less than or equal to a constant $M$
+  for all $z$ between $x_0$ and $x$, then the remainder is bounded by:
+  \[
+  |R_n(x)| \leq \frac{M}{(n+1)!} |x - x_0|^{n+1}.
+  \]
+
+
+  \subsection*{Application Procedure}
+  To approximate $f(x)$ near $x_0$, the process is straightforward. First, compute
+  derivatives (calcolare derivate) of $f$ at $x_0$ up to the $n$-th order. Second,
+  construct $T_n$ by assembling the polynomial:
+  \[
+  T_n(x) = f(x_0) + f'(x_0)(x - x_0) + \frac{f''(x_0)}{2!}(x - x_0)^2 + \cdots +
+  \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n.
+  \]
+  Third, bound the remainder to check the approximation's accuracy. Find a value $M$
+  that is greater than or equal to $\left|f^{(n+1)}(z)\right|$ for all $z$ between
+  $x_0$ and $x$. The error is then given by:
+  \[
+  |f(x) - T_n(x)| \leq \frac{M}{(n+1)!}|x - x_0|^{n+1}.
+  \]
 
 \subsubsection*{Exponential/Logarithmic Derivatives}
 \begin{itemize}
@@ -1960,71 +1962,6 @@ g'(x) = \frac{1}{f'(g(x))}
 
 \pagebreak{}
 
-\section*{Functions (Additional)}
-
-\paragraph*{\textbf{Sign Function (Funzione Segno)}}
-The sign function, denoted \(\operatorname{sign}(x)\) or \(\operatorname{sgn}(x)\), 
-returns the sign of a real number. It is defined as:
-\[
-\operatorname{sign}(x) = 
-\begin{cases} 
--1 & \text{if } x < 0 \\
-\phantom{-}0 & \text{if } x = 0 \\
-\phantom{-}1 & \text{if } x > 0 
-\end{cases}
-\]
-
-\paragraph*{\textbf{Key Properties (Proprietà Fondamentali)}}
-\begin{itemize}
-    \item \textbf{Zero equivalence}: 
-        \(\operatorname{sign}(x) = 0 \quad \Longleftrightarrow \quad x = 0\)
-    \item \textbf{Odd symmetry}: 
-        \(\operatorname{sign}(-x) = -\operatorname{sign}(x)\)
-    \item \textbf{Multiplicative identity}: 
-        \(x = |x| \cdot \operatorname{sign}(x) \quad \forall x \in \mathbb{R}\)
-    \item \textbf{Absolute value relationship}: 
-        \(|x| = x \cdot \operatorname{sign}(x) \quad \text{for } x \neq 0\)
-\end{itemize}
-
-\paragraph*{\textbf{Algebraic Identities (Identità Algebriche)}}
-\begin{itemize}
-    \item \textbf{Product rule}: 
-        \(\operatorname{sign}(x \cdot y) = \operatorname{sign}(x) \cdot \operatorname{sign}(y)\)
-    \item \textbf{Quotient rule}: 
-        \(\operatorname{sign}\left(\frac{x}{y}\right) = \frac{\operatorname{sign}(x)}{\operatorname{sign}(y)} \quad (y \neq 0)\)
-    \item \textbf{Square equivalence}: 
-        \(\left[\operatorname{sign}(x)\right]^2 = 
-        \begin{cases} 
-        1 & x \neq 0 \\
-        0 & x = 0 
-        \end{cases}\)
-\end{itemize}
-
-\paragraph*{\textbf{Calculus Properties (Proprietà di Calcolo)}}
-\begin{itemize}
-    \item \textbf{Derivative}: The derivative exists in the distributional sense:
-        \[
-        \frac{d}{dx}\operatorname{sign}(x) = 2\delta(x)
-        \]
-        where \(\delta(x)\) is the Dirac delta function.
-    \item \textbf{Integral representation}: 
-        \[
-        \operatorname{sign}(x) = \lim_{a \to 0^+} \frac{2}{\pi} \int_0^\infty \frac{\sin(xt)}{t} e^{-at}  dt
-        \]
-    \item \textbf{Step function connection}: 
-        \(\operatorname{sign}(x) = 2H(x) - 1\) where \(H(x)\) is the Heaviside step function.
-\end{itemize}
-
-\paragraph*{\textbf{Special Values (Valori Speciali)}}
-\begin{itemize}
-    \item \(\operatorname{sign}(0) = 0\)
-    \item \(\lim_{x \to \infty} \operatorname{sign}(x) = 1\)
-    \item \(\lim_{x \to -\infty} \operatorname{sign}(x) = -1\)
-    \item \(\operatorname{sign}(x) \cdot \operatorname{sign}(x) = 1 \quad (x \neq 0)\)
-\end{itemize}
-
-\pagebreak{}
-
 \section*{Integrals}
 
 “If you're gonna shoot an elephant Mr. Schneider, you better be prepared
@@ -2032,55 +1969,112 @@ to finish the job.”
 
 \LyXbar{} Gary Larson, The Far Side 
 
-
-
 \subsection*{The Riemann Integral (Integrale di Riemann)}
 
-The Riemann integral represents the orientated area (area orientata) between a function's graph and the x-axis. This is calculated by creating a partition (partizione) of the interval \[[a, b]\], which is a finite set of points \(P = \{x_0, x_1, \dots, x_n\}\) where \(a = x_0 < x_1 < \dots < x_n = b\).
 
-We begin with step functions (funzioni a gradino). A function \(\phi\) is a step function if it is constant on the open subintervals created by a partition. The integral of \(\phi\) is the sum of the areas of the rectangles on these subintervals. This definition is well-defined (ben definita), as it is independent of the chosen partition.
-\[
-\int_a^b \phi(x) \,dx := \sum_{j=1}^{n} c_j \cdot (x_j - x_{j-1})
-\]
+  The Riemann integral represents the signed area between a function's graph and the x-axis on an interval \([a, b]\). It is calculated by partitioning the interval and
+  summing the areas of rectangles, known as a step function (funzione a gradino).
+  \[
+  \int_a^b \phi(x) \,dx := \sum_{j=1}^{n} c_j \cdot (x_j - x_{j-1})
+  \]
 
-\subsubsection*{General Riemann Integral}
 
-For a general bounded function \(f\), the integral is defined by approximating it with step functions from above and below. We consider the set of integrals of all step functions \(\phi \le f\) and the set of integrals of all step functions \(\psi \ge f\). The supremum of the former is the lower integral, and the infimum of the latter is the upper integral.
+  \subsubsection*{General Riemann Integral}
 
-A bounded function \(f\) is called Riemann integrable (integrabile secondo Riemann) if its lower and upper integrals coincide. This common value is the Riemann integral of \(f\).
+  For a general function \(f\), the integral is found by approximating it with step functions. A function is Riemann integrable if the approximations from above and below
+  meet at the same value. Continuous and monotonic functions are always Riemann integrable.
 
-\subsubsection*{Properties of the Riemann Integral}
+  \subsubsection*{Properties of the Riemann Integral}
 
-The space of Riemann integrable functions on \[[a, b]\] is denoted by \(R([a, b])\). The integral is a linear and monotonic map on this space, inheriting these properties from the integral of step functions.
 
-For an intermediate point \(c \in [a, b]\), the integral can be split:
-\[
-\int_a^b f(x) \,dx = \int_a^c f(x) \,dx + \int_c^b f(x) \,dx
-\]
-By convention, for \(a > b\), we define:
-\[
-\int_a^b f(x) \,dx = - \int_b^a f(x) \,dx
-\]
-Important classes of functions, such as continuous and monotonic functions on \[a, b\], are always Riemann integrable.
+  The integral is a linear and monotonic map.
 
-\subsubsection*{The Fundamental Theorem of Calculus (Teorema fondamentale del calcolo integrale)}
 
-This theorem connects integration and differentiation. A function \(F\) is an antiderivative (primitiva) of \(f\) on an interval \(I\) if \(F' = f\). Antiderivatives are unique only up to an additive constant; if \(F\) is an antiderivative, so is \(F+C\) for any constant \(C\).
+  For a point \(c\) between \(a\) and \(b\), an integral can be split:
+  \[
+  \int_a^b f(x) \,dx = \int_a^c f(x) \,dx + \int_c^b f(x) \,dx
+  \]
+  By convention, reversing the integration bounds negates the value:
+  \[
+  \int_a^b f(x) \,dx = - \int_b^a f(x) \,dx
+  \]
 
-\textbf{First Fundamental Theorem of Calculus}: For a continuous function \(f\) on \(I\) and a point \(a \in I\), the function \(F(x) = \int_a^x f(t) \,dt\) is an antiderivative of \(f\).
 
-\textbf{Second Fundamental Theorem of Calculus}: If \(f\) is continuous on \(I\) and \(F\) is any antiderivative of \(f\), then for any \(a, b \in I\):
-\[
-\int_a^b f(x) \,dx = F(b) - F(a)
-\]
+  \subsubsection*{Mean Value Theorem for Integration (Teorema della media integrale)}
 
-\subsubsection*{Mean Value Theorem for Integration (Teorema della media integrale)}
 
-This theorem is crucial for proving the Fundamental Theorem. For a continuous function \(f\) on \[a, b\], there exists a point \(x_{hat} \in [a, b]\) such that:
-\[
-\int_a^b f(x) \,dx = f(x_{hat}) \cdot (b-a)
-\]
-This means the area under the curve is equal to the area of a rectangle with height \(f(x_{hat})\) and width \((b-a)\).
+  This theorem states that for a continuous function \(f\) on \([a, b]\), there exists a point \(x_{hat} \in [a, b]\) where the function's value is the average value over
+  the interval. This means the area under the curve is equal to the area of a rectangle with height \(f(x_{hat})\). This concept is a key step in proving the Fundamental
+  Theorem.
+  \[
+  \int_a^b f(x) \,dx = f(x_{hat}) \cdot (b-a)
+  \]
+
+
+  \subsubsection*{The Fundamental Theorem of Calculus (Teorema fondamentale del calcolo integrale)}
+
+  This theorem connects differentiation and integration, showing they are inverse operations. First, an antiderivative (primitiva) is a function \(F\) whose derivative is
+  \(f\), so \(F' = f\).
+
+
+  \textbf{First Fundamental Theorem of Calculus}: This part shows that the derivative of an integral function is the original function.
+  \[
+  \frac{d}{dx} \int_a^x f(t) \,dt = f(x)
+  \]
+
+
+  \textbf{Second Fundamental Theorem of Calculus}: This part provides a method to calculate definite integrals using an antiderivative \(F\).
+  \[
+  \int_a^b f(x) \,dx = F(b) - F(a)
+  \]
+
+\subsection*{Integration Rules}
+
+  \subsubsection*{Integration by Substitution (Integrazione per sostituzione)}
+
+
+  This rule, also known as change of variables (cambiamento di variabili), simplifies integrals of composite functions and is the integral counterpart to the chain rule.
+  For a continuous function \(f\) and a continuously differentiable function \(\phi\), the substitution \(x = \phi(t)\) transforms the integral:
+  \[
+  \int_a^b f(\phi(t)) \phi'(t) \,dt = \int_{\phi(a)}^{\phi(b)} f(x) \,dx
+  \]
+  The relation \(dx = \phi'(t) \,dt\) is used to change the differential, and the limits of integration are updated from \([a, b]\) to \([\phi(a), \phi(b)]\).
+
+
+  When applying the rule in reverse, the function \(\phi\) must be invertible (bijective). The substitution \(x = \phi(t)\) transforms the integral as follows:
+  \[
+  \int_a^b f(x) \,dx = \int_{\phi^{-1}(a)}^{\phi^{-1}(b)} f(\phi(t)) \phi'(t) \,dt
+  \]
+  Here, the new integration bounds are found using the inverse function, \(\phi^{-1}\).
+
+\subsection*{Partial Fraction Decomposition (Decomposizione di fratti semplici)}
+
+Given a rational function $f(x) = \frac{P(x)}{Q(x)}$ where the degree of $P(x)$ is strictly less than the degree of $Q(x)$. The decomposition of $f(x)$ depends on the nature of the roots of the denominator $Q(x)$.
+
+\subsubsection*{Distinct Real Roots}
+
+This case applies when the denominator $Q(x)$ of degree $n$ has $n$ distinct real roots, denoted $x_1, x_2, \dots, x_n$. The denominator can be factored as:
+$$ Q(x) = (x - x_1)(x - x_2)\dots(x - x_n) $$
+The partial fraction decomposition is a sum of $n$ fractions:
+$$ \frac{P(x)}{Q(x)} = \frac{A_1}{x - x_1} + \frac{A_2}{x - x_2} + \dots + \frac{A_n}{x - x_n} $$
+The coefficients $A_1, A_2, \dots, A_n$ are real constants that must be determined.
+
+\subsubsection*{Repeated Real Roots}
+
+This case applies when $Q(x)$ has fewer than $n$ distinct real roots, meaning at least one root has a multiplicity greater than 1. Let the distinct roots be $x_1, \dots, x_k$ with corresponding multiplicities $\alpha_1, \dots, \alpha_k$, such that $\sum_{i=1}^{k} \alpha_i = n$.
+A root $x_i$ with multiplicity $\alpha_i$ contributes $\alpha_i$ terms to the decomposition:
+$$ \frac{A_{i,1}}{x - x_i} + \frac{A_{i,2}}{(x - x_i)^2} + \dots + \frac{A_{i,\alpha_i}}{(x - x_i)^{\alpha_i}} $$
+The full decomposition is the sum of these groups of terms for all distinct roots.
+
+\subsubsection*{Complex Roots}
+
+This case applies when $Q(x)$ has at least one pair of complex conjugate roots. The procedure is analogous to the real root cases, but the roots $x_i$ and coefficients $A_i$ can be complex numbers. The calculations follow the same algebraic rules. For real-valued rational functions, the final expression can be simplified to avoid imaginary units by combining conjugate terms.
+
+\paragraph*{Note on Finding Coefficients}
+
+To find the unknown coefficients (the $A_i$ values), one typically uses the method of equating coefficients. After setting up the decomposition and multiplying both sides by the original denominator $Q(x)$, an identity between two polynomials is formed.
+$$ P(x) = \text{Polynomial in } x \text{ with coefficients as functions of } A_i $$
+For this identity to hold for all $x$, the coefficients of corresponding powers of $x$ on both sides of the equation must be equal. This creates a system of linear equations which can be solved for the unknown coefficients.
 
 
 \subsubsection*{BUFFER ZONE FROM OLD NOTES}
