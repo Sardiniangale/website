@@ -43,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{5 July 2025}
+\date{7 July 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1132,8 +1132,8 @@ at least one improper accumulation value}
 
 \section*{Series}
 
-`'Its better to ask for forgiveness than to ask for permission'\/'
-- Wise person
+`\/`I'm not lost, I am just taking a scenic route to understand
+it'\/'
 
 \subsection*{Series (Serie)}
 
@@ -2076,64 +2076,76 @@ To find the unknown coefficients (the $A_i$ values), one typically uses the meth
 $$ P(x) = \text{Polynomial in } x \text{ with coefficients as functions of } A_i $$
 For this identity to hold for all $x$, the coefficients of corresponding powers of $x$ on both sides of the equation must be equal. This creates a system of linear equations which can be solved for the unknown coefficients.
 
+  \subsection*{Improper Integrals (Integrali Impropri)}
+
+
+  Improper integrals extend the concept of the Riemann integral to cases where the domain of integration is unbounded or the function itself is unbounded within the
+  domain. These are evaluated by taking a limit of a definite integral as an endpoint of the integration interval approaches a specific real number or infinity.
+
+
+  \subsubsection*{Type 1: Unbounded Domains (Domini Illimitati)}
+
+
+  This type of improper integral applies when the interval of integration extends to infinity. For a function \(f\) that is Riemann integrable on every interval \([a, b]\)
+   for \(b > a\), the integral over \([a, \infty)\) is defined as the limit:
+  \[
+  \int_a^\infty f(x) \,dx := \lim_{b \to \infty} \int_a^b f(x) \,dx
+  \]
+  The improper integral is said to converge if this limit exists and is finite. A similar definition applies for intervals of the form \((-\infty, b]\) or \((-\infty,
+  \infty)\).
+
+  \subsubsection*{Type 2: Unbounded Functions (Funzioni Illimitate)}
+
+
+  This type addresses functions that have a vertical asymptote, or "pole," at some point within the integration interval. If a function \(f\) is unbounded at the endpoint
+  \(a\) of the interval \((a, b]\) but is Riemann integrable on every subinterval \([a+\epsilon, b]\) for \(\epsilon > 0\), the integral is defined as:
+  \[
+  \int_a^b f(x) \,dx := \lim_{\epsilon \to 0^+} \int_{a+\epsilon}^b f(x) \,dx
+  \]
+  If the limit exists and is finite, the integral converges. A corresponding definition holds if the function is unbounded at the upper endpoint \(b\).
+
+
+  \subsubsection*{Comparison Test (Criterio del Confronto)}
+
+  The convergence of an improper integral can often be determined by comparing it to an integral whose convergence properties are known. Let \(f\) and \(g\) be two
+  functions integrable on any closed subinterval of \([a, \infty)\).
+
+
+  If \(0 \le f(x) \le g(x)\) for all \(x \ge a\), then the convergence of the integral of the majorant function \(g\) implies the convergence of the integral of \(f\).
+  \[
+  \int_a^\infty g(x) \,dx < \infty \implies \int_a^\infty f(x) \,dx < \infty
+  \]
+  Conversely, the divergence of the integral of the minorant function \(f\) implies the divergence of the integral of \(g\).
+
+  \subsubsection*{Integral Test for Series (Criterio dell'Integrale per le Serie)}
+
+
+  This test provides a direct link between the convergence of an infinite series and an improper integral. For a function \(f\) that is continuous, positive, and
+  monotonically decreasing on the interval \([N, \infty)\), the series \(\sum_{n=N}^{\infty} f(n)\) converges if and only if the improper integral \(\int_N^\infty f(x)
+  \,dx\) converges.
+  \[
+  \sum_{n=N}^{\infty} f(n) < \infty \iff \int_N^\infty f(x) \,dx < \infty
+  \]
+  This relationship allows the use of integration techniques to analyze the convergence of series.
+
+  \subsubsection*{Cauchy Principal Value (Valore Principale di Cauchy)}
+
+
+  When a function \(f\) has a discontinuity at a point \(p\) inside the interval \([a, b]\), the integral is typically split into two parts. The integral converges only if
+   both limits exist independently:
+  \[
+  \int_a^b f(x) \,dx = \lim_{\epsilon_1 \to 0^+} \int_a^{p-\epsilon_1} f(x) \,dx + \lim_{\epsilon_2 \to 0^+} \int_{p+\epsilon_2}^b f(x) \,dx
+  \]
+  However, a weaker form of convergence can be defined using a symmetric limit. The Cauchy Principal Value is defined as:
+  \[
+  \text{P.V.} \int_a^b f(x) \,dx := \lim_{\epsilon \to 0^+} \left( \int_a^{p-\epsilon} f(x) \,dx + \int_{p+\epsilon}^b f(x) \,dx \right)
+  \]
+  This value may exist even when the individual limits do not, providing a method for assigning a value to certain divergent integrals.
+
 
 \subsubsection*{BUFFER ZONE FROM OLD NOTES}
 
-\newpage s
-
-\begin{gather*}
-    \text{Linearity:} \quad \int_a^b \left( \alpha f(x) + \beta g(x) \right) dx = \alpha \int_a^b f(x) \, dx + \beta \int_a^b g(x) \, dx \\
-    \text{Additivity:} \quad \int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx \quad \text{for } c \in (a, b) \\
-    \text{Monotonicity:} \quad f(x) \leq g(x) \ \forall x \in [a, b] \implies \int_a^b f(x) \, dx \leq \int_a^b g(x) \, dx \\
-    \text{Bounds:} \quad m(b - a) \leq \int_a^b f(x) \, dx \leq M(b - a) \quad \text{where } m = \inf_{[a,b]} f,\ M = \sup_{[a,b]} f \\
-    \text{Integrability:} \quad f \text{ is Riemann integrable } \iff f \text{ bounded } \land \ f \text{ continuous a.e. on } [a, b] \\
-    \text{Fundamental Theorem:} \quad F' = f \implies \int_a^b f(x) \, dx = F(b) - F(a)
-\end{gather*}
-
-\subsubsection*{Fundamental theorem of calculus}
-
-\subsubsection*{Methods for integration}
-
-\paragraph{Substitution,}
-
-if $u=f(x)$, then $du=g'(x)dx$
-
-\begin{equation}
-\int f(g(x))g'(x)dx=\int f(u)du
-\end{equation}
-
-
-\paragraph{Integration by parts}
-
-\begin{equation}
-\int udv=uv-\int vdu
-\end{equation}
-
-
-\paragraph{Leibniz rule for differentiation.}
-
-If f(t) is continuous and g(x) is differentiable
-\[
-f(x)=\int_{a}^{g(x)}f(t)dt
-\]
-
-If this is true, then:
-
-\begin{equation}
-F(x)'=f\left(g(x)\right)\cdot g'(x)
-\end{equation}
-
-If both the limits are dependent on x:
-
-\[
-I(x)=\int_{g_{1}(x)}^{g_{2}(x)}f(t)dt
-\]
-
-then:
-
-\begin{equation}
-I'(x)=f\left(g_{2}(x)\right)g_{2}'(x)-f\left(g_{1}(x)\right)g_{1}'(x)
-\end{equation}
+\newpage{}
 
 \subsubsection*{Improper Integral Convergence Criteria}
 For $\int_a^\infty f(x)  dx$ or $\int_a^b f(x)  dx$ with singularity at $b$:
