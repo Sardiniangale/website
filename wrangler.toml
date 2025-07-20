@@ -1,0 +1,7 @@
+name = "website" # IMPORTANT: Please verify this is your project name in the Cloudflare dashboard.
+compatibility_date = "2025-07-20"
+
+[pages]
+# This tells Cloudflare Pages to deploy the files from the root of your repository.
+# For a static site with no build step, this is what we want.
+build_output_dir = "."
