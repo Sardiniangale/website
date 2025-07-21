@@ -41,7 +41,7 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            background: url('v8ikuxdfo92z.png') no-repeat center center fixed;
+            background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
             background-size: cover;
             color: #f8f9fa;
         }
@@ -52,6 +52,7 @@
             background: rgba(34, 34, 34, 0.9);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
+            display: none; /* Initially hidden */
         }
         img {
             width: 100%;
@@ -80,6 +81,12 @@
             font-size: 2.5em;
             letter-spacing: 2px;
         }
+        .turnstile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
@@ -93,6 +100,17 @@
             <a href="prism.html">PRISM</a>
         </div>
     </div>
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ"></div>
+    <div class="turnstile-container">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ" data-callback="onTurnstileSuccess"></div>
+    </div>
+
+    <script>
+        function onTurnstileSuccess(token) {
+            // Hide the Turnstile container
+            document.querySelector('.turnstile-container').style.display = 'none';
+            // Show the main content
+            document.querySelector('.container').style.display = 'block';
+        }
+    </script>
 </body>
 </html>

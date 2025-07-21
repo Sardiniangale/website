@@ -90,6 +90,16 @@
             </div>
         </div>
 
+        <div class="control-section">
+            <button id="logoutButton">Logout</button>
+        </div>
+
     </div>
+    <script>
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            localStorage.removeItem('isAuthenticated');
+            window.location.href = 'prism.html';
+        });
+    </script>
 </body>
 </html>
