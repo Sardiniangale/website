@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const logoutButton = document.getElementById('logoutButton');
 
-    logoutButton.addEventListener('click', () => {
+    logoutButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent the default anchor tag behavior
         // In a real application, you would have a more secure logout process.
         // For now, we'll just redirect to the login page.
         window.location.href = 'prism.html';

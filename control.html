@@ -14,6 +14,12 @@
             padding: 20px;
             height: 100vh;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .logout-button {
+            margin-top: auto;
+            background: #444 !important;
         }
         #sidebar h1 {
             font-size: 2em;
@@ -64,7 +70,7 @@
         <h1>PRISM</h1>
         <a href="#" data-section="minecraft-section">Minecraft</a>
         <a href="#" data-section="mathematica-section">Mathematica</a>
-        <a href="#" id="logoutButton">Logout</a>
+        <a href="#" id="logoutButton" class="logout-button">Logout</a>
     </div>
     <div id="mainContent">
         <div class="permission-info">
