@@ -19,7 +19,7 @@
             color: #f8f9fa;
         }
         .container {
-            display: flex;
+            display: none; /* Initially hidden */
             width: 80%;
             max-width: 1200px;
             background: #222;
@@ -71,6 +71,12 @@
         .back-button:hover {
             background: #ff2e63;
         }
+        .turnstile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +91,9 @@
             </div>
         </div>
     </div>
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ"></div>
+    <div class="turnstile-container">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ" data-callback="onTurnstileSuccess"></div>
+    </div>
+    <script src="bot-check.js"></script>
 </body>
 </html>

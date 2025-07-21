@@ -22,6 +22,7 @@
             background: #222;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
+            display: none; /* Initially hidden */
         }
         h1 {
             font-size: 2.5em;
@@ -84,6 +85,12 @@
             font-weight: bold;
             margin: 10px 0;
         }
+        .turnstile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
@@ -107,13 +114,18 @@
     <!-- Modal -->
     <div id="projectModal" class="modal">
         <div class="modal-content" id="modalContent">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeModal()">×</span>
             <h2 id="modalTitle"></h2>
             <div class="status" id="modalStatus"></div>
             <p id="modalDescription"></p>
         </div>
     </div>
 
+    <div class="turnstile-container">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ" data-callback="onTurnstileSuccess"></div>
+    </div>
+
+    <script src="bot-check.js"></script>
     <script>
         function showModal(event, title, description, status) {
             const button = event.target;
@@ -155,6 +167,5 @@
             }
         }
     </script>
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ"></div>
 </body>
 </html>

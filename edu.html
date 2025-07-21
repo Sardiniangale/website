@@ -36,7 +36,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: url('v8ikuxdfo92z.png') no-repeat center center fixed;
+            background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
             background-size: cover;
             color: #f8f9fa;
         }
@@ -47,6 +47,7 @@
             background: #222;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
+            display: none; /* Initially hidden */
         }
         h1 {
             font-size: 2em;
@@ -94,6 +95,12 @@
                 text-align: center;
             }
         }
+        .turnstile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
@@ -107,6 +114,9 @@
         </div>
         <a href="index.html" class="back-button">Go back</a>
     </div>
-    <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ"></div>
+    <div class="turnstile-container">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ" data-callback="onTurnstileSuccess"></div>
+    </div>
+    <script src="bot-check.js"></script>
 </body>
 </html>
