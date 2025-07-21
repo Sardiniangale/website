@@ -47,18 +47,50 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Minecraft controls
+    const serverStatusIcon = document.getElementById('server-status-icon');
     const startServerBtn = document.getElementById('start-server');
     const stopServerBtn = document.getElementById('stop-server');
     const addWhitelistBtn = document.getElementById('add-whitelist');
     const whitelistUsernameInput = document.getElementById('whitelist-username');
-    const whitelistUsersList = document.getElementById('whitelist-users');
+    const activeUsersList = document.getElementById('active-users-list');
+    const offlineUsersList = document.getElementById('offline-users-list');
+
+    let serverRunning = false;
+    const whitelist = [
+        { username: 'user1', op: true, online: true },
+        { username: 'user2', op: false, online: false },
+        { username: 'user3', op: false, online: true },
+    ];
+
+    function updateServerStatus() {
+        serverStatusIcon.textContent = serverRunning ? '●';
+        serverStatusIcon.style.color = serverRunning ? 'green' : 'red';
+    }
+
+    function renderUserLists() {
+        activeUsersList.innerHTML = '';
+        offlineUsersList.innerHTML = '';
+        whitelist.forEach(user => {
+            const li = document.createElement('li');
+            li.textContent = `${user.username} ${user.op ? '(OP)' : ''}`;
+            if (user.online) {
+                activeUsersList.appendChild(li);
+            } else {
+                offlineUsersList.appendChild(li);
+            }
+        });
+    }
 
     startServerBtn.addEventListener('click', () => {
+        serverRunning = true;
+        updateServerStatus();
         // Add start server logic here
         console.log('Starting server...');
     });
 
     stopServerBtn.addEventListener('click', () => {
+        serverRunning = false;
+        updateServerStatus();
         // Add stop server logic here
         console.log('Stopping server...');
     });
@@ -66,12 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
     addWhitelistBtn.addEventListener('click', () => {
         const username = whitelistUsernameInput.value.trim();
         if (username) {
-            const li = document.createElement('li');
-            li.textContent = username;
-            whitelistUsersList.appendChild(li);
+            whitelist.push({ username, op: false, online: false });
+            renderUserLists();
             whitelistUsernameInput.value = '';
         }
     });
+
+    updateServerStatus();
+    renderUserLists();
 
     // Mathematica controls
     const startTtyBtn = document.getElementById('start-tty');

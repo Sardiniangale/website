@@ -72,7 +72,7 @@
         </div>
 
         <div id="minecraft-section" class="content-section">
-            <h2>Minecraft Control</h2>
+            <h2>Minecraft Control <span id="server-status-icon"></span></h2>
             <div class="mc-controls">
                 <div class="mc-world-selector">
                     <label for="world-select">Select World:</label>
@@ -88,15 +88,20 @@
             </div>
             <div class="mc-whitelist">
                 <h3>Whitelist</h3>
-                <ul id="whitelist-users"></ul>
                 <div class="whitelist-add">
                     <input type="text" id="whitelist-username" placeholder="Username">
                     <button id="add-whitelist">Add</button>
                 </div>
             </div>
-            <div class="mc-logs">
-                <h3>Logs</h3>
-                <div id="logs-container"></div>
+            <div class="user-lists">
+                <div class="mc-active-users">
+                    <h3>Active Users</h3>
+                    <ul id="active-users-list"></ul>
+                </div>
+                <div class="mc-offline-users">
+                    <h3>Offline Users</h3>
+                    <ul id="offline-users-list"></ul>
+                </div>
             </div>
         </div>
 
