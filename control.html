@@ -12,94 +12,106 @@
             background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
             background-size: cover;
             color: #f8f9fa;
+            display: flex;
         }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
+        #sidebar {
+            width: 250px;
+            background: #222;
             padding: 20px;
-            background: rgba(34, 34, 34, 0.9);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            height: 100vh;
         }
-        h1 {
-            font-size: 2.5em;
-            letter-spacing: 2px;
+        #sidebar h1 {
+            font-size: 2em;
             text-align: center;
-            margin-bottom: 20px;
-        }
-        .control-section {
             margin-bottom: 30px;
         }
-        .control-section h2 {
-            font-size: 1.8em;
-            border-bottom: 2px solid #ff8c00;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .button-group button {
+        #sidebar a {
+            display: block;
             padding: 15px;
-            margin: 10px;
-            background: linear-gradient(45deg, #ff8c00, #ff2e63);
-            color: white;
+            margin-bottom: 10px;
+            background: #333;
+            color: #fff;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        .button-group button:hover {
-            background: linear-gradient(45deg, #ff2e63, #ff8c00);
-            transform: scale(1.05);
-        }
-        #terminal {
-            background: #000;
-            color: #0f0;
-            padding: 15px;
             border-radius: 5px;
-            height: 300px;
-            overflow-y: scroll;
-            font-family: 'Courier New', Courier, monospace;
+            transition: background 0.3s;
+        }
+        #sidebar a:hover {
+            background: #ff8c00;
+        }
+        #mainContent {
+            flex: 1;
+            padding: 20px;
+        }
+        .permission-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+        #permissionIcon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .content-section {
+            display: none;
         }
     </style>
-    <script>
-        // Redirect if not authenticated
-        if (localStorage.getItem('isAuthenticated') !== 'true') {
-            window.location.href = 'prism.html';
-        }
-    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>PRISM Control Center</h1>
-        
-        <div class="control-section">
-            <h2>Minecraft Server</h2>
-            <div class="button-group">
-                <button>Start Server</button>
-                <button>Stop Server</button>
-                <button>Whitelist Management</button>
-                <button>Blacklist Management</button>
-            </div>
-        </div>
-
-        <div class="control-section">
-            <h2>Mathematica</h2>
-            <div id="terminal">
-                <p>&gt; Mathematica TTY ready...</p>
-            </div>
-        </div>
-
-        <div class="control-section">
-            <button id="logoutButton">Logout</button>
-        </div>
-
+    <div id="sidebar">
+        <h1>PRISM</h1>
+        <a href="#" data-section="minecraft-section">Minecraft</a>
+        <a href="#" data-section="mathematica-section">Mathematica</a>
     </div>
-    <script>
-        document.getElementById('logoutButton').addEventListener('click', () => {
-            localStorage.removeItem('isAuthenticated');
-            window.location.href = 'prism.html';
-        });
-    </script>
+    <div id="mainContent">
+        <div class="permission-info">
+            <img id="permissionIcon" src="public/images/admin-icon.png" alt="Permission Icon">
+            <span id="permissionText">Admin</span>
+        </div>
+
+        <div id="minecraft-section" class="content-section">
+            <h2>Minecraft Control</h2>
+            <div class="mc-controls">
+                <div class="mc-world-selector">
+                    <label for="world-select">Select World:</label>
+                    <select id="world-select">
+                        <option value="world1">World 1</option>
+                        <option value="world2">World 2</option>
+                    </select>
+                </div>
+                <div class="mc-buttons">
+                    <button id="start-server">Start Server</button>
+                    <button id="stop-server">Stop Server</button>
+                </div>
+            </div>
+            <div class="mc-whitelist">
+                <h3>Whitelist</h3>
+                <ul id="whitelist-users"></ul>
+                <div class="whitelist-add">
+                    <input type="text" id="whitelist-username" placeholder="Username">
+                    <button id="add-whitelist">Add</button>
+                </div>
+            </div>
+            <div class="mc-logs">
+                <h3>Logs</h3>
+                <div id="logs-container"></div>
+            </div>
+        </div>
+
+        <div id="mathematica-section" class="content-section">
+            <h2>Mathematica Control</h2>
+            <div class="mathematica-status">
+                <p>Connection Status: <span id="math-connection-status">Disconnected</span></p>
+                <p>Active Users: <span id="math-active-users">0</span></p>
+            </div>
+            <div class="mathematica-controls">
+                <button id="start-tty">Start TTY</button>
+            </div>
+            <div id="mathematica-tty"></div>
+        </div>
+    </div>
+    <script src="prism-control.js"></script>
 </body>
 </html>
