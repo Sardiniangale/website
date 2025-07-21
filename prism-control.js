@@ -18,6 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set permission text
     permissionText.textContent = `Perms: ${user.permissionLevel}`;
 
+    const logoutButton = document.getElementById('logoutButton');
+
+    logoutButton.addEventListener('click', () => {
+        // In a real application, you would have a more secure logout process.
+        // For now, we'll just redirect to the login page.
+        window.location.href = 'prism.html';
+    });
+
     // Sidebar functionality
     sidebar.addEventListener('click', (event) => {
         if (event.target.tagName === 'A') {
