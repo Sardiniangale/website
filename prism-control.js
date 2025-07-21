@@ -1,13 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const user = { permissionLevel: 'Admin' }; // Demo user
+    // Demo users
+    const users = {
+        admin: { permissionLevel: 'Admin' },
+        mcop: { permissionLevel: 'MC op' },
+        mathop: { permissionLevel: 'Math op' },
+        supervisor: { permissionLevel: 'Supervisor' }
+    };
 
-    const permissionIcon = document.getElementById('permissionIcon');
+    // For demo purposes, we'll just pick a user.
+    // In a real application, you would have a login system.
+    const user = users.admin;
+
     const permissionText = document.getElementById('permissionText');
     const sidebar = document.getElementById('sidebar');
     const mainContent = document.getElementById('mainContent');
 
-    // Set permission icon and text
-    permissionText.textContent = user.permissionLevel;
+    // Set permission text
+    permissionText.textContent = `Perms: ${user.permissionLevel}`;
 
     // Sidebar functionality
     sidebar.addEventListener('click', (event) => {
@@ -70,7 +79,20 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             mathConnectionStatus.textContent = 'Connected';
             mathActiveUsers.textContent = '1';
-            mathematicaTty.innerHTML = '<textarea id="tty-input" rows="10" cols="50"></textarea><button id="send-tty">Send</button>';
+            mathematicaTty.innerHTML = '<div id="tty-output"></div><input type="text" id="tty-input" placeholder="Enter command...">';
+            const ttyInput = document.getElementById('tty-input');
+            const ttyOutput = document.getElementById('tty-output');
+            ttyInput.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    const command = ttyInput.value;
+                    ttyInput.value = '';
+                    // Simulate sending command and receiving response
+                    ttyOutput.innerHTML += `<p>&gt; ${command}</p>`;
+                    setTimeout(() => {
+                        ttyOutput.innerHTML += `<p>Response to ${command}</p>`;
+                    }, 1000);
+                }
+            });
         }, 2000);
     });
 
