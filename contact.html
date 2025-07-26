@@ -21,52 +21,69 @@
         .container {
             display: none; /* initially hidden */
             width: 80%;
-            max-width: 1200px;
+            max-width: 900px; /* Reduced max-width for a cleaner look */
             background: #222;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             overflow: hidden;
-            position: relative; /* for absolute positioning of back button */
+            position: relative;
+            display: flex;
         }
         .image-section {
             flex: 1;
-            background: url('public/images/BB1j9Nu4.jpeg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .image-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .contact-section {
             flex: 1;
-            padding: 60px;
+            padding: 40px;
             text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         h1 {
-            font-size: 2.5em;
-            letter-spacing: 2px;
+            font-size: 2.2em;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            color: #ff8c00;
         }
         .contact-info {
             margin-top: 20px;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
         .contact-info p {
-            margin: 10px 0;
+            margin: 15px 0;
         }
         .contact-info a {
-            color: #ff8c00;
+            color: #f8f9fa;
             text-decoration: none;
             font-weight: bold;
+            border-bottom: 2px solid #ff8c00;
+            transition: color 0.3s, border-bottom-color 0.3s;
         }
         .contact-info a:hover {
-            color: #ff2e63;
+            color: #ff8c00;
+            border-bottom-color: #ff2e63;
         }
         .back-button {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            padding: 10px 20px;
+            top: 15px;
+            left: 15px;
+            padding: 8px 15px;
             background: #ff8c00;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: background 0.3s;
+            z-index: 10;
         }
         .back-button:hover {
             background: #ff2e63;
@@ -82,9 +99,11 @@
 <body>
     <div class="container">
         <a href="index.html" class="back-button">Go back</a>
-        <div class="image-section"></div>
+        <div class="image-section">
+            <img src="public/images/BB1j9Nu4.jpeg" alt="Contact illustration">
+        </div>
         <div class="contact-section">
-            <h1>Email</h1>
+            <h1>Contact Me</h1>
             <div class="contact-info">
                 <p><strong>Email:</strong> <a href="mailto:info@sardiniangale.org">info@sardiniangale.org</a></p>
                 <p><strong>Location:</strong> Pisa, Italy</p>
