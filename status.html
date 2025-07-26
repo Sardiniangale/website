@@ -45,6 +45,7 @@
         <div id="status-info">
             <p>Minecraft Server: <span id="minecraft-status">Loading...</span></p>
         </div>
+        <a href="index.html" class="back-button">Go back</a>
     </div>
     <div class="turnstile-container">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ" data-callback="onTurnstileSuccess"></div>
@@ -52,7 +53,7 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="bot-check.js"></script>
     <script>
-        // In a real application, you would fetch this data from your backend API.
+        // in a real application, you would fetch this data from your backend api
         document.getElementById('minecraft-status').textContent = 'Offline';
     </script>
 </body>

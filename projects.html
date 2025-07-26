@@ -45,7 +45,7 @@
             background: linear-gradient(45deg, #ff2e63, #ff8c00);
             transform: scale(1.05);
         }
-        /* Modal styles */
+        /* modal styles */
         .modal {
             display: none;
             position: fixed;
@@ -132,20 +132,20 @@
             const button = event.target;
             const rect = button.getBoundingClientRect();
             
-            // Calculate button center position
+            // calculate button center position
             const buttonCenterX = rect.left + rect.width/2;
             const buttonCenterY = rect.top + rect.height/2;
 
-            // Set transform origin to button's center
+            // set transform origin to button's center
             const modalContent = document.getElementById('modalContent');
             modalContent.style.transformOrigin = `${buttonCenterX}px ${buttonCenterY}px`;
 
-            // Set modal content
+            // set modal content
             document.getElementById('modalTitle').textContent = title;
             document.getElementById('modalDescription').textContent = description;
             document.getElementById('modalStatus').textContent = `Status: ${status}`;
 
-            // Show modal with animation
+            // show modal with animation
             document.getElementById('projectModal').style.display = 'block';
             setTimeout(() => {
                 modalContent.classList.add('active');
@@ -160,7 +160,7 @@
             }, 300);
         }
 
-        // Close modal when clicking outside
+        // close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('projectModal');
             if (event.target === modal) {
