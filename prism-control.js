@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Demo users
+    // demo users
     const users = {
         admin: { permissionLevel: 'Admin' },
         mcop: { permissionLevel: 'MC op' },
@@ -7,29 +7,36 @@ document.addEventListener('DOMContentLoaded', () => {
         supervisor: { permissionLevel: 'Supervisor' }
     };
 
-    // For demo purposes, we'll just pick a user.
-    // In a real application, you would have a login system.
+    // check for authentication
+    if (localStorage.getItem('isAuthenticated') !== 'true') {
+        window.location.href = 'prism.html';
+        return; // stop executing the script
+    }
+
+    // for demo purposes, we'll just pick a user
+    // in a real application, you would have a login system
     const user = users.admin;
 
     const permissionText = document.getElementById('permissionText');
     const sidebar = document.getElementById('sidebar');
     const mainContent = document.getElementById('mainContent');
 
-    // Set permission text
+    // set permission text
     permissionText.textContent = `Perms: ${user.permissionLevel}`;
 
     const logoutButton = document.getElementById('logoutButton');
 
     logoutButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent the default anchor tag behavior
-        // In a real application, you would have a more secure logout process.
-        // For now, we'll just redirect to the login page.
+        event.preventDefault(); // prevent the default anchor tag behavior
+        // in a real application, you would have a more secure logout process
+        // for now, we'll just redirect to the login page
+        localStorage.removeItem('isAuthenticated');
         window.location.href = 'prism.html';
     });
 
-    // Sidebar functionality
+    // sidebar functionality
     sidebar.addEventListener('click', (event) => {
-        if (event.target.tagName === 'A') {
+        if (event.target.tagName === 'A' && event.target.hasAttribute('data-section')) {
             const section = event.target.getAttribute('data-section');
             showSection(section);
         }

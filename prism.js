@@ -4,7 +4,7 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    if (username === 'admin' && password === 'password123') {
+    if (username === 'test' && password === 'test') {
         localStorage.setItem('isAuthenticated', 'true');
         window.location.href = 'control.html';
     } else {
