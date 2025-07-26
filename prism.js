@@ -4,22 +4,23 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // In a real application, you would fetch these from a secure backend
+    // IMPORTANT: This is a temporary, insecure solution for demonstration purposes.
+    // In a real application, you would fetch these from a secure backend.
     const users = {
         Giacomo: {
-            password: process.env.GIACOMO_PASSWORD,
+            password: 'g!AcoMo.aDmIn.pWd#24',
             permissions: ['admin']
         },
         Tommy: {
-            password: process.env.TOMMY_PASSWORD,
+            password: 'tOmMy.mAtH.oP.pWd#57',
             permissions: ['matematica_op']
         },
         Kolya: {
-            password: process.env.KOLYA_PASSWORD,
+            password: 'kOlYa.mAtH.mC.oP.pWd#89',
             permissions: ['matematica_op', 'mc_op']
         },
         Albion: {
-            password: process.env.ALBION_PASSWORD,
+            password: 'aLbIoN.mC.oP.pWd#13',
             permissions: ['mc_op']
         }
     };

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainContent = document.getElementById('mainContent');
 
     // set permission text
-    permissionText.textContent = `Perms: ${user.permissions.join(', ')}`;
+    permissionText.textContent = `User: ${user.username}`;
 
     const logoutButton = document.getElementById('logoutButton');
 
