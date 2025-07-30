@@ -1,28 +1,11 @@
+/*
+this script is used to handle the cloudflare turnstile callback.
+when the turnstile is successfully verified, the login form is displayed.
+*/
 
-function onTurnstileSuccess(token) {
-    // Hide the Turnstile container
+function onTurnstileSuccess() {
+    // hide the turnstile container
     document.querySelector('.turnstile-container').style.display = 'none';
-    // Show the main content
+    // show the login form
     document.querySelector('.container').style.display = 'block';
-    // Set a session cookie to indicate the check has been passed
-    document.cookie = "botCheckPassed=true;path=/";
 }
-
-function isBotCheckPassed() {
-    return document.cookie.split(';').some((item) => item.trim().startsWith('botCheckPassed='));
-}
-
-function initBotCheck() {
-    if (isBotCheckPassed()) {
-        // If the check has been passed, show the content immediately
-        document.querySelector('.container').style.display = 'block';
-        document.querySelector('.turnstile-container').style.display = 'none';
-    } else {
-        // Otherwise, show the bot check
-        document.querySelector('.container').style.display = 'none';
-        document.querySelector('.turnstile-container').style.display = 'flex';
-    }
-}
-
-// Run the bot check initialization on page load
-document.addEventListener('DOMContentLoaded', initBotCheck);
