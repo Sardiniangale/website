@@ -17,9 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const permissionText = document.getElementById('permissionText');
         const sidebar = document.getElementById('sidebar');
         const mainContent = document.getElementById('mainContent');
+        const userManagementLink = document.getElementById('user-management-link');
+        const userManagementSection = document.getElementById('user-management-section');
 
         // set permission text
         permissionText.textContent = `Perms: ${user.permissions.join(', ')}`;
+
+        // show user management link if admin
+        if (user.permissions.includes('admin')) {
+            userManagementLink.style.display = 'block';
+        }
 
         const logoutButton = document.getElementById('logoutButton');
 
@@ -47,6 +54,67 @@ document.addEventListener('DOMContentLoaded', () => {
             if (activeSection) {
                 activeSection.style.display = 'block';
             }
+        }
+
+        // User management functionality
+        if (user.permissions.includes('admin')) {
+            const addUserForm = document.getElementById('addUserForm');
+            const newUserEmail = document.getElementById('newUserEmail');
+            const newUserPermissions = document.getElementById('newUserPermissions');
+            const userList = document.getElementById('userList');
+
+            // list users
+            const listUsers = () => {
+                fetch('/api/users', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => response.json())
+                .then(users => {
+                    userList.innerHTML = '';
+                    users.forEach(user => {
+                        const li = document.createElement('li');
+                        li.textContent = user.name;
+                        const deleteButton = document.createElement('button');
+                        deleteButton.textContent = 'Remove';
+                        deleteButton.addEventListener('click', () => {
+                            fetch('/api/users', {
+                                method: 'DELETE',
+                                headers: {
+                                    'Authorization': `Bearer ${token}`,
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({ email: user.name })
+                            })
+                            .then(() => listUsers());
+                        });
+                        li.appendChild(deleteButton);
+                        userList.appendChild(li);
+                    });
+                });
+            };
+
+            listUsers();
+
+            // add user
+            addUserForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const permissions = Array.from(newUserPermissions.selectedOptions).map(option => option.value);
+                fetch('/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: newUserEmail.value, permissions })
+                })
+                .then(() => {
+                    newUserEmail.value = '';
+                    newUserPermissions.selectedIndex = -1;
+                    listUsers();
+                });
+            });
         }
 
         // Minecraft controls

@@ -70,6 +70,7 @@
         <h1>PRISM</h1>
         <a href="#" data-section="minecraft-section">Minecraft</a>
         <a href="#" data-section="mathematica-section">Mathematica</a>
+        <a href="#" data-section="user-management-section" id="user-management-link" style="display: none;">User Management</a>
         <a href="#" id="logoutButton" class="logout-button">Logout</a>
         <a href="index.html" class="back-button">Go back</a>
     </div>
@@ -125,6 +126,19 @@
                 <button id="clear-cache">Clear Cache</button>
             </div>
             <div id="mathematica-tty"></div>
+        </div>
+
+        <div id="user-management-section" class="content-section" style="display: none;">
+            <h2>User Management</h2>
+            <form id="addUserForm">
+                <input type="email" id="newUserEmail" placeholder="Email" required>
+                <select id="newUserPermissions" multiple required>
+                    <option value="matematica_op">Matematica OP</option>
+                    <option value="mc_op">Minecraft OP</option>
+                </select>
+                <button type="submit">Add User</button>
+            </form>
+            <ul id="userList"></ul>
         </div>
     </div>
     <script src="prism-control.js"></script>

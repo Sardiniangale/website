@@ -1,6 +1,12 @@
 
 // auth.js
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('customGoogleButton').addEventListener('click', () => {
+        gapi.auth2.getAuthInstance().signIn();
+    });
+});
+
 function onSignIn(googleUser) {
   const id_token = googleUser.getAuthResponse().id_token;
 
