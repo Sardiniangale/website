@@ -43,7 +43,7 @@
 \usepackage{babel}
 \begin{document}
 \title{Mathematical Analysis 1}
-\date{7 July 2025}
+\date{4 August 2025}
 \author{Giacomo}
 
 \maketitle
@@ -1803,6 +1803,10 @@ f(a): anchors the secant line
 
 (g(x)-g(a)): replaces (x-a) with displacement measured by g
 
+\[
+\]
+
+
 \subsection*{L'Hôpital's rule}
 
 Is a theorem, which is primarily used to check limits by comparing
@@ -2323,10 +2327,7 @@ solving ODEs.
 
 $\frac{dy}{dx}+3y=x$, and $\frac{d^{2}y}{dx^{2}}+x\frac{dy}{dx}+y=sinx$
 
-\[
-Ineedtolearnbetterformating:)
-\]
- A non-linear ODE is any ordinary differential equation that cannot
+A non-linear ODE is any ordinary differential equation that cannot
 be written in the linear form shown earlier. This is because the dependent
 variable or its derivatives are not linear. I will cover this more
 later on in the chapter.
@@ -2360,13 +2361,10 @@ x or t) does not appear in the equation.
 \]
 A Non-Autonomous ODE,}
 
-is a differential equation if the independent variable appears eq
-(1).
+is a differential equation if the independent variable appears
 
 {*}You can use multiple types at once, just use common sense to make
 sure its right
-
-\subsubsection*{Basic existence}
 
 \subsection*{Dealing with ODEs}
 
@@ -2590,151 +2588,6 @@ y(t)=\sqrt{t^{2}+C}
 
 (soluzione parametrica)
 
-\subsubsection*{Second Order Equations-- temporary latex code which isnt my own
-for the exam}
-
-
-
-\subsubsection*{Solving Second-Order Differential Equations}
-A second-order differential equation has the general form:
-\[
-F(y'', y', y, x) = 0
-\]
-Below are methods for solving linear and nonlinear cases.
-
-%-------------------------------------------------
-\paragraph{1. Linear Homogeneous Equations with Constant Coefficients}
-\textbf{General form:}
-\[
-a y'' + b y' + c y = 0 \quad (a \neq 0)
-\]
-\textbf{Solution procedure:}
-\begin{enumerate}
-    \item Solve the \textbf{characteristic equation}:
-    \[
-    a r^2 + b r + c = 0
-    \]
-    
-    \item \textbf{Case analysis for roots \( r_1, r_2 \):}
-    \begin{itemize}
-        \item \textbf{Distinct real roots:}  
-        If \( r_1 \neq r_2 \),
-        \[
-        y(x) = C_1 e^{r_1 x} + C_2 e^{r_2 x}
-        \]
-        
-        \item \textbf{Repeated real root:}  
-        If \( r_1 = r_2 = r \),
-        \[
-        y(x) = (C_1 + C_2 x)e^{r x}
-        \]
-        
-        \item \textbf{Complex conjugate roots:}  
-        If \( r = \alpha \pm i\beta \),
-        \[
-        y(x) = e^{\alpha x}\left[C_1 \cos(\beta x) + C_2 \sin(\beta x)\right]
-        \]
-    \end{itemize}
-\end{enumerate}
-
-%-------------------------------------------------
-\paragraph{2. Linear Nonhomogeneous Equations}
-\textbf{General form:}
-\[
-y'' + p(x)y' + q(x)y = g(x)
-\]
-\textbf{Method 1: Undetermined Coefficients}
-\begin{enumerate}
-    \item Find the complementary solution \( y_c \) (solve the homogeneous equation).
-    \item Assume a particular solution \( y_p \) based on \( g(x) \) (e.g., \( g(x) = e^{kx} \Rightarrow y_p = Ae^{kx} \)).
-    \item If \( g(x) \) matches part of \( y_c \), multiply \( y_p \) by \( x \) (or \( x^n \) for repeated roots).
-    \item Substitute \( y_p \) into the DE and solve for coefficients.
-    \item General solution: \( y = y_c + y_p \).
-\end{enumerate}
-
-\textbf{Method 2: Variation of Parameters}
-\begin{enumerate}
-    \item Find \( y_c = C_1 y_1 + C_2 y_2 \).
-    \item Compute the Wronskian: 
-    \[
-    W = y_1 y_2' - y_1' y_2
-    \]
-    \item Particular solution:
-    \[
-    y_p = -y_1 \int \frac{y_2 g(x)}{W} \, dx + y_2 \int \frac{y_1 g(x)}{W} \, dx
-    \]
-    \item General solution: \( y = y_c + y_p \).
-\end{enumerate}
-
-%-------------------------------------------------
-\paragraph{3. Cauchy-Euler Equations}
-\textbf{General form:}
-\[
-x^2 y'' + b x y' + c y = 0
-\]
-\textbf{Solution steps:}
-\begin{enumerate}
-    \item Assume \( y = x^r \). Substitute to get:
-    \[
-    r^2 + (b - 1)r + c = 0
-    \]
-    \item Solve for \( r \). The solution mirrors constant-coefficient cases:
-    \begin{itemize}
-        \item Real distinct roots: \( y = C_1 x^{r_1} + C_2 x^{r_2} \)
-        \item Repeated root: \( y = x^{r}(C_1 + C_2 \ln x) \)
-        \item Complex roots \( r = \alpha \pm i\beta \):  
-        \( y = x^{\alpha}\left[C_1 \cos(\beta \ln x) + C_2 \sin(\beta \ln x)\right] \)
-    \end{itemize}
-\end{enumerate}
-
-%-------------------------------------------------
-\paragraph{4. Reduction of Order}
-\textbf{When one solution \( y_1 \) is known:}
-\begin{enumerate}
-    \item Let \( y_2 = v(x) y_1 \).
-    \item Substitute \( y_2 \) into the DE and solve for \( v(x) \).
-    \item The second solution is \( y_2 = y_1 \int \frac{e^{-\int p(x) \, dx}}{y_1^2} \, dx \).
-\end{enumerate}
-
-\textbf{Special cases:}
-\begin{itemize}
-    \item \textbf{Equation missing \( y \):} Let \( p = y' \), reducing to \( p' = f(x, p) \).
-    \item \textbf{Equation missing \( x \):} Let \( p = y' \), then \( y'' = p \frac{dp}{dy} \), reducing to \( p \frac{dp}{dy} = f(y, p) \).
-\end{itemize}
-
-%-------------------------------------------------
-\paragraph{5. Series Solutions Near Ordinary Points}
-For \( P(x)y'' + Q(x)y' + R(x)y = 0 \) with ordinary point at \( x_0 \):
-\begin{enumerate}
-    \item Assume \( y = \sum_{n=0}^\infty a_n (x - x_0)^n \).
-    \item Substitute into DE and equate coefficients of like powers.
-    \item Derive a recurrence relation for \( a_n \).
-\end{enumerate}
-
-%-------------------------------------------------
-\paragraph{6. Laplace Transform for Initial Value Problems}
-\textbf{Procedure:}
-\begin{enumerate}
-    \item Take Laplace transform of the DE:
-    \[
-    \mathcal{L}\{y''\} + a\mathcal{L}\{y'\} + b\mathcal{L}\{y\} = \mathcal{L}\{g(x)\}
-    \]
-    \item Use:
-    \[
-    \mathcal{L}\{y'\} = sY(s) - y(0), \quad \mathcal{L}\{y''\} = s^2Y(s) - sy(0) - y'(0)
-    \]
-    \item Solve for \( Y(s) \), then compute \( y(x) = \mathcal{L}^{-1}\{Y(s)\} \).
-\end{enumerate}
-
-%-------------------------------------------------
-\paragraph*{Nonlinear Second-Order DEs}
-No universal method exists. Common approaches:
-\begin{itemize}
-    \item Substitutions to reduce order (e.g., \( p = y' \))
-    \item Exact equations (identify integrable combinations)
-    \item Numerical methods (e.g., Runge-Kutta)
-\end{itemize}
-
 Homogeneous Equations with constant coefficients have the general
 form:
 \[
@@ -2745,532 +2598,328 @@ y''+ay'+by=0
 Finished
 \]
 
+\subsubsection*{Challenges to Uniqueness and Global Existence (Esistenza e Unicità)}
+
+Standard assumptions like continuity of the vector field \(V\) are not sufficient to guarantee that a solution is unique or that it exists for all time.
+
+\paragraph*{Finite-Time Blow-up}
+
+A solution to an IVP may not be defined for all time \(t \in \mathbb{R}\). It is possible for a solution to approach infinity in a finite amount of time, a phenomenon known as blow-up. This restricts the maximal domain of definition of the solution to a finite interval.
+
+\paragraph*{Non-Uniqueness of Solutions (Non Unicità delle Soluzioni)}
+
+For a given IVP, it is possible for more than one distinct solution to exist. This typically occurs when the vector field \(V\) is not sufficiently regular at certain points. Geometrically, this corresponds to having multiple solution curves (orbits) passing through the same point in the state space.
+
+\subsubsection*{Lipschitz Continuity (Continuità di Lipschitz)}
+
+To ensure the uniqueness of solutions, a stronger condition than mere continuity is required for the vector field \(V\). This condition is known as Lipschitz continuity, which serves as an intermediate property between continuity and continuous differentiability. The hierarchy is as follows: a continuously differentiable function is locally Lipschitz continuous, which in turn is continuous.
+
+\paragraph*{Local Lipschitz Continuity (Continuità di Lipschitz Locale)}
+
+A function \(V: U \subseteq \mathbb{R}^n \to \mathbb{R}^n\) is called locally Lipschitz continuous if for every point \(x \in U\), there exists a neighborhood and a constant \(L > 0\), known as the Lipschitz constant (costante di Lipschitz), such that for any two points \(y, z\) in this neighborhood, the following inequality holds:
+\[
+\|V(y) - V(z)\| \le L \|y - z\|
+\]
+
+\paragraph*{Properties of Lipschitz Functions (Proprietà delle Funzioni di Lipschitz)}
+
+A direct consequence of the definition is that any locally Lipschitz continuous function is also continuous. The condition fundamentally imposes a bound on the rate of change of the function; the magnitude of the slopes of secant lines connecting any two nearby points is bounded by the Lipschitz constant \(L\).
+
+\paragraph*{Relation to Differentiability (Relazione con la Derivabilità)}
+
+Any continuously differentiable function (a \(C^1\) function) is locally Lipschitz continuous. This can be shown using the Mean Value Theorem, which relates the difference \(V(y) - V(z)\) to the derivative of \(V\) at an intermediate point. The continuity of the derivative ensures it is bounded on any compact neighborhood, providing a valid Lipschitz constant.
+
+\subsubsection*{The Existence and Uniqueness Theorem (Teorema di Esistenza e Unicità)}
+
+The Picard–Lindelöf theorem states that if the vector field \(V\) is locally Lipschitz continuous, then for any initial condition \(x(t_0) = x_0\), there exists a unique solution to the initial value problem on some time interval containing \(t_0\). This condition on \(V\) is sufficient to prevent issues like non-uniqueness and ensures well-behaved local solutions.
+
+    \subsubsection*{Integral Formulation and Fixed-Point Theory}
+    
+     The differential equation of an IVP can be transformed into an integral equation. A function \(x(t)\) is a solution to the IVP \(x' = V(x)\) with \(x(t_0) =
+      x_0\) if and only if it satisfies:
+    \[
+    x(t) = x_0 + \int_{t_0}^{t} V(x(s)) \,ds
+     \]
+    This recasts the problem of finding a solution as finding a fixed point of an integral operator \(\Phi\), where \(\Phi(x) = x\).
+     
+     \paragraph*{The Banach Fixed-Point Theorem (Teorema del Punto Fisso di Banach)}
+    
+    This theorem provides a general condition for the existence and uniqueness of fixed points. It states that if \((X, d)\) is a non-empty complete metric space
+      and \(\Phi: X \to X\) is a \textbf{contraction mapping (contrazione)}—that is, for some constant \(q \in [0, 1)\), \(d(\Phi(x), \Phi(y)) \le q \cdot d(x, y)\)
+      for all \(x, y \in X\)—then \(\Phi\) has a unique fixed point in \(X\).
+    
+    \paragraph*{Application to ODEs: The Picard-Lindelöf Theorem}
+    
+    The existence of a solution can be proven by applying the Banach Fixed-Point Theorem. The setup involves:
+    \begin{itemize}
+        \item \textbf{Metric Space:} The space of continuous, bounded functions on a small interval \([- \epsilon, \epsilon]\) around \(t_0\) that satisfy the
+      initial condition. The metric is the supremum norm, which makes the space complete.
+        \item \textbf{Integral Operator:} The map \(\Phi(x)(t) = x_0 + \int_{t_0}^{t} V(x(s)) \,ds\).
+    \end{itemize}
+    If \(V\) is locally Lipschitz, it can be shown that for a sufficiently small time interval, the operator \(\Phi\) is a contraction. The Banach theorem then
+      guarantees the existence of a unique fixed point, which is the unique local solution to the IVP.
+    
+    \paragraph*{The Picard Iteration (Iterazione di Picard)}
+    
+    The proof of the Banach Fixed-Point Theorem is constructive and provides an iterative method to find the solution, known as the Picard iteration. Starting with
+      an initial guess \(\alpha_0(t)\) (often the constant function \(\alpha_0(t) = x_0\)), one generates a sequence of functions:
+    \[
+    \alpha_{n+1}(t) = \Phi(\alpha_n)(t) = x_0 + \int_{t_0}^{t} V(\alpha_n(s)) \,ds
+    \]
+    The theorem guarantees that this sequence converges uniformly to the unique solution of the IVP on the local interval.
+    
+    \subsubsection*{Maximal and Global Solutions}
+    
+    A local solution is defined on a small time interval around the initial time \(t_0\). This solution can often be extended to a larger domain.
+    
+    \paragraph*{Maximal Solutions (Soluzioni Massimali)}
+    
+    A solution is called a \textbf{maximal solution (soluzione massimale)} if it cannot be extended to any larger time interval. For any IVP with a locally
+      Lipschitz continuous vector field, there exists a unique maximal solution defined on a \textbf{maximal interval of existence (intervallo massimale di
+      esistenza)}, which is always an open interval. This uniqueness is proven by showing that any two solutions to the same IVP must agree on the intersection of
+      their domains, allowing them to be "glued" together.
+    
+    \paragraph*{Global Solutions (Soluzioni Globali)}
+    
+    A maximal solution is called a \textbf{global solution (soluzione globale)} if its maximal interval of existence is the entire real line, \(\mathbb{R}\).
+      Global existence is not guaranteed in general, as solutions can exhibit finite-time blow-up.
+    
+    \subsubsection*{The Phase Portrait}
+    
+   The geometric representation of all solutions of a dynamical system provides qualitative insight into its behavior.
+    
+    \paragraph*{Orbits and the Phase Portrait (Orbite e Ritratto di Fase)}
+   
+    An \textbf{orbit (orbita)} is the set of points in the state space traced by a maximal solution. The collection of all orbits for a given system constitutes
+      its \textbf{phase portrait (ritratto di fase)}. For a system with a locally Lipschitz continuous vector field, the orbits form a partition of the state space;
+      that is, for every point in the state space, there is exactly one orbit passing through it. Consequently, orbits cannot cross.
+    
+    \paragraph*{Special Orbits}
+   
+    \begin{itemize}
+        \item \textbf{Fixed Points (Punti Fissi):} A point \(x_0\) where \(V(x_0) = 0\). This corresponds to a constant solution, and its orbit is a single point.
+       \item \textbf{Periodic Orbits (Orbite Periodiche):} An orbit corresponding to a non-constant solution \(\alpha(t)\) that returns to its starting point
+      after some time \(T > 0\), i.e., \(\alpha(t+T) = \alpha(t)\). The orbit is a closed curve.
+    \end{itemize}
+   
+    \subsubsection*{Non-Autonomous and Linear Systems}
+    
+    The theory can be extended to more general classes of differential equations.
+   
+   \paragraph*{Non-Autonomous Systems (Sistemi Non Autonomi)}
+   
+    For a non-autonomous system \(x' = W(t, x)\), the Picard-Lindelöf theorem holds if \(W\) is continuous and locally Lipschitz continuous with respect to its
+      second argument, \(x\). A stronger, global Lipschitz condition on \(x\) (uniformly on compact time intervals) is sufficient to guarantee the existence of a
+      unique global solution.
+    
+   \paragraph*{Systems of Linear ODEs (Sistemi di EDO Lineari)}
+    
+    A system is linear if it can be written as \(x' = A(t)x + b(t)\), where \(A(t)\) and \(b(t)\) are continuous matrix and vector-valued functions, respectively.
+    \begin{itemize}
+       \item \textbf{Homogeneous (Omogeneo):} The system is homogeneous if \(b(t) = 0\).
+       \item \textbf{Autonomous (Autonomo):} The system is autonomous if \(A(t)\) and \(b(t)\) are constant.
+   \end{itemize}
+   Any linear system satisfies a global Lipschitz condition with respect to \(x\) on any compact time interval. As a result, an IVP for a linear system always has
+      a unique solution defined on the entire interval where \(A(t)\) and \(b(t)\) are continuous.
+    
+   \subsubsection*{Structure of Solutions for Linear Systems}
+    
+   Linear systems possess a highly structured solution set due to the properties of linearity.
+   
+   \paragraph*{The Homogeneous Case and the Superposition Principle}
+   
+   For the homogeneous linear system \(x' = A(t)x\), the principle of superposition holds: any linear combination of solutions is also a solution. This implies 
+      that the set of all solutions to the homogeneous system, denoted \(S_0\), forms a vector space.
+   
+   \paragraph*{Dimension of the Solution Space (Dimensione dello Spazio delle Soluzioni)}
+   
+ A fundamental result states that for an n-dimensional homogeneous linear system, the \textbf{solution space (spazio delle soluzioni)} \(S_0\) is an 
+      n-dimensional real vector space. This is proven by constructing a linear map \(L: S_0 \to \mathbb{R}^n\) given by \(L(\alpha) = \alpha(t_0)\), which evaluates
+      a solution at a fixed time \(t_0\). The existence and uniqueness theorem guarantees that this map is an isomorphism, meaning the dimension of \(S_0\) is the
+      same as the dimension of \(\mathbb{R}^n\), which is \(n\). This result is crucial, as it implies that the general solution can be constructed from a basis of
+      just \(n\) linearly independent solutions.
 
 \subsection*{Nth order Differential Equation}
 
-\subsubsection{Solving \( n \)-th Order Differential Equations}  
-\paragraph{Linear Homogeneous Equations with Constant Coefficients}  
-Consider the equation:  
-\[  
-a_n y^{(n)} + a_{n-1} y^{(n-1)} + \cdots + a_1 y' + a_0 y = 0  
-\]  
-
-\textbf{Solution Steps:}
-\begin{enumerate}
-    \item \textbf{Form characteristic equation}:
-    \[
-    a_n r^n + a_{n-1} r^{n-1} + \cdots + a_1 r + a_0 = 0
-    \]
-    
-    \item \textbf{Find roots} \( r_1, r_2, \ldots, r_n \)
-    
-    \item \textbf{Construct general solution}:
-    \begin{itemize}
-        \item \textit{Distinct real roots}:
-        \[
-        y_h = \sum_{i=1}^n C_i e^{r_i x}
-        \]
-        
-        \item \textit{Repeated real root \( r \) with multiplicity \( k \)}:
-        \[
-        e^{r x}\left(C_1 + C_2 x + \cdots + C_k x^{k-1}\right)
-        \]
-        
-        \item \textit{Complex conjugate pairs \( \alpha \pm \beta i \)}:
-        \[
-        e^{\alpha x}\left[C_1 \cos(\beta x) + C_2 \sin(\beta x)\right]
-        \]
-        For repeated pairs (multiplicity \( m \)):
-        \[
-        x^{m-1}e^{\alpha x}\left[C_1 \cos(\beta x) + C_2 \sin(\beta x)\right]
-        \]
-    \end{itemize}
-\end{enumerate}
-
-\paragraph{Linear Nonhomogeneous Equations}  
-For equations:
-\[
-a_n y^{(n)} + \cdots + a_1 y' + a_0 y = g(x)
-\]
-\textbf{General Solution}: 
-\[
-y = y_h + y_p
-\]
-where \( y_h \) = homogeneous solution, \( y_p \) = particular solution.
-
-\subparagraph{Method of Undetermined Coefficients}  
-Use when \( g(x) \) is polynomial, exponential, sine, cosine, or combinations:
-
-\begin{enumerate}
-    \item Assume \( y_p \) with same form as \( g(x) \)
-    \item If any term matches \( y_h \), multiply by \( x^s \) (\( s \) = smallest integer eliminating duplication)
-    \item Substitute \( y_p \) into DE and solve for coefficients
-\end{enumerate}
-
-\subparagraph{Variation of Parameters}  
-General method for arbitrary \( g(x) \):
-
-\begin{enumerate}
-    \item Find fundamental set \( \{y_1, \ldots, y_n\} \) from \( y_h \)
-    \item Compute Wronskian:
-    \[
-    W(y_1, \ldots, y_n) = \begin{vmatrix}
-    y_1 & y_2 & \cdots & y_n \\
-    y_1' & y_2' & \cdots & y_n' \\
-    \vdots & \vdots & \ddots & \vdots \\
-    y_1^{(n-1)} & y_2^{(n-1)} & \cdots & y_n^{(n-1)}
-    \end{vmatrix}
-    \]
-    
-    \item Find \( u_i' = \frac{W_i}{W} \) where \( W_i \) = Wronskian with \( i \)-th column replaced by \( \begin{bmatrix} 0 \\ \vdots \\ g(x) \end{bmatrix} \)
-    
-    \item Integrate to get \( u_i \), then:
-    \[
-    y_p = \sum_{i=1}^n u_i y_i
-    \]
-\end{enumerate}
-
-\paragraph{Variable Coefficient Equations}  
-For \( y^{(n)} + P_{n-1}(x)y^{(n-1)} + \cdots + P_0(x)y = Q(x) \):
-
-\subparagraph{Reduction of Order}  
-If solution \( y_1 \) is known, let:
-\[
-y = y_1 \int v(x) dx
-\]
-Substitute to reduce equation order by 1.
-
-\subparagraph{Cauchy-Euler Equations}  
-Form: \( x^n y^{(n)} + a_{n-1} x^{n-1} y^{(n-1)} + \cdots + a_0 y = 0 \)
-
-\begin{enumerate}
-    \item Assume solution \( y = x^m \)
-    \item Substitute to get characteristic equation:
-    \[
-    m(m-1)\cdots(m-n+1) + \sum_{k=0}^{n-1} a_k m(m-1)\cdots(m-k+1) = 0
-    \]
-    \item Handle roots as with constant coefficient equations
-\end{enumerate}
-
-\paragraph{Nonlinear Equations}  
-\subparagraph{Order Reduction Techniques}
-\begin{itemize}
-    \item \textit{Missing \( y \)}: Let \( v = y' \), reduces order by 1
-    \item \textit{Missing \( x \)}: Let \( v = y' \), then \( y'' = v \frac{dv}{dy} \), reduces to 1st order in \( v \)
-\end{itemize}
-
-\subparagraph{Exact Equations}  
-If equation can be written as:
-\[
-\frac{d}{dx}\left[\text{Lower order expression}\right] = 0
-\]
-Integrate successively to solve.
-
-\subparagraph{Integrating Factors}  
-Find \( \mu(x) \) or \( \mu(y) \) such that:
-\[
-\mu(x)M(x,y)dx + \mu(x)N(x,y)dy = 0
-\]
-becomes exact.
-
-\subparagraph{Special Forms}  
-\begin{itemize}
-    \item \textit{Bernoulli}: \( y' + P(x)y = Q(x)y^n \), use \( z = y^{1-n} \)
-    \item \textit{Riccati}: \( y' = P(x)y^2 + Q(x)y + R(x) \), use \( y = y_1 + \frac{1}{v} \) if particular solution \( y_1 \) known
-\end{itemize}
-
 \subsection*{Systems of Differential Equations}
-
-\subsubsection*{Solving Systems of Differential Equations}
-\paragraph*{Linear Systems with Constant Coefficients}
-For the system $\mathbf{x}' = A\mathbf{x}$ where $A$ is an $n \times n$ constant matrix:
-
-\textbf{Solution Method:}
-\begin{enumerate}
-    \item \textbf{Find eigenvalues} $\lambda$ by solving:
-    \[
-    \det(A - \lambda I) = 0
-    \]
-    
-    \item \textbf{Find eigenvectors} $\xi$ for each eigenvalue by solving:
-    \[
-    (A - \lambda I)\xi = 0
-    \]
-    
-    \item \textbf{Construct general solution}:
-    \begin{itemize}
-        \item \textit{Real distinct eigenvalues}:
-        \[
-        \mathbf{x}(t) = \sum_{i=1}^n C_i e^{\lambda_i t} \xi_i
-        \]
-        
-        \item \textit{Complex eigenvalues} $\alpha \pm \beta i$:
-        \[
-        \mathbf{x}(t) = C_1 e^{\alpha t}[\mathbf{a}\cos(\beta t) - \mathbf{b}\sin(\beta t)] + C_2 e^{\alpha t}[\mathbf{a}\sin(\beta t) + \mathbf{b}\cos(\beta t)]
-        \]
-        where $\mathbf{a} + i\mathbf{b}$ is the complex eigenvector
-        
-        \item \textit{Repeated eigenvalues}:
-        \begin{itemize}
-            \item If geometric multiplicity = algebraic multiplicity: proceed as distinct eigenvalues
-            \item If deficient eigenvectors: use generalized eigenvectors
-        \end{itemize}
-    \end{itemize}
-\end{enumerate}
-
-\paragraph*{Nonhomogeneous Systems}
-For $\mathbf{x}' = A\mathbf{x} + \mathbf{g}(t)$:
-
-\textbf{General Solution}:
-\[
-\mathbf{x}(t) = \mathbf{x}_h(t) + \mathbf{x}_p(t)
-\]
-
-\subparagraph*{Variation of Parameters}
-\begin{enumerate}
-    \item Find fundamental matrix $\Phi(t)$ from homogeneous solutions
-    \item Compute particular solution:
-    \[
-    \mathbf{x}_p(t) = \Phi(t) \int \Phi^{-1}(t)\mathbf{g}(t) dt
-    \]
-\end{enumerate}
-
-\subparagraph*{Method of Undetermined Coefficients}
-Use when $\mathbf{g}(t)$ contains polynomials, exponentials, or trigonometric functions:
-\begin{enumerate}
-    \item Assume $\mathbf{x}_p$ with same form as $\mathbf{g}(t)$
-    \item Adjust for resonance if any term matches homogeneous solution
-    \item Substitute and solve for coefficients
-\end{enumerate}
-
-\paragraph*{Matrix Exponential Method}
-For $\mathbf{x}' = A\mathbf{x}$:
-\[
-\mathbf{x}(t) = e^{At}\mathbf{x}_0
-\]
-where $e^{At}$ can be computed via:
-\begin{itemize}
-    \item Diagonalization: $A = PDP^{-1} \Rightarrow e^{At} = Pe^{Dt}P^{-1}$
-    \item Jordan form for defective matrices
-    \item Taylor series expansion for simple cases
-\end{itemize}
-
-\paragraph*{Nonlinear Systems}
-\subparagraph*{Linearization Near Critical Points}
-\begin{enumerate}
-    \item Find equilibrium points $\mathbf{x}_0$ where $\mathbf{f}(\mathbf{x}_0) = 0$
-    \item Compute Jacobian matrix:
-    \[
-    J = \begin{bmatrix}
-    \frac{\partial f_1}{\partial x_1} & \cdots & \frac{\partial f_1}{\partial x_n} \\
-    \vdots & \ddots & \vdots \\
-    \frac{\partial f_n}{\partial x_1} & \cdots & \frac{\partial f_n}{\partial x_n}
-    \end{bmatrix}_{\mathbf{x}_0}
-    \]
-    \item Analyze eigenvalues of $J$ to determine stability
-\end{enumerate}
-
-\subparagraph*{Phase Plane Analysis (2D Systems)}
-\begin{itemize}
-    \item Classify critical points: node, spiral, saddle, center
-    \item Use nullclines and direction fields
-    \item Lyapunov functions for stability (when applicable)
-\end{itemize}
-
-\paragraph*{Conversion to First-Order Systems}
-Any $n$-th order DE can be converted to a system:
-\begin{enumerate}
-    \item Let $x_1 = y$, $x_2 = y'$, ..., $x_n = y^{(n-1)}$
-    \item Create system:
-    \[
-    \begin{cases}
-        x_1' = x_2 \\
-        x_2' = x_3 \\
-        \vdots \\
-        x_n' = F(t,x_1,\ldots,x_n)
-    \end{cases}
-    \]
-\end{enumerate}
-
-\paragraph*{Important Special Cases}
-\subparagraph*{Coupled Oscillators}
-\[
-\begin{cases}
-    m_1 x_1'' = -k_1 x_1 + k_2(x_2 - x_1) \\
-    m_2 x_2'' = -k_2(x_2 - x_1)
-\end{cases}
-\]
-Solve by diagonalizing the coefficient matrix
-
-\subparagraph*{Competing Species Model}
-\[
-\begin{cases}
-    x' = x(a - by) \\
-    y' = y(c - dx)
-\end{cases}
-\]
-Analyze using linearization and phase plane methods
 
 \subsection*{Special theorems and Problems}
 
 \subsubsection*{Picard--Lindelöf theorem}
 
-\subsubsection*{Picard–Lindelöf Theorem (Existence \& Uniqueness)}
-\paragraph*{Theorem Statement}  
-Consider the initial value problem (IVP):
-\[
-\begin{cases}
-    y'(t) = f(t, y(t)) \\
-    y(t_0) = y_0
-\end{cases}
-\]
-where \( f: D \subset \mathbb{R} \times \mathbb{R}^n \to \mathbb{R}^n \). If:
+\section*{\sffamily Function Analysis}
 
-\begin{itemize}
-    \item \( f \) is \textbf{continuous} in \( t \) on rectangle \( R = [t_0 - a, t_0 + a] \times \overline{B}(y_0, b) \)
-    \item \( f \) is \textbf{Lipschitz continuous} in \( y \): 
-    \[
-    \exists L > 0 \text{ s.t. } \|f(t,y_1) - f(t,y_2)\| \leq L\|y_1 - y_2\|,\; \forall (t,y_1),(t,y_2) \in R
-    \]
-\end{itemize}
+These questions test your ability to analyze specific function properties, often without requiring a full graphical study.
 
-Then \( \exists \tau > 0 \) such that the IVP has a \textbf{unique solution} \( y(t) \) on \( [t_0 - \tau, t_0 + \tau] \).
-
-\paragraph*{Proof Outline (Method of Successive Approximations)}  
+\subsection*{\sffamily Strategy for Max/Min}
 \begin{enumerate}
-    \item Reformulate IVP as integral equation:
-    \[
-    y(t) = y_0 + \int_{t_0}^t f(s, y(s)) ds
-    \]
-    
-    \item Define Picard iterations:
-    \[
-    y_{n+1}(t) = y_0 + \int_{t_0}^t f(s, y_n(s)) ds
-    \]
-    Starting with \( y_0(t) \equiv y_0 \)
-    
-    \item Show \( \{y_n\} \) converges uniformly to solution \( y \):
-    \begin{itemize}
-        \item Use Lipschitz condition to prove \( \|y_{n+1} - y_n\| \leq \frac{M}{L} \frac{(L|t-t_0|)^{n+1}}{(n+1)!} \)
-        \item Apply Banach fixed-point theorem in complete metric space
-    \end{itemize}
+    \item \textbf{Identify Domain:} Determine the function's domain. Pay close attention to the boundaries.
+    \item \textbf{First Derivative:} Calculate the first derivative, $f'(x)$.
+    \item \textbf{Critical Points:} Find the critical points by solving $f'(x) = 0$ and identifying where $f'(x)$ is undefined.
+    \item \textbf{Monotonicity:} Study the sign of $f'(x)$ to find intervals where the function is increasing or decreasing.
+    \item \textbf{Evaluate:} Calculate the value of $f(x)$ at the critical points and at the boundaries of the domain.
+    \item \textbf{Conclude:} The largest value found is the absolute maximum, and the smallest is the absolute minimum.
+\end{enumerate}
+\textbf{Common Pitfall:} Forgetting to evaluate the function at the domain's boundaries.
+
+\subsection*{\sffamily Strategy for Inequalities (e.g., prove $f(x) > g(x)$)}
+\begin{enumerate}
+    \item \textbf{Define Auxiliary Function:} Create a new function $h(x) = f(x) - g(x)$. The goal is now to prove $h(x) > 0$.
+    \item \textbf{Find Minimum:} Analyze the sign of $h'(x)$ to find the absolute minimum of $h(x)$ on the given interval.
+    \item \textbf{Check Minimum's Value:} If the minimum value, $h_{min}$, is greater than 0, the inequality is proven.
+    \item \textbf{Tangent Point Case:} Often, the minimum is a point $x_0$ where $h(x_0) = 0$. In this case, you must show that $x_0$ is a minimum (e.g., by checking that $h'(x_0)=0$ and $h''(x_0)>0$, or by studying the sign of $h'(x)$ around $x_0$). This proves that $h(x) \ge 0$, and is only 0 at that single point.
 \end{enumerate}
 
-\paragraph*{Implementation Steps}  
-To apply the theorem:
+\subsection*{\sffamily Strategy for Number of Solutions to $f(x) = k$}
 \begin{enumerate}
-    \item Verify continuity of \( f(t,y) \) in \( t \)
-    \item Check Lipschitz condition in \( y \):
-    \begin{itemize}
-        \item If \( \frac{\partial f}{\partial y} \) exists and bounded \( \Rightarrow \) Lipschitz
-        \item For scalar case: \( |f(t,y_1) - f(t,y_2)| \leq L|y_1 - y_2| \)
-    \end{itemize}
-    
-    \item Determine existence interval \( \tau = \min\left(a, \frac{b}{M}\right) \) where:
-    \[
-    M = \max_{(t,y)\in R} \|f(t,y)\|
-    \]
-\end{enumerate}
-
-\paragraph*{Example Application}  
-For IVP \( y' = y,\; y(0) = 1 \):
-\begin{itemize}
-    \item Picard iterations:
-    \begin{align*}
-        y_0(t) &= 1 \\
-        y_1(t) &= 1 + \int_0^t y_0(s) ds = 1 + t \\
-        y_2(t) &= 1 + \int_0^t (1+s) ds = 1 + t + \frac{t^2}{2} \\
-        &\vdots \\
-        y_n(t) &= \sum_{k=0}^n \frac{t^k}{k!} \to e^t
-    \end{align*}
-\end{itemize}
-
-\paragraph*{Important Notes}  
-\begin{itemize}
-    \item \textbf{Local vs Global}: Theorem guarantees local solution - need additional conditions for global existence
-    \item \textbf{Sharpness}: \( \tau \) estimate often conservative
-    \item \textbf{Failure Cases}:
-    \begin{itemize}
-        \item \( f \) not Lipschitz \( \Rightarrow \) possible non-uniqueness (e.g., \( y' = \sqrt{|y|} \))
-        \item Discontinuous \( f \) \( \Rightarrow \) solutions may not exist
-    \end{itemize}
-\end{itemize}
-
-\subsection*{The Question Playbook}
-
-% Series Convergence
-\subsubsection*{Series Convergence}
-\textbf{Key Techniques:}
-\begin{itemize}
-    \item \textit{Asymptotic Analysis:} For $a_n$ as $n \to \infty$, use Taylor expansions or logarithms. \\
-    Example: $\log(n^\alpha + n^2) - \log(n^2) \sim n^{\alpha-2}$ if $\alpha < 2$.
-    \item \textit{Alternating Series (Leibniz):} Verify $|a_n| \searrow 0$.
-    \item \textit{Comparison Test:} Bound by $p$-series ($\sum n^{-p}$ converges iff $p>1$) or geometric series.
-    \item \textit{Ratio/Root Test:} Preferred for factorials or exponentials.
-    \item \textit{Weierstrass M-test (Uniform Convergence):} Find $M_k$ such that $|f_k(x)| \leq M_k$ and $\sum M_k < \infty$. \\
-    Non-uniform example: If $\sup_x |f_k(x)| \not\to 0$, uniform convergence fails.
-\end{itemize}
-
-\textbf{Steps:}
-\begin{enumerate}
-    \item Identify dominant term in $a_n$.
-    \item Apply convergence test based on asymptotic behavior.
-    \item For functional series (e.g., $\sum (-1)^k f_k(x)$):
-    \begin{enumerate}
-        \item Find pointwise convergence set (e.g., exclude $x=0$ if terms $\not\to 0$).
-        \item Check uniform convergence:
+    \item \textbf{Graphical Mindset:} This is a graphical problem. You are looking for the number of intersections between the graph of $y=f(x)$ and the horizontal line $y=k$.
+    \item \textbf{Analyze Variation:}
         \begin{itemize}
-            \item On $\mathbb{R}$: Often fails near points where $f_k \not\to 0$.
-            \item On $[a,\infty)$: Use $M_k = \sup_{x \geq a} |f_k(x)|$.
+            \item Calculate $f'(x)$ and study its sign to determine monotonicity.
+            \item Find all local maximum and minimum values.
+            \item Calculate the limits of $f(x)$ at the boundaries of its domain (e.g., at $\pm\infty$).
+        \end{itemize}
+    \item \textbf{Conclude:} Based on the values of the local extrema and the limits, you can determine how many times the line $y=k$ intersects the graph for different ranges of $k$. For example, if a local max has value $M$ and a local min has value $m$, for any $k$ such that $m < k < M$, there might be multiple solutions.
+\end{enumerate}
+
+\section{\sffamily Convergence of Series $\sum a_n$}
+
+\begin{enumerate}
+    \item \textbf{Necessary Condition:} Calculate $\lim_{n \to \infty} a_n$. If the limit is NOT 0, the series \textbf{diverges}.
+    \item \textbf{Check for Positive Terms ($a_n \ge 0$):}
+        \begin{itemize}
+            \item \textbf{Asymptotic Comparison Test (Most Common):} Find a simpler series $b_n$ (typically $1/n^p$) and evaluate $L = \lim_{n \to \infty} \frac{a_n}{b_n}$. If $L$ is a finite, non-zero number, then $\sum a_n$ behaves exactly like $\sum b_n$.
+            \item \textit{How to find $b_n$?} Use Taylor expansions for terms like $\sin(1/n), \log(1+1/n), e^{1/n}-1$, etc., around 0.
+            \item \textbf{Ratio Test:} Best for factorials and powers. If $\lim_{n \to \infty} \frac{a_{n+1}}{a_n} < 1$, it converges. If $> 1$, it diverges. If $= 1$, it's inconclusive.
+        \end{itemize}
+    \item \textbf{Check for Alternating Terms ($\sum (-1)^n a_n$):}
+        \begin{itemize}
+            \item \textbf{Leibniz Test:} If $a_n > 0$, $a_n$ is decreasing, and $\lim_{n \to \infty} a_n = 0$, the series converges.
+            \item \textbf{Absolute Convergence:} Check if $\sum |a_n|$ converges (using the tests for positive series). If it does, the original series converges absolutely.
+        \end{itemize}
+\end{enumerate}
+
+\section{\sffamily Improper Integrals $\int_a^b f(x) dx$}
+
+\begin{enumerate}
+    \item \textbf{Identify Problem Points:} Find the points where the integral is improper. This occurs if a bound is $\pm\infty$ or if $f(x)$ is unbounded at some point $c \in [a,b]$.
+    \item \textbf{Analyze Each Point Separately:}
+        \begin{itemize}
+            \item \textbf{At $\infty$:} Use asymptotic comparison with $g(x) = 1/x^p$. The integral $\int_a^\infty f(x)dx$ converges if the integral of $g(x)$ converges, which happens for $p > 1$.
+            \item \textbf{At a point $c$:} Use asymptotic comparison with $g(x) = 1/|x-c|^p$. The integral converges if $p < 1$.
+        \end{itemize}
+    \item \textbf{Key Tool:} To find the asymptotic behavior, use Taylor expansions. For a problem at $x=c$, expand $f(x)$ for $x \to c$.
+\end{enumerate}
+
+\section{\sffamily Limits}
+
+\begin{enumerate}
+    \item \textbf{Indeterminate Form:} First, try direct substitution. If you get an indeterminate form ($0/0, \infty/\infty, 1^\infty$, etc.), proceed.
+    \item \textbf{Taylor Expansions (for $x \to 0$):} This is the most reliable method.
+        \begin{itemize}
+            \item Replace functions with their expansions: $e^x \approx 1+x+\frac{x^2}{2!}$, $\sin x \approx x-\frac{x^3}{3!}$, $\cos x \approx 1-\frac{x^2}{2!}$, $\log(1+x) \approx x-\frac{x^2}{2}$.
+            \item Keep enough terms to ensure the lowest-order terms in the numerator and denominator do not cancel to zero.
+        \end{itemize}
+    \item \textbf{For $1^\infty$ forms:} Rewrite $f(x)^{g(x)}$ as $e^{g(x) \ln(f(x))}$. Calculate the limit of the exponent, $L = \lim g(x) \ln(f(x))$. The final result is $e^L$. This often simplifies by using $\ln(1+t) \sim t$ for $t \to 0$.
+\end{enumerate}
+
+\section{\sffamily Sequences by Recurrence ($a_{n+1} = f(a_n)$)}
+
+\begin{enumerate}
+    \item \textbf{Find Fixed Points:} These are the candidates for the limit. Solve the equation $f(x) = x$.
+    \item \textbf{Study Monotonicity:}
+        \begin{itemize}
+            \item Analyze the sign of $f(x) - x$.
+            \item If $f(x) > x$, the sequence is increasing ($a_{n+1} > a_n$).
+            \item If $f(x) < x$, the sequence is decreasing ($a_{n+1} < a_n$).
+        \end{itemize}
+    \item \textbf{Check for Boundedness:}
+        \begin{itemize}
+            \item Find an interval $I$ such that if $a_n \in I$, then $a_{n+1} \in I$. This is called an invariant interval.
+            \item If the initial term $a_0$ is in $I$, all subsequent terms will be as well, proving the sequence is bounded.
+        \end{itemize}
+    \item \textbf{Conclude:} A monotonic and bounded sequence always converges to a limit $L$. This limit $L$ must be one of the fixed points found in step 1. Use the bounds and monotonicity to select the correct one.
+\end{enumerate}
+\section{\sffamily Differential Equations: A Detailed Guide}
+
+This section provides a step-by-step guide for the types of differential equations that appear in the exams. The key is to first identify the type of the equation and then apply the corresponding standard method.
+
+\subsection*{\sffamily Type 1: First-Order Separable Equations}
+\begin{itemize}
+    \item \textbf{How to Identify:} The equation can be written in the form $\frac{dy}{dx} = f(x) \cdot g(y)$. You can algebraically separate all $x$ terms from all $y$ terms.
+    \item \textbf{Step-by-Step Solution:}
+    \begin{enumerate}
+        \item Rewrite $y'$ as $\frac{dy}{dx}$.
+        \item Separate the variables: move all $y$ terms to one side and all $x$ terms to the other. This yields: $$\frac{1}{g(y)} dy = f(x) dx$$
+        \item Integrate both sides: $$\int \frac{1}{g(y)} dy = \int f(x) dx + C$$ Remember to add the constant of integration, $C$, on the side with the independent variable ($x$).
+        \item Solve for $y$ explicitly, if possible.
+    \end{enumerate}
+    \item \textbf{Important Note on Constant Solutions:} Before separating, check if there are any values $y_c$ for which $g(y_c) = 0$. If so, then $y(x) = y_c$ is a constant (or stationary) solution. These are important and can sometimes be the specific solution to a Cauchy problem.
+\end{itemize}
+
+\subsection*{\sffamily Type 2: Second-Order Linear Homogeneous with Constant Coefficients}
+\begin{itemize}
+    \item \textbf{How to Identify:} The equation has the form $ay'' + by' + cy = 0$, where $a, b, c$ are real numbers.
+    \item \textbf{Step-by-Step Solution:}
+    \begin{enumerate}
+        \item Write the \textbf{Characteristic Equation}: This is a quadratic equation formed by replacing $y''$ with $\lambda^2$, $y'$ with $\lambda$, and $y$ with 1: $$a\lambda^2 + b\lambda + c = 0$$
+        \item Solve for $\lambda$. The form of the general solution depends on the roots ($\lambda_1, \lambda_2$):
+        \begin{itemize}
+            \item[\textbf{Case A:}] Two distinct real roots, $\lambda_1 \neq \lambda_2$. The general solution is: $$y(x) = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x}$$
+            \item[\textbf{Case B:}] One repeated real root, $\lambda_1 = \lambda_2 = \lambda$. The general solution is: $$y(x) = C_1 e^{\lambda x} + C_2 x e^{\lambda x}$$ (Notice the extra $x$ in the second term).
+            \item[\textbf{Case C:}] Two complex conjugate roots, $\lambda = \alpha \pm i\beta$. The general solution is: $$y(x) = e^{\alpha x} (C_1 \cos(\beta x) + C_2 \sin(\beta x))$$
         \end{itemize}
     \end{enumerate}
-\end{enumerate}
-
-% Maxima/Minima of Functions
-\subsubsection*{Maxima/Minima of Functions}
-\textbf{Key Techniques:}
-\begin{itemize}
-    \item \textit{Critical Points:} Solve $f'(x) = 0$.
-    \item \textit{Second Derivative Test:} $f''(x_0) > 0$ (local min), $f''(x_0) < 0$ (local max).
-    \item \textit{Boundary/Behavior at Infinity:} Evaluate $\lim_{x \to \pm\infty} f(x)$.
 \end{itemize}
 
-\textbf{Steps:}
-\begin{enumerate}
-    \item Compute $f'$ and solve $f'(x) = 0$.
-    \item Evaluate $f$ at critical points and boundary points.
-    \item Classify using $f''$ or sign analysis of $f'$. \\
-    Example: $f_k(x) = \frac{1 - x}{1 + kx^2}$ $\to$ solve $f_k'(x) = 0$ for critical points.
-\end{enumerate}
-
-% Improper Integrals
-\subsubsection*{Improper Integrals}
-\textbf{Key Techniques:}
+\subsection*{\sffamily Type 3: Second-Order Linear Non-Homogeneous}
 \begin{itemize}
-    \item \textit{Convergence Tests:}
+    \item \textbf{How to Identify:} The equation has the form $ay'' + by' + cy = f(x)$, where $f(x)$ is not zero.
+    \item \textbf{General Principle:} The final solution is the sum of two parts: $$y(x) = y_h(x) + y_p(x)$$
     \begin{itemize}
-        \item \textit{Comparison:} $|f(x)| \leq g(x)$ and $\int g < \infty$.
-        \item $p$\textit{-test:} $\int_a^\infty x^{-p}  dx$ converges iff $p > 1$.
+        \item $y_h(x)$ is the solution to the corresponding \textbf{homogeneous} equation ($ay'' + by' + cy = 0$), found using the method from Type 2.
+        \item $y_p(x)$ is a \textbf{particular solution} that depends on the form of $f(x)$.
     \end{itemize}
-    \item \textit{Behavior at Singularities:} Near $x = 0$ or $x = \infty$, use asymptotic expansions.
-    \item \textit{Absolute vs. Conditional Convergence:} $|\int f| \leq \int |f|$.
+    \item \textbf{Finding the Particular Solution $y_p(x)$ (Method of Undetermined Coefficients):}
+    \begin{enumerate}
+        \item First, find the homogeneous solution $y_h(x)$.
+        \item Make a guess for $y_p(x)$ based on the form of $f(x)$:
+        \begin{itemize}
+            \item If $f(x)$ is a polynomial of degree $n$, guess a polynomial of degree $n$: $y_p(x) = Ax^n + ... + D$.
+            \item If $f(x) = K e^{kx}$, guess $y_p(x) = A e^{kx}$.
+            \item If $f(x) = K \sin(kx)$ or $K \cos(kx)$, guess $y_p(x) = A\sin(kx) + B\cos(kx)$.
+        \end{itemize}
+        \item \textbf{CRITICAL - The Resonance Rule:} If your guess for $y_p(x)$ (or any part of it) is already present in the homogeneous solution $y_h(x)$, you must multiply your entire guess by $x$. If it's still present, multiply by $x$ again.
+        \item Differentiate your guess to find $y_p'$ and $y_p''$.
+        \item Substitute $y_p, y_p', y_p''$ into the original non-homogeneous equation.
+        \item Solve for the coefficients (e.g., $A, B$) by equating the coefficients on both sides.
+        \item Your final solution is $y(x) = y_h(x) + y_p(x)$.
+    \end{enumerate}
 \end{itemize}
 
-\textbf{Steps:}
-\begin{enumerate}
-    \item Split integral at singularities.
-    \item For each interval, find asymptotic equivalence (e.g., $x \to 0^+$: $|\sin x| \sim |x - k\pi|$).
-    \item Apply comparison or $p$-test. \\
-    Example: $\int_0^{e^2} \frac{dx}{2x - e \ln x}$ $\to$ analyze $x \to 0^+$ and $x \to e^2$.
-\end{enumerate}
-
-% ODEs
-\subsubsection*{Ordinary Differential Equations (ODEs)}
-\textbf{Key Techniques:}
+\subsection*{\sffamily The Final Step for All DEs: Solving the Cauchy Problem}
 \begin{itemize}
-    \item \textit{Separable Equations:} $u' = g(x)h(u) \implies \int \frac{du}{h(u)} = \int g(x)  dx$.
-    \item \textit{Linear Equations:} $u' + p(x)u = q(x)$ $\to$ integrating factor $e^{\int p}$.
-    \item \textit{Maximal Interval:} Solution exists until blowup or if Lipschitz.
+    \item \textbf{What it is:} A Cauchy Problem gives you the differential equation plus one or more initial conditions, like $y(x_0)=y_0$ or $y'(x_0)=y_1$. Your task is to find the values of the constants of integration ($C$, or $C_1$ and $C_2$) in your general solution.
+    \item \textbf{The Universal Method:}
+    \begin{enumerate}
+        \item \textbf{Find the General Solution First:} Follow the methods for the appropriate DE type (Separable, 2nd Order Homogeneous, etc.) to find the solution with the constants still in it. Let's call it $y_{gen}(x)$.
+        \item \textbf{Apply the First Condition ($y(x_0)=y_0$):}
+        \begin{itemize}
+            \item Take your general solution $y_{gen}(x)$.
+            \item Substitute $x_0$ for every $x$ and set the entire expression equal to $y_0$.
+            \item This gives you your first equation involving the constants. For a first-order equation, you can solve for $C$ directly.
+        \end{itemize}
+        \item \textbf{Apply the Second Condition ($y'(x_0)=y_1$) (for 2nd order DEs):}
+        \begin{itemize}
+            \item Take your general solution $y_{gen}(x)$ and calculate its derivative, $y_{gen}'(x)$.\
+            \textbf{Important:} Differentiate first, then substitute.
+            \item Now substitute $x_0$ for every $x$ in the derivative and set the expression equal to $y_1$.
+            \item This gives you your second equation involving the constants.
+        \end{itemize}
+        \item \textbf{Solve for the Constants:} You now have a system of one or two linear equations for your constants ($C_1, C_2$). Solve this system to find their specific numerical values.
+        \item \textbf{Write the Final Solution:} Substitute the values you found for the constants back into your general solution. This final expression is the unique solution to the Cauchy Problem.
+    \end{enumerate}
 \end{itemize}
-
-\textbf{Steps for Cauchy Problems:}
-\begin{enumerate}
-    \item Solve ODE explicitly (if separable/linear).
-    \item Apply initial condition.
-    \item Identify blowup points (e.g., $u' = u^2 - 2u + 2$ $\to$ $u = 1 + \tan(x - 7)$ blows up at $x = 7 \pm \pi/2$).
-\end{enumerate}
-
-\textbf{Steps for Boundary Value Problems (BVP):}
-\begin{enumerate}
-    \item Solve characteristic equation (e.g., $r^2 + 2r + c = 0$).
-    \item Apply boundary conditions; solution unique iff homogeneous solution trivial.
-\end{enumerate}
-
-% Sequences Defined by Recurrence
-\subsubsection*{Sequences Defined by Recurrence}
-\textbf{Key Techniques:}
-\begin{itemize}
-    \item \textit{Monotone + Bounded $\implies$ Convergent:} Show $a_{n+1} \leq a_n$ and bounded below.
-    \item \textit{Fixed Points:} Solve $L = f(L)$; if $|f'(L)| < 1$, stable.
-    \item \textit{Asymptotic Behavior:} For $\sum a_n x^n$, radius $R = 1/\limsup |a_n|^{1/n}$.
-\end{itemize}
-
-\textbf{Steps:}
-\begin{enumerate}
-    \item Compute initial terms.
-    \item Verify monotonicity/boundedness.
-    \item If convergent, solve $L = f(L)$. \\
-    Example: $a_{n+1} = \sin a_n$, $a_0 = 2024$ $\to$ $a_n \searrow 0$.
-\end{enumerate}
-
-% Integral Computation and Estimation
-\subsubsection*{Integral Computation and Estimation}
-\textbf{Key Techniques:}
-\begin{itemize}
-    \item \textit{Substitution:} Simplify exponents (e.g., $t = \alpha x^2$).
-    \item \textit{Integration by Parts:} $\int u  dv = uv - \int v  du$.
-    \item \textit{Gamma Function:} $\int_0^\infty x^n e^{-\alpha x^2}  dx$ $\to$ use $t = \alpha x^2$.
-\end{itemize}
-
-\textbf{Steps:}
-\begin{enumerate}
-    \item Identify substitution to match standard forms.
-    \item For $[0, \infty)$, exploit convergence of $\Gamma(z)$. \\
-    Example: $\int_0^\infty x^{2n+1} e^{-\alpha x^2}  dx = \frac{n!}{2\alpha^{n+1}}$.
-\end{enumerate}
-
-% Lipschitz Functions and ODE Solutions
-\subsubsection*{Lipschitz Functions and ODE Solutions}
-\textbf{Key Techniques:}
-\begin{itemize}
-    \item \textit{Lipschitz Proof:} Show $|f'(y)|$ bounded.
-    \item \textit{Separable ODEs:} Direct integration.
-\end{itemize}
-
-\textbf{Steps for Cauchy Problems:}
-\begin{enumerate}
-    \item Verify Lipschitz condition (for uniqueness).
-    \item Solve ODE (e.g., $u' = |u| + 1$ $\to$ separate variables).
-    \item Apply initial condition.
-\end{enumerate}
-
-% Area and Region Calculations
-\subsubsection*{Area and Region Calculations}
-\textbf{Key Techniques:}
-\begin{itemize}
-    \item \textit{Integration:} Area $= \iint_E dx  dy$.
-    \item \textit{Iterated Integrals:} Fix $y$, integrate in $x$ (or vice versa).
-\end{itemize}
-
-\textbf{Steps:}
-\begin{enumerate}
-    \item Sketch region and find intersection points.
-    \item Express bounds (e.g., $E: 0 \leq y \leq \arctan x$, $x \leq \cos y$ $\implies x \in [\tan y, \cos y]$ for $y \in [0, y_0]$).
-    \item Compute $\int (\text{upper} - \text{lower})  dy$.
-\end{enumerate}
-
-% Inequalities and Function Analysis
-\subsubsection*{Inequalities and Function Analysis}
-\textbf{Key Techniques:}
-\begin{itemize}
-    \item \textit{Taylor Expansions:} Prove $e^{4x^2} > 1 + 8x^2$ via series.
-    \item \textit{Derivative Sign:} Show $g'(x) > 0$ for $g(x) \geq 0$.
-\end{itemize}
-
-\textbf{Steps:}
-\begin{enumerate}
-    \item Define auxiliary function $h(x) = f(x) - g(x)$.
-    \item Compute $h'(x)$ and analyze extrema.
-\end{enumerate}
-
-% Summary Flowchart
-\subsubsection*{Summary Flowchart for Problem-Solving}
-\begin{enumerate}
-    \item Classify problem type: Series, ODE, Integral, Sequence, Optimization, etc.
-    \item Select technique based on classification (reference table above).
-    \item Execute steps methodically.
-    \item Verify conditions (e.g., continuity for integration by parts).
-\end{enumerate}
 
 \subsubsection*{Fin :)}
 \end{document}
