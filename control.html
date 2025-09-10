@@ -6,7 +6,9 @@
             background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
             background-size: cover;
             color: #f8f9fa;
-            display: flex;
+        }
+        .container {
+            display: none; /* initially hidden */
         }
         #sidebar {
             width: 250px;
@@ -66,81 +68,88 @@
     </style>
 </head>
 <body>
-    <div id="sidebar">
-        <h1>PRISM</h1>
-        <a href="#" data-section="minecraft-section">Minecraft</a>
-        <a href="#" data-section="mathematica-section">Mathematica</a>
-        <a href="#" data-section="user-management-section" id="user-management-link" style="display: none;">User Management</a>
-        <a href="#" id="logoutButton" class="logout-button">Logout</a>
-        <a href="index.html" class="back-button">Go back</a>
-    </div>
-    <div id="mainContent">
-        <div class="permission-info">
-            <span id="permissionText">Perms: Admin</span>
+    <div class="container flex-container">
+        <div id="sidebar">
+            <h1>PRISM</h1>
+            <a href="#" data-section="minecraft-section">Minecraft</a>
+            <a href="#" data-section="mathematica-section">Mathematica</a>
+            <a href="#" data-section="user-management-section" id="user-management-link" style="display: none;">User Management</a>
+            <a href="#" id="logoutButton" class="logout-button">Logout</a>
+            <a href="index.html" class="back-button">Go back</a>
         </div>
+        <div id="mainContent">
+            <div class="permission-info">
+                <span id="permissionText">Perms: Admin</span>
+            </div>
 
-        <div id="minecraft-section" class="content-section">
-            <h2>Minecraft Control <span id="server-status-icon"></span></h2>
-            <div class="mc-controls">
-                <div class="mc-world-selector">
-                    <label for="world-select">Select World:</label>
-                    <select id="world-select">
-                        <option value="world1">World 1</option>
-                        <option value="world2">World 2</option>
+            <div id="minecraft-section" class="content-section">
+                <h2>Minecraft Control <span id="server-status-icon"></span></h2>
+                <div class="mc-controls">
+                    <div class="mc-world-selector">
+                        <label for="world-select">Select World:</label>
+                        <select id="world-select">
+                            <option value="world1">World 1</option>
+                            <option value="world2">World 2</option>
+                        </select>
+                    </div>
+                    <div class="mc-buttons">
+                        <button id="start-server">Start Server</button>
+                        <button id="stop-server">Stop Server</button>
+                    </div>
+                </div>
+                <div class="mc-whitelist">
+                    <h3>Whitelist</h3>
+                    <div class="whitelist-add">
+                        <input type="text" id="whitelist-username" placeholder="Username">
+                        <button id="add-whitelist">Add</button>
+                    </div>
+                </div>
+                <div class="user-lists">
+                    <div class="mc-active-users">
+                        <h3>Active Users</h3>
+                        <ul id="active-users-list"></ul>
+                    </div>
+                    <div class="mc-offline-users">
+                        <h3>Offline Users</h3>
+                        <ul id="offline-users-list"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mathematica-section" class="content-section">
+                <h2>Mathematica Control</h2>
+                <div class="mathematica-status">
+                    <p>Connection Status: <span id="math-connection-status">Disconnected</span></p>
+                    <p>Active Users: <span id="math-active-users">0</span></p>
+                </div>
+                <div class="mathematica-controls">
+                    <button id="start-tty">Start TTY</button>
+                    <button id="close-session">Close Session</button>
+                    <button id="interrupt-calc">Interrupt Calculation</button>
+                    <button id="clear-cache">Clear Cache</button>
+                </div>
+                <div id="mathematica-tty"></div>
+            </div>
+
+            <div id="user-management-section" class="content-section" style="display: none;">
+                <h2>User Management</h2>
+                <form id="addUserForm">
+                    <input type="email" id="newUserEmail" placeholder="Email" required>
+                    <select id="newUserPermissions" multiple required>
+                        <option value="matematica_op">Matematica OP</option>
+                        <option value="mc_op">Minecraft OP</option>
                     </select>
-                </div>
-                <div class="mc-buttons">
-                    <button id="start-server">Start Server</button>
-                    <button id="stop-server">Stop Server</button>
-                </div>
+                    <button type="submit">Add User</button>
+                </form>
+                <ul id="userList"></ul>
             </div>
-            <div class="mc-whitelist">
-                <h3>Whitelist</h3>
-                <div class="whitelist-add">
-                    <input type="text" id="whitelist-username" placeholder="Username">
-                    <button id="add-whitelist">Add</button>
-                </div>
-            </div>
-            <div class="user-lists">
-                <div class="mc-active-users">
-                    <h3>Active Users</h3>
-                    <ul id="active-users-list"></ul>
-                </div>
-                <div class="mc-offline-users">
-                    <h3>Offline Users</h3>
-                    <ul id="offline-users-list"></ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="mathematica-section" class="content-section">
-            <h2>Mathematica Control</h2>
-            <div class="mathematica-status">
-                <p>Connection Status: <span id="math-connection-status">Disconnected</span></p>
-                <p>Active Users: <span id="math-active-users">0</span></p>
-            </div>
-            <div class="mathematica-controls">
-                <button id="start-tty">Start TTY</button>
-                <button id="close-session">Close Session</button>
-                <button id="interrupt-calc">Interrupt Calculation</button>
-                <button id="clear-cache">Clear Cache</button>
-            </div>
-            <div id="mathematica-tty"></div>
-        </div>
-
-        <div id="user-management-section" class="content-section" style="display: none;">
-            <h2>User Management</h2>
-            <form id="addUserForm">
-                <input type="email" id="newUserEmail" placeholder="Email" required>
-                <select id="newUserPermissions" multiple required>
-                    <option value="matematica_op">Matematica OP</option>
-                    <option value="mc_op">Minecraft OP</option>
-                </select>
-                <button type="submit">Add User</button>
-            </form>
-            <ul id="userList"></ul>
         </div>
     </div>
+    <div class="turnstile-container">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ" data-callback="onTurnstileSuccess"></div>
+    </div>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="anti-bot.js"></script>
     <script src="prism-control.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 </body>
