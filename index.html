@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,11 +63,23 @@
             letter-spacing: 2px;
             color: #ff8c00;
             text-transform: uppercase;
+            position: relative;
         }
 
         .title .letter {
             display: inline-block;
             line-height: 1em;
+            opacity: 0;
+        }
+        
+        .slash {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: #ff8c00;
+            opacity: 0;
         }
 
         #description {
@@ -134,26 +145,60 @@
         };
         document.getElementById('description').innerHTML = descriptions[userLang.split('-')[0]] || descriptions['en'];
 
-        // Wrap every letter in a span
-        var textWrapper = document.querySelector('.title');
-        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        // Title animation
+        const title = document.querySelector('.title');
+        const originalText = title.textContent;
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-        anime.timeline({loop: true})
-        .add({
-            targets: '.title .letter',
-            scale: [4,1],
-            opacity: [0,1],
-            translateZ: 0,
-            easing: "easeOutExpo",
-            duration: 950,
-            delay: (el, i) => 70*i
-        }).add({
-            targets: '.title',
-            opacity: 0,
-            duration: 1000,
-            easing: "easeOutExpo",
-            delay: 1000
-        });
+        title.innerHTML = '';
+        for (let i = 0; i < originalText.length; i++) {
+            const letter = document.createElement('span');
+            letter.classList.add('letter');
+            letter.textContent = originalText[i];
+            title.appendChild(letter);
+        }
+        
+        const slash = document.createElement('div');
+        slash.classList.add('slash');
+        title.appendChild(slash);
+
+        function animateTitle() {
+            const letters = document.querySelectorAll('.title .letter');
+            
+            anime.timeline({
+                loop: false
+            })
+            .add({
+                targets: slash,
+                left: '100%',
+                opacity: [1, 0],
+                easing: 'easeInOutQuad',
+                duration: 1000
+            })
+            .add({
+                targets: letters,
+                opacity: 1,
+                easing: 'easeInOutQuad',
+                duration: 500,
+                delay: anime.stagger(50),
+                begin: () => {
+                    letters.forEach((letter, i) => {
+                        let interval = setInterval(() => {
+                            letter.textContent = chars[Math.floor(Math.random() * chars.length)];
+                        }, 50);
+                        setTimeout(() => {
+                            clearInterval(interval);
+                            letter.textContent = originalText[i];
+                        }, 500 + i * 50);
+                    });
+                }
+            }, '-=500');
+        }
+
+        // Run the animation on a loop
+        setInterval(animateTitle, 5000);
+        animateTitle();
+
 
         // 3D button effects
         const buttons = document.querySelectorAll('.nav a');
