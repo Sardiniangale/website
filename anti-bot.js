@@ -6,7 +6,7 @@ when the turnstile is successfully verified, the main content is displayed.
 
 async function onTurnstileSuccess(token) {
     try {
-        const response = await fetch('/turnstile', {
+        const response = await fetch('/functions/turnstile', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
