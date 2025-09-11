@@ -1,3 +1,4 @@
+
 /*
 this script is used to handle the cloudflare turnstile callback.
 when the turnstile is successfully verified, the main content is displayed.
@@ -5,13 +6,7 @@ when the turnstile is successfully verified, the main content is displayed.
 
 async function onTurnstileSuccess(token) {
     try {
-        const response = await fetch('/functions/turnstile', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ token })
-        });
+        const response = await fetch(`/functions/turnstile?token=${token}`);
         const data = await response.json();
         console.log('Turnstile verification response:', data); // Log the response
         if (data.success) {

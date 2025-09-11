@@ -1,7 +1,14 @@
-
 export async function onRequest(context) {
   const { request, env } = context;
-  const { token } = await request.json();
+  const url = new URL(request.url);
+  const token = url.searchParams.get('token');
+
+  if (!token) {
+    return new Response(JSON.stringify({ success: false, 'error-codes': ['missing-input-response'] }), {
+      headers: { 'Content-Type': 'application/json' },
+      status: 400
+    });
+  }
 
   const formData = new FormData();
   formData.append('secret', env.TURNSTILE_SECRET_KEY);
