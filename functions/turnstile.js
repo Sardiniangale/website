@@ -11,7 +11,7 @@ export async function onRequest(context) {
   }
 
   const formData = new FormData();
-  formData.append('secret', env.TURNSTILE_SECRET_KEY);
+  formData.append('secret', env.CLOUDFLARE_SITE_KEY);
   formData.append('response', token);
 
   const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
