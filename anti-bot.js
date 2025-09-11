@@ -1,4 +1,3 @@
-
 /*
 this script is used to handle the cloudflare turnstile callback.
 when the turnstile is successfully verified, the main content is displayed.
@@ -14,6 +13,7 @@ async function onTurnstileSuccess(token) {
             body: JSON.stringify({ token })
         });
         const data = await response.json();
+        console.log('Turnstile verification response:', data); // Log the response
         if (data.success) {
             // set item in local storage
             localStorage.setItem('turnstile-verified', 'true');
