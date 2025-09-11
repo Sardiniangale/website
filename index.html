@@ -34,53 +34,96 @@
 
     <title>Index</title>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
  
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
-            background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
-            background-size: cover;
+            background-color: #1a1a1a;
             color: #f8f9fa;
+            overflow: hidden;
         }
+
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
         .container {
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background: rgba(34, 34, 34, 0.9);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            background: rgba(34, 34, 34, 0.7);
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
             border-radius: 15px;
             display: none; /* initially hidden */
+            border: 1px solid rgba(255, 140, 0, 0.5);
         }
-        img {
-            width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        
+        h1 {
+            font-size: 3.5em;
+            letter-spacing: 3px;
+            color: #ff8c00;
+            text-shadow: 0 0 10px #ff8c00, 0 0 20px #ff8c00, 0 0 30px #ff2e63;
+            animation: flicker 1.5s infinite alternate;
         }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                0 0 4px #ff8c00,
+                0 0 11px #ff8c00,
+                0 0 19px #ff8c00,
+                0 0 40px #ff2e63,
+                0 0 80px #ff2e63,
+                0 0 90px #ff2e63,
+                0 0 100px #ff2e63,
+                0 0 150px #ff2e63;
+            }
+            20%, 24%, 55% {        
+                text-shadow: none;
+            }
+        }
+
+        #description {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
         .nav {
-            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
+
         .nav a {
-            display: block;
-            padding: 15px;
-            margin: 10px;
-            background: linear-gradient(45deg, #ff8c00, #ff2e63);
+            padding: 20px;
+            background: linear-gradient(145deg, #ff8c00, #ff2e63);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             font-weight: bold;
-            transition: 0.3s ease;
+            transition: all 0.3s ease;
+            flex-basis: calc(50% - 40px);
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            border: 2px solid transparent;
         }
+
         .nav a:hover {
-            background: linear-gradient(45deg, #ff2e63, #ff8c00);
-            transform: scale(1.05);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.8);
+            border-color: #ff8c00;
         }
-        h1 {
-            font-size: 2.5em;
-            letter-spacing: 2px;
-        }
+
         .turnstile-container {
             display: flex;
             justify-content: center;
@@ -90,9 +133,10 @@
     </style>
 </head>
 <body>
+    <canvas id="matrix-canvas"></canvas>
     <div class="container">
-        <h1>Index</h1>
-        <img src="public/images/pexels-photo-1040414.jpeg" >
+        <h1>Giacomo's Hub</h1>
+        <p id="description"></p>
         <div class="nav">
             <a href="edu.html">University Notes</a>
             <a href="projects.html">Projects</a>
@@ -105,5 +149,53 @@
     </div>
 
     <script src="anti-bot.js"></script>
+    <script>
+        // Language detection and description
+        const userLang = navigator.language || navigator.userLanguage;
+        const descriptions = {
+            'en': "Hi, this is my personal site. I use it for various things, and it's still very much in its early stages of development. Any bugs or issues can be mailed to <a href='mailto:bugs@sardiniangale.org'>bugs@sardiniangale.org</a>.",
+            'it': "Ciao, questo è il mio sito personale. Lo uso per varie cose, ed è ancora in una fase iniziale di sviluppo. Eventuali bug o problemi possono essere segnalati a <a href='mailto:bugs@sardiniangale.org'>bugs@sardiniangale.org</a>.",
+            'fr': "Salut, c'est mon site personnel. Je l'utilise pour diverses choses, et il est encore à ses débuts de développement. Tout bug ou problème peut être envoyé par e-mail à <a href='mailto:bugs@sardiniangale.org'>bugs@sardiniangale.org</a>.",
+            'es': "Hola, este es mi sitio personal. Lo uso para varias cosas, y todavía está en sus primeras etapas de desarrollo. Cualquier error o problema puede ser enviado por correo a <a href='mailto:bugs@sardiniangale.org'>bugs@sardiniangale.org</a>.",
+            'de': "Hallo, das ist meine persönliche Seite. Ich benutze sie für verschiedene Dinge, und sie befindet sich noch in einem sehr frühen Entwicklungsstadium. Fehler oder Probleme können an <a href='mailto:bugs@sardiniangale.org'>bugs@sardiniangale.org</a> gesendet werden."
+        };
+        document.getElementById('description').innerHTML = descriptions[userLang.split('-')[0]] || descriptions['en'];
+
+        // Matrix rain effect
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}';
+        const fontSize = 18;
+        const columns = canvas.width / fontSize;
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(26, 26, 26, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#ff8c00'; // Orange color for the matrix rain
+            ctx.font = fontSize + 'px Orbitron';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 33);
+    </script>
 </body>
 </html>
