@@ -1,9 +1,15 @@
-
 // auth.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('customGoogleButton').addEventListener('click', () => {
-        gapi.auth2.getAuthInstance().signIn();
+    // initialize google auth
+    gapi.load('auth2', () => {
+        gapi.auth2.init({
+            client_id: document.querySelector('meta[name="google-signin-client_id"]').content
+        }).then(() => {
+            document.getElementById('customGoogleButton').addEventListener('click', () => {
+                gapi.auth2.getAuthInstance().signIn();
+            });
+        });
     });
 });
 
@@ -11,7 +17,7 @@ function onSignIn(googleUser) {
   const id_token = googleUser.getAuthResponse().id_token;
 
   // send the token to the cloudflare worker for verification
-  fetch('/auth', {
+  fetch('/functions/auth', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -21,8 +27,6 @@ function onSignIn(googleUser) {
   .then(response => response.json())
   .then(data => {
     if (data.success) {
-      // store the session token in local storage
-      localStorage.setItem('session_token', data.token);
       // redirect to the control panel
       window.location.href = 'control.html';
     } else {

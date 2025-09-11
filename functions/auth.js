@@ -17,8 +17,9 @@ export async function onRequest(context) {
       const sessionToken = crypto.randomUUID();
       await env.SESSIONS.put(sessionToken, data.email, { expirationTtl: 3600 });
       await env.USERS.put(data.email, JSON.stringify({ permissions: ['admin'] }));
-      return new Response(JSON.stringify({ success: true, token: sessionToken }), {
-        headers: { 'Content-Type': 'application/json' },
+      const cookie = `__session=${sessionToken}; HttpOnly; Secure; Path=/; Max-Age=3600;`;
+      return new Response(JSON.stringify({ success: true }), {
+        headers: { 'Set-Cookie': cookie, 'Content-Type': 'application/json' },
       });
     }
 
@@ -27,8 +28,9 @@ export async function onRequest(context) {
     if (user) {
       const sessionToken = crypto.randomUUID();
       await env.SESSIONS.put(sessionToken, data.email, { expirationTtl: 3600 });
-      return new Response(JSON.stringify({ success: true, token: sessionToken }), {
-        headers: { 'Content-Type': 'application/json' },
+      const cookie = `__session=${sessionToken}; HttpOnly; Secure; Path=/; Max-Age=3600;`;
+      return new Response(JSON.stringify({ success: true }), {
+        headers: { 'Set-Cookie': cookie, 'Content-Type': 'application/json' },
       });
     }
   }

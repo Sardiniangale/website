@@ -1,18 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const token = localStorage.getItem('session_token');
-
-    if (!token) {
-        window.location.href = 'prism.html';
-        return;
-    }
-
     // fetch user data from a protected endpoint
-    fetch('/api/user', {
-        headers: {
-            'Authorization': `Bearer ${token}`
+    fetch('/functions/api/user')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Not authenticated');
         }
+        return response.json();
     })
-    .then(response => response.json())
     .then(user => {
         const permissionText = document.getElementById('permissionText');
         const sidebar = document.getElementById('sidebar');
@@ -32,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         logoutButton.addEventListener('click', (event) => {
             event.preventDefault();
-            localStorage.removeItem('session_token');
+            // clear the session cookie by setting its expiration to a past date
+            document.cookie = "__session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             window.location.href = 'prism.html';
         });
 
@@ -65,11 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // list users
             const listUsers = () => {
-                fetch('/api/users', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                })
+                fetch('/functions/api/users')
                 .then(response => response.json())
                 .then(users => {
                     userList.innerHTML = '';
@@ -79,10 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         const deleteButton = document.createElement('button');
                         deleteButton.textContent = 'Remove';
                         deleteButton.addEventListener('click', () => {
-                            fetch('/api/users', {
+                            fetch('/functions/api/users', {
                                 method: 'DELETE',
                                 headers: {
-                                    'Authorization': `Bearer ${token}`,
                                     'Content-Type': 'application/json'
                                 },
                                 body: JSON.stringify({ email: user.name })
@@ -101,10 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
             addUserForm.addEventListener('submit', (event) => {
                 event.preventDefault();
                 const permissions = Array.from(newUserPermissions.selectedOptions).map(option => option.value);
-                fetch('/api/users', {
+                fetch('/functions/api/users', {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ email: newUserEmail.value, permissions })
@@ -130,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Initial section to show
-        if (user.permissions.includes('admin') || user.permissions.includes('mc_op')) {
+        if (.permissions.includes('admin') || user.permissions.includes('mc_op')) {
             showSection('minecraft-section');
         } else if (user.permissions.includes('matematica_op')) {
             showSection('mathematica-section');

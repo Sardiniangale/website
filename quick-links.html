@@ -1,57 +1,36 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me</title>
+    <title>Quick Links</title>
     <link rel="icon" type="image/x-icon" href="public/images/icon.ico">
     <style>
         body {
             font-family: 'Arial', sans-serif;
+            text-align: center;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
             background-size: cover;
             color: #f8f9fa;
         }
         .container {
-            display: none; /* initially hidden */
-            width: 80%;
             max-width: 800px;
+            margin: 50px auto;
             padding: 20px;
-            background: #222;
+            background: rgba(34, 34, 34, 0.9);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            text-align: center;
+            display: none; /* initially hidden */
         }
         h1 {
             font-size: 2.5em;
             letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #ff8c00;
-            margin-bottom: 20px;
         }
-        .contact-info {
+        .nav {
             margin-top: 20px;
-            font-size: 1.2em;
-        }
-        .contact-info p {
-            margin: 15px 0;
-        }
-        .contact-info a {
-            color: #f8f9fa;
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px solid #ff8c00;
-            transition: color 0.3s, border-bottom-color 0.3s;
-        }
-        .contact-info a:hover {
-            color: #ff8c00;
-            border-bottom-color: #ff2e63;
         }
         .nav a {
             display: block;
@@ -78,18 +57,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>Contact Me</h1>
-        <div class="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:info@sardiniangale.org">info@sardiniangale.org</a></p>
-            <p><strong>Location:</strong> Pisa, Italy</p>
-        </div>
+        <h1>Quick Links & Bookmarks</h1>
         <div class="nav">
-            <a href="index.html">Go back</a>
+            <a href="https://www.google.com" target="_blank">Google</a>
+            <a href="https://www.youtube.com" target="_blank">YouTube</a>
+            <a href="https://www.github.com" target="_blank">GitHub</a>
+            <a href="index.html">Go back home</a>
         </div>
     </div>
     <div class="turnstile-container">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ" data-callback="onTurnstileSuccess"></div>
     </div>
+
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="anti-bot.js"></script>
 </body>
