@@ -1,4 +1,3 @@
-
 /*
 this script is used to handle the cloudflare turnstile callback.
 when the turnstile is successfully verified, the main content is displayed.
@@ -24,7 +23,15 @@ async function onTurnstileSuccess(token) {
                 }
             });
         } else {
-            alert('Verification failed. Please try again.');
+            // Check for specific error codes from the backend
+            if (data.error) {
+                alert(`Verification failed: ${data.error}. Details: ${data.details || 'N/A'}`);
+            } else if (data['error-codes'] && data['error-codes'].length > 0) {
+                alert(`Verification failed with error: ${data['error-codes'][0]}`);
+            }
+            else {
+                alert('Verification failed. Please try again.');
+            }
         }
     } catch (error) {
         console.error('Error during verification:', error);
@@ -49,3 +56,12 @@ function checkTurnstileVerification() {
 }
 
 checkTurnstileVerification();
+
+function renderTurnstile() {
+    if (typeof turnstile !== 'undefined') {
+        turnstile.render('#turnstile-widget', {
+            sitekey: '0x4AAAAAABjjUJDmc_m8M2IQ',
+            callback: onTurnstileSuccess,
+        });
+    }
+}

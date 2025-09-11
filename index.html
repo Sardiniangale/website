@@ -33,7 +33,7 @@
     <meta name="theme-color" content="#222222">
 
     <title>sardiniangale</title>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=renderTurnstile" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
  
@@ -129,7 +129,7 @@
         </div>
     </div>
     <div class="turnstile-container">
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ" data-callback="onTurnstileSuccess"></div>
+        <div id="turnstile-widget" class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ"></div>
     </div>
 
     <script src="anti-bot.js"></script>
