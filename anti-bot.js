@@ -34,9 +34,10 @@ async function onTurnstileSuccess(token) {
 
 function checkTurnstileVerification() {
     if (localStorage.getItem('turnstile-verified') === 'true') {
-        // hide the turnstile container
-        document.querySelector('.turnstile-container').style.display = 'none';
-        // show the main content
+        const turnstileContainer = document.querySelector('.turnstile-container');
+        if (turnstileContainer) {
+            turnstileContainer.style.display = 'none';
+        }
         const containers = document.querySelectorAll('.container');
         containers.forEach(container => {
             if (container.classList.contains('flex-container')) {
@@ -48,4 +49,5 @@ function checkTurnstileVerification() {
     }
 }
 
-checkTurnstileVerification();
+// Wait for the DOM to be fully loaded before checking the verification status
+document.addEventListener('DOMContentLoaded', checkTurnstileVerification);
