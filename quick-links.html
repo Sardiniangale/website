@@ -116,10 +116,11 @@
         <a href="index.html" class="back-button">Go back home</a>
     </div>
     <div class="turnstile-container">
-        <div id="turnstile-widget" class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ"></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAABjjUJDmc_m8M2IQ" data-callback="onTurnstileSuccess"></div>
     </div>
 
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=renderTurnstile" async defer></script>
     <script src="anti-bot.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    
 </body>
 </html>
