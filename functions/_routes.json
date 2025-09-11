@@ -1,5 +1,5 @@
 {
   "version": 1,
-  "include": ["/control.html", "/api/*", "/functions/*"],
+  "include": ["/control.html", "/api/*", "/turnstile"],
   "exclude": []
 }

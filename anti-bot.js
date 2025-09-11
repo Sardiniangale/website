@@ -1,6 +1,12 @@
 async function onTurnstileSuccess(token) {
     try {
-        const response = await fetch(`/functions/turnstile?token=${token}`);
+        const response = await fetch('/turnstile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token })
+        });
         const data = await response.json();
         console.log('Turnstile verification response:', data); // Log the response
         if (data.success) {
