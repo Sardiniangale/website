@@ -157,6 +157,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             listLatexFiles();
 
+            const saveButton = document.getElementById('save-latex');
+            saveButton.textContent = 'Submit for Review (Coming Soon)';
+            saveButton.disabled = true;
+            saveButton.style.background = '#888'; // Disabled look
+
+            /*
             document.getElementById('save-latex').addEventListener('click', () => {
                 if (selectedFile) {
                     fetch('/functions/api/latex/file', {
@@ -168,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(message => alert(message));
                 }
             });
+            */
         }
 
         // Initial section to show
