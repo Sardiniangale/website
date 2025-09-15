@@ -102,13 +102,15 @@
         }
     </style>
 
-    <meta name="google-signin-client_id" content="1000888355031-4803rstdfju0qv2nosisninbvhtj6n3m.apps.googleusercontent.com">
+    
 </head>
 <body>
     <div class="container">
         <h1>PRISM Login</h1>
-        <div id="customGoogleButton" class="custom-google-button">Login with Google</div>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Login with Email</button>
+        </form>
         <a href="status.html" class="back-button">Spectator</a>
         <a href="quick-links.html" class="back-button">Quick Links</a>
         <a href="index.html" class="back-button">Go back home</a>
@@ -118,7 +120,7 @@
     </div>
     <script src="anti-bot.js"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://auth.magic.link/sdk"></script>
     <script src="src/auth.js"></script>
     
 </body>
