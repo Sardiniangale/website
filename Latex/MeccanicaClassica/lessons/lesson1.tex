@@ -1,0 +1,45 @@
+\section*{Class Information}
+
+\subsection*{Course Outline}
+To be added.
+
+\subsection*{Office Hours}
+Please add the office hours details here.
+
+\section{Recap of Basic Concepts}
+
+\subsection{Kinematics}
+The position of a particle is described by a vector $\mathbf{x}(t)$, which is a function of time. The velocity of the particle is the time derivative of the position:
+\begin{equation}
+    \mathbf{v}(t) = \frac{d\mathbf{x}}{dt} = \dot{\mathbf{x}}(t)
+\end{equation}
+The acceleration is the time derivative of the velocity:
+\begin{equation}
+    \mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = \ddot{\mathbf{x}}(t)
+\end{equation}
+
+\subsection{Angular Momentum}
+To be added.
+
+\section{Dynamical Systems of N Particles}
+
+For a system of $N$ particles, the position of the $a$-th particle is given by $\mathbf{x}_a(t)$, where $a=1, \dots, N$. The equation of motion for the $a$-th particle is given by Newton's second law:
+\begin{equation}
+    m_a \ddot{\mathbf{x}}_a = \mathbf{F}_a
+\end{equation}
+where $m_a$ is the mass of the $a$-th particle and $\mathbf{F}_a$ is the total force acting on it.
+
+The total force $\mathbf{F}_a$ can be split into external forces, $\mathbf{F}_a^e$, and internal forces, $\mathbf{F}_{ab}$, which are the forces exerted by particle $b$ on particle $a$:
+\begin{equation}
+    \mathbf{F}_a = \mathbf{F}_a^e + \sum_{b \neq a} \mathbf{F}_{ab}
+\end{equation}
+
+The total momentum of the system is the sum of the individual momenta:
+\begin{equation}
+    \mathbf{P} = \sum_{a=1}^N \mathbf{p}_a = \sum_{a=1}^N m_a \dot{\mathbf{x}}_a
+\end{equation}
+
+The time derivative of the total momentum is equal to the sum of all external forces acting on the system. Assuming that the internal forces cancel out (due to Newton's third law, $\mathbf{F}_{ab} = -\mathbf{F}_{ba}$):
+\begin{equation}
+    \frac{d\mathbf{P}}{dt} = \sum_{a=1}^N \mathbf{F}_a^e
+\end{equation}

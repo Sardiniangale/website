@@ -118,11 +118,65 @@ document.addEventListener('DOMContentLoaded', () => {
             mathematicaSection.style.display = 'none';
         }
 
+        // LaTeX controls
+        const latexSection = document.getElementById('latex-section');
+        if (!user.permissions.includes('admin') && !user.permissions.includes('latex_op')) {
+            latexSection.style.display = 'none';
+        } else {
+            const latexEditor = CodeMirror(document.getElementById('latex-editor'), {
+                mode: 'stex',
+                lineNumbers: true,
+                theme: 'default'
+            });
+
+            const latexFileBrowser = document.getElementById('latex-file-browser');
+            let selectedFile = '';
+
+            const listLatexFiles = () => {
+                fetch('/functions/api/latex/files')
+                    .then(response => response.json())
+                    .then(files => {
+                        latexFileBrowser.innerHTML = '';
+                        files.forEach(file => {
+                            const fileElement = document.createElement('a');
+                            fileElement.href = '#';
+                            fileElement.textContent = file;
+                            fileElement.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                selectedFile = file;
+                                fetch(`/functions/api/latex/file?name=${file}`)
+                                    .then(response => response.text())
+                                    .then(content => {
+                                        latexEditor.setValue(content);
+                                    });
+                            });
+                            latexFileBrowser.appendChild(fileElement);
+                        });
+                    });
+            };
+
+            listLatexFiles();
+
+            document.getElementById('save-latex').addEventListener('click', () => {
+                if (selectedFile) {
+                    fetch('/functions/api/latex/file', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: selectedFile, content: latexEditor.getValue() })
+                    })
+                    .then(response => response.text())
+                    .then(message => alert(message));
+                }
+            });
+        }
+
         // Initial section to show
-        if (.permissions.includes('admin') || user.permissions.includes('mc_op')) {
+        if (user.permissions.includes('admin') || user.permissions.includes('mc_op')) {
             showSection('minecraft-section');
         } else if (user.permissions.includes('matematica_op')) {
             showSection('mathematica-section');
+        } else if (user.permissions.includes('latex_op')) {
+            showSection('latex-section');
         }
     })
     .catch(() => {
