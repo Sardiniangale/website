@@ -19,7 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const data = await response.json();
                 if (data.success) {
-                    window.location.href = 'control.html';
+                    setTimeout(() => {
+                        window.location.href = 'control.html';
+                    }, 500);
                 } else {
                     alert('You are not authorized to access this page.');
                 }
