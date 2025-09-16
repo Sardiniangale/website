@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
     .catch((err) => {
-        alert(`Authentication failed: ${err.message}`);
+        sessionStorage.setItem('loginError', err.message);
         window.location.href = 'prism.html';
     });
 });
