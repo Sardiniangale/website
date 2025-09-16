@@ -2,3 +2,12 @@ name = "website"
 pages_build_output_dir = "."
 compatibility_date = "2025-09-16"
 compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "SESSIONS"
+id = "YOUR_SESSIONS_NAMESPACE_ID_HERE"
+
+[[kv_namespaces]]
+binding = "USERS"
+id = "aa916b1a09154adaa1e843f81e1ad850"
+
