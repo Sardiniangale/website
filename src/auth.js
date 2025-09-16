@@ -1,40 +1,32 @@
-// auth.js
-
 document.addEventListener('DOMContentLoaded', () => {
-    // initialize google auth
-    gapi.load('auth2', () => {
-        gapi.auth2.init({
-            client_id: document.querySelector('meta[name="google-signin-client_id"]').content
-        }).then(() => {
-            document.getElementById('customGoogleButton').addEventListener('click', () => {
-                gapi.auth2.getAuthInstance().signIn();
-            });
-        });
+    const magic = new Magic('pk_live_B7A8FE1826EFD9F9');
+    const loginForm = document.getElementById('login-form');
+    const emailInput = document.getElementById('email');
+
+    loginForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const email = emailInput.value;
+        if (email) {
+            try {
+                const didToken = await magic.auth.loginWithMagicLink({ email });
+                const response = await fetch('/functions/magic', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ didToken }),
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    window.location.href = 'control.html';
+                } else {
+                    alert('You are not authorized to access this page.');
+                }
+            } catch (error) {
+                console.error('Magic link login failed:', error);
+                alert('Login failed. Please try again.');
+            }
+        }
     });
 });
-
-function onSignIn(googleUser) {
-  const id_token = googleUser.getAuthResponse().id_token;
-
-  // send the token to the cloudflare worker for verification
-  fetch('/functions/auth', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ token: id_token }),
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.success) {
-      // redirect to the control panel
-      window.location.href = 'control.html';
-    } else {
-      // sign the user out
-      const auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(() => {
-        alert('you are not authorized to access this page.');
-      });
-    }
-  });
-}
