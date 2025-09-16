@@ -31,7 +31,14 @@ export async function onRequest(context) {
             }
         }
 
-        return new Response(JSON.stringify({ success: false }), {
+        return new Response(JSON.stringify({
+            success: false,
+            debug: {
+                emailFromMagic: email,
+                adminEmailFromEnv: env.ADMIN_EMAIL,
+                isMatch: email === env.ADMIN_EMAIL
+            }
+        }), {
             status: 401,
             headers: { 'Content-Type': 'application/json' },
         });
