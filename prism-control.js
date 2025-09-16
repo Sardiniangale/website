@@ -187,7 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
     .catch((err) => {
-        sessionStorage.setItem('loginError', err.message);
-        window.location.href = 'prism.html';
+        document.body.innerHTML = `<h1 style="color: red; font-family: monospace;">Authentication Error: ${err.message}</h1>`;
     });
 });
