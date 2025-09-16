@@ -1,0 +1,8 @@
+{
+  "name": "website-functions",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@magic-sdk/admin": "^2.7.0"
+  }
+}
