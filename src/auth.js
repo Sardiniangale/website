@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (email) {
             try {
                 const didToken = await magic.auth.loginWithMagicLink({ email });
-                const response = await fetch('/functions/magic', {
+                const response = await fetch('/magic', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
