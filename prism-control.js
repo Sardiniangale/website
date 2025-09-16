@@ -186,7 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
             showSection('latex-section');
         }
     })
-    .catch(() => {
+    .catch((err) => {
+        sessionStorage.setItem('loginError', err.message);
         window.location.href = 'prism.html';
     });
 });

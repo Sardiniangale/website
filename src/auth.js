@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const loginError = sessionStorage.getItem('loginError');
+    if (loginError) {
+        const errorDiv = document.createElement('div');
+        errorDiv.style.color = 'red';
+        errorDiv.style.marginBottom = '15px';
+        errorDiv.textContent = `Authentication Error: ${loginError}`;
+        const container = document.querySelector('.container');
+        container.insertBefore(errorDiv, container.firstChild);
+        sessionStorage.removeItem('loginError');
+    }
+
     const magic = new Magic('pk_live_B7A8FE1826EFD9F9');
     const loginForm = document.getElementById('login-form');
     const emailInput = document.getElementById('email');
