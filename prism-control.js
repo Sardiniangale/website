@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('/functions/api/user')
     .then(response => {
         if (!response.ok) {
-            return response.json().then(errorData => {
-                throw new Error(errorData.error || 'Not authenticated');
-            });
+            throw new Error('Not authenticated');
         }
         return response.json();
     })
@@ -188,8 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showSection('latex-section');
         }
     })
-    .catch((err) => {
-        sessionStorage.setItem('loginError', err.message);
+    .catch(() => {
         window.location.href = 'prism.html';
     });
 });

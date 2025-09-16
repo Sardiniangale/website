@@ -1,23 +1,24 @@
 export async function onRequest(context) {
   const { request, env } = context;
+  const cookie = request.headers.get('cookie');
   if (!cookie) {
-    return new Response(JSON.stringify({ error: 'Not authenticated: No cookie header found' }), { status: 401 });
+    return new Response(JSON.stringify({ error: 'Not authenticated' }), { status: 401 });
   }
 
   const sessionTokenMatch = cookie.match(/__session=([^;]+)/);
   if (!sessionTokenMatch) {
-    return new Response(JSON.stringify({ error: 'Not authenticated: No session token in cookie' }), { status: 401 });
+    return new Response(JSON.stringify({ error: 'Not authenticated' }), { status: 401 });
   }
 
   const sessionToken = sessionTokenMatch[1];
   const email = await env.SESSIONS.get(sessionToken);
   if (!email) {
-    return new Response(JSON.stringify({ error: 'Invalid session: Session not found in KV' }), { status: 401 });
+    return new Response(JSON.stringify({ error: 'Invalid session' }), { status: 401 });
   }
 
   const userData = await env.USERS.get(email);
   if (!userData) {
-    return new Response(JSON.stringify({ error: 'User not found in KV' }), { status: 401 });
+    return new Response(JSON.stringify({ error: 'User not found' }), { status: 401 });
   }
 
   const { permissions } = JSON.parse(userData);
