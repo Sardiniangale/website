@@ -5,7 +5,7 @@ compatibility_flags = ["nodejs_compat"]
 
 [[kv_namespaces]]
 binding = "SESSIONS"
-id = "YOUR_SESSIONS_NAMESPACE_ID_HERE"
+id = "d0601ca52ef3433996556d537297a14c"
 
 [[kv_namespaces]]
 binding = "USERS"
