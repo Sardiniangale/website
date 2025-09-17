@@ -15,7 +15,7 @@ export async function onRequest(context) {
                 await env.SESSIONS.put(sessionToken, email, { expirationTtl: 3600 });
                 await env.USERS.put(email, JSON.stringify({ permissions: ['admin'] }));
                 const cookie = `__session=${sessionToken}; HttpOnly; Secure; Path=/; Max-Age=3600;`;
-                return new Response(JSON.stringify({ success: true }), {
+                return new Response(JSON.stringify({ success: true, user: { permissions: ['admin'] } }), {
                     headers: { 'Set-Cookie': cookie, 'Content-Type': 'application/json' },
                 });
             }
