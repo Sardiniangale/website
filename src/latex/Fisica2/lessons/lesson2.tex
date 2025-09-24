@@ -1,35 +1,25 @@
-\section{The Electric Field}
+\section*{Lesson 2: Electric Flux and Gauss's Law}
 
-The electric field (\textit{campo elettrico}) is a vector field representing the force per unit charge. It extends the concept of Coulomb's force (\textit{forza di Coulomb}) to describe the influence of charges in space.
-
-The electric field \(\vec{E}\) at a point is defined as the force \(\vec{F}\) on a test charge (\textit{carica di prova}) \(q_0\) at that point, divided by the charge. The limit as \(q_0 \to 0\) is taken to not disturb the source charge:
+The concept of electric flux quantifies the flow of an electric field (campo elettrico) through a surface. For a uniform electric field $\vec{E}$ and a flat surface area $\vec{A}$, the flux is the scalar product $\Phi_E = \vec{E} \cdot \vec{A}$. For non-uniform fields and curved surfaces, the flux is found by integrating the field over the surface:
 \begin{equation}
-    \vec{E} = \lim_{q_0 \to 0} \frac{\vec{F}}{q_0}
+    \Phi_E = \int_S \vec{E} \cdot d\vec{A}
 \end{equation}
-The unit is Newtons per Coulomb (N/C), or Volts per meter (V/m).
+This integral effectively sums the component of the electric field perpendicular to the surface at every point.
 
-For a single point charge (\textit{carica puntiforme}) \(Q\) at the origin, the electric field is:
+Gauss's Law (Legge di Gauss), a cornerstone of electrostatics (elettrostatica) and one of the four fundamental Maxwell's Equations (Equazioni di Maxwell), relates the electric flux through a closed surface (superficie chiusa) to the net electric charge enclosed within it. The law states that the net electric flux is directly proportional to the enclosed charge.
+
+In its integral form, Gauss's Law is expressed as:
 \begin{equation}
-    \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0} \frac{Q}{r^2} \hat{r}
+    \Phi_E = \oint_S \vec{E} \cdot d\vec{A} = \frac{Q_{enc}}{\epsilon_0}
 \end{equation}
-where \(\hat{r}\) is the radial unit vector (\textit{versore}). For a charge \(Q_1\) at \(\vec{r}_1\), the field at \(\vec{r}\) is:
+The integral is performed over a conceptual closed surface known as a Gaussian surface (superficie Gaussiana), and $Q_{enc}$ is the total charge it encloses. By applying the divergence theorem (teorema della divergenza), which connects the surface integral of a vector field to the volume integral of its divergence, we can derive the differential form of Gauss's Law:
 \begin{equation}
-    \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0} \frac{Q_1}{|\vec{r} - \vec{r}_1|^3} (\vec{r} - \vec{r}_1)
+    
+\nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}
 \end{equation}
+Here, $\rho$ represents the volume charge density. This form locally relates the divergence of the electric field to the charge density at that point.
 
-The superposition principle (\textit{principio di sovrapposizione}) states that the total electric field from multiple charges is their vector sum.
-
-Field lines (\textit{linee di campo}) are used to visualize the electric field. They are tangent to the field vector at every point, originate from positive charges, and terminate on negative charges or at infinity. Their density indicates the field's strength.
-
-For continuous charge distributions (\textit{distribuzioni continue di carica}) (linear \(\lambda\), surface \(\sigma\), or volume \(\rho\)), the field is the integral of the contributions from each infinitesimal charge element. For a volume distribution:
+A key application of Gauss's Law is to calculate electric fields in situations with high symmetry. By choosing a Gaussian surface that mirrors the symmetry of the charge distribution (distribuzione di carica), the flux integral becomes simple to solve. For example, to find the field from an infinite line of charge with a uniform linear charge density (densità di carica lineare) $\lambda$, we use a cylindrical Gaussian surface. The symmetry dictates that the electric field must point radially outward. The flux through the top and bottom caps of the cylinder is zero, and the flux through the side wall is $E \cdot (2\pi r L)$. The enclosed charge is $\lambda L$. Applying Gauss's Law, $E (2\pi r L) = \lambda L / \epsilon_0$, yields the field:
 \begin{equation}
-    \vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0} \int_V \frac{\rho(\vec{r}')}{|\vec{r} - \vec{r}'|^3} (\vec{r} - \vec{r}') dV'
+    E = \frac{\lambda}{2\pi\epsilon_0 r}
 \end{equation}
-
-For an infinite straight wire (\textit{filo rettilineo infinito}) with uniform charge density \(\lambda\), the field is \(E = \frac{\lambda}{2\pi\epsilon_0 z}\) at distance \(z\). For a charged ring (\textit{anello carico}) of radius \(R\) and charge \(Q\), the axial field is \(E_z = \frac{1}{4\pi\epsilon_0} \frac{Qz}{(z^2 + R^2)^{3/2}}\). For a uniformly charged disk (\textit{disco carico}) of radius \(R\) and density \(\sigma\), the axial field is \(E_z = \frac{\sigma}{2\epsilon_0} \left(1 - \frac{z}{\sqrt{z^2 + R^2}}\right)\). For an infinite plane (\textit{piano infinito}), the field is uniform (\textit{campo uniforme}): \(E = \frac{\sigma}{2\epsilon_0}\).
-
-Gauss's Law (\textit{teorema di Gaus}) relates the electric flux (\textit{flusso}), \(\Phi_E\), through a closed surface (\textit{superficie chiusa}) to the enclosed charge \(Q_{int}\):
-\begin{equation}
-    \Phi_E = \oint_S \vec{E} \cdot d\vec{S} = \frac{Q_{int}}{\epsilon_0}
-\end{equation}
-where \(Q_{int}\) is the total internal charge (\textit{cariche interne}).

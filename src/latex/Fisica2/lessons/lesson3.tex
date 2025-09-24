@@ -1,0 +1,17 @@
+\section*{Lesson 3: Applications of Gauss's Law}
+
+Gauss's Law is a powerful tool for calculating the electric field for charge distributions with a high degree of symmetry, such as spherical, cylindrical, or planar symmetry. The symmetry of the charge density \(\rho\) is inherited by the electric field \(\vec{E}\), which simplifies the calculation.
+
+A classic example is the field of a uniformly charged sphere of radius \(R\) and total charge \(Q\). Due to spherical symmetry (simmetria sferica), the electric field must be radial, \(\vec{E} = E(r)\hat{r}\). By choosing a spherical Gaussian surface of radius \(r\), the flux integral simplifies to \(\oint_S \vec{E} \cdot d\vec{S} = E(r) \cdot (4\pi r^2)\).
+Outside the sphere (\(r > R\)), the enclosed charge is the total charge \(Q\). Applying Gauss's law gives \(E(r) = \frac{1}{4\pi\epsilon_0} \frac{Q}{r^2}\), which is identical to the field of a point charge (carica puntiforme) \(Q\) at the origin.
+Inside the sphere (\(r \le R\)), the enclosed charge is only the fraction of charge within the radius \(r\), \(Q_{\text{int}} = Q \frac{r^3}{R^3}\). Gauss's law then yields \(E(r) = \frac{1}{4\pi\epsilon_0} \frac{Q}{R^3} r\), showing that the field increases linearly from the center.
+
+This method can be extended to other symmetric configurations. For a charged spherical shell, the electric field inside the inner cavity is zero. For a sphere with an off-center cavity, the superposition principle (principio di sovrapposizione) can be used by treating the cavity as a superposition of a sphere with negative charge density over a larger sphere with positive charge density. This reveals a uniform electric field inside the cavity. Gauss's law also efficiently re-derives the fields for an infinite line of charge and an infinite plane of charge.
+
+The concept of divergence of a vector field (campo vettoriale) measures the field's tendency to originate from or converge to a point. For an electric field, divergence signifies the presence of a charge source or sink. The Divergence Theorem (Teorema della Divergenza) relates the flux of a field through a closed surface to the integral of its divergence over the enclosed volume. Combining this theorem with Gauss's Law leads to its differential form:
+
+\begin{equation}
+    \nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}
+\end{equation}
+
+This is the first of Maxwell's Equations, stating that the divergence of the electric field at any point is proportional to the charge density at that same point.

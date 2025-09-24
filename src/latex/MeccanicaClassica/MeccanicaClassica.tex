@@ -2,6 +2,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{eso-pic}
 \geometry{a4paper, margin=1in}
 
 \title{Classical Mechanics Notes}
@@ -9,7 +11,26 @@
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    \AddToShipoutPictureBG*{
+        \AtPageLowerLeft{
+            \hspace*{0.75\paperwidth}%
+            \raisebox{0.25\paperheight}{
+                \includegraphics[width=0.5\paperwidth]{../2ndyear.svg}%
+            }
+        }
+    }
+
+    \centering
+    \vspace*{\stretch{1}}
+    {\Huge\bfseries Classical Mechanics Notes\par}
+    \vspace{1.5cm}
+    {\large Giacomo\par}
+    \vspace*{\stretch{2}}
+\end{titlepage}
+
+
+
 
 \input{lessons/lesson1}
 

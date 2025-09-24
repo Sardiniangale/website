@@ -1,34 +1,21 @@
-\section*{Class Information}
+\section*{Lesson 1: Coulomb's Law}
 
-\subsection*{Recommended Textbooks}
-\begin{itemize}
-    \item The Feynman Lectures on Physics
-    \item Picasso - Lezioni di fisica
-\end{itemize}
+Coulomb's Law (Legge di Coulomb) describes the electrostatic force (forza elettrostatica) between two static charged particles (particelle cariche). The force \(\vec{F}_{12}\) that a charge (carica) \(q_{1}\) exerts on a second charge \(q_{2}\) is directly proportional to the product of the charges and inversely proportional to the square of the distance between them. The force is directed along the line connecting the two charges.
 
-\section{Coulomb's Law}
-
-Coulomb's law gives the electrostatic force between two charged particles. The force \(\vec{F}_{12}\) exerted by a charge \(q_1\) on a charge \(q_2\) is:
-\begin{equation}
+The vector form of the equation is:
+\begin{equation} 
     \vec{F}_{12} = k \frac{q_1 q_2}{R^2} \hat{\vec{R}}_{12}
 \end{equation}
-where \(k\) is Coulomb's constant, \(R\) is the distance between the charges, and \(\hat{\vec{R}}_{12}\) is the unit vector pointing from \(q_1\) to \(q_2\). The force is reciprocal:
-\begin{equation}
-    \vec{F}_{12} = -\vec{F}_{21}
+Here, \(k\) is Coulomb's constant (costante di Coulomb), \(R\) is the distance between the charges, and \(\hat{\vec{R}}_{12}\) is the unit vector (versore) pointing from \(q_{1}\) to \(q_{2}\). The law is reciprocal, meaning the force exerted by \(q_{2}\) on \(q_{1}\) is equal in magnitude and opposite in direction, so \(\vec{F}_{12} = -\vec{F}_{21}\).
+
+Coulomb's constant is expressed in terms of the vacuum permittivity (permittività del vuoto), \(\epsilon_{0}\), as:
+\begin{equation} 
+    k = \frac{1}{4\pi\epsilon_{0}}
 \end{equation}
+Following the 2019 redefinition of the SI base units (Unità di base del SI), the elementary charge (carica elementare) \(e\) is a defining constant. As a result, \(\epsilon_{0}\) is now an experimentally determined value with an associated uncertainty, not a defined quantity.
 
-Coulomb's constant \(k\) is:
-\begin{equation}
-    k = \frac{1}{4\pi\epsilon_0}
-\end{equation}
-where \(\epsilon_0\) is the permittivity of free space.
-
-\section{2019 Redefinition of SI Base Units}
-
-Since 2019, the SI base units are defined by setting the numerical values of seven defining constants, including the elementary charge, \(e\). Consequently, the vacuum permittivity \(\epsilon_0\) is now a measured value with an associated uncertainty, rather than a defined constant.
-
-For example, a comparison of the gravitational force \(F_G\) and the electric force \(F_E\):
+The electric force is significantly stronger than the gravitational force. For instance, the electric force (forza elettrica) \(F_{E}\) between a proton and an electron is many orders of magnitude greater than the gravitational force (forza gravitazionale) \(F_{G}\) between them:
 \begin{align}
     F_G &= G \frac{m_p m_e}{R^2} \approx 10^{-47} N \\
-    F_E &= \frac{1}{4\pi\epsilon_0} \frac{e^2}{R^2} \approx 10^{-7} N
+    F_E &= \frac{1}{4\pi\epsilon_{0}} \frac{e^2}{R^2} \approx 10^{-7} N
 \end{align}
