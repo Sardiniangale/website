@@ -1,25 +1,24 @@
 \section*{Lesson 2: Electric Flux and Gauss's Law}
 
-The concept of electric flux quantifies the flow of an electric field (campo elettrico) through a surface. For a uniform electric field $\vec{E}$ and a flat surface area $\vec{A}$, the flux is the scalar product $\Phi_E = \vec{E} \cdot \vec{A}$. For non-uniform fields and curved surfaces, the flux is found by integrating the field over the surface:
+The concept of electric flux (Flusso Elettrico) quantifies the flow of an electric field (campo elettrico) through a surface. For a uniform electric field \(\vec{E}\) and a flat surface area \(\vec{A}\), the flux is the scalar product \(\Phi_E = \vec{E} \cdot \vec{A}\). For non-uniform fields and curved surfaces, the flux is found by integrating the field over the surface:
 \begin{equation}
     \Phi_E = \int_S \vec{E} \cdot d\vec{A}
 \end{equation}
 This integral effectively sums the component of the electric field perpendicular to the surface at every point.
 
-Gauss's Law (Legge di Gauss), a cornerstone of electrostatics (elettrostatica) and one of the four fundamental Maxwell's Equations (Equazioni di Maxwell), relates the electric flux through a closed surface (superficie chiusa) to the net electric charge enclosed within it. The law states that the net electric flux is directly proportional to the enclosed charge.
+Gauss's Law (Legge di Gauss), a cornerstone of electrostatics (elettrostatica) and one of the four fundamental Maxwell's Equations (Equazioni di Maxwell), relates the electric flux through a closed surface (superficie chiusa) to the net electric charge (carica elettrica) enclosed within it. The law states that the net electric flux is directly proportional to the enclosed charge.
 
 In its integral form, Gauss's Law is expressed as:
 \begin{equation}
     \Phi_E = \oint_S \vec{E} \cdot d\vec{A} = \frac{Q_{enc}}{\epsilon_0}
 \end{equation}
-The integral is performed over a conceptual closed surface known as a Gaussian surface (superficie Gaussiana), and $Q_{enc}$ is the total charge it encloses. By applying the divergence theorem (teorema della divergenza), which connects the surface integral of a vector field to the volume integral of its divergence, we can derive the differential form of Gauss's Law:
+The integral is performed over a conceptual closed surface known as a Gaussian surface (superficie Gaussiana), and \(Q_{enc}\) is the total charge it encloses. By applying the divergence theorem (teorema della divergenza), which connects the surface integral of a vector field to the volume integral of its divergence, we can derive the differential form of Gauss's Law:
 \begin{equation}
-    
-\nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}
+    \nabla \cdot \vec{E} = \frac{\rho}{\epsilon_0}
 \end{equation}
-Here, $\rho$ represents the volume charge density. This form locally relates the divergence of the electric field to the charge density at that point.
+Here, \(\rho\) represents the volume charge density (densità di carica volumica). This form locally relates the divergence of the electric field to the charge density at that point.
 
-A key application of Gauss's Law is to calculate electric fields in situations with high symmetry. By choosing a Gaussian surface that mirrors the symmetry of the charge distribution (distribuzione di carica), the flux integral becomes simple to solve. For example, to find the field from an infinite line of charge with a uniform linear charge density (densità di carica lineare) $\lambda$, we use a cylindrical Gaussian surface. The symmetry dictates that the electric field must point radially outward. The flux through the top and bottom caps of the cylinder is zero, and the flux through the side wall is $E \cdot (2\pi r L)$. The enclosed charge is $\lambda L$. Applying Gauss's Law, $E (2\pi r L) = \lambda L / \epsilon_0$, yields the field:
+A key application of Gauss's Law is to calculate electric fields in situations with high symmetry. By choosing a Gaussian surface that mirrors the symmetry of the charge distribution (distribuzione di carica), the flux integral becomes simple to solve. For example, to find the field from an infinite line of charge with a uniform linear charge density (densità di carica lineare) \(\lambda\), we use a cylindrical Gaussian surface. The symmetry dictates that the electric field must point radially outward. The flux through the top and bottom caps of the cylinder is zero, and the flux through the side wall is \(E \cdot (2\pi r L)\). The enclosed charge is \(\lambda L\). Applying Gauss's Law, \(E (2\pi r L) = \lambda L / \epsilon_0\), yields the field:
 \begin{equation}
     E = \frac{\lambda}{2\pi\epsilon_0 r}
 \end{equation}

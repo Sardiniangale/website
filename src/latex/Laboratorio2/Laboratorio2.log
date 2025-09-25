@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.9.15)  24 SEP 2025 20:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2025.9.15)  25 SEP 2025 20:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./Fisica2.tex
-(./Fisica2.tex
+**./Laboratorio2.tex
+(./Laboratorio2.tex
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-19>
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -176,8 +176,8 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count298
 )
-(./Fisica2.aux)
-\openout1 = `Fisica2.aux'.
+(./Laboratorio2.aux)
+\openout1 = `Laboratorio2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
 LaTeX Font Info:    ... okay on input line 12.
@@ -251,84 +251,41 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 
+
+! LaTeX Error: Unknown graphics extension: .svg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 \end{titlepage}
+                    
+? 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./lessons/lesson1.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
-(./lessons/lesson2.tex
-! Missing $ inserted.
-<inserted text> 
-                $
-l.17 
-     
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \tex_par:D 
-l.17 
-     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.18 \nabla
-            \cdot \vec{E} = \frac{\rho}{\epsilon_0}
-? 
-! You can't use `\eqno' in math mode.
-\veqno ->\@kernel@eqno 
-                       \aftergroup \ignorespaces 
-l.19 \end{equation}
-                   
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.19 \end{equation}
-                   
-? 
-
-
-[1]) (./lessons/lesson3.tex) (./lessons/lesson4.tex
-
-[2])
-
-[3] (./Fisica2.aux)
+[1] (./Laboratorio2.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3711 strings out of 469797
- 53633 string characters out of 5482835
- 469804 words of memory out of 5000000
- 32052 multiletter control sequences out of 15000+600000
- 630033 words of font info for 53 fonts, out of 8000000 for 9000
+ 3671 strings out of 469797
+ 53031 string characters out of 5482835
+ 455802 words of memory out of 5000000
+ 32038 multiletter control sequences out of 15000+600000
+ 628334 words of font info for 45 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,9n,65p,815b,154s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,8n,69p,230b,257s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy7.pfb>
-Output written on Fisica2.pdf (4 pages, 127287 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on Laboratorio2.pdf (2 pages, 29103 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 26 PDF objects out of 1000 (max. 8388607)
+ 15 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
