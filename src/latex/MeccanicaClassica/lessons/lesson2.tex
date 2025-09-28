@@ -1,0 +1,59 @@
+\section*{Lesson 2: Simple Pendulum with a Moving Pivot}
+
+We consider a simple pendulum of length $l$ and mass $m$. Its pivot point is not fixed but moves along the horizontal axis according to a given function of time, $f(t)$. This is an example of a system with a rheonomic constraint (vincolo reonomo), as the constraint depends explicitly on time.
+
+Let $\theta$ be the angle the pendulum makes with the vertical. The position of the mass $m$ can be described by the coordinates $(x, y)$: 
+\begin{align*}
+    x(t) &= f(t) + l\sin\theta(t) \\
+    y(t) &= -l\cos\theta(t)
+\end{align*}
+This system has one degree of freedom, which can be described by the generalized coordinate (coordinata generalizzata) $\theta$.
+
+The constraint equation is $(x - f(t))^2 + y^2 = l^2$. Since this is an algebraic equation relating the coordinates, the constraint is holonomic (olonomo). Because it contains an explicit time dependence through $f(t)$, it is also rheonomic. A constraint independent of time is called scleronomic (scleronomo). Constraints that cannot be written as an algebraic equation are called non-holonomic (anolonomi).
+
+To find the equation of motion, we can use the Lagrangian approach. First, we find the kinetic energy (energia cinetica), $T$. The velocity components are:
+\begin{align*}
+    \dot{x} &= \dot{f}(t) + l\dot{\theta}\cos\theta \\
+    \dot{y} &= l\dot{\theta}\sin\theta
+\end{align*}
+The kinetic energy is $T = \frac{1}{2}m(\dot{x}^2 + \dot{y}^2)$: 
+\begin{align*}
+    T &= \frac{1}{2}m\left( (\dot{f} + l\dot{\theta}\cos\theta)^2 + (l\dot{\theta}\sin\theta)^2 \right) \\
+    &= \frac{1}{2}m\left( \dot{f}^2 + 2l\dot{f}\dot{\theta}\cos\theta + l^2\dot{\theta}^2\cos^2\theta + l^2\dot{\theta}^2\sin^2\theta \right) \\
+    &= \frac{1}{2}m\left( \dot{f}^2 + 2l\dot{f}\dot{\theta}\cos\theta + l^2\dot{\theta}^2 \right)
+\end{align*}
+The potential energy (energia potenziale), $U$, due to gravity is $U = mgy$: 
+\[
+    U = -mgl\cos\theta
+\]
+The Lagrangian (Lagrangiana) is $L = T - U$: 
+\[
+    L = \frac{1}{2}m(\dot{f}^2 + 2l\dot{f}\dot{\theta}\cos\theta + l^2\dot{\theta}^2) + mgl\cos\theta
+\]
+The equation of motion is given by the Euler-Lagrange equation: 
+\[
+    \frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\theta}}\right) - \frac{\partial L}{\partial\theta} = 0
+\]
+We calculate the partial derivatives:
+\begin{align*}
+    \frac{\partial L}{\partial\dot{\theta}} &= ml\dot{f}\cos\theta + ml^2\dot{\theta} \\
+    \frac{\partial L}{\partial\theta} &= -ml\dot{f}\dot{\theta}\sin\theta - mgl\sin\theta
+\end{align*}
+
+
+Taking the total time derivative of the first expression: 
+\[
+    \frac{d}{dt}\left(\frac{\partial L}{\partial\dot{\theta}}\right) = m(l\ddot{f}\cos\theta - l\dot{f}\dot{\theta}\sin\theta + l^2\ddot{\theta})
+\]
+Substituting into the Lagrange equation: 
+\[
+    m(l\ddot{f}\cos\theta - l\dot{f}\dot{\theta}\sin\theta + l^2\ddot{\theta}) - (-ml\dot{f}\dot{\theta}\sin\theta - mgl\sin\theta) = 0
+\]
+\[
+    ml^2\ddot{\theta} + ml\ddot{f}\cos\theta + mgl\sin\theta = 0
+\]
+Dividing by $ml^2$, we get the final equation of motion: 
+\[
+    \ddot{\theta} + \frac{g}{l}\sin\theta + \frac{\ddot{f}(t)}{l}\cos\theta = 0
+\]
+This equation describes the oscillation of the pendulum, driven by the acceleration of its pivot point.

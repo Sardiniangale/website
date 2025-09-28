@@ -1,0 +1,36 @@
+\section*{Lesson 3: The Double Pendulum and Generalized Coordinates}
+
+We now consider a more complex system: the double pendulum. It consists of a mass $m_1$ suspended from a fixed pivot by a massless rod of length $l_1$, and a second mass $m_2$ suspended from $m_1$ by a massless rod of length $l_2$. The system moves in a vertical plane.
+
+This system has two degrees of freedom. We can choose the angles $\theta_1$ and $\theta_2$ as our generalized coordinates (coordinate generalizzate). $\theta_1$ is the angle the first rod makes with the vertical, and $\theta_2$ is the angle the second rod makes with the vertical.
+
+The Cartesian positions of the two masses can be expressed in terms of these generalized coordinates. Let the pivot be at the origin $(0,0)$.
+The position of the first mass, $m_1$, is:
+\begin{align*}
+    x_1 &= l_1\sin\theta_1 \\
+    y_1 &= -l_1\cos\theta_1
+\end{align*}
+The position of the second mass, $m_2$, is found by adding the displacement from $m_1$:
+\begin{align*}
+    x_2 &= x_1 + l_2\sin\theta_2 = l_1\sin\theta_1 + l_2\sin\theta_2 \\
+    y_2 &= y_1 - l_2\cos\theta_2 = -l_1\cos\theta_1 - l_2\cos\theta_2
+\end{align*}
+The entire state of the system at any time is completely determined if we know the values of $\theta_1(t)$ and $\theta_2(t)$.
+
+The goal of Lagrangian mechanics is to describe the dynamics of the system using these generalized coordinates. The method involves two key scalar functions: the kinetic energy (energia cinetica), $T$, and the potential energy (energia potenziale), $U$.
+
+The kinetic energy is the sum of the kinetic energies of the two masses, $T = T_1 + T_2 = \frac{1}{2}m_1v_1^2 + \frac{1}{2}m_2v_2^2$. To calculate this, we need the velocities, which are the time derivatives of the positions. The velocities will depend on $\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2$. Therefore, the total kinetic energy is a function of the generalized coordinates and their time derivatives:
+\[
+    T = T(\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2)
+\]
+The potential energy depends on the vertical positions of the masses, $U = U_1 + U_2 = m_1gy_1 + m_2gy_2$. It is a function of the generalized coordinates only:
+\[
+    U = U(\theta_1, \theta_2)
+\]
+In classical mechanics, the dynamics of many systems can be elegantly described by a single function called the Lagrangian (Lagrangiana), $L$, which is defined as the difference between the kinetic and potential energy:
+\[
+    L = T - U
+\]
+For the double pendulum, the Lagrangian is $L(\theta_1, \theta_2, \dot{\theta}_1, \dot{\theta}_2)$.
+
+The equations of motion for the system are obtained from the Lagrangian using the principle of stationary action, which leads to the Euler-Lagrange equations. There will be one equation for each generalized coordinate. The derivation and application of these equations will be the subject of the next lesson.

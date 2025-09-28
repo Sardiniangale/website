@@ -1,0 +1,56 @@
+\section*{Lesson 4: The Lagrangian Equations of Motion}
+
+In this lesson, we derive the Euler-Lagrange equations, which form the foundation of Lagrangian mechanics. The derivation starts from D'Alembert's principle (Principio di d'Alembert). For a system of particles, this principle states that the total virtual work done by the forces of inertia and the applied forces is zero:
+\[
+    \sum_i (m_i\ddot{\mathbf{r}}_i - \mathbf{F}_i) \cdot \delta\mathbf{r}_i = 0
+\]
+where $\delta\mathbf{r}_i$ is a virtual displacement (spostamento virtuale) of the $i$-th particle, consistent with the constraints of the system. For ideal constraints (vincoli ideali), the constraint forces do no work, so $\mathbf{F}_i$ can be replaced by the applied (or active) forces, $\mathbf{F}_i^a$.
+
+We express the positions $\mathbf{r}_i$ and displacements $\delta\mathbf{r}_i$ in terms of $n$ generalized coordinates $q_\alpha$:
+\[
+    \mathbf{r}_i = \mathbf{r}_i(q_1, \dots, q_n, t) \quad \implies \quad \delta\mathbf{r}_i = \sum_{\alpha=1}^n \frac{\partial\mathbf{r}_i}{\partial q_\alpha}\delta q_\alpha
+\]
+D'Alembert's principle becomes:
+\[
+    \sum_{\alpha=1}^n \left( \sum_i m_i\ddot{\mathbf{r}}_i \cdot \frac{\partial\mathbf{r}_i}{\partial q_\alpha} - \sum_i \mathbf{F}_i^a \cdot \frac{\partial\mathbf{r}_i}{\partial q_\alpha} \right) \delta q_\alpha = 0
+\]
+Since the $\delta q_\alpha$ are independent, each term in the parenthesis must be zero. The second part defines the generalized force (forza generalizzata), $Q_\alpha$:
+\[
+    Q_\alpha = \sum_i \mathbf{F}_i^a \cdot \frac{\partial\mathbf{r}_i}{\partial q_\alpha}
+\]
+The first part involving acceleration can be rewritten in terms of the kinetic energy, $T = \sum_i \frac{1}{2}m_i\dot{\mathbf{r}}_i^2$. Through a standard but lengthy derivation, one can show that:
+\[
+    \sum_i m_i\ddot{\mathbf{r}}_i \cdot \frac{\partial\mathbf{r}_i}{\partial q_\alpha} = \frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}_\alpha}\right) - \frac{\partial T}{\partial q_\alpha}
+\]
+Combining these results gives the Lagrange equations of motion:
+\[
+    \frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}_\alpha}\right) - \frac{\partial T}{\partial q_\alpha} = Q_\alpha
+\]
+If the applied forces are conservative, they can be derived from a potential energy function $U(q_1, \dots, q_n)$, such that $Q_\alpha = -\frac{\partial U}{\partial q_\alpha}$. The equations become:
+\[
+    \frac{d}{dt}\left(\frac{\partial T}{\partial\dot{q}_\alpha}\right) - \frac{\partial T}{\partial q_\alpha} = -\frac{\partial U}{\partial q_\alpha}
+\]
+By defining the Lagrangian $L = T - U$, and noting that $U$ does not depend on generalized velocities $\dot{q}_\alpha$, we have $\frac{\partial L}{\partial\dot{q}_\alpha} = \frac{\partial T}{\partial\dot{q}_\alpha}$ and $\frac{\partial L}{\partial q_\alpha} = \frac{\partial T}{\partial q_\alpha} - \frac{\partial U}{\partial q_\alpha}$. Substituting these into the equation yields the celebrated Euler-Lagrange equations:
+\[
+    \frac{d}{dt}\left(\frac{\partial L}{\partial\dot{q}_\alpha}\right) - \frac{\partial L}{\partial q_\alpha} = 0
+\]
+As an example, let's reconsider the simple pendulum. The generalized coordinate is $q = \theta$. The kinetic and potential energies are:
+\[
+    T = \frac{1}{2}ml^2\dot{\theta}^2, \quad U = -mgl\cos\theta
+\]
+The Lagrangian is $L = T - U = \frac{1}{2}ml^2\dot{\theta}^2 + mgl\cos\theta$. Applying the Lagrange equation:
+\begin{align*}
+    \frac{\partial L}{\partial\dot{\theta}} &= ml^2\dot{\theta} \\
+    \frac{\partial L}{\partial\theta} &= -mgl\sin\theta
+\end{align*}
+\[
+    \frac{d}{dt}(ml^2\dot{\theta}) - (-mgl\sin\theta) = 0 \quad \implies \quad ml^2\ddot{\theta} + mgl\sin\theta = 0
+\]
+This simplifies to the familiar equation $\ddot{\theta} + \frac{g}{l}\sin\theta = 0$.
+
+For the double pendulum, the Lagrangian $L=T-U$ can be constructed with:
+\begin{align*}
+    T &= \frac{1}{2}(m_1+m_2)l_1^2\dot{\theta}_1^2 + \frac{1}{2}m_2l_2^2\dot{\theta}_2^2 + m_2l_1l_2\dot{\theta}_1\dot{\theta}_2\cos(\theta_1-\theta_2) \\
+    U &= -(m_1+m_2)gl_1\cos\theta_1 - m_2gl_2\cos\theta_2
+\end{align*}
+Applying the Lagrange equation for each coordinate, $\theta_1$ and $\theta_2$, yields a system of two coupled, non-linear differential equations that describe the complex motion of the double pendulum.

@@ -1,0 +1,180 @@
+Lesson (2)
+Pedolo semplice with a basicic vincolo
+pendolo which is moving on a axis
+Cthetatwodots +y sin theta= 0 => theta two points theta e sin theta
+x-f(t) = l sin theta , y=lcostheta => x=f(t)+lsin theta, y=-lcostheta
+
+x=x(theta,t)=x(theta(t),t)
+xdot=dx/dt= partdialderivative x/pdertheta thetadot + dx/dt=lcostheta * thetadot + l'(t)
+spost reale
+dx=lcostheta d theta + f'(t) dt
+dy= lsin theta dtheta
+spostamento virtuale
+Deltax=partialderivativex/partialtheta deltatheta=lcostheta delta theta
+Deltay=same as above but with yinstead of x and sin instead of cos
+
+x_doubledot cos theta + y_doubledot sin theta + <-(either y or g here not sure) sin theta= 0
+
+f''costheta + l thetea_dobule dot=-ysintheta
+
+theta_dobulbe dot -g/l sin theta - f[f/l] <- this has two ?? in my notes so prob has a issue times costheta
+
+
+Vincoli ononom riesco a ridure le variablili
+anomoli non riesco a ridure le variablili
+sclevonomi indipendenti dal tempo
+reconomi dipendenti dal temp
+
+
+Lesson 3 (my mates notes)
+Something about the double pendulum
+
+mx_double dot=-tau1 sin theta_1 + tau_2 sin theta_2
+my_double dot=tau_1 costheta_1 - tau_2 cos theta_2 -mg
+mx_double dot2=-tau_2 sin theta 2
+my_double dot=tau_2 costheta2-mg
+
+spostamento virtuale
+
+deltax_2 = pderivativex_2/pdertheta_1 deltathata_1 è same but with_2  = l(costheta_1 delta theta_1 + cos theta_2 deltatheta_2)
+
+
+per var abirari di d-----
+
+
+some log euqations come out which icba to write, but they are very caotic. Just write what you assume the double pendulum to work from pervious info
+
+
+System con N variablili cartesiane Xi che descrivonoun certo numerico di punti materiali 
+
+X_i(q,t) => delta xi= sigma_alpha pderx_i/q_alpha sposteamenti passabili e t fissato
+
+intorociamo EN cinetica 
+
+T=sigma_i 1/2m_ix_dot_i^2
+
+T=T(x_1,xdot_2,...)
+
+T=sigma_i 1/2 m_i (x_idot(...not suere whats in here)))^2=t(q,q^dot,t)
+
+
+P_i=m_i,x_i^dot = ....
+
+
+
+
+Impostiamo lagrange 
+
+
+
+and Forza conservativea (writing everythin out in function of q and q_dot and 
+
+Sigma F_i
+
+
+
+
+Lesson 4
+
+-N coord cartesiane k vincoli
+
+
+xi(q,t) -> x_dot, (q,q_dot, t)= sigma alpha times pderivative x_i/partialderivative q_alpha times q alpha + partial derivative x_i/partial derivative t
+
+T= sigma 1/2m1 times x_dot ^2
+T(x_dot(q1,q_dot1, t)
+p_i= pderivativeTau/pderivative x_dot
+
+
+Equation di newton
+
+sigma delta x_1(P_doti- f_i^A - F_i^V) =0 => 0= sigma_i (p_i dot - F_i^(A_1)) delta x_1 => sigma a (sigma (p_i^dot) - F_i ^(A_i)) pderivative x/ pderivative q apha.... )=0
+
+there exists a=1, --- N-K = > [sigma_i p_i^dot pderivativex/pderivative q_alpha = sigma_i F(Ai) pderivativex_i/partialderivative qalpha)]
+ 
+examples:
+
+
+F^(A) = pderV(x,t)/pder_xi -> sigma F^(A) pderivative xi/pderqd = -sigma pder U/pderxi times pderi/pder qalpha
+
+
+
+some more garbage leading to f(x,y) + (pderf/pderx *dx/dz + df/dy *dy/dz ) dz
+
+
+sub the -pder U/pder qalpha
+
+
+
+more illegible notes
+
+
+pder xi/pder q_dot alpha = pder /p q_dotalpha(sigma pderxi/pderq_b q^dot_b + pder_xi/pder_t)
+
+
+break section
+
+x- legeange > q
+
+
+norm congugated
+...more illegible tex
+
+d/dt(pder T/pder q^dot_alpha) = pder / pder qalpha (T-U)
+
+U(q,t) => doesnt depend on v .... p-
+
+then some pendulum diagram with
+
+
+T=1/2 m |v|^2 =1/2 m l^2 theta _ dot ^2
+
+U=mgy = -mgl cos theta
+
+
+then they solve both the pendulum and double pendulum from here 
+
+
+Lez 5
+
+L(q,q_dot,t)
+
+L=T-U => d/dt (partialderivative l/ partial derivative q_dot alpha) = partial derivative L/ partial derivative q alpha
+
+N-K 
+
+
+old variables into newton
+l(q(q_dot, t), q_dot(q_dot,q_dot,t)
+
+
+lasciando le equazioni del moto invariante 
+
+L-> lambda L lambda constant
+
+eq sono .... in Lez
+multiplying lagrangian by a scalar????
+
+
+L=1/2 mx_dot^2 - 1/2 kx^2
+
+F(q,t)
+
+d/dt(partialderivativeL/partialderivativeq_dot alpha) = partialderivativeL/partialderivativeq alpha) <=> d/dt partialderivativeL(little hat on it)/partialderivativeq_dot alpha)= .....
+
+
+dF/dt= weird T looking thing/beta times partialderivativeF/partialderivativeq^beta times q_dot beta + partitialderivatave F/partialderivativeq_dot
+
+some extra illegible text
+
+
+system o and o'
+
+(diagram of two systems of refrence)
+
+some garbage about symmettry of a mechanical suystem define a transformation of cooordinates 
+
+theorem of nethero continous transformations
+
+
+

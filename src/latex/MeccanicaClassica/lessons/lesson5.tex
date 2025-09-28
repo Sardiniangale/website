@@ -1,0 +1,39 @@
+\section*{Lesson 5: Symmetries and Conservation Laws}
+
+The Lagrangian formulation is not only elegant but also provides deep insights into the connection between symmetries and conservation laws.
+
+First, we note a certain freedom in the definition of the Lagrangian. The equations of motion are not changed if we add a total time derivative of a function of coordinates and time, $F(q, t)$, to the Lagrangian. Let $L' = L + \frac{dF}{dt}$. The action integral changes by a constant:
+\[
+    S' = \int_{t_1}^{t_2} L' dt = \int_{t_1}^{t_2} L dt + \int_{t_1}^{t_2} \frac{dF}{dt} dt = S + F(q(t_2), t_2) - F(q(t_1), t_1)
+\]
+Since the variation $\delta S$ depends on fixed endpoints, the additional terms vanish, and the principle of stationary action $\delta S' = 0$ yields the same equations of motion. This is a gauge symmetry (simmetria di gauge) of the Lagrangian. Furthermore, multiplying the Lagrangian by a non-zero constant also leaves the equations of motion unchanged.
+
+This connection between symmetries and physical laws is made precise by Noether's Theorem (Teorema di Noether). The theorem states that for every continuous symmetry of the action, there is a corresponding conserved quantity. A symmetry is a transformation of the coordinates that leaves the equations of motion invariant.
+
+Let's consider a continuous transformation of the generalized coordinates parameterized by a small parameter $\epsilon$:
+\[
+    q_\alpha(t) \to q'_\alpha(t) = q_\alpha(t) + \epsilon\psi_\alpha(q)
+\]
+If the Lagrangian is invariant under this transformation (i.e., $\delta L = 0$), Noether's theorem guarantees that the quantity
+\[
+    I = \sum_\alpha \frac{\partial L}{\partial\dot{q}_\alpha}\psi_\alpha
+\]
+is conserved, meaning $\frac{dI}{dt} = 0$.
+
+Let's examine some fundamental symmetries and their corresponding conservation laws:
+
+\textbf{Homogeneity of Time:} If the Lagrangian does not explicitly depend on time ($\frac{\partial L}{\partial t} = 0$), the system is symmetric under time translation ($t \to t + \epsilon$). The corresponding conserved quantity is the energy of the system, which is defined by the Hamiltonian (Hamiltoniana):
+\[
+    H = \sum_\alpha \dot{q}_\alpha\frac{\partial L}{\partial\dot{q}_\alpha} - L
+\]
+The conservation of energy, $\frac{dH}{dt} = 0$, is a direct consequence of the laws of physics being the same today as they were yesterday.
+
+\textbf{Homogeneity of Space:} If the Lagrangian is invariant under a translation in space (e.g., $\mathbf{r}_i \to \mathbf{r}_i + \boldsymbol{\epsilon}$ for all particles), the system has translational symmetry. This occurs when there is no external potential, or the potential depends only on relative positions. The conserved quantity is the total linear momentum (quantità di moto). In the Lagrangian formalism, if a coordinate $q_k$ does not appear in the Lagrangian (it is a cyclic or ignorable coordinate), then $\frac{\partial L}{\partial q_k} = 0$. The Lagrange equation for $q_k$ becomes:
+\[
+    \frac{d}{dt}\left(\frac{\partial L}{\partial\dot{q}_k}\right) = 0
+\]
+This implies that the generalized momentum conjugate (momento coniugato) to $q_k$, defined as $p_k = \frac{\partial L}{\partial\dot{q}_k}$, is a constant of motion.
+
+\textbf{Isotropy of Space:} If the Lagrangian is invariant under rotations, the system has rotational symmetry. This happens for central potentials, for example. The corresponding conserved quantity is the total angular momentum (momento angolare).
+
+Noether's theorem is a cornerstone of modern physics, linking fundamental principles of symmetry to the conservation laws that govern the physical world.

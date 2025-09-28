@@ -21,6 +21,8 @@ for dir in "$LATEX_SRC_DIR"/*/; do
         
         if [ -n "$main_tex_file" ]; then
             echo "Found main .tex file: $main_tex_file"
+            echo "Cleaning up before build..."
+            latexmk -c
             echo "Running latexmk..."
             latexmk -pdf "$main_tex_file"
             
@@ -37,7 +39,7 @@ for dir in "$LATEX_SRC_DIR"/*/; do
         else
             echo "No .tex file found in this directory."
         fi
-    )
+    ) || echo "ERROR: Failed to build project in $dir. Continuing..."
 done
 
 echo "LaTeX done"
