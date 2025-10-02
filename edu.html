@@ -107,6 +107,30 @@
             align-items: center;
             height: 100vh;
         }
+        details {
+            border: 1px solid #ff8c00;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            padding: 15px;
+            background: linear-gradient(45deg, #ff8c00, #ff2e63);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: block;
+            transition: 0.3s ease;
+        }
+
+        summary:hover {
+            background: linear-gradient(45deg, #ff2e63, #ff8c00);
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -115,12 +139,42 @@
         <img src="public/images/Capybara-Reading-a-Book-On-a-Gloomy-Day.jpg" alt="Featured Image">
         <div class="nav">
             <a href="public/documents/analisi1.pdf" class="button" download>Mathematical Analysis <span class="legacy-tag">(Legacy)</span></a>
-            <a href="public/documents/Fisica2.pdf" class="button" download>FISICA 2 (CORSO A)</a>
-            <a href="public/documents/Laboratorio2.pdf" class="button" download>LABORATORIO 2</a>
-            <a href="public/documents/MeccanicaClassica.pdf" class="button" download>MECCANICA CLASSICA</a>
-            <a href="public/documents/MetodiMatematici1.pdf" class="button" download>METODI MATEMATICI 1</a>
-            <a href="public/documents/ChimicaGenerale.pdf" class="button" download>CHIMICA GENERALE</a>
-            <a href="public/documents/ComplementiAnalisiMatematica.pdf" class="button" download>COMPLEMENTI DI ANALISI MATEMATICA</a>
+            <details>
+                <summary>FISICA 2 (CORSO A)</summary>
+                <a href="#" class="button">Professors notes</a>
+                <a href="#" class="button">course page</a>
+                <a href="public/documents/Fisica2.pdf" class="button" download>My notes</a>
+            </details>
+            <details>
+                <summary>LABORATORIO 2</summary>
+                <a href="#" class="button">Professors notes</a>
+                <a href="#" class="button">course page</a>
+                <a href="public/documents/Laboratorio2.pdf" class="button" download>My notes</a>
+            </details>
+            <details>
+                <summary>MECCANICA CLASSICA</summary>
+                <a href="#" class="button">Professors notes</a>
+                <a href="#" class="button">course page</a>
+                <a href="public/documents/MeccanicaClassica.pdf" class="button" download>My notes</a>
+            </details>
+            <details>
+                <summary>METODI MATEMATICI 1</summary>
+                <a href="#" class="button">Professors notes</a>
+                <a href="#" class="button">course page</a>
+                <a href="public/documents/MetodiMatematici1.pdf" class="button" download>My notes</a>
+            </details>
+            <details>
+                <summary>CHIMICA GENERALE</summary>
+                <a href="#" class="button">Professors notes</a>
+                <a href="#" class="button">course page</a>
+                <a href="public/documents/ChimicaGenerale.pdf" class="button" download>My notes</a>
+            </details>
+            <details>
+                <summary>COMPLEMENTI DI ANALISI MATEMATICA</summary>
+                <a href="#" class="button">Professors notes</a>
+                <a href="#" class="button">course page</a>
+                <a href="public/documents/ComplementiAnalisiMatematica.pdf" class="button" download>My notes</a>
+            </details>
         </div>
         <a href="index.html" class="back-button">Go back</a>
     </div>
