@@ -1,0 +1,56 @@
+\section*{Lesson 8: Curl, Stokes' Theorem, and Conductors}
+
+\subsection*{The Curl of a Vector Field}
+
+Today we introduce the curl (rotore), a vector differential operator that, when applied to a vector field, yields another vector field. To build intuition, consider the velocity field of a fluid. The curl of the velocity field describes the fluid's circulation density (densità di circolazione). If we place a small, rough ball in the fluid, fixed at its center but free to rotate, it will start spinning if the curl at that point is non-zero. The axis of rotation gives the direction of the curl vector, determined by the right-hand rule. A non-zero curl indicates the presence of vortices in the fluid; ideal, non-viscous fluids are irrotational (their curl is zero everywhere).
+
+In Cartesian coordinates, the curl of a vector field \(\vec{F} = (F_x, F_y, F_z)\) is written as \(\nabla \times \vec{F}\) and can be calculated as the formal determinant of a matrix:
+\[ \nabla \times \vec{F} = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ F_x & F_y & F_z \end{vmatrix} = \left(\frac{\partial F_z}{\partial y} - \frac{\partial F_y}{\partial z}\right)\hat{i} + \left(\frac{\partial F_x}{\partial z} - \frac{\partial F_z}{\partial x}\right)\hat{j} + \left(\frac{\partial F_y}{\partial x} - \frac{\partial F_x}{\partial y}\right)\hat{k} \]
+An important identity in vector calculus is that the curl of the gradient of any scalar field \(V\) is always zero, provided the second partial derivatives are continuous:
+\[ \nabla \times (\nabla V) = 0 \]
+This is because the mixed partial derivatives cancel out (e.g., \(\frac{\partial^2 V}{\partial y \partial z} = \frac{\partial^2 V}{\partial z \partial y}\)).
+
+\subsection*{Stokes' Theorem}
+
+Stokes' theorem (teorema di Stokes), also known as the curl theorem, relates the circulation of a vector field along a closed path to the flux of its curl.
+Consider an oriented closed curve \(\gamma\) and any open surface \(S\) that has \(\gamma\) as its boundary. Stokes' theorem states that for a vector field \(\vec{V}\):
+\[ \oint_\gamma \vec{V} \cdot d\vec{l} = \int_S (\nabla \times \vec{V}) \cdot d\vec{S} \]
+The left side is the circulation of \(\vec{V}\) along the closed path \(\gamma\). The right side is the flux of the curl of \(\vec{V}\) through the surface \(S\). The orientation of the surface normal \(d\vec{S}\) is related to the orientation of the path \(\gamma\) by the right-hand rule: if your fingers curl in the direction of the path, your thumb points in the direction of the normal.
+
+This theorem provides a coordinate-independent definition of the curl. The component of the curl along a normal vector \(\hat{n}\) can be defined as the limit of the circulation per unit area as the area shrinks to a point:
+\[ (\nabla \times \vec{V}) \cdot \hat{n} = \lim_{S \to 0} \frac{1}{S} \oint_\gamma \vec{V} \cdot d\vec{l} \]
+
+\subsection*{The Third Maxwell's Equation for Electrostatics}
+
+We know that the electrostatic field \(\vec{E}\) is conservative. This means its circulation around any closed path \(\gamma\) is zero:
+\[ \oint_\gamma \vec{E} \cdot d\vec{l} = 0 \]
+By applying Stokes' theorem, we can relate this to the curl of \(\vec{E}\):
+\[ \oint_\gamma \vec{E} \cdot d\vec{l} = \int_S (\nabla \times \vec{E}) \cdot d\vec{S} = 0 \]
+Since this must hold for any arbitrary closed path \(\gamma\) and any surface \(S\) bounded by it, the integrand itself must be zero. This gives us the third of Maxwell's equations for static fields:
+\[ \nabla \times \vec{E} = 0 \]
+This is a local equation, stating that the curl of the electrostatic field is zero at every point in space. A field with zero curl is called an irrotational field (campo irrotazionale). This result is consistent with the fact that \(\vec{E} = -\nabla V\), because the curl of a gradient is always zero.
+
+\subsection*{Conductors in Electrostatic Equilibrium}
+
+Conductors (conduttori) are materials containing mobile charges (e.g., electrons) that are free to move under the influence of an electric field. Electrostatic equilibrium is the state where there is no net motion of charge within the conductor.
+
+For this to be true, the electric field inside a conductor must be zero. If it were not, the free charges would experience a force and move, contradicting the definition of equilibrium.
+\[ \vec{E}_{\text{inside}} = 0 \]
+A direct consequence, via Gauss's Law, is that the net charge density \(\rho\) inside the conductor must also be zero. If we take any Gaussian surface entirely within the conductor, the flux through it is zero because \(\vec{E}=0\). Therefore, the enclosed charge must be zero. Any net charge placed on a conductor must reside entirely on its outer surface in a very thin layer. We describe this with a surface charge density \(\sigma\).
+
+At the interface between two media, the tangential component of the electrostatic field is continuous. Consider a small rectangular loop straddling the interface. The circulation \(\oint \vec{E} \cdot d\vec{l} = 0\). By making the sides perpendicular to the interface infinitesimally short, their contribution vanishes. The circulation is then due to the two long sides parallel to the interface:
+\[ E_{1,t} \Delta l - E_{2,t} \Delta l = 0 \implies E_{1,t} = E_{2,t} \]
+For the interface between a conductor (medium 2) and a vacuum (medium 1), we have \(\vec{E}_2 = 0\). Therefore, the tangential component of the electric field just outside the conductor must be zero: \(E_{1,t} = 0\). This means the electric field at the surface of a conductor is always perpendicular to the surface.
+Since the electric field lines are always orthogonal to equipotential surfaces, it follows that the surface of a conductor in electrostatic equilibrium is an equipotential surface.
+
+\subsection*{Coulomb's Theorem and Conductor Properties}
+
+Coulomb's Theorem (Teorema di Coulomb) relates the electric field just outside a conductor to the local surface charge density \(\sigma\). By applying Gauss's law to a small cylindrical "pillbox" that straddles the surface, we find:
+\[ \oint \vec{E} \cdot d\vec{S} = E A = \frac{Q_{\text{enc}}}{\epsilon_0} = \frac{\sigma A}{\epsilon_0} \implies E = \frac{\sigma}{\epsilon_0} \]
+The field is directed along the outward normal \(\hat{n}\), so \(\vec{E} = \frac{\sigma}{\epsilon_0} \hat{n}\).
+
+The potential is constant throughout the entire conductor (both surface and interior). There is, however, a potential difference between the interior (\(V_i\)) and the exterior surface (\(V_e\)), related to the work function (funzione lavoro), \(W = e(V_i - V_e)\), which is the energy required to extract an electron from the conductor. In our problems, when we speak of the "potential of a conductor," we refer to the potential of its surface, \(V_e\).
+
+A cavity inside a conductor is shielded from external static electric fields. This is the principle of the Faraday cage (gabbia di Faraday). If a conductor with an empty cavity is placed in an external field, charges will rearrange on the outer surface to make \(\vec{E}=0\) inside the conductor material. Applying Gauss's law to a surface within the conductor material that encloses the cavity shows that the net charge on the inner surface of the cavity must be zero. Further analysis shows the field inside the empty cavity is also zero.
+
+The power of points (effetto delle punte) describes the tendency of charge to accumulate on parts of a conductor with a small radius of curvature (i.e., sharp points). This leads to a much stronger electric field at these points. For two conducting spheres of radii \(R_1\) and \(R_2\) connected by a wire, they will be at the same potential. This implies \(V = \frac{Q_1'}{4\pi\epsilon_0 R_1} = \frac{Q_2'}{4\pi\epsilon_0 R_2}\). The surface charge densities are related by \(\sigma_1' / \sigma_2' = R_2 / R_1\). The sphere with the smaller radius has the higher charge density and thus a stronger electric field at its surface (\(E \propto \sigma\)). This is why electrical discharges, like sparks, tend to occur from sharp points.
