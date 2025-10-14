@@ -1,0 +1,53 @@
+\section{Lesson 11: The General Problem of Electrostatics and Image Charges}
+
+\subsection{The General Problem of Electrostatics}
+
+In electrostatics, if we know the distribution of charge density $\rho$ in a localized region of space, the electric field $\vec{E}$ and the potential $V$ are uniquely determined. The potential $V$ at a point, assuming $V(\infty)=0$, is the sum of contributions from all infinitesimal charge elements:
+\begin{equation*}
+ V(\vec{r}) = \frac{1}{4\pi\epsilon_0} \int \frac{\rho(\vec{r}')}{|\vec{r}-\vec{r}'|} d\tau'
+\end{equation*}
+The electric field is the negative gradient of this potential, $\vec{E} = -\nabla V$. This field satisfies the fundamental equations of electrostatics: $\nabla \cdot \vec{E} = \rho/\epsilon_0$ and $\nabla \times \vec{E} = 0$.
+
+By substituting $\vec{E} = -\nabla V$ into the divergence equation, we obtain the \textbf{Poisson equation}:
+\begin{equation*}
+ \nabla^2 V = -\frac{\rho}{\epsilon_0}
+\end{equation*}
+where $\nabla^2$ is the Laplacian operator. This is a local equation, relating the second derivatives of the potential at a point to the charge density at that same point.
+
+\subsubsection{Laplace's Equation and Uniqueness}
+
+In a region of space where there is no charge ($\rho = 0$), Poisson's equation simplifies to the \textbf{Laplace equation}:
+\begin{equation*}
+ \nabla^2 V = 0
+\end{equation*}
+A crucial property of these equations is captured by the \textbf{uniqueness theorem}. It states that for a given volume, a solution to Poisson's (or Laplace's) equation is uniquely determined if the value of the potential $V$ is specified on the boundary surface of that volume. This makes physical sense: if you fix the potential on all boundaries of a region, the electric field and forces within that region should be uniquely defined.
+
+\subsection{Harmonic Functions and Earnshaw's Theorem}
+
+Solutions to the Laplace equation are called \textbf{harmonic functions} (funzioni armoniche). These functions have a significant property described by the \textbf{mean value theorem}: the average value of a harmonic function over any spherical surface is equal to its value at the center of the sphere.
+
+A direct and profound consequence of this is that a harmonic function cannot have a local maximum or minimum within its domain. If a minimum existed, a small sphere centered on it would have an average value on its surface greater than the value at the center, violating the theorem.
+
+This leads to \textbf{Earnshaw's Theorem}: a charged particle cannot be held in a stable equilibrium by electrostatic forces alone. A stable equilibrium requires the particle to be at a point of minimum potential energy. For a positive charge, this would mean a minimum of the potential $V$; for a negative charge, a maximum of $V$. Since the potential $V$ is a harmonic function in charge-free space, it has no such minima or maxima. Therefore, no point of stable electrostatic equilibrium can exist in a vacuum. To trap ions, one must use non-electrostatic forces or time-varying electric fields, which fall outside the realm of electrostatics.
+
+\subsection{The Method of Image Charges}
+
+The \textbf{method of image charges} (metodo delle cariche immagini) is a powerful problem-solving technique for electrostatic problems involving point charges and conductors with simple, symmetric shapes (like planes or spheres). The method relies on the uniqueness theorem.
+
+The core idea is to simplify a problem by replacing a conductor with one or more "image charges". These fictitious charges are placed in a way that, together with the original "real" charges, they reproduce the correct boundary conditions on a surface that originally corresponded to the conductor.
+
+\subsubsection{Point Charge and a Grounded Conducting Plane}
+
+Consider a point charge $+Q$ placed in front of an infinite, grounded conducting plane. The plane is at potential $V=0$. The charge $+Q$ induces a surface charge distribution $\sigma$ on the plane. The potential in the space containing $+Q$ is created by both $+Q$ and $\sigma$.
+
+To solve this, we remove the plane and the induced charge $\sigma$. We then find a configuration of image charges that reproduces the $V=0$ boundary condition on the location where the plane used to be. For this geometry, the solution is an image charge $-Q$ placed at a position symmetric to the original charge, on the other side of the plane.
+
+The potential in the region where the original charge lies is then simply the superposition of the potentials from the real charge $+Q$ and the image charge $-Q$. This solution is valid *only* in the region of the real charge. In the region behind the plane (where the conductor was), the potential is zero, a fact we knew from the start, and which is not described by the image charge model. From the potential, the electric field and the induced surface charge density on the plane can be calculated.
+
+\subsubsection{Point Charge and a Grounded Conducting Sphere}
+
+The method can also be applied to a point charge $+Q$ placed near a grounded conducting sphere of radius $R$. An image charge $Q'$ is placed inside the sphere at a distance $B$ from its center. By enforcing the condition that the potential must be zero everywhere on the sphere's surface, one can solve for the image charge's magnitude and position. The results are:
+\begin{equation*}
+ Q' = -Q \frac{R}{a} \quad \text{and} \quad B = \frac{R^2}{a}
+\end{equation*}
+where $a$ is the distance of the real charge $+Q$ from the center of the sphere. As with the plane, the potential outside the sphere is the sum of the potentials from the real charge and this image charge. The solution is not valid inside the sphere, where the potential is known to be zero.

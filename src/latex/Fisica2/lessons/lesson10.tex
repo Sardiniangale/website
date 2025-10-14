@@ -1,0 +1,97 @@
+\section{Lesson 10: Electrical Capacitance and Electrostatic Pressure}
+
+\subsection{Electrical Capacitance}
+
+To discuss electrical capacitance (capacità elettrica), we must first consider conductors. Capacitance is a property defined for a system of conductors. Let's imagine a single conductor in a vacuum, isolated from other charges or conductors. If this conductor holds a charge Q, we know from electrostatics that its surface is an equipotential surface. We can therefore define the potential of the conductor, V.
+
+The potential V is directly proportional to the charge Q. This is because the electric field is proportional to the charge, and the potential is obtained by integrating the electric field. We can see this explicitly for a spherical conductor of radius R, where the potential is $V = \frac{Q}{4\pi\epsilon_0 R}$.
+
+This proportionality holds for any conductor shape. The ratio of charge to potential is a constant that depends only on the conductor's geometry. This constant is called capacitance (capacità), denoted by C.
+\begin{equation*}
+C = \frac{Q}{V}
+\end{equation*}
+The unit of capacitance is the Farad (F), which is one Coulomb per Volt. The Farad is a very large unit. For instance, a sphere with a 1-meter radius has a capacitance of about $10^{-10}$ F. To get a capacitance of 1 Farad, a sphere would need a radius about ten times larger than the sun. In practice, we use microfarads ($\mu$F) or nanofarads (nF).
+
+\subsubsection{System of N Conductors}
+
+For a system of N conductors, each with charge $Q_i$ and potential $V_i$, the potential of a conductor 'i' is a linear combination of the charges on all conductors:
+\begin{equation*}
+V_i = \sum_{j=1}^{N} P_{ij} Q_j
+\end{equation*}
+The terms $P_{ij}$ are called potential coefficients (coefficienti di potenziale) and depend on the geometry of the conductors. This matrix relationship can be inverted to express the charges as a function of the potentials:
+\begin{equation*}
+Q_i = \sum_{j=1}^{N} C_{ij} V_j
+\end{equation*}
+The terms $C_{ij}$ are called coefficients of capacitance or, more generally, coefficients of induction (coefficienti di induzione). The diagonal terms $C_{ii}$ are the capacitances of the individual conductors, while the off-diagonal terms $C_{ij}$ (for $i \neq j$) are related to the phenomenon of electrostatic induction.
+
+\subsection{Capacitors}
+
+A capacitor (condensatore) is a system of two conductors between which there is complete induction (induzione completa). This means all electric field lines originating from the first conductor terminate on the second. The two conductors are called armatures (armature). Common examples include the spherical capacitor (a conducting sphere inside a concentric spherical shell), the cylindrical capacitor (a conducting cylinder inside a coaxial cylindrical shell), and the plane capacitor (two parallel conducting plates).
+
+In a capacitor, the two armatures hold equal and opposite charges, +Q and -Q. This creates a potential difference $\Delta V$ between them. The capacitance of the capacitor is defined as:
+\begin{equation*}
+C = \frac{Q}{\Delta V}
+\end{equation*}where $\Delta V$ is the magnitude of the potential difference. Like the capacitance of a single conductor, a capacitor's capacitance depends only on its geometry.
+
+\subsubsection{Calculating Capacitance}
+To calculate the capacitance of a specific capacitor configuration, one can assume charges +Q and -Q on the armatures, then calculate the electric field E between them. By integrating E, the potential difference $\Delta V$ is found. Finally, the capacitance is calculated using $C = Q / \Delta V$.
+
+For a plane capacitor with plate area S and separation d, the electric field is $E = \sigma / \epsilon_0 = Q / (S\epsilon_0)$. The potential difference is $\Delta V = E \cdot d$. This gives the capacitance:
+\begin{equation*}
+C = \frac{\epsilon_0 S}{d}
+\end{equation*}
+
+For a spherical capacitor with inner radius $R_1$ and outer radius $R_2$, the capacitance is:
+\begin{equation*}
+C = 4\pi\epsilon_0 \frac{R_1 R_2}{R_2 - R_1}
+\end{equation*}
+
+For a cylindrical capacitor of length H, inner radius $R_1$, and outer radius $R_2$, the capacitance is:
+\begin{equation*}
+C = \frac{2\pi\epsilon_0 H}{\ln(R_2/R_1)}
+\end{equation*}
+
+\subsection{Capacitor Combinations}
+
+Capacitors can be connected in circuits in two basic ways: parallel and series.
+
+When capacitors are connected in parallel, they share the same potential difference $\Delta V$. The total charge stored is the sum of the charges on each capacitor, $Q_{tot} = Q_1 + Q_2$. The equivalent capacitance ($C_{eq}$) is the sum of the individual capacitances.
+\begin{equation*}
+C_{eq} = C_1 + C_2 + \dots
+\end{equation*}
+
+When capacitors are connected in series, they each store the same amount of charge Q. The total potential difference across the combination is the sum of the potential differences across each capacitor, $\Delta V_{tot} = \Delta V_1 + \Delta V_2$. The reciprocal of the equivalent capacitance is the sum of the reciprocals of the individual capacitances.
+\begin{equation*}
+\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \dots
+\end{equation*}
+
+\subsection{Applications of Capacitors}
+
+Capacitors are fundamental components in nearly all electronic circuits. They also serve as the basis for various sensors.
+
+Capacitive sensors can detect changes in physical parameters like displacement or pressure by measuring a change in capacitance. For example, a sensor can be built with one fixed plate and one movable plate; a change in the distance between them alters the capacitance. This principle is used in sensitive displacement sensors and pressure sensors where a diaphragm deforms under pressure, changing the plate separation.
+
+Capacitive touchscreens work by creating a grid of capacitors. When a user's finger (which is conductive) touches the screen, it alters the local capacitance at that point. The device's controller detects this change in capacitance to register the touch.
+
+\subsection{Electrostatic Pressure}
+
+Electrostatic pressure (pressione elettrostatica), or electrostatic tension, is the force per unit area acting on the surface of a charged conductor. This pressure is directed outwards and arises from the mutual repulsion of like charges distributed on the surface.
+
+Consider a small patch of the conductor's surface. The electric field E just outside the surface is the sum of the field from the patch itself ($E_{patch}$) and the field from the rest of the conductor ($E_{rest}$). The field from an infinite plane of charge is $\sigma / (2\epsilon_0)$. So, the field from the small patch is $E_{patch} = \sigma / (2\epsilon_0)$ pointing outwards.
+Since the total field outside is $E = \sigma / \epsilon_0$ (from Coulomb's theorem), the field from the rest of the conductor must be:
+\begin{equation*}
+E_{rest} = E - E_{patch} = \frac{\sigma}{\epsilon_0} - \frac{\sigma}{2\epsilon_0} = \frac{\sigma}{2\epsilon_0}
+\end{equation*}
+The force on the patch is the charge on the patch ($dq = \sigma dS$) multiplied by the field from the rest of the conductor in which it is immersed.
+\begin{equation*}
+dF = (dq) E_{rest} = (\sigma dS) \left( \frac{\sigma}{2\epsilon_0} \right) = \frac{\sigma^2}{2\epsilon_0} dS
+\end{equation*}
+The pressure P is the force per unit area, $dF/dS$.
+\begin{equation*}
+P = \frac{\sigma^2}{2\epsilon_0}
+\end{equation*}
+Since the electric field at the surface of the conductor is $E = \sigma / \epsilon_0$, we can also write the pressure as:
+\begin{equation*}
+P = \frac{1}{2}\epsilon_0 E^2
+\end{equation*}
+This expression is exactly the electrostatic energy density (densità di energia elettrostatica) at the surface. Therefore, the electrostatic pressure on a conductor's surface is equal to the electrostatic energy density just outside the surface.
