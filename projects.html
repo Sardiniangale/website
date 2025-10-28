@@ -39,9 +39,19 @@
             display: block;
             transition: 0.3s ease;
             cursor: pointer;
+            position: relative;
         }
         .project:hover {
             transform: scale(1.05);
+        }
+        .project-link {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
         }
         .status-completed { background: linear-gradient(45deg, #28a745, #218838); }
         .status-inprogress { background: linear-gradient(45deg, #007bff, #0056b3); }
@@ -152,11 +162,13 @@
         <div class="project status-inprogress" onclick="showModal(event, 'Bootleg Parallel Server', 'A rack of multiple low power mini PCs working together in cluster. To be used for assistance in various projects', 'In Progress', ['* Planning started 15/01/2025', '* Components arrived 01/03/2025', '* Assembled 14/10/2025 (not yet operational)'])">
             Parralel Server
         </div>
-        <div class="project status-inprogress" onclick="showModal(event, 'Aqua Calda', 'Framework for high performance, DEM for heat transfer simulations in julia', 'In Progress', ['* Alpha started 11/10/2025', '* In progress at <a href='https://github.com/Sardiniangale/Aqua-Calda'>Github</a> (in alpha)'])">
+        <div class="project status-inprogress" onclick="showModal(event, 'Aqua Calda', 'Framework for high performance, DEM for heat transfer simulations in julia', 'In Progress', ['* Alpha started 11/10/2025', '* In progress at <a href='https://github.com/Sardiniangale/Aqua-Calda' target='_blank'>Github</a> (in alpha)'])">
             Aqua Calda
+            <a href="https://github.com/Sardiniangale/Aqua-Calda" target="_blank" class="project-link">➔</a>
         </div>
-        <div class="project status-completed" onclick="showModal(event, 'Jupyter Server', 'A personal Jupyter server for data analysis and experimentation.', 'Completed', ['* Active deployment since 14/10/2025 at <a href='https://jupyter.sardiniangale.org'>jupyter.sardiniangale.org</a>'])">
+        <div class="project status-completed" onclick="showModal(event, 'Jupyter Server', 'A personal Jupyter server for data analysis and experimentation.', 'Completed', ['* Active deployment since 14/10/2025 at <a href='https://jupyter.sardiniangale.org' target='_blank'>jupyter.sardiniangale.org</a>'])">
             Jupyter Server
+            <a href="https://jupyter.sardiniangale.org" target="_blank" class="project-link">➔</a>
         </div>
         <div class="project status-inprogress" onclick="showModal(event, 'Plex Server', 'A personal Plex server for media streaming.', 'In Progress', ['* Planning started 21/10/2025', '* Set to release soon'])">
             Plex Server
@@ -190,6 +202,9 @@
     
     <script>
         function showModal(event, title, description, status, updates) {
+            if (event.target.classList.contains('project-link')) {
+                return;
+            }
             const button = event.target;
             const rect = button.getBoundingClientRect();
             
