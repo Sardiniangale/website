@@ -32,7 +32,6 @@
         .project {
             padding: 15px;
             margin: 10px;
-            background: linear-gradient(45deg, #ff8c00, #ff2e63);
             color: white;
             text-decoration: none;
             border-radius: 8px;
@@ -42,8 +41,41 @@
             cursor: pointer;
         }
         .project:hover {
-            background: linear-gradient(45deg, #ff2e63, #ff8c00);
             transform: scale(1.05);
+        }
+        .status-completed { background: linear-gradient(45deg, #28a745, #218838); }
+        .status-inprogress { background: linear-gradient(45deg, #007bff, #0056b3); }
+        .status-planned { background: linear-gradient(45deg, #ffc107, #e0a800); }
+        .status-archived { background: linear-gradient(45deg, #6c757d, #5a6268); }
+
+        .legend {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #222;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        .legend h3 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        .legend ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .legend li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .color-box {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 4px;
         }
         /* modal styles */
         .modal {
@@ -81,9 +113,15 @@
             cursor: pointer;
         }
         .status {
-            color: #ff8c00;
             font-weight: bold;
             margin: 10px 0;
+        }
+        #modalUpdates {
+            list-style: none;
+            padding-left: 20px;
+        }
+        #modalUpdates li {
+            margin-bottom: 10px;
         }
         .turnstile-container {
             display: flex;
@@ -94,19 +132,40 @@
     </style>
 </head>
 <body>
+    <div class="legend">
+        <h3>Status Key</h3>
+        <ul>
+            <li><span class="color-box status-completed"></span> Completed</li>
+            <li><span class="color-box status-inprogress"></span> In Progress</li>
+            <li><span class="color-box status-planned"></span> Planned</li>
+            <li><span class="color-box status-archived"></span> Archived</li>
+        </ul>
+    </div>
     <div class="container">
         <h1>Personal projects :)</h1>
-        <div class="project" onclick="showModal(event, 'Latex Notes', 'Creating a basic website with all my notes written in LaTeX because my handwriting is garbage.', 'Perpetually in progress')">
+        <div class="project status-inprogress" onclick="showModal(event, 'Latex Notes', 'Creating a basic website with all my notes written in LaTeX because my handwriting is garbage.', 'In Progress', ['* Project started 01/01/2025'])">
             Writing all my notes in Latex on a website
         </div>
-        <div class="project" onclick="showModal(event, 'Vector Calculator', 'A very basic python based  calculator for linear algebra. Supports basic vector operations and coordinate transformations. It can be found in github', 'Completed')">
+        <div class="project status-completed" onclick="showModal(event, 'Vector Calculator', 'A very basic python based calculator for linear algebra. Supports basic vector operations and coordinate transformations. It can be found in github', 'Completed', ['* Project started 10/09/2023', '* Completed 15/09/2023', '* Available on GitHub'])">
             Vector Calculator
         </div>
-        <div class="project" onclick="showModal(event, 'R2 modman port for flatpak',  'Symplifies the process of setting up R2 modman on linux',  'Planned, Starting initial reserch')">
-            R2 modman port
-             </div>
-        <div class="project" onclick="showModal(event, 'Bootleg Parallel Server', 'A rack of multiple low power mini PCs working together in cluster. To be used for assistance in various projects', 'In progress, Assembling components together')">
+        <div class="project status-inprogress" onclick="showModal(event, 'Bootleg Parallel Server', 'A rack of multiple low power mini PCs working together in cluster. To be used for assistance in various projects', 'In Progress', ['* Planning started 15/01/2025', '* Components arrived 01/03/2025', '* Assembled 14/10/2025 (not yet operational)'])">
             Parralel Server
+        </div>
+        <div class="project status-inprogress" onclick="showModal(event, 'Aqua Calda', 'Framework for high performance, DEM for heat transfer simulations in julia', 'In Progress', ['* Alpha started 11/10/2025', '* In progress at <a href='https://github.com/Sardiniangale/Aqua-Calda'>Github</a> (in alpha)'])">
+            Aqua Calda
+        </div>
+        <div class="project status-completed" onclick="showModal(event, 'Jupyter Server', 'A personal Jupyter server for data analysis and experimentation.', 'Completed', ['* Active deployment since 14/10/2025 at <a href='https://jupyter.sardiniangale.org'>jupyter.sardiniangale.org</a>'])">
+            Jupyter Server
+        </div>
+        <div class="project status-inprogress" onclick="showModal(event, 'Plex Server', 'A personal Plex server for media streaming.', 'In Progress', ['* Planning started 21/10/2025', '* Set to release soon'])">
+            Plex Server
+        </div>
+        <div class="project status-inprogress" onclick="showModal(event, 'Dockerization of services', 'Containerizing all web services for easier management and deployment.', 'In Progress', ['* Started April 2025', '* 60% of services containerized'])">
+            Dockerization of services
+        </div>
+        <div class="project status-archived" onclick="showModal(event, 'R2 modman port for flatpak', 'Simplify the process of setting up R2 modman on linux.', 'Archived', ['* Research started 05/10/2023', '* Project archived 20/10/2023'])">
+            R2 modman port
         </div>
         <a href="index.html" class="project" style="background: #444;">Back to Main Page</a>
     </div>
@@ -118,6 +177,7 @@
             <h2 id="modalTitle"></h2>
             <div class="status" id="modalStatus"></div>
             <p id="modalDescription"></p>
+            <ul id="modalUpdates"></ul>
         </div>
     </div>
 
@@ -129,24 +189,28 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
     <script>
-        function showModal(event, title, description, status) {
+        function showModal(event, title, description, status, updates) {
             const button = event.target;
             const rect = button.getBoundingClientRect();
             
-            // calculate button center position
             const buttonCenterX = rect.left + rect.width/2;
             const buttonCenterY = rect.top + rect.height/2;
 
-            // set transform origin to button's center
             const modalContent = document.getElementById('modalContent');
             modalContent.style.transformOrigin = `${buttonCenterX}px ${buttonCenterY}px`;
 
-            // set modal content
             document.getElementById('modalTitle').textContent = title;
             document.getElementById('modalDescription').textContent = description;
             document.getElementById('modalStatus').textContent = `Status: ${status}`;
+            
+            const updatesList = document.getElementById('modalUpdates');
+            updatesList.innerHTML = '';
+            updates.forEach(update => {
+                const li = document.createElement('li');
+                li.innerHTML = update;
+                updatesList.appendChild(li);
+            });
 
-            // show modal with animation
             document.getElementById('projectModal').style.display = 'block';
             setTimeout(() => {
                 modalContent.classList.add('active');
@@ -161,7 +225,6 @@
             }, 300);
         }
 
-        // close modal when clicking outside
         window.onclick = function(event) {
             const modal = document.getElementById('projectModal');
             if (event.target === modal) {
