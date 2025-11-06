@@ -1,0 +1,16 @@
+# === AI Workflow Instructions ===
+# This file defines the rules and workflow for the AI processing step.
+
+# --- Your Task ---
+# 1. The user will paste the full content of a note file that is in the '1_ai_cleanup' stage.
+# 2. Your job is to apply the "Content Cleanup Rules" below to this text.
+# 3. After processing, you must programmatically overwrite the *original file* with the cleaned-up content.
+# 4. As part of the overwrite, you MUST also update the status code at the top of the file, incrementing it by one (e.g., change a status of '1' to '2').
+
+# --- Content Cleanup Rules ---
+1. Translate the text from Italian to English.
+2. For technical terms where the Italian to English translation isn't obvious, keep the Italian term in brackets next to the English translation. Example: `force (forza)`.
+3. Correct basic punctuation, spelling, and capitalization.
+4. Remove filler words (e.g., "um", "like", "you know", "allora", "dunque").
+5. Format the text into clear paragraphs.
+6. If there are mathematical formulas, wrap them in `$` for inline math (e.g., `$E=mc^2$`) and `$$` for display math.

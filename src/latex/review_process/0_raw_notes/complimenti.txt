@@ -1,0 +1,657 @@
+Lezione 2
+
+Successioni e funzioni continue 
+
+Diremo che x_kcR^n is a succession convergent...
+
+
+
+
+osserviamo che x_k=(x_k1,..,x_ku) in R^u
+
+converge a z=(z_1,...,z_n) <=> lim_k->inf x_ki = Z_i there exists a i = 1,2,...
+
+Ill limite di una successione {x_k} convergete è unico: se x_k ->z, ......
+
+
+
+Propositizione 
+
+se x_k -> x => |x_k| -> |x|
+
+
+Dimostrazione 
+
+
+Proposizione
+Se x_k -> x and y_k-> y then there exists a lambda ...
+
+... otteniamo che la precedente propositizione su poteva dimostrare anche ragionado per compatezi
+utilizano i nisati di ... si limiti di succesioni udli
+
+
+Propositizione
+
+Un insieme di A c R^u e difusio <=> for every x_k -> z, x_k in A for every k => z in A
+
+dimostrazione facoltativa
+
+sia A chusio.. rest of dimpstrazione
+
+
+Osserviamo un insieme E illimitato e non e limitato <=> exists {x_k} c E
+tale che |x_k| -> +inf
+
+
+Funzioni continue negli spazi eucledi
+Un funzione f:A->R, AcR^u
+
+si dice contino in z in A, se per ogni succesione x_k in A, x_k -> z
+abbiamo lim_k->inf f(x_k)=f(z), diremo che f e continua su A se e continua in ogni punto di A.
+
+
+Osservazione
+
+Dalla de...illegible si continua un insieme spure du se Ainverse cB ed f:A->R e continue => la restrizione f_B
+:B->R e continua, no e vero vice versa
+
+
+Fissato AcR^U diccemo che ScA e aperto in A, se exists omega c R^u aperto tale che S=A upsiddown capital U omega
+
+tali aprti si dicono aperti relativi (ad un sottoinsime)
+
+
+Teorema C1 facoltativo sia f:A->R^m, AcR^u, allora f e continua se e solo se for ever U c R^m aperto f^-1(U) e aperto in a
+
+Dimostrazione facoltativa
+
+se f e continua supponiamo per assurdo che esista un aperto U c R^u
+ending demonstration with per k sufficentemente grande 
+
+
+Osserviamo che f:A -> R^m, AcR^u e continua in A <=> for ever Gc R^m chuiso 
+f^-1(G)cR^u e chiuso in A
+
+esempio
+
+E={(x,y,z) in R^3 : x^2 =< e^yz, z=<y}
+
+....
+
+
+
+
+Propositizione PS
+sia f:A->R continua in z in A
+se f(z) > 0 exists a sigma >0 tale che f(x)>0 for ever x in A intersection B (z,s)
+
+
+Dimostrazione 
+
+se negliamo la tesi allora for ever k>=1
+
+
+
+Teorema C2
+
+siano AcR^n, f,g:A->R^m e h:B->R^k, R^m inverse c B inverse c f(A)
+
+se f,g sono continue in z in A e continua in f(z) in B
+
+allora valerano le seguenti
+
+1. for ever lambda,miu in R abbiamo che lambda f + miu g
+e continua in z
+
+2. se m=1 allora fg e continue in z
+
+3. se m=1 e g(z) not = 0, allore exists a sigma > 0 per cui f/g e ben definita su A interception B(z, sigma)
+
+4. la comenetent hof : A-> R^k
+e continua in Z
+
+
+Dimostrazione
+
+
+1. x_k -> z =>
+
+2. x_k -> z => f(x_k)g(x_k) -> f(z) g(z)
+
+3. g(z) < 0, ad esempio, per la perma ...illegible... del segno exist sigma >0 tale che g(x) < 0
+
+.....
+
+
+4. sia x_k in A, x_k -> z allora
+
+f(x_k)-f(z)
+
+...
+
+hof e continua in z end proof
+
+
+Proposizione f:A -> R^m, f(x) = (f_1 (x) ,..., f_m (x)) f_j A->R, j=,,,,1,2...m, A c R^n
+
+
+allora abbiamo f e continiua in..
+
+f e continua in pin a for ever j = 1,2,...
+
+...
+
+
+Dimostrazione (facoltativa)
+
+Basta osservare che f(x_k) -> f(z) 
+
+<=> f_j(x_k) -> f_j(z) for ever j= 1,...
+
+
+esempion
+
+la funzione norma ||:R^n->[1,+infinity)
+
+e continua in quanto per x_k -> x
+
+si ha lim k-> infinity  come gia visto in perecenza
+
+
+
+Esempio 1 
+
+f(z,y,z) = x^2 - 3y + square |xz| , f: R^3->R
+
+
+.....
+
+proves that "sono tutte continue"
+
+
+lultima e continua in pautatosdnsdsnd.... gibberish 
+
+
+esempio 2 f:R^2 {0} -> R
+
+f(x,y) = xy^3/x^2+y^4 e continua in quant funzionicontinue
+
+
+
+
+
+
+
+does a few more examples which I can do myself at a later date
+
+
+
+Insiemi compatti in R^u
+un inune EcR^u e compatto se for ever {x_k} c E  for ever x in E
+exists alpha : N->N strettamente creschente 
+
+
+
+Theoreme K
+
+
+Dato E c R^u therfore E is compact if and only if it is closed and limited
+
+
+Dimostrazione facoltativa
+
+
+sia x_k -> x => z_alpha(k) -> y in E
+
+
+....proof
+
+
+
+
+
+
+
+
+
+
+
+e (x_1... x_n) = x in e
+
+inparto E diverso questo prova la compatteza di E
+
+
+
+Masimi e minimi di funzioni
+
+sia AcR^u and f: A->R diremo che z in A is a point of maximum absolutness, or global on A if f(z)>= f(x) and fore very x in A, z is a point of maximual assolutness or global on A
+
+
+
+z is a ponti of maximal absolutnes or global on a if f(z)=< f(x)
+
+
+z e un punto di massimo relativo o locale se exists dleta>0 tale che....
+
+
+z e un punto di minimo relativo o locale se 
+
+rxits delta > 0 tale che f(z)=< f(x)
+
+
+se un punto z in a e di minimo (massimo=
+
+allora.....
+
+
+si dicie massimo (minimo) assoluto di f
+
+Donotiamo con max f in R
+
+
+min 
+
+
+
+osseriviamo che ove esiteno si a 
+
+max f = max f(A)
+
+min f = min f(A)
+
+in generale possiamo sempre decidere gli estremi superiori e inferiori di f: A -> R
+
+....
+
+
+Siano f:A -> R, A c R^u, Z in A
+
+
+z is un punto di massimo relativo, o locale, se exises delta > 0 tale che
+
+
+
+
+max f =f(z) 
+A intercept B (z,delta)
+
+z e un punto di mino relativo  o locale se delta > 0 tale che 
+
+min f = F(z)
+
+A intercpet B (z, delta)
+
+dirremo rispatementae nel primo e nel secondo caso che f(z) e un valore massimo locale e un minimo locale
+
+
+
+Theoremea C3 theorema di weiestrass
+
+se A c R^n e compatto e f:A->R e continua => exists max f, min f
+
+
+Dimostrazione (facoltativa)
+
+Abbiammo sup f = lim f(x_k)
+
+
+...
+
+
+
+
+f(z) = max f
+
+e analogamente si ragione per ill minimio (fin dimpostrazion)
+
+
+some examples
+
+
+Theorema (geuralizia Weierstrass)
+
+
+
+
+
+E c R^u compatto, F:E->R^u continua => F(E) c R^n e compatto 
+
+la dimostrazione e un esempio facolatativo
+
+
+
+colollanio
+
+Ec R^n compatto, f: E->R continua => grf c R^n+1 e compatto
+
+
+dimpstrazione 
+
+definiamo la mappa grafico fx() = (x,f(x))
+
+
+
+...
+
+
+F(E) = Gr f e compatto 
+
+insiemmi conessi per archi
+
+un insieme CcR^u connesso per archi se a x,y in C
+
+exist alpha : 
+
+
+
+osseriviamo gli insiemi convessi fanno sempre connessi per archi
+
+
+E non e convesso ma e connesso per archi
+
+C e convesso
+
+Theorema C4
+
+sia f:C->R^m continua e C conesso per archi
+
+Allora f(C) c R^m e connesso per archi
+
+Dimostrazione facoltativa, siano y, z in f(C) => exists x,u in C
+
+
+.....
+
+
+
+Colollanio
+
+f:C->R continua, C e connesso per archi => f(c) c R in un intervallo
+
+Dimostrazione facoltativa
+
+Dal precedeute risultatio f(c)c R e connesso per archi, protanto e un intervallo: t, s in f(C) ...
+
+
+
+f(c) e in un intervallo
+
+
+propositizione
+
+sia A connesso per archi e sia f:A->R continua,
+
+se exists max f exits min f allorra f(A)= [min f, max f]
+
+
+se doesnt exits max ef and min f therfore f(A)=[min f, sup f]
+
+
+LEZIONE 3
+
+punti deviuati e insiemi aeiduati
+
+sia A C R^u e x in R^n, diremmo che x_0 e un punto di accumulazione di A se for every r>0 B(x,r) in A \ 8{x} not = 0
+
+e denoteremo con D(A) linsieme di tutti i punti di accumulazione di A, dirremmo che D(A) e ill derivato di A
+
+
+conmi al limiti di pi
+
+
+sia data f: A -> R^k A c R^u
+
+and x_0 in D(A) allora diciamo che f tende a v in R^k per x che tende a x_0 e scriviamo
+
+lim x-> x_0 f(x)=v in R^k if and only if for ever epsilon > 0 exists a delta > 0 such that f(x) -v| < epsilon and for every x in B(x_0, delta) in A 
+
+
+theorema LS (caratt del limite per successioni
+
+f: A-> R^m, A c R^n, q in D(A), v in R^m lim f(x) =v <=> per ogni p_k in A q
+
+x->q pk -> q abbiamo lim k-> inf f(p_k) =v
+
+corollaio
+
+sia omega in R^u aperto e f: omega -> R^m allora valogno le seguenti
+f e continua in q omega -> lim f(x) = f(q)
+
+f e continua in ompega -> lim f(x) = f(q) for every q in omega
+
+
+
+Propositzione 
+
+f,g: A -> R^u, x_0 in D(A) in R^u 
+
+Dimoztrazione eserchizio facoltativo
+
+propozizione
+f:A->R^m, g:A->R, x_0 in D(A) c R^u exits lim f(x) = v, for every lim g(x) = lambda, exits lim x-> x_0 g(x) f(x) = lambda v
+
+
+
+Teorema CL (teorema del confronto per i limiti)
+
+siano h,g,f: A-> R, x_0 in D(A), l in R
+
+e svillupizamo che exists delta > 0 con h(x) =< f(x) =< g(x)
+
+per ogni x in A intecept B (x_0, delta) \ (x_0)
+
+
+se lim x -> x_0 h(x) = lim x-> x_0 g(x) = l => lim x-> x_0  f(x) =l
+
+
+come per le funzioni di una variabile la somma, proddoto e oriente di limiti e ugale al limite della somma, prodotto e qurute
+
+ 
+
+
+Simboli di laudau
+
+funzioni "o piccolo di" e O grande di
+
+siano x_0 in D(A), A C R^u, f: A-> R^m
+
+e g:A -> R^k; diremmo che f e un o piccolo di g per x che tende a x_0, in simboli
+
+f= o(g) per x->x_0 if for every A epsilon >0 exsits delta > 0 tale chec |f(x)| =< epsilon |g(x)| for every x in A intercpet B(x_0, delta)|{x_0}
+
+dirremo che f e un O grande di g per x -> x_0, in simboli
+
+se exits  M>0, delta > 0 tali che |f(x)| =< M|g(x)| for every x in A intecept B (x_0, delta) \ {x_0}
+
+
+propozisione 1 siano A c R^n, x_0 in A, f:A->R^n and alpha > 0 Allora abbiamo
+
+f(x) = o(|x-x_0|) ^alpha per x-> x_0 <=> lim x-> x_0 f(x)/|x-x_0|^alpha =0
+
+propozitzione 2
+
+siano A c R^n, x_0 in A, f: A->R
+
+and alpha >0 allora abbiamo
+
+f(x)=0 (|x-x_0|^alpha) per x->x_0 ...
+
+
+
+for every x in A intecept B (x_0, delta) \ {x_0}
+
+
+le dimostriamo si possono ottenere utilizando la declizione di o piccolo e o grande...
+
+
+Osserviamoe
+
+l ultima propozisione situne dichendo che f(x)=O(|x-x_0|^alpha)
+
+
+....
+
+
+osserviamo 
+
+1) f= o(1) per x->x_0 <=> lim x->x_0 f(x) =0
+
+2) f= O(1) per x-> x_0 <=> f e limitatio intorno a x_0
+
+exsits delta > 0 tale che sup |f| < + infnity 
+
+Calcolo differenziale
+
+funzioni differenziali
+
+sia omega cR^n aperto e x_0 in omega diremo che f:omega -> R^n e differenziabile in x_0 if
+
+exits L:R^n -> R^m linare tale che 
+
+insert differential equation general
+
+
+detto il diffirianzale di f in p_0 da matrice Df(x_0 in R^mxn che zeppresuta d f(x_0) rispetto la base canonica di R^u e detta matrice jacobiana di f in x_0 diremmo che f e differnezabile in omega se lo e in ogni puntio di omega
+
+oss verevamo che il difirenziabile e ----unintelible quindi e gritificata da sol uone
+
+Ossarvazione 
+
+f: omega -> R^u is differenziale in x_0 in omega <=> for every L in R^n -> R^m linare tale che f(x_0 + h ) = f(x_0) + L(h) + o(h)
+
+per h->0  <=> cambio di variabile 
+
+exits L : R^n -> R^m liare tale che f(x) = f(x_0) + L (x-x_0) o (x-x_0)
+
+per x->x_0
+
+Osserviamo 
+se f e differnziabilie in p_0 => f e approssimale da una funzione affine a(x) = f(x_0) + df(x_0)(x-x_0)
+
+
+f(x)-a(x)/(x-x_0) -> 0 
+
+oppure f(x) = a(x) + o(|x-x_0|)
+
+si tratta di un aprossimazione del primo ordine
+
+Proposizione
+Sia f:omega -> R^m diffenziabile in x_0 in omega, pi in R^u aperto. Allora f e continue in x_0
+
+
+Proposizione
+se f: omega -> R^m, f=(f_1.....fw)
+
+omega in R^n aperto, x in omega
+
+allora f e differnziabile in x_0 <=> fj : omega -> R sono diffenziabili in x_0 for every j = 1,2... m 
+
+in altre parole f vettoriale e diffenziabile in x_0 se e solo se tutte le sue componenti sono diffenziabili in x_0
+
+LEZIONE 4
+
+Osserviamo 
+
+Nella dimostrazione alle contininita alle funzioni differnziabili abbiamo utilizato la continita delle funzioni liniari (not really leggible)
+
+Propozizione 
+
+se L: R^n -> R^u e liniare allora e continua
+
+dimrazione...
+
+does a demonstration
+
+
+Proposizione
+ogni funzione liniare L:R^n -> R^miu
+definita da A=(a_ij) in R^m*u  
+
+k*I =< ||A||_|x| for every x in R^n where
+
+||A|| = sqrt(sum a^2_ij) e la normale di helbert shmitt
+
+della matrice A 
+
+Another demonstrazion (NOT IN PROGRAMMA) 
+
+Derivate direzionali e parziali nel caso scalare (m=1, f:omega -> R)
+
+Sia omega in R^n un aperto p_0 in ompega
+
+f:omega -> R, v in R^u \ {0}, la derivata direzionale rispetto v e 
+
+partial derivative/partial derivative (v) f(p_0) = partial_v f(p_0) = lim t->0 (f(p_0 +tv) - f(p_0))/t 
+
+
+ove il limite esista
+
+nel caso v=e_1 = (1,0,0,0...,0), p_0 = (x_1,....,) in omega
+
+partial_e_1 f(p_0) = partial_x f(p_0) = lim t->0 (f(p_0+te_1)-f(p_0)/t)
+
+....some more calculations
+
+
+D(s->f(s,x_2,...,x_n))(x_1)
+
+derivata parziale rispetto x_1
+
+la derivata parziale, come la derivata dimenzionale e la derivata di una funzione di una variabile,
+
+esempio 
+
+f(x,y,z) = x^3 y (xyz)
+
+
+.....
+
+finishes up as pderivative (y) (x^2 + sin (xy)+y^3) = x cos (xy) + 3y^x 
+
+
+Derivata parziale in R^u 
+
+f:omega -> R, omega in R^u aperto, p_0 in omega
+
+derivata parziale di f rispetto xi?? not sure here
+
+
+e anche denotato come... alternate notation
+
+f_xj (p_0) = d/dt (f(p_0+te_j) t=0 derivata unidimenzionale
+
+
+Teorema DF1 
+
+se f:omega -> R e differnenzabile in p_0 in omega therfore exists partial derivative f(p_0) for every v in R^u e vale df(p_0)(v) = partial derivative f(p_0)
+
+
+Rapresentazione e unicita del differenziale se f: omega -> R e differenziabile in P_0 
+
+v=summataion xi(letter)_j e_j = (xi(letter)_1,......xi_u)
+
+
+df(p_0)(xi_1,...xi_u) = sigma xi_j pderivative (f)/pderivative(x_j) (p_0)
+
+la formula precente prova lunicita del differenziale
+
+Gradiente di una funzione
+f:omega -> R, p
+
+
+Se f:Omega -> R e differnziabile
+
+Gradiente di una funzione
+
+f:omega -> R, p_0 in omega
+
+f differenziabile in P_0
+nabla f(p_0) = (pder_xf(p_0)),,, partial derivata
+
+sigma ...
+
+
+e_1,...e_u) base canonica di R^nabla
+nablaf(p_0) e ill vettore gradiente di f nel punto 
+
+

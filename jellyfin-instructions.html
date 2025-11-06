@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- essential meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Giacomo hub: university notes, coding projects, and contact information">
+    <meta name="keywords" content="education, physics, programming projects, portfolio, contact">
+    <meta name="author" content="Giacomo">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sardiniangale.org/" />
+
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sardiniangale.org/">
+    <meta property="og:title" content="Giacomo's Digital Hub | Projects & Notes">
+    <meta property="og:description" content="My projects and university notes">
+    <meta property="og:image" content="https://sardiniangale.org/bingbing.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Portfolio Preview">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Personal Page">
+    <meta name="twitter:description" content="Projects, academic notes, and development work">
+    <meta name="twitter:image" content="https://sardiniangale.org/bingbing.png">
+
+   
+    <link rel="icon" href="/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#222222">
+
+    <title>Jellyfin Instructions</title>
+    <script src="anti-bot.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+ 
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(34, 34, 34, 0.8);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+        
+        h1 {
+            font-size: 3em;
+            letter-spacing: 2px;
+            color: #ff8c00;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        h2 {
+            color: #ff8c00;
+        }
+
+        a {
+            color: #ff8c00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .admin-tools {
+            color: gray;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #f8f9fa;
+            margin-top: 20px;
+        }
+
+        .turnstile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="display: none;">
+        <h1>Jellyfin Instructions</h1>
+
+        <h2>Requesting Media</h2>
+        <p>To request new movies or TV shows, please use Jellyseerr:</p>
+        <p><a href="https://jellyseerr.sardiniangale.org/" target="_blank">https://jellyseerr.sardiniangale.org/</a></p>
+
+        <h2>Watching Media</h2>
+        <p>To watch media, please use the Jellyfin web client:</p>
+        <p><a href="https://jellyfin.sardiniangale.org/" target="_blank">https://jellyfin.sardiniangale.org/</a></p>
+
+        <div class="note">
+            <p><strong>Important:</strong> Requests may take upwards of an hour to process. Movies and shows that have not been watched for over 2 weeks will be automatically deleted.</p>
+        </div>
+
+        <hr>
+
+        <h2 class="admin-tools">Administration Tools</h2>
+        <ul class="admin-tools" style="list-style-type: none; padding: 0;">
+            <li><a href="https://sonarr.sardiniangale.org/" target="_blank">https://sonarr.sardiniangale.org/</a></li>
+            <li><a href="https://radarr.sardiniangale.org/" target="_blank">https://radarr.sardiniangale.org/</a></li>
+            <li><a href="http://51.38.57.196:9696/" target="_blank">http://51.38.57.196:9696/</a></li>
+            <li><a href="https://qbittorrent.sardiniangale.org/" target="_blank">https://qbittorrent.sardiniangale.org/</a></li>
+        </ul>
+    </div>
+    <div class="turnstile-container" style="display: flex;">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
+    </div>
+</body>
+</html>

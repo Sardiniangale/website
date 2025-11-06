@@ -1,0 +1,6 @@
+01:Fisica2
+02:Laboratorio2
+03:MeccanicaClassica
+04:MetodiMatematici1
+05:ChimicaGenerale
+06:ComplementiAnalisiMatematica
