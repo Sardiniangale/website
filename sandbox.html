@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- essential meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Giacomo">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sardiniangale.org/" />
+    <link rel="icon" href="/icon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#222222">
+
+    <title>Sandbox</title>
+    <script src="anti-bot.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+ 
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(34, 34, 34, 0.8);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+        h1 {
+            font-size: 3em;
+            letter-spacing: 2px;
+            color: #ff8c00;
+            text-transform: uppercase;
+        }
+        a {
+            color: #ff8c00;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .turnstile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="display: none;">
+        <h1>Sandbox</h1>
+        <p>(in progress)</p>
+        <br>
+        <a href="index.html">Back to Main Page</a>
+    </div>
+    <div class="turnstile-container" style="display: flex;">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
+    </div>
+</body>
+</html>
