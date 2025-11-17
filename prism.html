@@ -64,6 +64,24 @@
         .form-group {
             text-align: left;
         }
+        .back-button {
+            display: block;
+            width: -moz-fit-content;
+            width: fit-content;
+            margin: 20px auto 0;
+            padding: 15px 25px;
+            background: #444;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+            background: #555;
+        }
     </style>
 </head>
 <body>
@@ -80,6 +98,7 @@
             </div>
             <input type="submit" value="Login">
         </form>
+        <a href="index.html" class="back-button">Back to Main Page</a>
     </div>
 </body>
 </html>
