@@ -149,7 +149,7 @@
     <div id="migration-banner">
         <h2>Service Migration in Progress</h2>
         <p>We are upgrading our authentication system. Services like PRISM, Odyssey, and Keystone are temporarily unavailable.</p>
-        <p>The migration will be complete in: <span id="countdown"></span></p>
+        <p>The migration will be complete tomorrow at 13:00 CET. Time remaining: <span id="countdown"></span></p>
     </div>
     <div class="container">
         <h1 class="title">sardiniangale</h1>
@@ -175,7 +175,7 @@
         const countdownElement = document.getElementById('countdown');
         const tomorrow = new Date();
         tomorrow.setDate(tomorrow.getDate() + 1);
-        tomorrow.setHours(2, 0, 0, 0);
+        tomorrow.setHours(13, 0, 0, 0);
         const endTime = tomorrow.getTime();
 
         const timerInterval = setInterval(() => {
