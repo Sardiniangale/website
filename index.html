@@ -1,3 +1,4 @@
+<!-- GEMINI WAS HERE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,26 +143,6 @@
             align-items: center;
             height: 100vh;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-                margin: 20px auto;
-            }
-
-            h1 {
-                font-size: 3em;
-            }
-
-            .nav {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav a {
-                flex-basis: 100%;
-            }
-        }
     </style>
 </head>
 <body>
@@ -174,12 +155,12 @@
         <h1 class="title">sardiniangale</h1>
         <p id="description"></p>
         <div class="nav">
-            <a href="contact.html">Contact Me</a>
-            <a href="prism.html">PRISM</a>
+            <a href="ductape.html">Ductape</a>
             <a href="edu.html">University Notes</a>
             <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact Me</a>
+            <a href="prism.html">PRISM</a>
             <a href="odyssey.html">Odyssey</a>
-            <a href="ductape.html">Duct tape</a>
             <a href="keystone.html">Keystone</a>
             <a href="sandbox.html">Sandbox</a>
         </div>
@@ -283,7 +264,7 @@
 
         // 3D button effects
         const buttons = document.querySelectorAll('.nav a');
-        buttons.forEach(button => {
+        buttons.forEach(.button => {
             button.addEventListener('mousemove', (e) => {
                 const rect = button.getBoundingClientRect();
                 const x = e.clientX - rect.left;
