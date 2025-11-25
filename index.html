@@ -39,6 +39,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
  
     <style>
+        #migration-banner {
+            background-color: #ffc107;
+            color: #212529;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-family: 'Roboto Mono', monospace;
+        }
+        #migration-banner h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #d9534f;
+        }
+        #migration-banner p {
+            margin: 5px 0;
+        }
+        #countdown {
+            font-weight: bold;
+        }
         body {
             font-family: 'Roboto Mono', monospace;
             text-align: center;
@@ -47,6 +72,7 @@
             background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
             background-size: cover;
             color: #f8f9fa;
+            padding-top: 160px; /* Adjusted for banner */
         }
 
         .container {
@@ -139,6 +165,11 @@
     </style>
 </head>
 <body>
+    <div id="migration-banner">
+        <h2>Service Migration in Progress</h2>
+        <p>We are upgrading our authentication system. Services like PRISM, Odyssey, and Keystone are temporarily unavailable.</p>
+        <p>The migration will be complete in: <span id="countdown"></span></p>
+    </div>
     <div class="container">
         <h1 class="title">sardiniangale</h1>
         <p id="description"></p>
@@ -159,6 +190,31 @@
 
     
     <script>
+        // Countdown Timer
+        const countdownElement = document.getElementById('countdown');
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(2, 0, 0, 0);
+        const endTime = tomorrow.getTime();
+
+        const timerInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = endTime - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                countdownElement.innerHTML = "The migration should now be complete.";
+                return;
+            }
+
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+        }, 1000);
+
+
         // Language detection and description
         const userLang = navigator.language || navigator.userLanguage;
         const descriptions = {
