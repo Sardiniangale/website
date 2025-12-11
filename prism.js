@@ -4,8 +4,6 @@ document.getElementById('loginForm').addEventListener('submit', async (event) =>
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // IMPORTANT: This is a temporary, insecure solution for demonstration purposes.
-    // In a real application, you would fetch these from a secure backend.
     const users = {
         Giacomo: {
             password: 'g!AcoMo.aDmIn.pWd#24',
