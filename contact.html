@@ -75,6 +75,10 @@
             height: 100vh;
         }
 
+        body.turnstile-active {
+            overflow: hidden;
+        }
+
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -86,6 +90,8 @@
             }
         }
     </style>
+    <script src="anti-bot.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <div class="container">
@@ -101,8 +107,6 @@
     <div class="turnstile-container">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
     </div>
-    <script src="anti-bot.js"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
 </body>
 </html>

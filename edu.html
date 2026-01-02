@@ -142,7 +142,13 @@
             background: linear-gradient(45deg, #ff2e63, #ff8c00);
             transform: scale(1.05);
         }
+
+        body.turnstile-active {
+            overflow: hidden;
+        }
     </style>
+    <script src="anti-bot.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <div class="container">
@@ -192,8 +198,6 @@
     <div class="turnstile-container">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
     </div>
-    <script src="anti-bot.js"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
 </body>
 </html>

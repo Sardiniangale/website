@@ -6,6 +6,8 @@
     <title>Control</title>
     <link rel="icon" type="image/x-icon" href="public/images/icon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="anti-bot.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <style>
         body {
             font-family: 'Roboto Mono', monospace;
@@ -15,13 +17,11 @@
             background: url('public/images/v8ikuxdfo92z.png') no-repeat center center fixed;
             background-size: cover;
             color: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
         }
         .container {
+            display: none;
             max-width: 500px;
+            margin: 50px auto;
             padding: 40px;
             background: rgba(34, 34, 34, 0.8);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
@@ -57,6 +57,17 @@
             background: #555;
         }
 
+        .turnstile-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        body.turnstile-active {
+            overflow: hidden;
+        }
+
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -74,6 +85,9 @@
         <h1>PRISM Control</h1>
         <p>moving prism to a more secure vpn and tty based system, services no longer avaibile here</p>
         <a href="index.html" class="back-button">Back to Main Page</a>
+    </div>
+    <div class="turnstile-container">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
     </div>
 </body>
 </html>

@@ -159,7 +159,13 @@
                 width: 90%;
             }
         }
+
+        body.turnstile-active {
+            overflow: hidden;
+        }
     </style>
+    <script src="anti-bot.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
     <div class="legend">
@@ -228,8 +234,6 @@
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
     </div>
 
-    <script src="anti-bot.js"></script>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
     <script>
         function showModal(event, title, description, status, updates) {

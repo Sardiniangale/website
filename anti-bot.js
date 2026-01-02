@@ -10,11 +10,12 @@ async function onTurnstileSuccess(token) {
         const data = await response.json();
         console.log('Turnstile verification response:', data); // Log the response
         if (data.success) {
-            // set item in local storage
             localStorage.setItem('turnstile-verified', 'true');
-            // hide the turnstile container
-            document.querySelector('.turnstile-container').style.display = 'none';
-            // show the main content
+            document.body.classList.remove('turnstile-active');
+            const turnstileContainer = document.querySelector('.turnstile-container');
+            if (turnstileContainer) {
+                turnstileContainer.style.display = 'none';
+            }
             const containers = document.querySelectorAll('.container');
             containers.forEach(container => {
                 if (container.classList.contains('flex-container')) {
@@ -34,6 +35,7 @@ async function onTurnstileSuccess(token) {
 
 function checkTurnstileVerification() {
     if (localStorage.getItem('turnstile-verified') === 'true') {
+        document.body.classList.remove('turnstile-active');
         const turnstileContainer = document.querySelector('.turnstile-container');
         if (turnstileContainer) {
             turnstileContainer.style.display = 'none';
@@ -45,6 +47,16 @@ function checkTurnstileVerification() {
             } else {
                 container.style.display = 'block';
             }
+        });
+    } else {
+        document.body.classList.add('turnstile-active');
+        const turnstileContainer = document.querySelector('.turnstile-container');
+        if (turnstileContainer) {
+            turnstileContainer.style.display = 'flex';
+        }
+        const containers = document.querySelectorAll('.container');
+        containers.forEach(container => {
+            container.style.display = 'none';
         });
     }
 }

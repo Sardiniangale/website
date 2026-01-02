@@ -28,6 +28,7 @@
             color: #f8f9fa;
         }
         .container {
+            display: none; /* initially hidden */
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
@@ -55,6 +56,10 @@
             height: 100vh;
         }
 
+        body.turnstile-active {
+            overflow: hidden;
+        }
+
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -68,13 +73,13 @@
     </style>
 </head>
 <body>
-    <div class="container" style="display: none;">
+    <div class="container">
         <h1>Sandbox</h1>
         <p>frontend placeholder</p>
         <br>
         <a href="index.html">Back to Main Page</a>
     </div>
-    <div class="turnstile-container" style="display: flex;">
+    <div class="turnstile-container">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
     </div>
 </body>

@@ -145,6 +145,10 @@
             height: 100vh;
         }
 
+        body.turnstile-active {
+            overflow: hidden;
+        }
+
         @media (max-width: 768px) {
             #migration-banner h2 {
                 font-size: 1.2rem;
@@ -197,12 +201,6 @@
 
     
     <script>
-        function onTurnstileSuccess() {
-            document.querySelector('.turnstile-container').style.display = 'none';
-            document.querySelector('.container').style.display = 'block';
-        }
-
-
         // Language detection and description
         const userLang = navigator.language || navigator.userLanguage;
         const descriptions = {
