@@ -49,6 +49,52 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .service-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #444;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            min-width: 180px;
+            border: 1px solid #555;
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+        
+        .service-btn:hover {
+            background: #555;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #6c757d;
+            box-shadow: 0 0 2px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            cursor: help;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        .status-dot.live {
+            background-color: #28a745;
+            box-shadow: 0 0 8px #28a745;
+        }
+        
+        .status-dot.dead {
+            background-color: #dc3545;
+            box-shadow: 0 0 8px #dc3545;
+        }
+
         .turnstile-container {
             display: flex;
             justify-content: center;
@@ -75,12 +121,46 @@
 <body>
     <div class="container">
         <h1>Sandbox</h1>
-        <p>frontend placeholder</p>
+        <p>A safe environment for testing and experimentation.</p>
+        
+        <div>
+            <a href="https://jupyter.sardiniangale.org" class="service-btn" target="_blank">Launch Sandbox</a>
+            <div id="status-sandbox" class="status-dot" title="Checking..."></div>
+        </div>
+
         <br>
-        <a href="index.html">Back to Main Page</a>
+        <br>
+        <a href="index.html" style="color: #ff8c00;">Back to Main Page</a>
     </div>
     <div class="turnstile-container">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
     </div>
+
+    <script>
+        async function checkStatus(url, elementId) {
+            const dot = document.getElementById(elementId);
+            try {
+                const response = await fetch(`/status?url=${encodeURIComponent(url)}`);
+                const data = await response.json();
+                
+                if (data.live) {
+                    dot.className = 'status-dot live';
+                    dot.title = `Online (Status: ${data.status})`;
+                } else {
+                    dot.className = 'status-dot dead';
+                    dot.title = `Offline${data.error ? ': ' + data.error : ''}`;
+                }
+            } catch (e) {
+                console.error(`Error checking ${url}:`, e);
+                dot.className = 'status-dot dead';
+                dot.title = 'Error checking status';
+            }
+        }
+
+        // Start checking statuses
+        document.addEventListener('DOMContentLoaded', () => {
+            checkStatus('https://jupyter.sardiniangale.org', 'status-sandbox');
+        });
+    </script>
 </body>
 </html>

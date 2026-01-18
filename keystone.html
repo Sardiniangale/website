@@ -143,18 +143,6 @@
                 <a href="https://keystone.sardiniangale.org" class="service-btn" target="_blank">Keystone</a>
                 <div id="status-keystone" class="status-dot" title="Checking..."></div>
             </div>
-            <div class="service-item">
-                <a href="https://jellyfin.sardiniangale.org" class="service-btn" target="_blank">Jellyfin</a>
-                <div id="status-jellyfin" class="status-dot" title="Checking..."></div>
-            </div>
-            <div class="service-item">
-                <a href="https://jellyseerr.sardiniangale.org" class="service-btn" target="_blank">Jellyseerr</a>
-                <div id="status-jellyseerr" class="status-dot" title="Checking..."></div>
-            </div>
-            <div class="service-item">
-                <a href="https://jupyter.sardiniangale.org" class="service-btn" target="_blank">Sandbox</a>
-                <div id="status-sandbox" class="status-dot" title="Checking..."></div>
-            </div>
         </div>
 
         <a href="index.html" class="back-link">Back to Main Page</a>
@@ -187,9 +175,6 @@
         // Start checking statuses
         document.addEventListener('DOMContentLoaded', () => {
             checkStatus('https://keystone.sardiniangale.org', 'status-keystone');
-            checkStatus('https://jellyfin.sardiniangale.org', 'status-jellyfin');
-            checkStatus('https://jellyseerr.sardiniangale.org', 'status-jellyseerr');
-            checkStatus('https://jupyter.sardiniangale.org', 'status-sandbox');
         });
     </script>
 </body>

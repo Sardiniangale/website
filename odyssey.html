@@ -109,6 +109,29 @@
             background: #555;
         }
 
+        .status-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #6c757d;
+            box-shadow: 0 0 2px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            cursor: help;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        .status-dot.live {
+            background-color: #28a745;
+            box-shadow: 0 0 8px #28a745;
+        }
+        
+        .status-dot.dead {
+            background-color: #dc3545;
+            box-shadow: 0 0 8px #dc3545;
+        }
+
         .turnstile-container {
             display: flex;
             justify-content: center;
@@ -141,11 +164,11 @@
         <h1>Odyssey</h1>
 
         <h2>Requesting Media</h2>
-        <p>To request new movies or TV shows, please use Jellyseerr:</p>
+        <p>To request new movies or TV shows, please use Jellyseerr: <span id="status-jellyseerr" class="status-dot" title="Checking..."></span></p>
         <p><a href="https://jellyseerr.sardiniangale.org/" target="_blank">https://jellyseerr.sardiniangale.org/</a></p>
 
         <h2>Watching Media</h2>
-        <p>To watch media, please use the Jellyfin web client:</p>
+        <p>To watch media, please use the Jellyfin web client: <span id="status-jellyfin" class="status-dot" title="Checking..."></span></p>
         <p><a href="https://jellyfin.sardiniangale.org/" target="_blank">https://jellyfin.sardiniangale.org/</a></p>
 
         <div class="note">
@@ -166,5 +189,33 @@
     <div class="turnstile-container">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
     </div>
+
+    <script>
+        async function checkStatus(url, elementId) {
+            const dot = document.getElementById(elementId);
+            try {
+                const response = await fetch(`/status?url=${encodeURIComponent(url)}`);
+                const data = await response.json();
+                
+                if (data.live) {
+                    dot.className = 'status-dot live';
+                    dot.title = `Online (Status: ${data.status})`;
+                } else {
+                    dot.className = 'status-dot dead';
+                    dot.title = `Offline${data.error ? ': ' + data.error : ''}`;
+                }
+            } catch (e) {
+                console.error(`Error checking ${url}:`, e);
+                dot.className = 'status-dot dead';
+                dot.title = 'Error checking status';
+            }
+        }
+
+        // Start checking statuses
+        document.addEventListener('DOMContentLoaded', () => {
+            checkStatus('https://jellyseerr.sardiniangale.org', 'status-jellyseerr');
+            checkStatus('https://jellyfin.sardiniangale.org', 'status-jellyfin');
+        });
+    </script>
 </body>
 </html>
