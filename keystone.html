@@ -31,7 +31,7 @@
             display: none; /* initially hidden */
             max-width: 800px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 40px 20px;
             background: rgba(34, 34, 34, 0.8);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
@@ -41,14 +41,76 @@
             letter-spacing: 2px;
             color: #ff8c00;
             text-transform: uppercase;
+            margin-bottom: 40px;
         }
-        a {
+        
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .service-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #444;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            min-width: 180px;
+            border: 1px solid #555;
+            font-size: 1.1em;
+        }
+        
+        .service-btn:hover {
+            background: #555;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .status-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #6c757d;
+            box-shadow: 0 0 2px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            cursor: help;
+        }
+        
+        .status-dot.live {
+            background-color: #28a745;
+            box-shadow: 0 0 8px #28a745;
+        }
+        
+        .status-dot.dead {
+            background-color: #dc3545;
+            box-shadow: 0 0 8px #dc3545;
+        }
+
+        .back-link {
             color: #ff8c00;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
         }
-        a:hover {
+        .back-link:hover {
             text-decoration: underline;
         }
+        
         .turnstile-container {
             display: flex;
             justify-content: center;
@@ -75,12 +137,60 @@
 <body>
     <div class="container">
         <h1>Keystone</h1>
-        <p>frontend placeholder</p>
-        <br>
-        <a href="index.html">Back to Main Page</a>
+        
+        <div class="services-list">
+            <div class="service-item">
+                <a href="https://keystone.sardiniangale.org" class="service-btn" target="_blank">Keystone</a>
+                <div id="status-keystone" class="status-dot" title="Checking..."></div>
+            </div>
+            <div class="service-item">
+                <a href="https://jellyfin.sardiniangale.org" class="service-btn" target="_blank">Jellyfin</a>
+                <div id="status-jellyfin" class="status-dot" title="Checking..."></div>
+            </div>
+            <div class="service-item">
+                <a href="https://jellyseerr.sardiniangale.org" class="service-btn" target="_blank">Jellyseerr</a>
+                <div id="status-jellyseerr" class="status-dot" title="Checking..."></div>
+            </div>
+            <div class="service-item">
+                <a href="https://jupyter.sardiniangale.org" class="service-btn" target="_blank">Sandbox</a>
+                <div id="status-sandbox" class="status-dot" title="Checking..."></div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">Back to Main Page</a>
     </div>
     <div class="turnstile-container">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
     </div>
+
+    <script>
+        async function checkStatus(url, elementId) {
+            const dot = document.getElementById(elementId);
+            try {
+                const response = await fetch(`/status?url=${encodeURIComponent(url)}`);
+                const data = await response.json();
+                
+                if (data.live) {
+                    dot.className = 'status-dot live';
+                    dot.title = `Online (Status: ${data.status})`;
+                } else {
+                    dot.className = 'status-dot dead';
+                    dot.title = `Offline${data.error ? ': ' + data.error : ''}`;
+                }
+            } catch (e) {
+                console.error(`Error checking ${url}:`, e);
+                dot.className = 'status-dot dead';
+                dot.title = 'Error checking status';
+            }
+        }
+
+        // Start checking statuses
+        document.addEventListener('DOMContentLoaded', () => {
+            checkStatus('https://keystone.sardiniangale.org', 'status-keystone');
+            checkStatus('https://jellyfin.sardiniangale.org', 'status-jellyfin');
+            checkStatus('https://jellyseerr.sardiniangale.org', 'status-jellyseerr');
+            checkStatus('https://jupyter.sardiniangale.org', 'status-sandbox');
+        });
+    </script>
 </body>
 </html>
