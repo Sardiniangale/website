@@ -4,29 +4,9 @@
     <!-- essential meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Giacomo hub: university notes, coding projects, and contact information">
-    <meta name="keywords" content="education, physics, programming projects, portfolio, contact">
     <meta name="author" content="Giacomo">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://sardiniangale.org/" />
-
-    
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sardiniangale.org/">
-    <meta property="og:title" content="Giacomo's Digital Hub | Projects & Notes">
-    <meta property="og:description" content="My projects and university notes">
-    <meta property="og:image" content="https://sardiniangale.org/bingbing.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:alt" content="Portfolio Preview">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Personal Page">
-    <meta name="twitter:description" content="Projects, academic notes, and development work">
-    <meta name="twitter:image" content="https://sardiniangale.org/bingbing.png">
-
-   
     <link rel="icon" href="/icon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
@@ -36,7 +16,6 @@
     <script src="anti-bot.js"></script>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
  
     <style>
         body {
@@ -48,78 +27,68 @@
             background-size: cover;
             color: #f8f9fa;
         }
-
         .container {
             display: none; /* initially hidden */
             max-width: 800px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 40px 20px;
             background: rgba(34, 34, 34, 0.8);
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             border-radius: 15px;
         }
-        
         h1 {
             font-size: 3em;
             letter-spacing: 2px;
             color: #ff8c00;
             text-transform: uppercase;
-            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .services-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
         }
 
-        h2 {
-            color: #ff8c00;
-        }
-
-        a {
-            color: #ff8c00;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .admin-tools {
-            color: gray;
-        }
-
-        .note {
-            font-size: 0.9em;
-            color: #f8f9fa;
-            margin-top: 20px;
-        }
-
-        .back-button {
-            display: block;
-            width: -moz-fit-content;
-            width: fit-content;
-            margin: 20px auto 0;
-            padding: 15px 25px;
+        .service-btn {
+            display: inline-block;
+            padding: 15px 30px;
             background: #444;
             color: white;
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
-            transition: 0.3s ease;
+            transition: 0.3s;
+            min-width: 240px;
+            border: 1px solid #555;
+            font-size: 1.1em;
         }
-
-        .back-button:hover {
-            transform: scale(1.05);
+        
+        .service-btn:hover {
             background: #555;
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-
+        
         .status-dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background-color: #6c757d;
             box-shadow: 0 0 2px rgba(0,0,0,0.5);
             transition: all 0.3s ease;
             cursor: help;
-            margin-left: 10px;
-            vertical-align: middle;
         }
         
         .status-dot.live {
@@ -132,6 +101,27 @@
             box-shadow: 0 0 8px #dc3545;
         }
 
+        .note {
+            font-size: 0.9em;
+            color: #ccc;
+            margin-bottom: 30px;
+            padding: 0 20px;
+            line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .back-link {
+            color: #ff8c00;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
         .turnstile-container {
             display: flex;
             justify-content: center;
@@ -152,39 +142,29 @@
             h1 {
                 font-size: 2.5em;
             }
-
-            h2 {
-                font-size: 1.5em;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Odyssey</h1>
-
-        <h2>Requesting Media</h2>
-        <p>To request new movies or TV shows, please use Jellyseerr: <span id="status-jellyseerr" class="status-dot" title="Checking..."></span></p>
-        <p><a href="https://jellyseerr.sardiniangale.org/" target="_blank">https://jellyseerr.sardiniangale.org/</a></p>
-
-        <h2>Watching Media</h2>
-        <p>To watch media, please use the Jellyfin web client: <span id="status-jellyfin" class="status-dot" title="Checking..."></span></p>
-        <p><a href="https://jellyfin.sardiniangale.org/" target="_blank">https://jellyfin.sardiniangale.org/</a></p>
-
-        <div class="note">
-            <p><strong>Important:</strong> Requests may take upwards of an hour to process. Movies and shows that have not been watched for over 2 weeks will be automatically deleted.</p>
+        
+        <div class="services-list">
+            <div class="service-item">
+                <a href="https://jellyseerr.sardiniangale.org" class="service-btn" target="_blank">Request Media (Jellyseerr)</a>
+                <div id="status-jellyseerr" class="status-dot" title="Checking..."></div>
+            </div>
+            <div class="service-item">
+                <a href="https://jellyfin.sardiniangale.org" class="service-btn" target="_blank">Watch Media (Jellyfin)</a>
+                <div id="status-jellyfin" class="status-dot" title="Checking..."></div>
+            </div>
         </div>
 
-        <hr>
+        <div class="note">
+            <p><strong>Note:</strong> Requests may take upwards of an hour to process. Movies and shows that have not been watched for over 2 weeks will be automatically deleted.</p>
+        </div>
 
-        <h2 class="admin-tools">Administration Tools</h2>
-        <ul class="admin-tools" style="list-style-type: none; padding: 0;">
-            <li><a href="https://sonarr.sardiniangale.org/" target="_blank">https://sonarr.sardiniangale.org/</a></li>
-            <li><a href="https://radarr.sardiniangale.org/" target="_blank">https://radarr.sardiniangale.org/</a></li>
-            <li><a href="http://51.38.57.196:9696/" target="_blank">http://51.38.57.196:9696/</a></li>
-            <li><a href="https://qbittorrent.sardiniangale.org/" target="_blank">https://qbittorrent.sardiniangale.org/</a></li>
-        </ul>
-        <a href="index.html" class="back-button">Back to Main Page</a>
+        <a href="index.html" class="back-link">Back to Main Page</a>
     </div>
     <div class="turnstile-container">
         <div class="cf-turnstile" data-sitekey="0x4AAAAAAB0tEIwohxi4ulN2" data-callback="onTurnstileSuccess"></div>
